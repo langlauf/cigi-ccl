@@ -1,0 +1,149 @@
+/** <pre>
+ *  The SDK is used to create and format CIGI compliant messages.
+ *  Copyright (c) 2001-2005 The Boeing Company
+ *  
+ *  This library is free software; you can redistribute it and/or modify it 
+ *  under the terms of the GNU Lesser General Public License as published by 
+ *  the Free Software Foundation; either version 2.1 of the License, or (at 
+ *  your option) any later version.
+ *  
+ *  This library is distributed in the hope that it will be useful, but WITHOUT
+ *  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or 
+ *  FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser Public License for more 
+ *  details.
+ *  
+ *  You should have received a copy of the GNU Lesser General Public License 
+ *  along with this library; if not, write to the Free Software Foundation, 
+ *  Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *  
+ *  FILENAME:   CigiMaritimeSurfaceRespV3.cpp
+ *  LANGUAGE:   C++
+ *  CLASS:      UNCLASSIFIED
+ *  PROJECT:    Common Image Generator Interface (CIGI) SDK
+ *  
+ *  PROGRAM DESCRIPTION: 
+ *  ...
+ *  
+ *  MODIFICATION NOTES:
+ *  DATE     NAME                                SCR NUMBER
+ *  DESCRIPTION OF CHANGE........................
+ *  
+ *  09/17/2003 Greg Basler                       CIGI_CR_DR_1
+ *  Initial Release.
+ *  
+ *  01/21/2005 Greg Basler                       Version 1.5
+ *  Defined _EXPORT_CCL_ for exporting the class in a Windows DLL.
+ *  
+ *  01/21/2005 Greg Basler                       Version 1.5
+ *  Removed the inline defnitions for the PackedPointer union.
+ * </pre>
+ *  Author: The Boeing Company
+ *  Version: 1.6.0
+ */
+
+#define _EXPORT_CCL_
+
+#include "CigiMaritimeSurfaceRespV3.h"
+#include "CigiSwapping.h"
+#include "CigiExceptions.h"
+
+
+// ====================================================================
+// Construction/Destruction
+// ====================================================================
+
+
+// ================================================
+// CigiMaritimeSurfaceRespV3
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+CigiMaritimeSurfaceRespV3::CigiMaritimeSurfaceRespV3()
+{
+
+   PacketID = CIGI_MARITIME_SURFACE_RESP_PACKET_ID_V3;
+   PacketSize = CIGI_MARITIME_SURFACE_RESP_PACKET_SIZE_V3;
+   Version = 3;
+
+   RequestID = 0;
+   SurfaceHeight = 0.0;
+   WaterTemp = 0.0;
+   Clarity = 0.0;
+
+}
+
+// ================================================
+// ~CigiMaritimeSurfaceRespV3
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+CigiMaritimeSurfaceRespV3::~CigiMaritimeSurfaceRespV3()
+{
+
+}
+
+// ====================================================================
+// Pack and Unpack
+// ====================================================================
+
+// ================================================
+// Pack
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+int CigiMaritimeSurfaceRespV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const
+{
+   PackPointer CDta;
+
+   CigiBaseMaritimeSurfaceResp * Data = ( CigiBaseMaritimeSurfaceResp *)Base;
+
+   CDta.c = Buff;
+
+   *CDta.c++ = PacketID;
+   *CDta.c++ = PacketSize;
+
+   *CDta.c++ = Data->RequestID;
+
+   *CDta.c++ = 0;
+
+   *CDta.f++ = Data->SurfaceHeight;
+   *CDta.f++ = Data->WaterTemp;
+   *CDta.f++ = Data->Clarity;
+
+   return(PacketSize);
+
+}
+
+// ================================================
+// Unpack
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+int CigiMaritimeSurfaceRespV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
+{
+   PackPointer CDta;
+
+   CDta.c = Buff;
+
+   CDta.c += 2;  // Step over packet id and size
+
+   RequestID = *CDta.c++;
+
+   CDta.c++;
+
+   if(!Swap)
+   {
+      SurfaceHeight = *CDta.f++;
+      WaterTemp = *CDta.f++;
+      Clarity = *CDta.f++;
+   }
+   else
+   {
+      CigiSwap4(&SurfaceHeight, CDta.f++);
+      CigiSwap4(&WaterTemp, CDta.f++);
+      CigiSwap4(&Clarity, CDta.f++);
+   }
+
+   return(PacketSize);
+
+}
+
+
+
+// ====================================================================
+// Accessors
+// ====================================================================
+
+

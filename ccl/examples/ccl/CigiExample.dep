@@ -1,0 +1,1427 @@
+# Microsoft Developer Studio Generated Dependency File, included by CigiExample.mak
+
+.\Callbacks.cpp : \
+	"..\..\include\cigiaerosolrespv3.h"\
+	"..\..\include\cigianimationstopv3.h"\
+	"..\..\include\cigianimationtable.h"\
+	"..\..\include\cigiartpartctrlv1.h"\
+	"..\..\include\cigiartpartctrlv2.h"\
+	"..\..\include\cigiartpartctrlv3.h"\
+	"..\..\include\cigiatmosctrl.h"\
+	"..\..\include\cigibaseaerosolresp.h"\
+	"..\..\include\cigibaseanimationstop.h"\
+	"..\..\include\cigibaseartpartctrl.h"\
+	"..\..\include\cigibasecolldetsegdef.h"\
+	"..\..\include\cigibasecolldetsegresp.h"\
+	"..\..\include\cigibasecolldetvoldef.h"\
+	"..\..\include\cigibasecolldetvolresp.h"\
+	"..\..\include\cigibasecompctrl.h"\
+	"..\..\include\cigibaseconfclampentityctrl.h"\
+	"..\..\include\cigibaseearthmodeldef.h"\
+	"..\..\include\cigibaseentityctrl.h"\
+	"..\..\include\cigibaseenvcondreq.h"\
+	"..\..\include\cigibaseenvctrl.h"\
+	"..\..\include\cigibaseenvrgnctrl.h"\
+	"..\..\include\cigibaseeventnotification.h"\
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasehathotreq.h"\
+	"..\..\include\cigibasehathotresp.h"\
+	"..\..\include\cigibaseigctrl.h"\
+	"..\..\include\cigibaseigmsg.h"\
+	"..\..\include\cigibaselosresp.h"\
+	"..\..\include\cigibaselossegreq.h"\
+	"..\..\include\cigibaselosvectreq.h"\
+	"..\..\include\cigibasemaritimesurfacectrl.h"\
+	"..\..\include\cigibasemaritimesurfaceresp.h"\
+	"..\..\include\cigibasemotiontrackctrl.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigibasepositionreq.h"\
+	"..\..\include\cigibasepositionresp.h"\
+	"..\..\include\cigibaseratectrl.h"\
+	"..\..\include\cigibasesensorctrl.h"\
+	"..\..\include\cigibasesensorresp.h"\
+	"..\..\include\cigibaseshortartpartctrl.h"\
+	"..\..\include\cigibasesignalprocessing.h"\
+	"..\..\include\cigibasesof.h"\
+	"..\..\include\cigibasespeceffdef.h"\
+	"..\..\include\cigibaseterrestrialsurfacectrl.h"\
+	"..\..\include\cigibaseterrestrialsurfaceresp.h"\
+	"..\..\include\cigibasetrajectorydef.h"\
+	"..\..\include\cigibaseviewctrl.h"\
+	"..\..\include\cigibaseviewdef.h"\
+	"..\..\include\cigibasewavectrl.h"\
+	"..\..\include\cigibaseweathercondresp.h"\
+	"..\..\include\cigibaseweatherctrl.h"\
+	"..\..\include\cigicelestialctrl.h"\
+	"..\..\include\cigicolldetsegdefv1.h"\
+	"..\..\include\cigicolldetsegdefv2.h"\
+	"..\..\include\cigicolldetsegdefv3.h"\
+	"..\..\include\cigicolldetsegrespv1.h"\
+	"..\..\include\cigicolldetsegrespv2.h"\
+	"..\..\include\cigicolldetsegrespv3.h"\
+	"..\..\include\cigicolldetvoldefv2.h"\
+	"..\..\include\cigicolldetvoldefv3.h"\
+	"..\..\include\cigicolldetvolrespv2.h"\
+	"..\..\include\cigicolldetvolrespv3.h"\
+	"..\..\include\cigicompctrlv1.h"\
+	"..\..\include\cigicompctrlv2.h"\
+	"..\..\include\cigicompctrlv3.h"\
+	"..\..\include\cigiconfclampentityctrlv3.h"\
+	"..\..\include\cigidefaultpacket.h"\
+	"..\..\include\cigiearthmodeldefv3.h"\
+	"..\..\include\cigientityctrlv1.h"\
+	"..\..\include\cigientityctrlv2.h"\
+	"..\..\include\cigientityctrlv3.h"\
+	"..\..\include\cigienvcondreqv3.h"\
+	"..\..\include\cigienvctrlv1.h"\
+	"..\..\include\cigienvctrlv2.h"\
+	"..\..\include\cigienvrgnctrlv3.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigieventlist.h"\
+	"..\..\include\cigieventnotificationv3.h"\
+	"..\..\include\cigiexception.h"\
+	"..\..\include\cigiexceptions.h"\
+	"..\..\include\cigihathotreqv3.h"\
+	"..\..\include\cigihathotrespv3.h"\
+	"..\..\include\cigihathotxrespv3.h"\
+	"..\..\include\cigihatreqv1.h"\
+	"..\..\include\cigihatreqv2.h"\
+	"..\..\include\cigihatrespv1.h"\
+	"..\..\include\cigihatrespv2.h"\
+	"..\..\include\cigiholdenvctrl.h"\
+	"..\..\include\cigihostsession.h"\
+	"..\..\include\cigihotreqv2.h"\
+	"..\..\include\cigihotrespv2.h"\
+	"..\..\include\cigiigctrlv1.h"\
+	"..\..\include\cigiigctrlv2.h"\
+	"..\..\include\cigiigctrlv3.h"\
+	"..\..\include\cigiigmsgv2.h"\
+	"..\..\include\cigiigmsgv3.h"\
+	"..\..\include\cigiigsession.h"\
+	"..\..\include\cigiincomingmsg.h"\
+	"..\..\include\cigiio.h"\
+	"..\..\include\cigilosrespv1.h"\
+	"..\..\include\cigilosrespv2.h"\
+	"..\..\include\cigilosrespv3.h"\
+	"..\..\include\cigilossegreqv1.h"\
+	"..\..\include\cigilossegreqv2.h"\
+	"..\..\include\cigilossegreqv3.h"\
+	"..\..\include\cigilosvectreqv1.h"\
+	"..\..\include\cigilosvectreqv2.h"\
+	"..\..\include\cigilosvectreqv3.h"\
+	"..\..\include\cigilosxrespv3.h"\
+	"..\..\include\cigimaritimesurfacectrlv3.h"\
+	"..\..\include\cigimaritimesurfacerespv3.h"\
+	"..\..\include\cigimessage.h"\
+	"..\..\include\cigimotiontrackctrlv3.h"\
+	"..\..\include\cigioutgoingmsg.h"\
+	"..\..\include\cigipositionreqv3.h"\
+	"..\..\include\cigipositionrespv3.h"\
+	"..\..\include\cigiratectrlv1.h"\
+	"..\..\include\cigiratectrlv2.h"\
+	"..\..\include\cigiratectrlv3.h"\
+	"..\..\include\cigisensorctrlv1.h"\
+	"..\..\include\cigisensorctrlv2.h"\
+	"..\..\include\cigisensorctrlv3.h"\
+	"..\..\include\cigisensorrespv1.h"\
+	"..\..\include\cigisensorrespv2.h"\
+	"..\..\include\cigisensorrespv3.h"\
+	"..\..\include\cigisensorxrespv3.h"\
+	"..\..\include\cigisession.h"\
+	"..\..\include\cigishortartpartctrlv3.h"\
+	"..\..\include\cigishortcompctrlv3.h"\
+	"..\..\include\cigisofv1.h"\
+	"..\..\include\cigisofv2.h"\
+	"..\..\include\cigisofv3.h"\
+	"..\..\include\cigispeceffdefv1.h"\
+	"..\..\include\cigispeceffdefv2.h"\
+	"..\..\include\cigiswapping.h"\
+	"..\..\include\cigiterrestrialsurfacectrlv3.h"\
+	"..\..\include\cigiterrestrialsurfacerespv3.h"\
+	"..\..\include\cigitrajectorydefv1.h"\
+	"..\..\include\cigitrajectorydefv2.h"\
+	"..\..\include\cigitrajectorydefv3.h"\
+	"..\..\include\cigitypes.h"\
+	"..\..\include\cigiversionjumptable.h"\
+	"..\..\include\cigiviewctrlv1.h"\
+	"..\..\include\cigiviewctrlv2.h"\
+	"..\..\include\cigiviewctrlv3.h"\
+	"..\..\include\cigiviewdefv1.h"\
+	"..\..\include\cigiviewdefv2.h"\
+	"..\..\include\cigiviewdefv3.h"\
+	"..\..\include\cigiwavectrlv3.h"\
+	"..\..\include\cigiweathercondrespv3.h"\
+	"..\..\include\cigiweatherctrlv1.h"\
+	"..\..\include\cigiweatherctrlv2.h"\
+	"..\..\include\cigiweatherctrlv3.h"\
+	".\AllCigi.h"\
+	".\Callbacks.h"\
+	".\StdAfx.h"\
+	
+
+.\CigiExample.cpp : \
+	"..\..\include\cigiaerosolrespv3.h"\
+	"..\..\include\cigianimationstopv3.h"\
+	"..\..\include\cigianimationtable.h"\
+	"..\..\include\cigiartpartctrlv1.h"\
+	"..\..\include\cigiartpartctrlv2.h"\
+	"..\..\include\cigiartpartctrlv3.h"\
+	"..\..\include\cigiatmosctrl.h"\
+	"..\..\include\cigibaseaerosolresp.h"\
+	"..\..\include\cigibaseanimationstop.h"\
+	"..\..\include\cigibaseartpartctrl.h"\
+	"..\..\include\cigibasecolldetsegdef.h"\
+	"..\..\include\cigibasecolldetsegresp.h"\
+	"..\..\include\cigibasecolldetvoldef.h"\
+	"..\..\include\cigibasecolldetvolresp.h"\
+	"..\..\include\cigibasecompctrl.h"\
+	"..\..\include\cigibaseconfclampentityctrl.h"\
+	"..\..\include\cigibaseearthmodeldef.h"\
+	"..\..\include\cigibaseentityctrl.h"\
+	"..\..\include\cigibaseenvcondreq.h"\
+	"..\..\include\cigibaseenvctrl.h"\
+	"..\..\include\cigibaseenvrgnctrl.h"\
+	"..\..\include\cigibaseeventnotification.h"\
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasehathotreq.h"\
+	"..\..\include\cigibasehathotresp.h"\
+	"..\..\include\cigibaseigctrl.h"\
+	"..\..\include\cigibaseigmsg.h"\
+	"..\..\include\cigibaselosresp.h"\
+	"..\..\include\cigibaselossegreq.h"\
+	"..\..\include\cigibaselosvectreq.h"\
+	"..\..\include\cigibasemaritimesurfacectrl.h"\
+	"..\..\include\cigibasemaritimesurfaceresp.h"\
+	"..\..\include\cigibasemotiontrackctrl.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigibasepositionreq.h"\
+	"..\..\include\cigibasepositionresp.h"\
+	"..\..\include\cigibaseratectrl.h"\
+	"..\..\include\cigibasesensorctrl.h"\
+	"..\..\include\cigibasesensorresp.h"\
+	"..\..\include\cigibaseshortartpartctrl.h"\
+	"..\..\include\cigibasesignalprocessing.h"\
+	"..\..\include\cigibasesof.h"\
+	"..\..\include\cigibasespeceffdef.h"\
+	"..\..\include\cigibaseterrestrialsurfacectrl.h"\
+	"..\..\include\cigibaseterrestrialsurfaceresp.h"\
+	"..\..\include\cigibasetrajectorydef.h"\
+	"..\..\include\cigibaseviewctrl.h"\
+	"..\..\include\cigibaseviewdef.h"\
+	"..\..\include\cigibasewavectrl.h"\
+	"..\..\include\cigibaseweathercondresp.h"\
+	"..\..\include\cigibaseweatherctrl.h"\
+	"..\..\include\cigicelestialctrl.h"\
+	"..\..\include\cigicolldetsegdefv1.h"\
+	"..\..\include\cigicolldetsegdefv2.h"\
+	"..\..\include\cigicolldetsegdefv3.h"\
+	"..\..\include\cigicolldetsegrespv1.h"\
+	"..\..\include\cigicolldetsegrespv2.h"\
+	"..\..\include\cigicolldetsegrespv3.h"\
+	"..\..\include\cigicolldetvoldefv2.h"\
+	"..\..\include\cigicolldetvoldefv3.h"\
+	"..\..\include\cigicolldetvolrespv2.h"\
+	"..\..\include\cigicolldetvolrespv3.h"\
+	"..\..\include\cigicompctrlv1.h"\
+	"..\..\include\cigicompctrlv2.h"\
+	"..\..\include\cigicompctrlv3.h"\
+	"..\..\include\cigiconfclampentityctrlv3.h"\
+	"..\..\include\cigidefaultpacket.h"\
+	"..\..\include\cigiearthmodeldefv3.h"\
+	"..\..\include\cigientityctrlv1.h"\
+	"..\..\include\cigientityctrlv2.h"\
+	"..\..\include\cigientityctrlv3.h"\
+	"..\..\include\cigienvcondreqv3.h"\
+	"..\..\include\cigienvctrlv1.h"\
+	"..\..\include\cigienvctrlv2.h"\
+	"..\..\include\cigienvrgnctrlv3.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigieventlist.h"\
+	"..\..\include\cigieventnotificationv3.h"\
+	"..\..\include\cigiexception.h"\
+	"..\..\include\cigiexceptions.h"\
+	"..\..\include\cigihathotreqv3.h"\
+	"..\..\include\cigihathotrespv3.h"\
+	"..\..\include\cigihathotxrespv3.h"\
+	"..\..\include\cigihatreqv1.h"\
+	"..\..\include\cigihatreqv2.h"\
+	"..\..\include\cigihatrespv1.h"\
+	"..\..\include\cigihatrespv2.h"\
+	"..\..\include\cigiholdenvctrl.h"\
+	"..\..\include\cigihostsession.h"\
+	"..\..\include\cigihotreqv2.h"\
+	"..\..\include\cigihotrespv2.h"\
+	"..\..\include\cigiigctrlv1.h"\
+	"..\..\include\cigiigctrlv2.h"\
+	"..\..\include\cigiigctrlv3.h"\
+	"..\..\include\cigiigmsgv2.h"\
+	"..\..\include\cigiigmsgv3.h"\
+	"..\..\include\cigiigsession.h"\
+	"..\..\include\cigiincomingmsg.h"\
+	"..\..\include\cigiio.h"\
+	"..\..\include\cigilosrespv1.h"\
+	"..\..\include\cigilosrespv2.h"\
+	"..\..\include\cigilosrespv3.h"\
+	"..\..\include\cigilossegreqv1.h"\
+	"..\..\include\cigilossegreqv2.h"\
+	"..\..\include\cigilossegreqv3.h"\
+	"..\..\include\cigilosvectreqv1.h"\
+	"..\..\include\cigilosvectreqv2.h"\
+	"..\..\include\cigilosvectreqv3.h"\
+	"..\..\include\cigilosxrespv3.h"\
+	"..\..\include\cigimaritimesurfacectrlv3.h"\
+	"..\..\include\cigimaritimesurfacerespv3.h"\
+	"..\..\include\cigimessage.h"\
+	"..\..\include\cigimotiontrackctrlv3.h"\
+	"..\..\include\cigioutgoingmsg.h"\
+	"..\..\include\cigipositionreqv3.h"\
+	"..\..\include\cigipositionrespv3.h"\
+	"..\..\include\cigiratectrlv1.h"\
+	"..\..\include\cigiratectrlv2.h"\
+	"..\..\include\cigiratectrlv3.h"\
+	"..\..\include\cigisensorctrlv1.h"\
+	"..\..\include\cigisensorctrlv2.h"\
+	"..\..\include\cigisensorctrlv3.h"\
+	"..\..\include\cigisensorrespv1.h"\
+	"..\..\include\cigisensorrespv2.h"\
+	"..\..\include\cigisensorrespv3.h"\
+	"..\..\include\cigisensorxrespv3.h"\
+	"..\..\include\cigisession.h"\
+	"..\..\include\cigishortartpartctrlv3.h"\
+	"..\..\include\cigishortcompctrlv3.h"\
+	"..\..\include\cigisofv1.h"\
+	"..\..\include\cigisofv2.h"\
+	"..\..\include\cigisofv3.h"\
+	"..\..\include\cigispeceffdefv1.h"\
+	"..\..\include\cigispeceffdefv2.h"\
+	"..\..\include\cigiswapping.h"\
+	"..\..\include\cigiterrestrialsurfacectrlv3.h"\
+	"..\..\include\cigiterrestrialsurfacerespv3.h"\
+	"..\..\include\cigitrajectorydefv1.h"\
+	"..\..\include\cigitrajectorydefv2.h"\
+	"..\..\include\cigitrajectorydefv3.h"\
+	"..\..\include\cigitypes.h"\
+	"..\..\include\cigiversionjumptable.h"\
+	"..\..\include\cigiviewctrlv1.h"\
+	"..\..\include\cigiviewctrlv2.h"\
+	"..\..\include\cigiviewctrlv3.h"\
+	"..\..\include\cigiviewdefv1.h"\
+	"..\..\include\cigiviewdefv2.h"\
+	"..\..\include\cigiviewdefv3.h"\
+	"..\..\include\cigiwavectrlv3.h"\
+	"..\..\include\cigiweathercondrespv3.h"\
+	"..\..\include\cigiweatherctrlv1.h"\
+	"..\..\include\cigiweatherctrlv2.h"\
+	"..\..\include\cigiweatherctrlv3.h"\
+	".\AllCigi.h"\
+	".\ExampleIO.h"\
+	".\GenProc.h"\
+	".\HostMan.h"\
+	".\IGMan.h"\
+	".\ParseLine.h"\
+	".\ParseValue.h"\
+	".\SignalProcessing.h"\
+	".\StdAfx.h"\
+	".\XAerosolResp.h"\
+	".\XAnimationStop.h"\
+	".\XArtPartCtrl.h"\
+	".\XAtmosCtrl.h"\
+	".\XCelestialCtrl.h"\
+	".\XCollDetSegDef.h"\
+	".\XCollDetSegResp.h"\
+	".\XCollDetVolDef.h"\
+	".\XCollDetVolResp.h"\
+	".\XCompCtrl.h"\
+	".\XConfClampEntityCtrl.h"\
+	".\XEarthModelDef.h"\
+	".\XEntityCtrl.h"\
+	".\XEnvCondReq.h"\
+	".\XEnvRgnCtrl.h"\
+	".\XEventNotification.h"\
+	".\XHatHotReq.h"\
+	".\XHatHotResp.h"\
+	".\XHatHotXResp.h"\
+	".\XIGCtrl.h"\
+	".\XIGMsg.h"\
+	".\XLosResp.h"\
+	".\XLosSegReq.h"\
+	".\XLosVectReq.h"\
+	".\XLosXResp.h"\
+	".\XMaritimeSurfaceCtrl.h"\
+	".\XMaritimeSurfaceResp.h"\
+	".\XMotionTrackCtrl.h"\
+	".\XPositionResp.h"\
+	".\XPostionReq.h"\
+	".\XRateCtrl.h"\
+	".\XSensorCtrl.h"\
+	".\XSensorResp.h"\
+	".\XSensorXResp.h"\
+	".\XShortArtPartCtrl.h"\
+	".\XShortCompCtrl.h"\
+	".\XSOF.h"\
+	".\XTerrestrialSurfaceCtrl.h"\
+	".\XTerrestrialSurfaceResp.h"\
+	".\XTrajectory.h"\
+	".\XViewCtrl.h"\
+	".\XViewDef.h"\
+	".\XWaveCtrl.h"\
+	".\XWeatherCondResp.h"\
+	".\XWeatherCtrl.h"\
+	
+
+.\ExampleIO.cpp : \
+	"..\..\include\cigiaerosolrespv3.h"\
+	"..\..\include\cigianimationstopv3.h"\
+	"..\..\include\cigianimationtable.h"\
+	"..\..\include\cigiartpartctrlv1.h"\
+	"..\..\include\cigiartpartctrlv2.h"\
+	"..\..\include\cigiartpartctrlv3.h"\
+	"..\..\include\cigiatmosctrl.h"\
+	"..\..\include\cigibaseaerosolresp.h"\
+	"..\..\include\cigibaseanimationstop.h"\
+	"..\..\include\cigibaseartpartctrl.h"\
+	"..\..\include\cigibasecolldetsegdef.h"\
+	"..\..\include\cigibasecolldetsegresp.h"\
+	"..\..\include\cigibasecolldetvoldef.h"\
+	"..\..\include\cigibasecolldetvolresp.h"\
+	"..\..\include\cigibasecompctrl.h"\
+	"..\..\include\cigibaseconfclampentityctrl.h"\
+	"..\..\include\cigibaseearthmodeldef.h"\
+	"..\..\include\cigibaseentityctrl.h"\
+	"..\..\include\cigibaseenvcondreq.h"\
+	"..\..\include\cigibaseenvctrl.h"\
+	"..\..\include\cigibaseenvrgnctrl.h"\
+	"..\..\include\cigibaseeventnotification.h"\
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasehathotreq.h"\
+	"..\..\include\cigibasehathotresp.h"\
+	"..\..\include\cigibaseigctrl.h"\
+	"..\..\include\cigibaseigmsg.h"\
+	"..\..\include\cigibaselosresp.h"\
+	"..\..\include\cigibaselossegreq.h"\
+	"..\..\include\cigibaselosvectreq.h"\
+	"..\..\include\cigibasemaritimesurfacectrl.h"\
+	"..\..\include\cigibasemaritimesurfaceresp.h"\
+	"..\..\include\cigibasemotiontrackctrl.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigibasepositionreq.h"\
+	"..\..\include\cigibasepositionresp.h"\
+	"..\..\include\cigibaseratectrl.h"\
+	"..\..\include\cigibasesensorctrl.h"\
+	"..\..\include\cigibasesensorresp.h"\
+	"..\..\include\cigibaseshortartpartctrl.h"\
+	"..\..\include\cigibasesignalprocessing.h"\
+	"..\..\include\cigibasesof.h"\
+	"..\..\include\cigibasespeceffdef.h"\
+	"..\..\include\cigibaseterrestrialsurfacectrl.h"\
+	"..\..\include\cigibaseterrestrialsurfaceresp.h"\
+	"..\..\include\cigibasetrajectorydef.h"\
+	"..\..\include\cigibaseviewctrl.h"\
+	"..\..\include\cigibaseviewdef.h"\
+	"..\..\include\cigibasewavectrl.h"\
+	"..\..\include\cigibaseweathercondresp.h"\
+	"..\..\include\cigibaseweatherctrl.h"\
+	"..\..\include\cigicelestialctrl.h"\
+	"..\..\include\cigicolldetsegdefv1.h"\
+	"..\..\include\cigicolldetsegdefv2.h"\
+	"..\..\include\cigicolldetsegdefv3.h"\
+	"..\..\include\cigicolldetsegrespv1.h"\
+	"..\..\include\cigicolldetsegrespv2.h"\
+	"..\..\include\cigicolldetsegrespv3.h"\
+	"..\..\include\cigicolldetvoldefv2.h"\
+	"..\..\include\cigicolldetvoldefv3.h"\
+	"..\..\include\cigicolldetvolrespv2.h"\
+	"..\..\include\cigicolldetvolrespv3.h"\
+	"..\..\include\cigicompctrlv1.h"\
+	"..\..\include\cigicompctrlv2.h"\
+	"..\..\include\cigicompctrlv3.h"\
+	"..\..\include\cigiconfclampentityctrlv3.h"\
+	"..\..\include\cigidefaultpacket.h"\
+	"..\..\include\cigiearthmodeldefv3.h"\
+	"..\..\include\cigientityctrlv1.h"\
+	"..\..\include\cigientityctrlv2.h"\
+	"..\..\include\cigientityctrlv3.h"\
+	"..\..\include\cigienvcondreqv3.h"\
+	"..\..\include\cigienvctrlv1.h"\
+	"..\..\include\cigienvctrlv2.h"\
+	"..\..\include\cigienvrgnctrlv3.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigieventlist.h"\
+	"..\..\include\cigieventnotificationv3.h"\
+	"..\..\include\cigiexception.h"\
+	"..\..\include\cigiexceptions.h"\
+	"..\..\include\cigihathotreqv3.h"\
+	"..\..\include\cigihathotrespv3.h"\
+	"..\..\include\cigihathotxrespv3.h"\
+	"..\..\include\cigihatreqv1.h"\
+	"..\..\include\cigihatreqv2.h"\
+	"..\..\include\cigihatrespv1.h"\
+	"..\..\include\cigihatrespv2.h"\
+	"..\..\include\cigiholdenvctrl.h"\
+	"..\..\include\cigihostsession.h"\
+	"..\..\include\cigihotreqv2.h"\
+	"..\..\include\cigihotrespv2.h"\
+	"..\..\include\cigiigctrlv1.h"\
+	"..\..\include\cigiigctrlv2.h"\
+	"..\..\include\cigiigctrlv3.h"\
+	"..\..\include\cigiigmsgv2.h"\
+	"..\..\include\cigiigmsgv3.h"\
+	"..\..\include\cigiigsession.h"\
+	"..\..\include\cigiincomingmsg.h"\
+	"..\..\include\cigiio.h"\
+	"..\..\include\cigilosrespv1.h"\
+	"..\..\include\cigilosrespv2.h"\
+	"..\..\include\cigilosrespv3.h"\
+	"..\..\include\cigilossegreqv1.h"\
+	"..\..\include\cigilossegreqv2.h"\
+	"..\..\include\cigilossegreqv3.h"\
+	"..\..\include\cigilosvectreqv1.h"\
+	"..\..\include\cigilosvectreqv2.h"\
+	"..\..\include\cigilosvectreqv3.h"\
+	"..\..\include\cigilosxrespv3.h"\
+	"..\..\include\cigimaritimesurfacectrlv3.h"\
+	"..\..\include\cigimaritimesurfacerespv3.h"\
+	"..\..\include\cigimessage.h"\
+	"..\..\include\cigimotiontrackctrlv3.h"\
+	"..\..\include\cigioutgoingmsg.h"\
+	"..\..\include\cigipositionreqv3.h"\
+	"..\..\include\cigipositionrespv3.h"\
+	"..\..\include\cigiratectrlv1.h"\
+	"..\..\include\cigiratectrlv2.h"\
+	"..\..\include\cigiratectrlv3.h"\
+	"..\..\include\cigisensorctrlv1.h"\
+	"..\..\include\cigisensorctrlv2.h"\
+	"..\..\include\cigisensorctrlv3.h"\
+	"..\..\include\cigisensorrespv1.h"\
+	"..\..\include\cigisensorrespv2.h"\
+	"..\..\include\cigisensorrespv3.h"\
+	"..\..\include\cigisensorxrespv3.h"\
+	"..\..\include\cigisession.h"\
+	"..\..\include\cigishortartpartctrlv3.h"\
+	"..\..\include\cigishortcompctrlv3.h"\
+	"..\..\include\cigisofv1.h"\
+	"..\..\include\cigisofv2.h"\
+	"..\..\include\cigisofv3.h"\
+	"..\..\include\cigispeceffdefv1.h"\
+	"..\..\include\cigispeceffdefv2.h"\
+	"..\..\include\cigiswapping.h"\
+	"..\..\include\cigiterrestrialsurfacectrlv3.h"\
+	"..\..\include\cigiterrestrialsurfacerespv3.h"\
+	"..\..\include\cigitrajectorydefv1.h"\
+	"..\..\include\cigitrajectorydefv2.h"\
+	"..\..\include\cigitrajectorydefv3.h"\
+	"..\..\include\cigitypes.h"\
+	"..\..\include\cigiversionjumptable.h"\
+	"..\..\include\cigiviewctrlv1.h"\
+	"..\..\include\cigiviewctrlv2.h"\
+	"..\..\include\cigiviewctrlv3.h"\
+	"..\..\include\cigiviewdefv1.h"\
+	"..\..\include\cigiviewdefv2.h"\
+	"..\..\include\cigiviewdefv3.h"\
+	"..\..\include\cigiwavectrlv3.h"\
+	"..\..\include\cigiweathercondrespv3.h"\
+	"..\..\include\cigiweatherctrlv1.h"\
+	"..\..\include\cigiweatherctrlv2.h"\
+	"..\..\include\cigiweatherctrlv3.h"\
+	".\AllCigi.h"\
+	".\ExampleIO.h"\
+	".\StdAfx.h"\
+	
+
+.\GenProc.cpp : \
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigitypes.h"\
+	".\GenProc.h"\
+	".\StdAfx.h"\
+	
+
+.\HostMan.cpp : \
+	"..\..\include\cigiaerosolrespv3.h"\
+	"..\..\include\cigianimationstopv3.h"\
+	"..\..\include\cigianimationtable.h"\
+	"..\..\include\cigiartpartctrlv1.h"\
+	"..\..\include\cigiartpartctrlv2.h"\
+	"..\..\include\cigiartpartctrlv3.h"\
+	"..\..\include\cigiatmosctrl.h"\
+	"..\..\include\cigibaseaerosolresp.h"\
+	"..\..\include\cigibaseanimationstop.h"\
+	"..\..\include\cigibaseartpartctrl.h"\
+	"..\..\include\cigibasecolldetsegdef.h"\
+	"..\..\include\cigibasecolldetsegresp.h"\
+	"..\..\include\cigibasecolldetvoldef.h"\
+	"..\..\include\cigibasecolldetvolresp.h"\
+	"..\..\include\cigibasecompctrl.h"\
+	"..\..\include\cigibaseconfclampentityctrl.h"\
+	"..\..\include\cigibaseearthmodeldef.h"\
+	"..\..\include\cigibaseentityctrl.h"\
+	"..\..\include\cigibaseenvcondreq.h"\
+	"..\..\include\cigibaseenvctrl.h"\
+	"..\..\include\cigibaseenvrgnctrl.h"\
+	"..\..\include\cigibaseeventnotification.h"\
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasehathotreq.h"\
+	"..\..\include\cigibasehathotresp.h"\
+	"..\..\include\cigibaseigctrl.h"\
+	"..\..\include\cigibaseigmsg.h"\
+	"..\..\include\cigibaselosresp.h"\
+	"..\..\include\cigibaselossegreq.h"\
+	"..\..\include\cigibaselosvectreq.h"\
+	"..\..\include\cigibasemaritimesurfacectrl.h"\
+	"..\..\include\cigibasemaritimesurfaceresp.h"\
+	"..\..\include\cigibasemotiontrackctrl.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigibasepositionreq.h"\
+	"..\..\include\cigibasepositionresp.h"\
+	"..\..\include\cigibaseratectrl.h"\
+	"..\..\include\cigibasesensorctrl.h"\
+	"..\..\include\cigibasesensorresp.h"\
+	"..\..\include\cigibaseshortartpartctrl.h"\
+	"..\..\include\cigibasesignalprocessing.h"\
+	"..\..\include\cigibasesof.h"\
+	"..\..\include\cigibasespeceffdef.h"\
+	"..\..\include\cigibaseterrestrialsurfacectrl.h"\
+	"..\..\include\cigibaseterrestrialsurfaceresp.h"\
+	"..\..\include\cigibasetrajectorydef.h"\
+	"..\..\include\cigibaseviewctrl.h"\
+	"..\..\include\cigibaseviewdef.h"\
+	"..\..\include\cigibasewavectrl.h"\
+	"..\..\include\cigibaseweathercondresp.h"\
+	"..\..\include\cigibaseweatherctrl.h"\
+	"..\..\include\cigicelestialctrl.h"\
+	"..\..\include\cigicolldetsegdefv1.h"\
+	"..\..\include\cigicolldetsegdefv2.h"\
+	"..\..\include\cigicolldetsegdefv3.h"\
+	"..\..\include\cigicolldetsegrespv1.h"\
+	"..\..\include\cigicolldetsegrespv2.h"\
+	"..\..\include\cigicolldetsegrespv3.h"\
+	"..\..\include\cigicolldetvoldefv2.h"\
+	"..\..\include\cigicolldetvoldefv3.h"\
+	"..\..\include\cigicolldetvolrespv2.h"\
+	"..\..\include\cigicolldetvolrespv3.h"\
+	"..\..\include\cigicompctrlv1.h"\
+	"..\..\include\cigicompctrlv2.h"\
+	"..\..\include\cigicompctrlv3.h"\
+	"..\..\include\cigiconfclampentityctrlv3.h"\
+	"..\..\include\cigidefaultpacket.h"\
+	"..\..\include\cigiearthmodeldefv3.h"\
+	"..\..\include\cigientityctrlv1.h"\
+	"..\..\include\cigientityctrlv2.h"\
+	"..\..\include\cigientityctrlv3.h"\
+	"..\..\include\cigienvcondreqv3.h"\
+	"..\..\include\cigienvctrlv1.h"\
+	"..\..\include\cigienvctrlv2.h"\
+	"..\..\include\cigienvrgnctrlv3.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigieventlist.h"\
+	"..\..\include\cigieventnotificationv3.h"\
+	"..\..\include\cigiexception.h"\
+	"..\..\include\cigiexceptions.h"\
+	"..\..\include\cigihathotreqv3.h"\
+	"..\..\include\cigihathotrespv3.h"\
+	"..\..\include\cigihathotxrespv3.h"\
+	"..\..\include\cigihatreqv1.h"\
+	"..\..\include\cigihatreqv2.h"\
+	"..\..\include\cigihatrespv1.h"\
+	"..\..\include\cigihatrespv2.h"\
+	"..\..\include\cigiholdenvctrl.h"\
+	"..\..\include\cigihostsession.h"\
+	"..\..\include\cigihotreqv2.h"\
+	"..\..\include\cigihotrespv2.h"\
+	"..\..\include\cigiigctrlv1.h"\
+	"..\..\include\cigiigctrlv2.h"\
+	"..\..\include\cigiigctrlv3.h"\
+	"..\..\include\cigiigmsgv2.h"\
+	"..\..\include\cigiigmsgv3.h"\
+	"..\..\include\cigiigsession.h"\
+	"..\..\include\cigiincomingmsg.h"\
+	"..\..\include\cigiio.h"\
+	"..\..\include\cigilosrespv1.h"\
+	"..\..\include\cigilosrespv2.h"\
+	"..\..\include\cigilosrespv3.h"\
+	"..\..\include\cigilossegreqv1.h"\
+	"..\..\include\cigilossegreqv2.h"\
+	"..\..\include\cigilossegreqv3.h"\
+	"..\..\include\cigilosvectreqv1.h"\
+	"..\..\include\cigilosvectreqv2.h"\
+	"..\..\include\cigilosvectreqv3.h"\
+	"..\..\include\cigilosxrespv3.h"\
+	"..\..\include\cigimaritimesurfacectrlv3.h"\
+	"..\..\include\cigimaritimesurfacerespv3.h"\
+	"..\..\include\cigimessage.h"\
+	"..\..\include\cigimotiontrackctrlv3.h"\
+	"..\..\include\cigioutgoingmsg.h"\
+	"..\..\include\cigipositionreqv3.h"\
+	"..\..\include\cigipositionrespv3.h"\
+	"..\..\include\cigiratectrlv1.h"\
+	"..\..\include\cigiratectrlv2.h"\
+	"..\..\include\cigiratectrlv3.h"\
+	"..\..\include\cigisensorctrlv1.h"\
+	"..\..\include\cigisensorctrlv2.h"\
+	"..\..\include\cigisensorctrlv3.h"\
+	"..\..\include\cigisensorrespv1.h"\
+	"..\..\include\cigisensorrespv2.h"\
+	"..\..\include\cigisensorrespv3.h"\
+	"..\..\include\cigisensorxrespv3.h"\
+	"..\..\include\cigisession.h"\
+	"..\..\include\cigishortartpartctrlv3.h"\
+	"..\..\include\cigishortcompctrlv3.h"\
+	"..\..\include\cigisofv1.h"\
+	"..\..\include\cigisofv2.h"\
+	"..\..\include\cigisofv3.h"\
+	"..\..\include\cigispeceffdefv1.h"\
+	"..\..\include\cigispeceffdefv2.h"\
+	"..\..\include\cigiswapping.h"\
+	"..\..\include\cigiterrestrialsurfacectrlv3.h"\
+	"..\..\include\cigiterrestrialsurfacerespv3.h"\
+	"..\..\include\cigitrajectorydefv1.h"\
+	"..\..\include\cigitrajectorydefv2.h"\
+	"..\..\include\cigitrajectorydefv3.h"\
+	"..\..\include\cigitypes.h"\
+	"..\..\include\cigiversionjumptable.h"\
+	"..\..\include\cigiviewctrlv1.h"\
+	"..\..\include\cigiviewctrlv2.h"\
+	"..\..\include\cigiviewctrlv3.h"\
+	"..\..\include\cigiviewdefv1.h"\
+	"..\..\include\cigiviewdefv2.h"\
+	"..\..\include\cigiviewdefv3.h"\
+	"..\..\include\cigiwavectrlv3.h"\
+	"..\..\include\cigiweathercondrespv3.h"\
+	"..\..\include\cigiweatherctrlv1.h"\
+	"..\..\include\cigiweatherctrlv2.h"\
+	"..\..\include\cigiweatherctrlv3.h"\
+	".\AllCigi.h"\
+	".\Callbacks.h"\
+	".\ExampleIO.h"\
+	".\GenProc.h"\
+	".\HostMan.h"\
+	".\ParseLine.h"\
+	".\ParseValue.h"\
+	".\SignalProcessing.h"\
+	".\StdAfx.h"\
+	".\XAerosolResp.h"\
+	".\XAnimationStop.h"\
+	".\XCollDetSegResp.h"\
+	".\XCollDetVolResp.h"\
+	".\XEventNotification.h"\
+	".\XHatHotResp.h"\
+	".\XHatHotXResp.h"\
+	".\XIGMsg.h"\
+	".\XLosResp.h"\
+	".\XLosXResp.h"\
+	".\XMaritimeSurfaceResp.h"\
+	".\XPositionResp.h"\
+	".\XSensorResp.h"\
+	".\XSensorXResp.h"\
+	".\XSOF.h"\
+	".\XTerrestrialSurfaceResp.h"\
+	".\XWeatherCondResp.h"\
+	
+
+.\IGMan.cpp : \
+	"..\..\include\cigiaerosolrespv3.h"\
+	"..\..\include\cigianimationstopv3.h"\
+	"..\..\include\cigianimationtable.h"\
+	"..\..\include\cigiartpartctrlv1.h"\
+	"..\..\include\cigiartpartctrlv2.h"\
+	"..\..\include\cigiartpartctrlv3.h"\
+	"..\..\include\cigiatmosctrl.h"\
+	"..\..\include\cigibaseaerosolresp.h"\
+	"..\..\include\cigibaseanimationstop.h"\
+	"..\..\include\cigibaseartpartctrl.h"\
+	"..\..\include\cigibasecolldetsegdef.h"\
+	"..\..\include\cigibasecolldetsegresp.h"\
+	"..\..\include\cigibasecolldetvoldef.h"\
+	"..\..\include\cigibasecolldetvolresp.h"\
+	"..\..\include\cigibasecompctrl.h"\
+	"..\..\include\cigibaseconfclampentityctrl.h"\
+	"..\..\include\cigibaseearthmodeldef.h"\
+	"..\..\include\cigibaseentityctrl.h"\
+	"..\..\include\cigibaseenvcondreq.h"\
+	"..\..\include\cigibaseenvctrl.h"\
+	"..\..\include\cigibaseenvrgnctrl.h"\
+	"..\..\include\cigibaseeventnotification.h"\
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasehathotreq.h"\
+	"..\..\include\cigibasehathotresp.h"\
+	"..\..\include\cigibaseigctrl.h"\
+	"..\..\include\cigibaseigmsg.h"\
+	"..\..\include\cigibaselosresp.h"\
+	"..\..\include\cigibaselossegreq.h"\
+	"..\..\include\cigibaselosvectreq.h"\
+	"..\..\include\cigibasemaritimesurfacectrl.h"\
+	"..\..\include\cigibasemaritimesurfaceresp.h"\
+	"..\..\include\cigibasemotiontrackctrl.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigibasepositionreq.h"\
+	"..\..\include\cigibasepositionresp.h"\
+	"..\..\include\cigibaseratectrl.h"\
+	"..\..\include\cigibasesensorctrl.h"\
+	"..\..\include\cigibasesensorresp.h"\
+	"..\..\include\cigibaseshortartpartctrl.h"\
+	"..\..\include\cigibasesignalprocessing.h"\
+	"..\..\include\cigibasesof.h"\
+	"..\..\include\cigibasespeceffdef.h"\
+	"..\..\include\cigibaseterrestrialsurfacectrl.h"\
+	"..\..\include\cigibaseterrestrialsurfaceresp.h"\
+	"..\..\include\cigibasetrajectorydef.h"\
+	"..\..\include\cigibaseviewctrl.h"\
+	"..\..\include\cigibaseviewdef.h"\
+	"..\..\include\cigibasewavectrl.h"\
+	"..\..\include\cigibaseweathercondresp.h"\
+	"..\..\include\cigibaseweatherctrl.h"\
+	"..\..\include\cigicelestialctrl.h"\
+	"..\..\include\cigicolldetsegdefv1.h"\
+	"..\..\include\cigicolldetsegdefv2.h"\
+	"..\..\include\cigicolldetsegdefv3.h"\
+	"..\..\include\cigicolldetsegrespv1.h"\
+	"..\..\include\cigicolldetsegrespv2.h"\
+	"..\..\include\cigicolldetsegrespv3.h"\
+	"..\..\include\cigicolldetvoldefv2.h"\
+	"..\..\include\cigicolldetvoldefv3.h"\
+	"..\..\include\cigicolldetvolrespv2.h"\
+	"..\..\include\cigicolldetvolrespv3.h"\
+	"..\..\include\cigicompctrlv1.h"\
+	"..\..\include\cigicompctrlv2.h"\
+	"..\..\include\cigicompctrlv3.h"\
+	"..\..\include\cigiconfclampentityctrlv3.h"\
+	"..\..\include\cigidefaultpacket.h"\
+	"..\..\include\cigiearthmodeldefv3.h"\
+	"..\..\include\cigientityctrlv1.h"\
+	"..\..\include\cigientityctrlv2.h"\
+	"..\..\include\cigientityctrlv3.h"\
+	"..\..\include\cigienvcondreqv3.h"\
+	"..\..\include\cigienvctrlv1.h"\
+	"..\..\include\cigienvctrlv2.h"\
+	"..\..\include\cigienvrgnctrlv3.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigieventlist.h"\
+	"..\..\include\cigieventnotificationv3.h"\
+	"..\..\include\cigiexception.h"\
+	"..\..\include\cigiexceptions.h"\
+	"..\..\include\cigihathotreqv3.h"\
+	"..\..\include\cigihathotrespv3.h"\
+	"..\..\include\cigihathotxrespv3.h"\
+	"..\..\include\cigihatreqv1.h"\
+	"..\..\include\cigihatreqv2.h"\
+	"..\..\include\cigihatrespv1.h"\
+	"..\..\include\cigihatrespv2.h"\
+	"..\..\include\cigiholdenvctrl.h"\
+	"..\..\include\cigihostsession.h"\
+	"..\..\include\cigihotreqv2.h"\
+	"..\..\include\cigihotrespv2.h"\
+	"..\..\include\cigiigctrlv1.h"\
+	"..\..\include\cigiigctrlv2.h"\
+	"..\..\include\cigiigctrlv3.h"\
+	"..\..\include\cigiigmsgv2.h"\
+	"..\..\include\cigiigmsgv3.h"\
+	"..\..\include\cigiigsession.h"\
+	"..\..\include\cigiincomingmsg.h"\
+	"..\..\include\cigiio.h"\
+	"..\..\include\cigilosrespv1.h"\
+	"..\..\include\cigilosrespv2.h"\
+	"..\..\include\cigilosrespv3.h"\
+	"..\..\include\cigilossegreqv1.h"\
+	"..\..\include\cigilossegreqv2.h"\
+	"..\..\include\cigilossegreqv3.h"\
+	"..\..\include\cigilosvectreqv1.h"\
+	"..\..\include\cigilosvectreqv2.h"\
+	"..\..\include\cigilosvectreqv3.h"\
+	"..\..\include\cigilosxrespv3.h"\
+	"..\..\include\cigimaritimesurfacectrlv3.h"\
+	"..\..\include\cigimaritimesurfacerespv3.h"\
+	"..\..\include\cigimessage.h"\
+	"..\..\include\cigimotiontrackctrlv3.h"\
+	"..\..\include\cigioutgoingmsg.h"\
+	"..\..\include\cigipositionreqv3.h"\
+	"..\..\include\cigipositionrespv3.h"\
+	"..\..\include\cigiratectrlv1.h"\
+	"..\..\include\cigiratectrlv2.h"\
+	"..\..\include\cigiratectrlv3.h"\
+	"..\..\include\cigisensorctrlv1.h"\
+	"..\..\include\cigisensorctrlv2.h"\
+	"..\..\include\cigisensorctrlv3.h"\
+	"..\..\include\cigisensorrespv1.h"\
+	"..\..\include\cigisensorrespv2.h"\
+	"..\..\include\cigisensorrespv3.h"\
+	"..\..\include\cigisensorxrespv3.h"\
+	"..\..\include\cigisession.h"\
+	"..\..\include\cigishortartpartctrlv3.h"\
+	"..\..\include\cigishortcompctrlv3.h"\
+	"..\..\include\cigisofv1.h"\
+	"..\..\include\cigisofv2.h"\
+	"..\..\include\cigisofv3.h"\
+	"..\..\include\cigispeceffdefv1.h"\
+	"..\..\include\cigispeceffdefv2.h"\
+	"..\..\include\cigiswapping.h"\
+	"..\..\include\cigiterrestrialsurfacectrlv3.h"\
+	"..\..\include\cigiterrestrialsurfacerespv3.h"\
+	"..\..\include\cigitrajectorydefv1.h"\
+	"..\..\include\cigitrajectorydefv2.h"\
+	"..\..\include\cigitrajectorydefv3.h"\
+	"..\..\include\cigitypes.h"\
+	"..\..\include\cigiversionjumptable.h"\
+	"..\..\include\cigiviewctrlv1.h"\
+	"..\..\include\cigiviewctrlv2.h"\
+	"..\..\include\cigiviewctrlv3.h"\
+	"..\..\include\cigiviewdefv1.h"\
+	"..\..\include\cigiviewdefv2.h"\
+	"..\..\include\cigiviewdefv3.h"\
+	"..\..\include\cigiwavectrlv3.h"\
+	"..\..\include\cigiweathercondrespv3.h"\
+	"..\..\include\cigiweatherctrlv1.h"\
+	"..\..\include\cigiweatherctrlv2.h"\
+	"..\..\include\cigiweatherctrlv3.h"\
+	".\AllCigi.h"\
+	".\Callbacks.h"\
+	".\ExampleIO.h"\
+	".\GenProc.h"\
+	".\IGMan.h"\
+	".\ParseLine.h"\
+	".\ParseValue.h"\
+	".\SignalProcessing.h"\
+	".\StdAfx.h"\
+	".\XArtPartCtrl.h"\
+	".\XAtmosCtrl.h"\
+	".\XCelestialCtrl.h"\
+	".\XCollDetSegDef.h"\
+	".\XCollDetVolDef.h"\
+	".\XCompCtrl.h"\
+	".\XConfClampEntityCtrl.h"\
+	".\XEarthModelDef.h"\
+	".\XEntityCtrl.h"\
+	".\XEnvCondReq.h"\
+	".\XEnvRgnCtrl.h"\
+	".\XHatHotReq.h"\
+	".\XIGCtrl.h"\
+	".\XLosSegReq.h"\
+	".\XLosVectReq.h"\
+	".\XMaritimeSurfaceCtrl.h"\
+	".\XMotionTrackCtrl.h"\
+	".\XPostionReq.h"\
+	".\XRateCtrl.h"\
+	".\XSensorCtrl.h"\
+	".\XShortArtPartCtrl.h"\
+	".\XShortCompCtrl.h"\
+	".\XTerrestrialSurfaceCtrl.h"\
+	".\XTrajectory.h"\
+	".\XViewCtrl.h"\
+	".\XViewDef.h"\
+	".\XWaveCtrl.h"\
+	".\XWeatherCtrl.h"\
+	
+
+.\ParseLine.cpp : \
+	".\ParseLine.h"\
+	".\ParseValue.h"\
+	".\StdAfx.h"\
+	
+
+.\ParseValue.cpp : \
+	".\ParseLine.h"\
+	".\ParseValue.h"\
+	".\StdAfx.h"\
+	
+
+.\StdAfx.cpp : \
+	".\StdAfx.h"\
+	
+
+.\XAerosolResp.cpp : \
+	"..\..\include\cigiaerosolrespv3.h"\
+	"..\..\include\cigibaseaerosolresp.h"\
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XAerosolResp.h"\
+	
+
+.\XAnimationStop.cpp : \
+	"..\..\include\cigianimationstopv3.h"\
+	"..\..\include\cigibaseanimationstop.h"\
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XAnimationStop.h"\
+	
+
+.\XArtPartCtrl.cpp : \
+	"..\..\include\cigiartpartctrlv3.h"\
+	"..\..\include\cigibaseartpartctrl.h"\
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XArtPartCtrl.h"\
+	
+
+.\XAtmosCtrl.cpp : \
+	"..\..\include\cigiatmosctrl.h"\
+	"..\..\include\cigibaseenvctrl.h"\
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XAtmosCtrl.h"\
+	
+
+.\XCelestialCtrl.cpp : \
+	"..\..\include\cigibaseenvctrl.h"\
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigicelestialctrl.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XCelestialCtrl.h"\
+	
+
+.\XCollDetSegDef.cpp : \
+	"..\..\include\cigibasecolldetsegdef.h"\
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigicolldetsegdefv3.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XCollDetSegDef.h"\
+	
+
+.\XCollDetSegResp.cpp : \
+	"..\..\include\cigibasecolldetsegresp.h"\
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigicolldetsegrespv3.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XCollDetSegResp.h"\
+	
+
+.\XCollDetVolDef.cpp : \
+	"..\..\include\cigibasecolldetvoldef.h"\
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigicolldetvoldefv3.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XCollDetVolDef.h"\
+	
+
+.\XCollDetVolResp.cpp : \
+	"..\..\include\cigibasecolldetvolresp.h"\
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigicolldetvolrespv3.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XCollDetVolResp.h"\
+	
+
+.\XCompCtrl.cpp : \
+	"..\..\include\cigibasecompctrl.h"\
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigicompctrlv3.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigiexception.h"\
+	"..\..\include\cigiexceptions.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XCompCtrl.h"\
+	
+
+.\XConfClampEntityCtrl.cpp : \
+	"..\..\include\cigibaseconfclampentityctrl.h"\
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigiconfclampentityctrlv3.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XConfClampEntityCtrl.h"\
+	
+
+.\XEarthModelDef.cpp : \
+	"..\..\include\cigibaseearthmodeldef.h"\
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigiearthmodeldefv3.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XEarthModelDef.h"\
+	
+
+.\XEntityCtrl.cpp : \
+	"..\..\include\cigianimationtable.h"\
+	"..\..\include\cigibaseentityctrl.h"\
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigientityctrlv3.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XEntityCtrl.h"\
+	
+
+.\XEnvCondReq.cpp : \
+	"..\..\include\cigibaseenvcondreq.h"\
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigienvcondreqv3.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XEnvCondReq.h"\
+	
+
+.\XEnvRgnCtrl.cpp : \
+	"..\..\include\cigibaseenvrgnctrl.h"\
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigienvrgnctrlv3.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XEnvRgnCtrl.h"\
+	
+
+.\XEventNotification.cpp : \
+	"..\..\include\cigibaseeventnotification.h"\
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigieventnotificationv3.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XEventNotification.h"\
+	
+
+.\XHatHotReq.cpp : \
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasehathotreq.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigihathotreqv3.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XHatHotReq.h"\
+	
+
+.\XHatHotResp.cpp : \
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasehathotresp.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigihathotrespv3.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XHatHotResp.h"\
+	
+
+.\XHatHotXResp.cpp : \
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasehathotresp.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigihathotxrespv3.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XHatHotXResp.h"\
+	
+
+.\XIGCtrl.cpp : \
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibaseigctrl.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigiigctrlv3.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XIGCtrl.h"\
+	
+
+.\XIGMsg.cpp : \
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibaseigmsg.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigiigmsgv3.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XIGMsg.h"\
+	
+
+.\XLosResp.cpp : \
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibaselosresp.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigilosrespv3.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XLosResp.h"\
+	
+
+.\XLosSegReq.cpp : \
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibaselossegreq.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigilossegreqv3.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XLosSegReq.h"\
+	
+
+.\XLosVectReq.cpp : \
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibaselosvectreq.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigilosvectreqv3.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XLosVectReq.h"\
+	
+
+.\XLosXResp.cpp : \
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibaselosresp.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigilosxrespv3.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XLosXResp.h"\
+	
+
+.\XMaritimeSurfaceCtrl.cpp : \
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasemaritimesurfacectrl.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigimaritimesurfacectrlv3.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XMaritimeSurfaceCtrl.h"\
+	
+
+.\XMaritimeSurfaceResp.cpp : \
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasemaritimesurfaceresp.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigimaritimesurfacerespv3.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XMaritimeSurfaceResp.h"\
+	
+
+.\XMotionTrackCtrl.cpp : \
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasemotiontrackctrl.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigimotiontrackctrlv3.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XMotionTrackCtrl.h"\
+	
+
+.\XPositionResp.cpp : \
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigibasepositionresp.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigipositionrespv3.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XPositionResp.h"\
+	
+
+.\XPostionReq.cpp : \
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigibasepositionreq.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigipositionreqv3.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XPostionReq.h"\
+	
+
+.\XRateCtrl.cpp : \
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigibaseratectrl.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigiratectrlv3.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XRateCtrl.h"\
+	
+
+.\XSensorCtrl.cpp : \
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigibasesensorctrl.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigisensorctrlv3.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XSensorCtrl.h"\
+	
+
+.\XSensorResp.cpp : \
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigibasesensorresp.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigisensorrespv3.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XSensorResp.h"\
+	
+
+.\XSensorXResp.cpp : \
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigibasesensorresp.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigisensorxrespv3.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XSensorXResp.h"\
+	
+
+.\XShortArtPartCtrl.cpp : \
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigibaseshortartpartctrl.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigishortartpartctrlv3.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XShortArtPartCtrl.h"\
+	
+
+.\XShortCompCtrl.cpp : \
+	"..\..\include\cigibasecompctrl.h"\
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigishortcompctrlv3.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XShortCompCtrl.h"\
+	
+
+.\XSOF.cpp : \
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigibasesof.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigisofv3.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XSOF.h"\
+	
+
+.\XTerrestrialSurfaceCtrl.cpp : \
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigibaseterrestrialsurfacectrl.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigiterrestrialsurfacectrlv3.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XTerrestrialSurfaceCtrl.h"\
+	
+
+.\XTerrestrialSurfaceResp.cpp : \
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigibaseterrestrialsurfaceresp.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigiterrestrialsurfacerespv3.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XTerrestrialSurfaceResp.h"\
+	
+
+.\XTrajectory.cpp : \
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigibasetrajectorydef.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigitrajectorydefv3.h"\
+	"..\..\include\cigitypes.h"\
+	".\StdAfx.h"\
+	".\XTrajectory.h"\
+	
+
+.\XViewCtrl.cpp : \
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigibaseviewctrl.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigitypes.h"\
+	"..\..\include\cigiviewctrlv3.h"\
+	".\StdAfx.h"\
+	".\XViewCtrl.h"\
+	
+
+.\XViewDef.cpp : \
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigibaseviewdef.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigitypes.h"\
+	"..\..\include\cigiviewdefv3.h"\
+	".\StdAfx.h"\
+	".\XViewDef.h"\
+	
+
+.\XWaveCtrl.cpp : \
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigibasewavectrl.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigitypes.h"\
+	"..\..\include\cigiwavectrlv3.h"\
+	".\StdAfx.h"\
+	".\XWaveCtrl.h"\
+	
+
+.\XWeatherCondResp.cpp : \
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigibaseweathercondresp.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigitypes.h"\
+	"..\..\include\cigiweathercondrespv3.h"\
+	".\StdAfx.h"\
+	".\XWeatherCondResp.h"\
+	
+
+.\XWeatherCtrl.cpp : \
+	"..\..\include\cigibaseeventprocessor.h"\
+	"..\..\include\cigibasepacket.h"\
+	"..\..\include\cigibaseweatherctrl.h"\
+	"..\..\include\cigierrorcodes.h"\
+	"..\..\include\cigitypes.h"\
+	"..\..\include\cigiweatherctrlv3.h"\
+	".\StdAfx.h"\
+	".\XWeatherCtrl.h"\
+	

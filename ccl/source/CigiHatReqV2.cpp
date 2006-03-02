@@ -1,0 +1,179 @@
+/** <pre>
+ *  The SDK is used to create and format CIGI compliant messages.
+ *  Copyright (c) 2001-2005 The Boeing Company
+ *  
+ *  This library is free software; you can redistribute it and/or modify it 
+ *  under the terms of the GNU Lesser General Public License as published by 
+ *  the Free Software Foundation; either version 2.1 of the License, or (at 
+ *  your option) any later version.
+ *  
+ *  This library is distributed in the hope that it will be useful, but WITHOUT
+ *  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or 
+ *  FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser Public License for more 
+ *  details.
+ *  
+ *  You should have received a copy of the GNU Lesser General Public License 
+ *  along with this library; if not, write to the Free Software Foundation, 
+ *  Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *  
+ *  FILENAME:   CigiHatReqV2.cpp
+ *  LANGUAGE:   C++
+ *  CLASS:      UNCLASSIFIED
+ *  PROJECT:    Common Image Generator Interface (CIGI) SDK
+ *  
+ *  PROGRAM DESCRIPTION: 
+ *  ...
+ *  
+ *  MODIFICATION NOTES:
+ *  DATE     NAME                                SCR NUMBER
+ *  DESCRIPTION OF CHANGE........................
+ *  
+ *  09/17/2003 Greg Basler                       CIGI_CR_DR_1
+ *  Initial Release.
+ *  
+ *  01/21/2005 Greg Basler                       Version 1.5
+ *  Defined _EXPORT_CCL_ for exporting the class in a Windows DLL.
+ *  
+ *  01/21/2005 Greg Basler                       Version 1.5
+ *  Removed the inline defnitions for the PackedPointer union.
+ * </pre>
+ *  Author: The Boeing Company
+ *  Version: 1.6.0
+ */
+
+#define _EXPORT_CCL_
+
+#include "CigiHatReqV2.h"
+#include "CigiSwapping.h"
+#include "CigiExceptions.h"
+
+#include <memory.h>
+
+
+#ifdef CIGI_LITTLE_ENDIAN
+   #define CIGI_SCOPY2 CigiSwap2
+   #define CIGI_SCOPY4 CigiSwap4
+   #define CIGI_SCOPY8 CigiSwap8
+#else
+   #define CIGI_SCOPY2 CigiCopy2
+   #define CIGI_SCOPY4 CigiCopy4
+   #define CIGI_SCOPY8 CigiCopy8
+#endif
+
+
+
+
+// ====================================================================
+// Construction/Destruction
+// ====================================================================
+
+
+// ================================================
+// CigiHatReqV2
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+CigiHatReqV2::CigiHatReqV2()
+{
+
+   PacketID = CIGI_HAT_REQ_PACKET_ID_V2;
+   PacketSize = CIGI_HAT_REQ_PACKET_SIZE_V2;
+   Version = 2;
+
+   HatHotID = 0;
+   ReqType = HAT;
+   SrcCoordSys = Geodetic;
+   EntityID = 0;
+   LatOrXoff = 0.0;
+   LonOrYoff = 0.0;
+   AltOrZoff = 0.0;
+   IsValidV1or2 = true;
+
+}
+
+// ================================================
+// ~CigiHatReqV2
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+CigiHatReqV2::~CigiHatReqV2()
+{
+
+}
+
+// ====================================================================
+// Pack and Unpack
+// ====================================================================
+
+// ================================================
+// Pack
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+int CigiHatReqV2::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const
+{
+   double DBuf[6];
+
+   unsigned char *tBuf = (unsigned char *)DBuf;
+
+   PackPointer CDta;
+
+   CigiBaseHatHotReq * Data = ( CigiBaseHatHotReq *)Base;
+
+   if(!Data->IsValidV1or2)
+      return(0);
+
+   CDta.d = DBuf;
+
+   *CDta.c++ = PacketID;
+   *CDta.c++ = PacketSize;
+
+   CIGI_SCOPY2(CDta.s++, &Data->HatHotID);
+
+   *CDta.l++ = 0;
+
+   CIGI_SCOPY8(CDta.d++, &Data->AltOrZoff);
+   CIGI_SCOPY8(CDta.d++, &Data->LatOrXoff);
+   CIGI_SCOPY8(CDta.d++, &Data->LonOrYoff);
+
+   memcpy(Buff,tBuf,CIGI_HAT_REQ_PACKET_SIZE_V2);
+
+   return(PacketSize);
+
+}
+
+// ================================================
+// Unpack
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+int CigiHatReqV2::Unpack(unsigned char * Buff, bool Swap, void *Spec)
+{
+   double DBuf[6];
+
+   unsigned char *tBuf = (unsigned char *)DBuf;
+
+   PackPointer CDta;
+
+   memcpy(tBuf,Buff,CIGI_HAT_REQ_PACKET_SIZE_V2);
+
+   CDta.d = DBuf;
+
+   CDta.c += 2;  // Step over packet id and size
+
+   CIGI_SCOPY2(&HatHotID, CDta.s++);
+
+   CDta.l++;
+
+   CIGI_SCOPY8(&AltOrZoff, CDta.d++);
+   CIGI_SCOPY8(&LatOrXoff, CDta.d++);
+   CIGI_SCOPY8(&LonOrYoff, CDta.d++);
+
+
+   SrcCoordSys = Geodetic;
+   IsValidV1or2 = true;
+
+
+   return(PacketSize);
+
+}
+
+
+
+// ====================================================================
+// Accessors
+// ====================================================================
+
+

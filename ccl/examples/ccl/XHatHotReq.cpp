@@ -1,0 +1,37 @@
+// XHatHotReq.cpp: Body of the XHatHotReq class.
+//
+//////////////////////////////////////////////////////////////////////
+
+#include "stdafx.h"
+#include "XHatHotReq.h"
+
+//////////////////////////////////////////////////////////////////////
+// Construction/Destruction
+//////////////////////////////////////////////////////////////////////
+
+XHatHotReq::XHatHotReq()
+{
+
+}
+
+XHatHotReq::~XHatHotReq()
+{
+
+}
+
+
+void XHatHotReq::OnPacketReceived(CigiBasePacket *Packet)
+{
+   CigiHatHotReqV3 *InPckt = (CigiHatHotReqV3 *)Packet;
+
+   bool ok = true;
+
+   printf("HatHotID ==> %d\n",InPckt->GetHatHotID());
+   printf("ReqType ==> %d\n",InPckt->GetReqType());
+   printf("SrcCoordSys ==> %d\n",InPckt->GetSrcCoordSys());
+   printf("EntityID ==> %d\n",InPckt->GetEntityID());
+   printf("Xoff ==> %f\n",InPckt->GetXoff());
+   printf("Yoff ==> %f\n",InPckt->GetYoff());
+   printf("Zoff ==> %f\n",InPckt->GetZoff());
+
+}

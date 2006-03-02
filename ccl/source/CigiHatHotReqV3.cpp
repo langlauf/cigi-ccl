@@ -1,0 +1,218 @@
+/** <pre>
+ *  The SDK is used to create and format CIGI compliant messages.
+ *  Copyright (c) 2001-2005 The Boeing Company
+ *  
+ *  This library is free software; you can redistribute it and/or modify it 
+ *  under the terms of the GNU Lesser General Public License as published by 
+ *  the Free Software Foundation; either version 2.1 of the License, or (at 
+ *  your option) any later version.
+ *  
+ *  This library is distributed in the hope that it will be useful, but WITHOUT
+ *  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or 
+ *  FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser Public License for more 
+ *  details.
+ *  
+ *  You should have received a copy of the GNU Lesser General Public License 
+ *  along with this library; if not, write to the Free Software Foundation, 
+ *  Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *  
+ *  FILENAME:   CigiHatHotReqV3.cpp
+ *  LANGUAGE:   C++
+ *  CLASS:      UNCLASSIFIED
+ *  PROJECT:    Common Image Generator Interface (CIGI) SDK
+ *  
+ *  PROGRAM DESCRIPTION: 
+ *  ...
+ *  
+ *  MODIFICATION NOTES:
+ *  DATE     NAME                                SCR NUMBER
+ *  DESCRIPTION OF CHANGE........................
+ *  
+ *  09/17/2003 Greg Basler                       CIGI_CR_DR_1
+ *  Initial Release.
+ *  
+ *  01/21/2005 Greg Basler                       Version 1.5
+ *  Defined _EXPORT_CCL_ for exporting the class in a Windows DLL.
+ *  
+ *  01/21/2005 Greg Basler                       Version 1.5
+ *  Removed the inline defnitions for the PackedPointer union.
+ * </pre>
+ *  Author: The Boeing Company
+ *  Version: 1.6.0
+ */
+
+#define _EXPORT_CCL_
+
+#include "CigiHatHotReqV3.h"
+#include "CigiSwapping.h"
+#include "CigiExceptions.h"
+
+
+// ====================================================================
+// Construction/Destruction
+// ====================================================================
+
+
+// ================================================
+// CigiHatHotReqV3
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+CigiHatHotReqV3::CigiHatHotReqV3()
+{
+
+   PacketID = CIGI_HAT_HOT_REQ_PACKET_ID_V3;
+   PacketSize = CIGI_HAT_HOT_REQ_PACKET_SIZE_V3;
+   Version = 3;
+
+   HatHotID = 0;
+   ReqType = HAT;
+   SrcCoordSys = Geodetic;
+   EntityID = 0;
+   LatOrXoff = 0.0;
+   LonOrYoff = 0.0;
+   AltOrZoff = 0.0;
+   IsValidV1or2 = true;
+
+}
+
+// ================================================
+// ~CigiHatHotReqV3
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+CigiHatHotReqV3::~CigiHatHotReqV3()
+{
+
+}
+
+// ====================================================================
+// Pack and Unpack
+// ====================================================================
+
+// ================================================
+// Pack
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+int CigiHatHotReqV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const
+{
+   PackPointer CDta;
+
+   CigiBaseHatHotReq * Data = ( CigiBaseHatHotReq *)Base;
+
+   CDta.c = Buff;
+
+   *CDta.c++ = PacketID;
+   *CDta.c++ = PacketSize;
+
+   *CDta.s++ = Data->HatHotID;
+
+   unsigned char HDta = (unsigned char)(Data->ReqType & 0x03);
+   HDta |= (unsigned char)((Data->SrcCoordSys << 2) & 0x04);
+   *CDta.c++ = HDta;
+
+   *CDta.c++ = 0;
+
+   *CDta.s++ = Data->EntityID;
+   *CDta.d++ = Data->LatOrXoff;
+   *CDta.d++ = Data->LonOrYoff;
+   *CDta.d++ = Data->AltOrZoff;
+
+   return(PacketSize);
+
+}
+
+// ================================================
+// Unpack
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+int CigiHatHotReqV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
+{
+   PackPointer CDta;
+
+   CDta.c = Buff;
+
+   CDta.c += 2;  // Step over packet id and size
+
+   if(!Swap)
+   {
+      HatHotID = *CDta.s++;
+
+      unsigned char HDta = *CDta.c++;
+      ReqType = (ReqTypeGrp)(HDta & 0x03);
+      SrcCoordSys = (CoordSysGrp)((HDta >> 2) & 0x01);
+
+      CDta.c++;
+
+      EntityID = *CDta.s++;
+      LatOrXoff = *CDta.d++;
+      LonOrYoff = *CDta.d++;
+      AltOrZoff = *CDta.d++;
+   }
+   else
+   {
+      CigiSwap2(&HatHotID, CDta.s++);
+
+      unsigned char HDta = *CDta.c++;
+      ReqType = (ReqTypeGrp)(HDta & 0x03);
+      SrcCoordSys = (CoordSysGrp)((HDta >> 2) & 0x01);
+
+      CDta.c++;
+
+      CigiSwap2(&EntityID, CDta.s++);
+      CigiSwap8(&LatOrXoff, CDta.d++);
+      CigiSwap8(&LonOrYoff, CDta.d++);
+      CigiSwap8(&AltOrZoff, CDta.d++);
+   }
+
+   IsValidV1or2 = (SrcCoordSys == Geodetic);
+
+   return(PacketSize);
+
+}
+
+
+
+// ====================================================================
+// Accessors
+// ====================================================================
+
+
+// ================================================
+// ReqType
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+int CigiHatHotReqV3::SetReqType(const ReqTypeGrp ReqTypeIn, bool bndchk)
+{
+
+#ifndef CIGI_NO_BND_CHK
+   if(bndchk && ((ReqTypeIn < 0)||(ReqTypeIn > 2)))
+   {
+#ifndef CIGI_NO_EXCEPT
+      throw CigiValueOutOfRangeException("ReqType",(ReqTypeGrp)ReqTypeIn,0,2);
+#endif
+      return(CIGI_ERROR_VALUE_OUT_OF_RANGE);
+   }
+#endif
+
+   ReqType = ReqTypeIn;
+   return(CIGI_SUCCESS);
+
+}
+
+
+// ================================================
+// SrcCoordSys
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+int CigiHatHotReqV3::SetSrcCoordSys(const CoordSysGrp SrcCoordSysIn, bool bndchk)
+{
+
+#ifndef CIGI_NO_BND_CHK
+   if(bndchk && ((SrcCoordSysIn < 0)||(SrcCoordSysIn > 1)))
+   {
+#ifndef CIGI_NO_EXCEPT
+      throw CigiValueOutOfRangeException("SrcCoordSys",(CoordSysGrp)SrcCoordSysIn,0,1);
+#endif
+      return(CIGI_ERROR_VALUE_OUT_OF_RANGE);
+   }
+#endif
+
+   SrcCoordSys = SrcCoordSysIn;
+   return(CIGI_SUCCESS);
+
+}
+
+

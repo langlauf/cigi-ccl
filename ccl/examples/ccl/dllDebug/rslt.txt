@@ -1,0 +1,7243 @@
+
+Begin Cigi Example
+
+
+
+========IG==========
+#Test No. 1
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 1
+TimeStampV3 ==> 0
+YSOF
+XHatHotResp
+HatHotID ==> 15
+Valid ==> 0
+ReqType ==> 0
+HatHot ==> 0.000000
+YHatHotResp
+
+
+=======HOST=========
+#Test No. 1
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnEntityCtrl
+EntityID ==> 2
+EntityState ==> 1
+AttachState ==> 0
+CollisionDetectEn ==> 0
+InheritAlpha ==> 0
+GrndClamp ==> 0
+AnimationDir ==> 0
+AnimationLoopMode ==> 1
+AnimationState ==> 2
+Alpha ==> 50
+EntityType ==> 104
+ParentID ==> 0
+Roll ==> 2.400000
+Pitch ==> 3.300000
+Yaw ==> 63.299999
+Xoff ==> 10.000000
+Yoff ==> 20.000000
+Zoff ==> 30.000000
+YEntityCtrl
+
+
+========IG==========
+#Test No. 2
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 2
+TimeStampV3 ==> 0
+YSOF
+XHatHotResp
+HatHotID ==> 240
+Valid ==> 1
+ReqType ==> 1
+HatHot ==> 0.000000
+YHatHotResp
+
+
+=======HOST=========
+#Test No. 2
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnEntityCtrl
+EntityID ==> 2
+EntityState ==> 0
+AttachState ==> 1
+CollisionDetectEn ==> 1
+InheritAlpha ==> 1
+GrndClamp ==> 1
+AnimationDir ==> 1
+AnimationLoopMode ==> 0
+AnimationState ==> 1
+Alpha ==> 50
+EntityType ==> 104
+ParentID ==> 0
+Roll ==> 2.400000
+Pitch ==> 3.300000
+Yaw ==> 63.299999
+Xoff ==> 10.000000
+Yoff ==> 20.000000
+Zoff ==> 30.000000
+YEntityCtrl
+
+
+========IG==========
+#Test No. 3
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 3
+TimeStampV3 ==> 0
+YSOF
+XHatHotResp
+HatHotID ==> 3840
+Valid ==> 0
+ReqType ==> 1
+HatHot ==> 0.000000
+YHatHotResp
+
+
+=======HOST=========
+#Test No. 3
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnEntityCtrl
+EntityID ==> 2
+EntityState ==> 2
+AttachState ==> 0
+CollisionDetectEn ==> 0
+InheritAlpha ==> 0
+GrndClamp ==> 2
+AnimationDir ==> 0
+AnimationLoopMode ==> 1
+AnimationState ==> 3
+Alpha ==> 50
+EntityType ==> 104
+ParentID ==> 0
+Roll ==> 2.400000
+Pitch ==> 3.300000
+Yaw ==> 63.299999
+Xoff ==> 10.000000
+Yoff ==> 20.000000
+Zoff ==> 30.000000
+YEntityCtrl
+
+
+========IG==========
+#Test No. 4
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 4
+TimeStampV3 ==> 0
+YSOF
+XHatHotResp
+HatHotID ==> 15
+Valid ==> 1
+ReqType ==> 0
+HatHot ==> 35.900000
+YHatHotResp
+
+
+=======HOST=========
+#Test No. 4
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnEntityCtrl
+EntityID ==> 2
+EntityState ==> 1
+AttachState ==> 0
+CollisionDetectEn ==> 0
+InheritAlpha ==> 0
+GrndClamp ==> 0
+AnimationDir ==> 0
+AnimationLoopMode ==> 1
+AnimationState ==> 0
+Alpha ==> 50
+EntityType ==> 104
+ParentID ==> 0
+Roll ==> 2.400000
+Pitch ==> 3.300000
+Yaw ==> 63.299999
+Xoff ==> 10.000000
+Yoff ==> 20.000000
+Zoff ==> 30.000000
+YEntityCtrl
+
+
+========IG==========
+#Test No. 5
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 5
+TimeStampV3 ==> 0
+YSOF
+XHatHotXResp
+HatHotID ==> 15
+Valid ==> 1
+Hat ==> 35.900000
+Hot ==> -91.300000
+Material ==> 3840
+NormAz ==> 25.100000
+NormEl ==> 11.600000
+YHatHotXResp
+
+
+=======HOST=========
+#Test No. 5
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnEntityCtrl
+EntityID ==> 8
+EntityState ==> 1
+AttachState ==> 0
+CollisionDetectEn ==> 0
+InheritAlpha ==> 0
+GrndClamp ==> 0
+AnimationDir ==> 0
+AnimationLoopMode ==> 1
+AnimationState ==> 2
+Alpha ==> 50
+EntityType ==> 104
+ParentID ==> 0
+Roll ==> 2.400000
+Pitch ==> 3.300000
+Yaw ==> 63.299999
+Xoff ==> 10.000000
+Yoff ==> 20.000000
+Zoff ==> 30.000000
+YEntityCtrl
+
+
+========IG==========
+#Test No. 6
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 6
+TimeStampV3 ==> 0
+YSOF
+XHatHotXResp
+HatHotID ==> 240
+Valid ==> 0
+Hat ==> 0.000000
+Hot ==> 0.000000
+Material ==> 0
+NormAz ==> 0.000000
+NormEl ==> 0.000000
+YHatHotXResp
+
+
+=======HOST=========
+#Test No. 6
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnEntityCtrl
+EntityID ==> 259
+EntityState ==> 1
+AttachState ==> 0
+CollisionDetectEn ==> 0
+InheritAlpha ==> 0
+GrndClamp ==> 0
+AnimationDir ==> 0
+AnimationLoopMode ==> 1
+AnimationState ==> 2
+Alpha ==> 36
+EntityType ==> 12801
+ParentID ==> 544
+Roll ==> 2.400000
+Pitch ==> 3.300000
+Yaw ==> 63.299999
+Xoff ==> 10.000000
+Yoff ==> 20.000000
+Zoff ==> 30.000000
+YEntityCtrl
+
+
+========IG==========
+#Test No. 7
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 7
+TimeStampV3 ==> 0
+YSOF
+XHatHotXResp
+HatHotID ==> 3840
+Valid ==> 1
+Hat ==> 35.900000
+Hot ==> 35.900000
+Material ==> 240
+NormAz ==> 25.100000
+NormEl ==> 25.100000
+YHatHotXResp
+
+
+=======HOST=========
+#Test No. 7
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnConfClampEntityCtrl
+EntityID ==> 259
+Yaw ==> 25.100000
+Lat ==> 35.900000
+Lon ==> -91.300000
+YConfClampEntityCtrl
+
+
+========IG==========
+#Test No. 8
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 8
+TimeStampV3 ==> 0
+YSOF
+XHatHotXResp
+HatHotID ==> 240
+Valid ==> 1
+Hat ==> -91.300000
+Hot ==> 35.900000
+Material ==> 15
+NormAz ==> 64.500000
+NormEl ==> 25.100000
+YHatHotXResp
+
+
+=======HOST=========
+#Test No. 8
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnConfClampEntityCtrl
+EntityID ==> 769
+Yaw ==> 25.100000
+Lat ==> 35.900000
+Lon ==> -91.300000
+YConfClampEntityCtrl
+
+
+========IG==========
+#Test No. 9
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 9
+TimeStampV3 ==> 0
+YSOF
+XLosResp
+LosID ==> 15
+Valid ==> 1
+EntityIDValid ==> 1
+Visible ==> 1
+RespCount ==> 240
+EntityID ==> 3840
+Range ==> 35.900000
+YLosResp
+
+
+=======HOST=========
+#Test No. 9
+Parameter Out of Range: Parameter Lon is 370.1. The valid range is from -180 to 180.
+
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnConfClampEntityCtrl
+EntityID ==> 769
+Yaw ==> 25.100000
+Lat ==> 35.900000
+Lon ==> -91.300000
+YConfClampEntityCtrl
+
+
+========IG==========
+#Test No. 10
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 10
+TimeStampV3 ==> 0
+YSOF
+XLosResp
+LosID ==> 240
+Valid ==> 0
+EntityIDValid ==> 0
+Visible ==> 0
+RespCount ==> 15
+EntityID ==> 15
+Range ==> 35.900000
+YLosResp
+
+
+=======HOST=========
+#Test No. 10
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnConfClampEntityCtrl
+EntityID ==> 769
+Yaw ==> 25.100000
+Lat ==> 35.900000
+Lon ==> -91.300000
+YConfClampEntityCtrl
+
+
+========IG==========
+#Test No. 11
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 11
+TimeStampV3 ==> 0
+YSOF
+XLosResp
+LosID ==> 3840
+Valid ==> 0
+EntityIDValid ==> 1
+Visible ==> 1
+RespCount ==> 240
+EntityID ==> 15
+Range ==> 35.900000
+YLosResp
+
+
+=======HOST=========
+#Test No. 11
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnCompCtrl
+CompID ==> 1
+InstanceID ==> 1
+CompClassV3 ==> 0
+CompState ==> 1
+CompData ==> 1
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+YCompCtrl
+
+
+========IG==========
+#Test No. 12
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 12
+TimeStampV3 ==> 0
+YSOF
+XLosResp
+LosID ==> 15
+Valid ==> 1
+EntityIDValid ==> 0
+Visible ==> 1
+RespCount ==> 15
+EntityID ==> 240
+Range ==> 35.900000
+YLosResp
+
+
+=======HOST=========
+#Test No. 12
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnCompCtrl
+CompID ==> 15
+InstanceID ==> 61440
+CompClassV3 ==> 1
+CompState ==> 15
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+YCompCtrl
+
+
+========IG==========
+#Test No. 13
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 13
+TimeStampV3 ==> 0
+YSOF
+XLosResp
+LosID ==> 15
+Valid ==> 0
+EntityIDValid ==> 0
+Visible ==> 1
+RespCount ==> 15
+EntityID ==> 15
+Range ==> 35.900000
+YLosResp
+
+
+=======HOST=========
+#Test No. 13
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnCompCtrl
+CompID ==> 240
+InstanceID ==> 3840
+CompClassV3 ==> 2
+CompState ==> 240
+CompData ==> 16
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+YCompCtrl
+
+
+========IG==========
+#Test No. 14
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 14
+TimeStampV3 ==> 0
+YSOF
+XLosResp
+LosID ==> 15
+Valid ==> 1
+EntityIDValid ==> 1
+Visible ==> 0
+RespCount ==> 15
+EntityID ==> 15
+Range ==> 35.900000
+YLosResp
+
+
+=======HOST=========
+#Test No. 14
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnCompCtrl
+CompID ==> 3840
+InstanceID ==> 240
+CompClassV3 ==> 3
+CompState ==> 15
+CompData ==> 240
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+YCompCtrl
+
+
+========IG==========
+#Test No. 15
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 15
+TimeStampV3 ==> 0
+YSOF
+XLosResp
+LosID ==> 15
+Valid ==> 0
+EntityIDValid ==> 1
+Visible ==> 0
+RespCount ==> 15
+EntityID ==> 15
+Range ==> 35.900000
+YLosResp
+
+
+=======HOST=========
+#Test No. 15
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnCompCtrl
+CompID ==> 61440
+InstanceID ==> 15
+CompClassV3 ==> 4
+CompState ==> 15
+CompData ==> 61440
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+YCompCtrl
+
+
+========IG==========
+#Test No. 16
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 16
+TimeStampV3 ==> 0
+YSOF
+XLosResp
+LosID ==> 15
+Valid ==> 1
+EntityIDValid ==> 0
+Visible ==> 0
+RespCount ==> 15
+EntityID ==> 15
+Range ==> 35.900000
+YLosResp
+
+
+=======HOST=========
+#Test No. 16
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnCompCtrl
+CompID ==> 15
+InstanceID ==> 15
+CompClassV3 ==> 5
+CompState ==> 15
+CompData ==> 983040
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+YCompCtrl
+
+
+========IG==========
+#Test No. 17
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 17
+TimeStampV3 ==> 0
+YSOF
+XLosXResp
+LosID ==> 15
+Valid ==> 1
+EntityIDValid ==> 1
+RangeValid ==> 1
+Visible ==> 1
+IntersectionCoordSys ==> 0
+RespCount ==> 240
+EntityID ==> 3840
+Range ==> 35.900000
+Xoff ==> -91.300000
+Yoff ==> 35.900000
+Zoff ==> -91.300000
+Red ==> 15
+Green ==> 15
+Blue ==> 15
+Alpha ==> 15
+Material ==> 15
+NormalAz ==> 25.100000
+NormalEl ==> 16.600000
+YLosXResp
+
+
+=======HOST=========
+#Test No. 17
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnCompCtrl
+CompID ==> 15
+InstanceID ==> 15
+CompClassV3 ==> 6
+CompState ==> 15
+CompData ==> 15728640
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+YCompCtrl
+
+
+========IG==========
+#Test No. 18
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 18
+TimeStampV3 ==> 0
+YSOF
+XLosXResp
+LosID ==> 240
+Valid ==> 0
+EntityIDValid ==> 0
+RangeValid ==> 0
+Visible ==> 0
+IntersectionCoordSys ==> 1
+RespCount ==> 15
+EntityID ==> 15
+Range ==> 35.900000
+Xoff ==> 35.900000
+Yoff ==> -91.300000
+Zoff ==> 35.900000
+Red ==> 240
+Green ==> 15
+Blue ==> 240
+Alpha ==> 15
+Material ==> 240
+NormalAz ==> 16.600000
+NormalEl ==> 25.100000
+YLosXResp
+
+
+=======HOST=========
+#Test No. 18
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnCompCtrl
+CompID ==> 15
+InstanceID ==> 15
+CompClassV3 ==> 7
+CompState ==> 15
+CompData ==> 251658240
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+YCompCtrl
+
+
+========IG==========
+#Test No. 19
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 19
+TimeStampV3 ==> 0
+YSOF
+XLosXResp
+LosID ==> 3840
+Valid ==> 0
+EntityIDValid ==> 1
+RangeValid ==> 1
+Visible ==> 1
+IntersectionCoordSys ==> 0
+RespCount ==> 240
+EntityID ==> 15
+Range ==> 35.900000
+Xoff ==> 35.900000
+Yoff ==> 35.900000
+Zoff ==> 35.900000
+Red ==> 15
+Green ==> 240
+Blue ==> 15
+Alpha ==> 240
+Material ==> 240
+NormalAz ==> 25.100000
+NormalEl ==> 25.100000
+YLosXResp
+
+
+=======HOST=========
+#Test No. 19
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnCompCtrl
+CompID ==> 15
+InstanceID ==> 15
+CompClassV3 ==> 8
+CompState ==> 15
+CompData ==> -268435456
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+YCompCtrl
+
+
+========IG==========
+#Test No. 20
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 20
+TimeStampV3 ==> 0
+YSOF
+XLosXResp
+LosID ==> 15
+Valid ==> 1
+EntityIDValid ==> 0
+RangeValid ==> 1
+Visible ==> 0
+IntersectionCoordSys ==> 0
+RespCount ==> 15
+EntityID ==> 240
+Range ==> 35.900000
+Xoff ==> 35.900000
+Yoff ==> 35.900000
+Zoff ==> 35.900000
+Red ==> 240
+Green ==> 240
+Blue ==> 240
+Alpha ==> 240
+Material ==> 3840
+NormalAz ==> 25.100000
+NormalEl ==> 25.100000
+YLosXResp
+
+
+=======HOST=========
+#Test No. 20
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnCompCtrl
+CompID ==> 1
+InstanceID ==> 1
+CompClassV3 ==> 9
+CompState ==> 1
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+YCompCtrl
+
+
+========IG==========
+#Test No. 21
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 21
+TimeStampV3 ==> 0
+YSOF
+XLosXResp
+LosID ==> 15
+Valid ==> 0
+EntityIDValid ==> 0
+RangeValid ==> 1
+Visible ==> 1
+IntersectionCoordSys ==> 0
+RespCount ==> 15
+EntityID ==> 15
+Range ==> 35.900000
+Xoff ==> 35.900000
+Yoff ==> 35.900000
+Zoff ==> 35.900000
+Red ==> 15
+Green ==> 15
+Blue ==> 15
+Alpha ==> 15
+Material ==> 15
+NormalAz ==> 25.100000
+NormalEl ==> 25.100000
+YLosXResp
+
+
+=======HOST=========
+#Test No. 21
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnCompCtrl
+CompID ==> 1
+InstanceID ==> 1
+CompClassV3 ==> 10
+CompState ==> 1
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+YCompCtrl
+
+
+========IG==========
+#Test No. 22
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 22
+TimeStampV3 ==> 0
+YSOF
+XLosXResp
+LosID ==> 15
+Valid ==> 1
+EntityIDValid ==> 1
+RangeValid ==> 0
+Visible ==> 1
+IntersectionCoordSys ==> 1
+RespCount ==> 15
+EntityID ==> 15
+Range ==> 35.900000
+Xoff ==> 35.900000
+Yoff ==> 35.900000
+Zoff ==> 35.900000
+Red ==> 15
+Green ==> 15
+Blue ==> 15
+Alpha ==> 15
+Material ==> 15
+NormalAz ==> 25.100000
+NormalEl ==> 25.100000
+YLosXResp
+
+
+=======HOST=========
+#Test No. 22
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnCompCtrl
+CompID ==> 1
+InstanceID ==> 1
+CompClassV3 ==> 11
+CompState ==> 1
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+YCompCtrl
+
+
+========IG==========
+#Test No. 23
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 23
+TimeStampV3 ==> 0
+YSOF
+XLosXResp
+LosID ==> 15
+Valid ==> 0
+EntityIDValid ==> 1
+RangeValid ==> 0
+Visible ==> 0
+IntersectionCoordSys ==> 1
+RespCount ==> 15
+EntityID ==> 15
+Range ==> 35.900000
+Xoff ==> 35.900000
+Yoff ==> 35.900000
+Zoff ==> 35.900000
+Red ==> 15
+Green ==> 15
+Blue ==> 15
+Alpha ==> 15
+Material ==> 15
+NormalAz ==> 25.100000
+NormalEl ==> 25.100000
+YLosXResp
+
+
+=======HOST=========
+#Test No. 23
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnCompCtrl
+CompID ==> 1
+InstanceID ==> 1
+CompClassV3 ==> 12
+CompState ==> 1
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+YCompCtrl
+
+
+========IG==========
+#Test No. 24
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 24
+TimeStampV3 ==> 0
+YSOF
+XLosXResp
+LosID ==> 15
+Valid ==> 1
+EntityIDValid ==> 0
+RangeValid ==> 0
+Visible ==> 0
+IntersectionCoordSys ==> 1
+RespCount ==> 15
+EntityID ==> 15
+Range ==> 35.900000
+Xoff ==> 35.900000
+Yoff ==> 35.900000
+Zoff ==> 35.900000
+Red ==> 15
+Green ==> 15
+Blue ==> 15
+Alpha ==> 15
+Material ==> 15
+NormalAz ==> 25.100000
+NormalEl ==> 25.100000
+YLosXResp
+
+
+=======HOST=========
+#Test No. 24
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnCompCtrl
+CompID ==> 1
+InstanceID ==> 1
+CompClassV3 ==> 13
+CompState ==> 1
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+CompData ==> 15
+YCompCtrl
+
+
+========IG==========
+#Test No. 25
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 25
+TimeStampV3 ==> 0
+YSOF
+XSensorResp
+ViewID ==> 15
+SensorID ==> 240
+SensorStat ==> 0
+GateSzX ==> 240
+GateSzY ==> 3840
+GateXoff ==> 25.100000
+GateYoff ==> 16.299999
+FrameCntr ==> 15
+YSensorResp
+
+
+=======HOST=========
+#Test No. 25
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnShortCompCtrl
+CompID ==> 1
+InstanceID ==> 1
+CompClassV3 ==> 0
+CompState ==> 1
+CompData ==> 1
+CompData ==> 15
+YShortCompCtrl
+
+
+========IG==========
+#Test No. 26
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 26
+TimeStampV3 ==> 0
+YSOF
+XSensorResp
+ViewID ==> 240
+SensorID ==> 15
+SensorStat ==> 1
+GateSzX ==> 3840
+GateSzY ==> 15
+GateXoff ==> 16.299999
+GateYoff ==> 25.100000
+FrameCntr ==> 15
+YSensorResp
+
+
+=======HOST=========
+#Test No. 26
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnShortCompCtrl
+CompID ==> 15
+InstanceID ==> 61440
+CompClassV3 ==> 1
+CompState ==> 15
+CompData ==> 15
+CompData ==> 15
+YShortCompCtrl
+
+
+========IG==========
+#Test No. 27
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 27
+TimeStampV3 ==> 0
+YSOF
+XSensorResp
+ViewID ==> 3840
+SensorID ==> 15
+SensorStat ==> 2
+GateSzX ==> 15
+GateSzY ==> 240
+GateXoff ==> 25.100000
+GateYoff ==> 25.100000
+FrameCntr ==> 240
+YSensorResp
+
+
+=======HOST=========
+#Test No. 27
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnShortCompCtrl
+CompID ==> 240
+InstanceID ==> 3840
+CompClassV3 ==> 2
+CompState ==> 240
+CompData ==> 16
+CompData ==> 15
+YShortCompCtrl
+
+
+========IG==========
+#Test No. 28
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 28
+TimeStampV3 ==> 0
+YSOF
+XSensorResp
+ViewID ==> 15
+SensorID ==> 15
+SensorStat ==> 3
+GateSzX ==> 15
+GateSzY ==> 15
+GateXoff ==> 25.100000
+GateYoff ==> 25.100000
+FrameCntr ==> 3840
+YSensorResp
+
+
+=======HOST=========
+#Test No. 28
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnShortCompCtrl
+CompID ==> 3840
+InstanceID ==> 240
+CompClassV3 ==> 3
+CompState ==> 15
+CompData ==> 240
+CompData ==> 15
+YShortCompCtrl
+
+
+========IG==========
+#Test No. 29
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 29
+TimeStampV3 ==> 0
+YSOF
+XSensorResp
+ViewID ==> 15
+SensorID ==> 240
+SensorStat ==> 3
+GateSzX ==> 15
+GateSzY ==> 15
+GateXoff ==> 25.100000
+GateYoff ==> 25.100000
+FrameCntr ==> 15
+YSensorResp
+
+
+=======HOST=========
+#Test No. 29
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnShortCompCtrl
+CompID ==> 61440
+InstanceID ==> 15
+CompClassV3 ==> 4
+CompState ==> 15
+CompData ==> 61440
+CompData ==> 15
+YShortCompCtrl
+
+
+========IG==========
+#Test No. 30
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 30
+TimeStampV3 ==> 0
+YSOF
+XSensorXResp
+ViewID ==> 15
+SensorID ==> 240
+SensorStat ==> 0
+EntityTgt ==> 1
+EntityID ==> 3840
+GateSzX ==> 240
+GateSzY ==> 3840
+GateXoff ==> 25.100000
+GateYoff ==> 16.299999
+FrameCntr ==> 15
+TrackPntLat ==> 35.900000
+TrackPntLon ==> -91.300000
+TrackPntAlt ==> 16.600000
+YSensorXResp
+
+
+=======HOST=========
+#Test No. 30
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnShortCompCtrl
+CompID ==> 15
+InstanceID ==> 15
+CompClassV3 ==> 5
+CompState ==> 15
+CompData ==> 983040
+CompData ==> 15
+YShortCompCtrl
+
+
+========IG==========
+#Test No. 31
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 31
+TimeStampV3 ==> 0
+YSOF
+XSensorXResp
+ViewID ==> 240
+SensorID ==> 15
+SensorStat ==> 1
+EntityTgt ==> 0
+EntityID ==> 240
+GateSzX ==> 3840
+GateSzY ==> 15
+GateXoff ==> 16.299999
+GateYoff ==> 25.100000
+FrameCntr ==> 15
+TrackPntLat ==> 35.900000
+TrackPntLon ==> 35.900000
+TrackPntAlt ==> 35.900000
+YSensorXResp
+
+
+=======HOST=========
+#Test No. 31
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnShortCompCtrl
+CompID ==> 15
+InstanceID ==> 15
+CompClassV3 ==> 6
+CompState ==> 15
+CompData ==> 15728640
+CompData ==> 15
+YShortCompCtrl
+
+
+========IG==========
+#Test No. 32
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 32
+TimeStampV3 ==> 0
+YSOF
+XSensorXResp
+ViewID ==> 3840
+SensorID ==> 15
+SensorStat ==> 2
+EntityTgt ==> 1
+EntityID ==> 15
+GateSzX ==> 15
+GateSzY ==> 240
+GateXoff ==> 25.100000
+GateYoff ==> 25.100000
+FrameCntr ==> 240
+TrackPntLat ==> 35.900000
+TrackPntLon ==> 35.900000
+TrackPntAlt ==> 35.900000
+YSensorXResp
+
+
+=======HOST=========
+#Test No. 32
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnShortCompCtrl
+CompID ==> 15
+InstanceID ==> 15
+CompClassV3 ==> 7
+CompState ==> 15
+CompData ==> 251658240
+CompData ==> 15
+YShortCompCtrl
+
+
+========IG==========
+#Test No. 33
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 33
+TimeStampV3 ==> 0
+YSOF
+XSensorXResp
+ViewID ==> 15
+SensorID ==> 15
+SensorStat ==> 3
+EntityTgt ==> 1
+EntityID ==> 240
+GateSzX ==> 15
+GateSzY ==> 15
+GateXoff ==> 25.100000
+GateYoff ==> 25.100000
+FrameCntr ==> 3840
+TrackPntLat ==> 35.900000
+TrackPntLon ==> 35.900000
+TrackPntAlt ==> 35.900000
+YSensorXResp
+
+
+=======HOST=========
+#Test No. 33
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnShortCompCtrl
+CompID ==> 15
+InstanceID ==> 15
+CompClassV3 ==> 8
+CompState ==> 15
+CompData ==> -268435456
+CompData ==> 15
+YShortCompCtrl
+
+
+========IG==========
+#Test No. 34
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 34
+TimeStampV3 ==> 0
+YSOF
+XSensorXResp
+ViewID ==> 15
+SensorID ==> 240
+SensorStat ==> 3
+EntityTgt ==> 1
+EntityID ==> 15
+GateSzX ==> 15
+GateSzY ==> 15
+GateXoff ==> 25.100000
+GateYoff ==> 25.100000
+FrameCntr ==> 15
+TrackPntLat ==> 35.900000
+TrackPntLon ==> 35.900000
+TrackPntAlt ==> 35.900000
+YSensorXResp
+
+
+=======HOST=========
+#Test No. 34
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnShortCompCtrl
+CompID ==> 1
+InstanceID ==> 1
+CompClassV3 ==> 9
+CompState ==> 1
+CompData ==> 15
+CompData ==> 15
+YShortCompCtrl
+
+
+========IG==========
+#Test No. 35
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 35
+TimeStampV3 ==> 0
+YSOF
+XPositionResp
+ObjectID ==> 15
+ArtPartID ==> 240
+ObjectClass ==> 0
+CoordSys ==> 0
+LatOrXoff ==> 35.900000
+LonOrYoff ==> -91.300000
+AltOrZoff ==> 16.600000
+Roll ==> 25.100000
+Pitch ==> 13.300000
+Yaw ==> 25.100000
+YPositionResp
+
+
+=======HOST=========
+#Test No. 35
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnShortCompCtrl
+CompID ==> 1
+InstanceID ==> 1
+CompClassV3 ==> 10
+CompState ==> 1
+CompData ==> 15
+CompData ==> 15
+YShortCompCtrl
+
+
+========IG==========
+#Test No. 36
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 36
+TimeStampV3 ==> 0
+YSOF
+XPositionResp
+ObjectID ==> 240
+ArtPartID ==> 15
+ObjectClass ==> 1
+CoordSys ==> 1
+LatOrXoff ==> -91.300000
+LonOrYoff ==> -91.300000
+AltOrZoff ==> 35.900000
+Roll ==> 14.600000
+Pitch ==> 25.100000
+Yaw ==> 16.700001
+YPositionResp
+
+
+=======HOST=========
+#Test No. 36
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnShortCompCtrl
+CompID ==> 1
+InstanceID ==> 1
+CompClassV3 ==> 11
+CompState ==> 1
+CompData ==> 15
+CompData ==> 15
+YShortCompCtrl
+
+
+========IG==========
+#Test No. 37
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 37
+TimeStampV3 ==> 0
+YSOF
+XPositionResp
+ObjectID ==> 3840
+ArtPartID ==> 15
+ObjectClass ==> 2
+CoordSys ==> 2
+LatOrXoff ==> 35.900000
+LonOrYoff ==> 35.900000
+AltOrZoff ==> 35.900000
+Roll ==> 25.100000
+Pitch ==> 25.100000
+Yaw ==> 25.100000
+YPositionResp
+
+
+=======HOST=========
+#Test No. 37
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnShortCompCtrl
+CompID ==> 1
+InstanceID ==> 1
+CompClassV3 ==> 12
+CompState ==> 1
+CompData ==> 15
+CompData ==> 15
+YShortCompCtrl
+
+
+========IG==========
+#Test No. 38
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 38
+TimeStampV3 ==> 0
+YSOF
+XPositionResp
+ObjectID ==> 15
+ArtPartID ==> 15
+ObjectClass ==> 3
+CoordSys ==> 2
+LatOrXoff ==> 35.900000
+LonOrYoff ==> 35.900000
+AltOrZoff ==> 35.900000
+Roll ==> 25.100000
+Pitch ==> 25.100000
+Yaw ==> 25.100000
+YPositionResp
+
+
+=======HOST=========
+#Test No. 38
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnShortCompCtrl
+CompID ==> 1
+InstanceID ==> 1
+CompClassV3 ==> 13
+CompState ==> 1
+CompData ==> 15
+CompData ==> 15
+YShortCompCtrl
+
+
+========IG==========
+#Test No. 39
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 39
+TimeStampV3 ==> 0
+YSOF
+XPositionResp
+ObjectID ==> 15
+ArtPartID ==> 15
+ObjectClass ==> 4
+CoordSys ==> 2
+LatOrXoff ==> 35.900000
+LonOrYoff ==> 35.900000
+AltOrZoff ==> 35.900000
+Roll ==> 25.100000
+Pitch ==> 25.100000
+Yaw ==> 25.100000
+YPositionResp
+
+
+=======HOST=========
+#Test No. 39
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnArtPartCtrl
+EntityID ==> 15
+ArtPartID ==> 15
+ArtPartEn ==> 0
+XOffEn ==> 0
+YOffEn ==> 0
+ZOffEn ==> 0
+RollEn ==> 0
+PitchEn ==> 0
+YawEn ==> 0
+XOff ==> 10.100000
+YOff ==> 20.200001
+ZOff ==> 30.299999
+Roll ==> 40.200001
+Pitch ==> 10.400000
+Yaw ==> 20.100000
+YArtPartCtrl
+
+
+========IG==========
+#Test No. 40
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 40
+TimeStampV3 ==> 0
+YSOF
+XWeatherCondResp
+RequestID ==> 15
+Humidity ==> 95
+AirTemp ==> 25.100000
+Visibility ==> 14.300000
+HorizWindSp ==> 25.100000
+VertWindSp ==> 22.700001
+WindDir ==> 25.100000
+BaroPress ==> 12.900000
+YWeatherCondResp
+
+
+=======HOST=========
+#Test No. 40
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnArtPartCtrl
+EntityID ==> 240
+ArtPartID ==> 240
+ArtPartEn ==> 1
+XOffEn ==> 1
+YOffEn ==> 1
+ZOffEn ==> 1
+RollEn ==> 1
+PitchEn ==> 1
+YawEn ==> 1
+XOff ==> 25.100000
+YOff ==> 25.100000
+ZOff ==> 25.100000
+Roll ==> 25.100000
+Pitch ==> 25.100000
+Yaw ==> 25.100000
+YArtPartCtrl
+
+
+========IG==========
+#Test No. 41
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 41
+TimeStampV3 ==> 0
+YSOF
+XWeatherCondResp
+RequestID ==> 240
+Humidity ==> 15
+AirTemp ==> 16.299999
+Visibility ==> 25.100000
+HorizWindSp ==> 19.600000
+VertWindSp ==> 25.100000
+WindDir ==> 14.300000
+BaroPress ==> 25.100000
+YWeatherCondResp
+
+
+=======HOST=========
+#Test No. 41
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnArtPartCtrl
+EntityID ==> 3840
+ArtPartID ==> 15
+ArtPartEn ==> 0
+XOffEn ==> 1
+YOffEn ==> 0
+ZOffEn ==> 1
+RollEn ==> 0
+PitchEn ==> 1
+YawEn ==> 0
+XOff ==> 10.100000
+YOff ==> 20.200001
+ZOff ==> 30.299999
+Roll ==> 40.200001
+Pitch ==> 10.400000
+Yaw ==> 20.100000
+YArtPartCtrl
+
+
+========IG==========
+#Test No. 42
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 42
+TimeStampV3 ==> 0
+YSOF
+XAerosolResp
+RequestID ==> 15
+LayerID ==> 240
+AerosolConcentration ==> 25.100000
+YAerosolResp
+
+
+=======HOST=========
+#Test No. 42
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnArtPartCtrl
+EntityID ==> 15
+ArtPartID ==> 15
+ArtPartEn ==> 1
+XOffEn ==> 0
+YOffEn ==> 0
+ZOffEn ==> 0
+RollEn ==> 0
+PitchEn ==> 0
+YawEn ==> 1
+XOff ==> 10.100000
+YOff ==> 20.200001
+ZOff ==> 30.299999
+Roll ==> 40.200001
+Pitch ==> 10.400000
+Yaw ==> 20.100000
+YArtPartCtrl
+
+
+========IG==========
+#Test No. 43
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 43
+TimeStampV3 ==> 0
+YSOF
+XAerosolResp
+RequestID ==> 240
+LayerID ==> 15
+AerosolConcentration ==> 25.100000
+YAerosolResp
+
+
+=======HOST=========
+#Test No. 43
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnShortArtPartCtrl
+EntityID ==> 15
+ArtPart1 ==> 15
+ArtPart2 ==> 240
+DofSelect1 ==> 0
+DofSelect2 ==> 6
+ArtPart1En ==> 1
+ArtPart2En ==> 1
+Dof1 ==> 10.200000
+Dof2 ==> 10.300000
+YShortArtPartCtrl
+
+
+========IG==========
+#Test No. 44
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 44
+TimeStampV3 ==> 0
+YSOF
+XMaritimeSurfaceResp
+RequestID ==> 15
+SurfaceHeight ==> 25.100000
+WaterTemp ==> 16.299999
+Clarity ==> 25.100000
+YMaritimeSurfaceResp
+
+
+=======HOST=========
+#Test No. 44
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnShortArtPartCtrl
+EntityID ==> 240
+ArtPart1 ==> 240
+ArtPart2 ==> 15
+DofSelect1 ==> 1
+DofSelect2 ==> 5
+ArtPart1En ==> 0
+ArtPart2En ==> 1
+Dof1 ==> 25.100000
+Dof2 ==> 10.300000
+YShortArtPartCtrl
+
+
+========IG==========
+#Test No. 45
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 45
+TimeStampV3 ==> 0
+YSOF
+XMaritimeSurfaceResp
+RequestID ==> 240
+SurfaceHeight ==> 10.200000
+WaterTemp ==> 25.100000
+Clarity ==> 52.299999
+YMaritimeSurfaceResp
+
+
+=======HOST=========
+#Test No. 45
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnShortArtPartCtrl
+EntityID ==> 3840
+ArtPart1 ==> 15
+ArtPart2 ==> 15
+DofSelect1 ==> 2
+DofSelect2 ==> 4
+ArtPart1En ==> 1
+ArtPart2En ==> 0
+Dof1 ==> 10.200000
+Dof2 ==> 25.100000
+YShortArtPartCtrl
+
+
+========IG==========
+#Test No. 46
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 46
+TimeStampV3 ==> 0
+YSOF
+XTerrestrialSurfaceResp
+RequestID ==> 15
+SurfaceConditionID ==> 3840
+YTerrestrialSurfaceResp
+
+
+=======HOST=========
+#Test No. 46
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnShortArtPartCtrl
+EntityID ==> 15
+ArtPart1 ==> 15
+ArtPart2 ==> 15
+DofSelect1 ==> 3
+DofSelect2 ==> 3
+ArtPart1En ==> 1
+ArtPart2En ==> 0
+Dof1 ==> 10.200000
+Dof2 ==> 10.300000
+YShortArtPartCtrl
+
+
+========IG==========
+#Test No. 47
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 47
+TimeStampV3 ==> 0
+YSOF
+XTerrestrialSurfaceResp
+RequestID ==> 240
+SurfaceConditionID ==> 15
+YTerrestrialSurfaceResp
+
+
+=======HOST=========
+#Test No. 47
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnShortArtPartCtrl
+EntityID ==> 15
+ArtPart1 ==> 15
+ArtPart2 ==> 15
+DofSelect1 ==> 4
+DofSelect2 ==> 2
+ArtPart1En ==> 0
+ArtPart2En ==> 0
+Dof1 ==> 10.200000
+Dof2 ==> 10.300000
+YShortArtPartCtrl
+
+
+========IG==========
+#Test No. 48
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 48
+TimeStampV3 ==> 0
+YSOF
+XCollDetSegResp
+EntityID ==> 15
+SegID ==> 240
+CollType ==> 0
+CollEntityID ==> 3840
+Material ==> 240
+IntersectDist ==> 25.100000
+YCollDetSegResp
+
+
+=======HOST=========
+#Test No. 48
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnShortArtPartCtrl
+EntityID ==> 15
+ArtPart1 ==> 15
+ArtPart2 ==> 15
+DofSelect1 ==> 5
+DofSelect2 ==> 1
+ArtPart1En ==> 1
+ArtPart2En ==> 1
+Dof1 ==> 10.200000
+Dof2 ==> 10.300000
+YShortArtPartCtrl
+
+
+========IG==========
+#Test No. 49
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 49
+TimeStampV3 ==> 0
+YSOF
+XCollDetSegResp
+EntityID ==> 240
+SegID ==> 15
+CollType ==> 1
+CollEntityID ==> 15
+Material ==> 3840
+IntersectDist ==> 25.100000
+YCollDetSegResp
+
+
+=======HOST=========
+#Test No. 49
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnShortArtPartCtrl
+EntityID ==> 15
+ArtPart1 ==> 15
+ArtPart2 ==> 15
+DofSelect1 ==> 6
+DofSelect2 ==> 0
+ArtPart1En ==> 1
+ArtPart2En ==> 1
+Dof1 ==> 10.200000
+Dof2 ==> 10.300000
+YShortArtPartCtrl
+
+
+========IG==========
+#Test No. 50
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 50
+TimeStampV3 ==> 0
+YSOF
+XCollDetSegResp
+EntityID ==> 3840
+SegID ==> 15
+CollType ==> 1
+CollEntityID ==> 240
+Material ==> 15
+IntersectDist ==> 25.100000
+YCollDetSegResp
+
+
+=======HOST=========
+#Test No. 50
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnRateCtrl
+EntityID ==> 15
+ArtPartID ==> 240
+ApplyToArtPart ==> 1
+XRate ==> 10.200000
+YRate ==> 20.299999
+ZRate ==> 12.300000
+RollRate ==> 21.500000
+PitchRate ==> 33.099998
+YawRate ==> 22.299999
+YRateCtrl
+
+
+========IG==========
+#Test No. 51
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 51
+TimeStampV3 ==> 0
+YSOF
+
+
+=======HOST=========
+#Test No. 51
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnRateCtrl
+EntityID ==> 240
+ArtPartID ==> 15
+ApplyToArtPart ==> 1
+XRate ==> 25.100000
+YRate ==> 20.299999
+ZRate ==> 25.100000
+RollRate ==> 21.500000
+PitchRate ==> 25.100000
+YawRate ==> 22.299999
+YRateCtrl
+
+
+========IG==========
+#Test No. 52
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 52
+TimeStampV3 ==> 0
+YSOF
+
+
+=======HOST=========
+#Test No. 52
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnRateCtrl
+EntityID ==> 3840
+ArtPartID ==> 15
+ApplyToArtPart ==> 0
+XRate ==> 10.200000
+YRate ==> 25.100000
+ZRate ==> 12.300000
+RollRate ==> 25.100000
+PitchRate ==> 33.099998
+YawRate ==> 25.100000
+YRateCtrl
+
+
+========IG==========
+#Test No. 53
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 53
+TimeStampV3 ==> 0
+YSOF
+
+
+=======HOST=========
+#Test No. 53
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnCelestialCtrl
+Hour ==> 1
+Minute ==> 1
+EphemerisEn ==> 0
+SunEn ==> 0
+MoonEn ==> 0
+StarEn ==> 0
+DateVld ==> 0
+Month ==> 1
+Day ==> 1
+Year ==> 2004
+StarInt ==> 1.000000
+YCelestialCtrl
+
+
+========IG==========
+#Test No. 54
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 54
+TimeStampV3 ==> 0
+YSOF
+XAnimationStop
+EntityID ==> 15
+YAnimationStop
+
+
+=======HOST=========
+#Test No. 54
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnCelestialCtrl
+Hour ==> 23
+Minute ==> 59
+EphemerisEn ==> 1
+SunEn ==> 1
+MoonEn ==> 1
+StarEn ==> 1
+DateVld ==> 1
+Month ==> 2
+Day ==> 28
+Year ==> 2004
+StarInt ==> 95.000000
+YCelestialCtrl
+
+
+========IG==========
+#Test No. 55
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 55
+TimeStampV3 ==> 0
+YSOF
+XAnimationStop
+EntityID ==> 240
+YAnimationStop
+
+
+=======HOST=========
+#Test No. 55
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnCelestialCtrl
+Hour ==> 1
+Minute ==> 15
+EphemerisEn ==> 1
+SunEn ==> 0
+MoonEn ==> 1
+StarEn ==> 0
+DateVld ==> 1
+Month ==> 1
+Day ==> 1
+Year ==> 2003
+StarInt ==> 25.100000
+YCelestialCtrl
+
+
+========IG==========
+#Test No. 56
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 56
+TimeStampV3 ==> 0
+YSOF
+XAnimationStop
+EntityID ==> 3840
+YAnimationStop
+
+
+=======HOST=========
+#Test No. 56
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnCelestialCtrl
+Hour ==> 1
+Minute ==> 15
+EphemerisEn ==> 0
+SunEn ==> 1
+MoonEn ==> 0
+StarEn ==> 1
+DateVld ==> 0
+Month ==> 1
+Day ==> 1
+Year ==> 2001
+StarInt ==> 25.100000
+YCelestialCtrl
+
+
+========IG==========
+#Test No. 57
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 57
+TimeStampV3 ==> 0
+YSOF
+XEventNotification
+EventID ==> 15
+EventData ==> 0.000000
+EventData ==> 0.000000
+EventData ==> 0.000000
+YEventNotification
+
+
+=======HOST=========
+#Test No. 57
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnAtmosCtrl
+AtmosEn ==> 1
+Humidity ==> 15
+AirTemp ==> 25.100000
+Visibility ==> 12.700000
+HorizWindSp ==> 25.100000
+VertWindSp ==> 10.600000
+WindDir ==> 25.100000
+BaroPress ==> 10.300000
+YAtmosCtrl
+
+
+========IG==========
+#Test No. 58
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 58
+TimeStampV3 ==> 0
+YSOF
+XEventNotification
+EventID ==> 240
+EventData ==> 0.000000
+EventData ==> 0.000000
+EventData ==> 0.000000
+YEventNotification
+
+
+=======HOST=========
+#Test No. 58
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnAtmosCtrl
+AtmosEn ==> 0
+Humidity ==> 95
+AirTemp ==> 21.100000
+Visibility ==> 25.100000
+HorizWindSp ==> 11.300000
+VertWindSp ==> 25.100000
+WindDir ==> 17.700001
+BaroPress ==> 25.100000
+YAtmosCtrl
+
+
+========IG==========
+#Test No. 59
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 59
+TimeStampV3 ==> 0
+YSOF
+XEventNotification
+EventID ==> 3840
+EventData ==> 0.000000
+EventData ==> 0.000000
+EventData ==> 0.000000
+YEventNotification
+
+
+=======HOST=========
+#Test No. 59
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnEnvRgnCtrl
+RegionID ==> 15
+RgnState ==> 0
+WeatherProp ==> 0
+Aerosol ==> 0
+MaritimeSurface ==> 1
+TerrestrialSurface ==> 0
+Lat ==> 35.900000
+Lon ==> -91.300000
+XSize ==> 25.100000
+YSize ==> 10.200000
+CornerRadius ==> 25.100000
+Rotation ==> 12.300000
+Transition ==> 25.100000
+YEnvRgnCtrl
+
+
+========IG==========
+#Test No. 60
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 60
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 15
+Msg ==> Happy
+YIGMsg
+
+
+=======HOST=========
+#Test No. 60
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnEnvRgnCtrl
+RegionID ==> 240
+RgnState ==> 1
+WeatherProp ==> 1
+Aerosol ==> 0
+MaritimeSurface ==> 1
+TerrestrialSurface ==> 1
+Lat ==> 13.300000
+Lon ==> 35.900000
+XSize ==> 12.100000
+YSize ==> 25.100000
+CornerRadius ==> 33.299999
+Rotation ==> 25.100000
+Transition ==> 14.400000
+YEnvRgnCtrl
+
+
+========IG==========
+#Test No. 61
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 61
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 240
+Msg ==> Charlie
+YIGMsg
+
+
+=======HOST=========
+#Test No. 61
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnEnvRgnCtrl
+RegionID ==> 3840
+RgnState ==> 2
+WeatherProp ==> 1
+Aerosol ==> 1
+MaritimeSurface ==> 0
+TerrestrialSurface ==> 0
+Lat ==> 35.900000
+Lon ==> -91.300000
+XSize ==> 25.100000
+YSize ==> 10.200000
+CornerRadius ==> 25.100000
+Rotation ==> 12.300000
+Transition ==> 25.100000
+YEnvRgnCtrl
+
+
+========IG==========
+#Test No. 62
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 62
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 62
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnWeatherCtrl
+EntityID ==> 15
+LayerID ==> 240
+Humidity ==> 15
+WeatherEn ==> 0
+ScudEn ==> 1
+RandomWindsEn ==> 0
+RandomLightningEn ==> 1
+CloudType ==> 0
+Scope ==> 2
+Severity ==> 1
+AirTemp ==> 25.100000
+VisibilityRng ==> 11.200000
+ScudFreq ==> 25.100000
+Coverage ==> 14.400000
+BaseElev ==> 25.100000
+Thickness ==> 11.300000
+Transition ==> 25.100000
+HorizWindSp ==> 17.700001
+VertWindSp ==> 25.100000
+WindDir ==> 11.600000
+BaroPress ==> 25.100000
+Aerosol ==> 12.200000
+YWeatherCtrl
+
+
+========IG==========
+#Test No. 63
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 63
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 63
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnWeatherCtrl
+EntityID ==> 240
+LayerID ==> 15
+Humidity ==> 95
+WeatherEn ==> 1
+ScudEn ==> 0
+RandomWindsEn ==> 1
+RandomLightningEn ==> 0
+CloudType ==> 1
+Scope ==> 1
+Severity ==> 3
+AirTemp ==> 12.300000
+VisibilityRng ==> 25.100000
+ScudFreq ==> 11.100000
+Coverage ==> 25.100000
+BaseElev ==> 15.900000
+Thickness ==> 25.100000
+Transition ==> 13.800000
+HorizWindSp ==> 25.100000
+VertWindSp ==> 19.900000
+WindDir ==> 25.100000
+BaroPress ==> 14.400000
+Aerosol ==> 25.100000
+YWeatherCtrl
+
+
+========IG==========
+#Test No. 64
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 64
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 64
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnWeatherCtrl
+EntityID ==> 3840
+LayerID ==> 15
+Humidity ==> 15
+WeatherEn ==> 1
+ScudEn ==> 1
+RandomWindsEn ==> 1
+RandomLightningEn ==> 1
+CloudType ==> 2
+Scope ==> 2
+Severity ==> 5
+AirTemp ==> 25.100000
+VisibilityRng ==> 31.299999
+ScudFreq ==> 25.100000
+Coverage ==> 21.200001
+BaseElev ==> 25.100000
+Thickness ==> 11.100000
+Transition ==> 25.100000
+HorizWindSp ==> 18.200001
+VertWindSp ==> 25.100000
+WindDir ==> 13.100000
+BaroPress ==> 25.100000
+Aerosol ==> 12.800000
+YWeatherCtrl
+
+
+========IG==========
+#Test No. 65
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 65
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 65
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnWeatherCtrl
+EntityID ==> 0
+LayerID ==> 15
+Humidity ==> 15
+WeatherEn ==> 0
+ScudEn ==> 0
+RandomWindsEn ==> 0
+RandomLightningEn ==> 0
+CloudType ==> 3
+Scope ==> 0
+Severity ==> 1
+AirTemp ==> 25.100000
+VisibilityRng ==> 11.200000
+ScudFreq ==> 25.100000
+Coverage ==> 14.400000
+BaseElev ==> 25.100000
+Thickness ==> 11.300000
+Transition ==> 25.100000
+HorizWindSp ==> 17.700001
+VertWindSp ==> 25.100000
+WindDir ==> 11.600000
+BaroPress ==> 25.100000
+Aerosol ==> 12.200000
+YWeatherCtrl
+
+
+========IG==========
+#Test No. 66
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 66
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 66
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnWeatherCtrl
+EntityID ==> 0
+LayerID ==> 15
+Humidity ==> 15
+WeatherEn ==> 0
+ScudEn ==> 0
+RandomWindsEn ==> 0
+RandomLightningEn ==> 0
+CloudType ==> 4
+Scope ==> 0
+Severity ==> 1
+AirTemp ==> 25.100000
+VisibilityRng ==> 11.200000
+ScudFreq ==> 25.100000
+Coverage ==> 14.400000
+BaseElev ==> 25.100000
+Thickness ==> 11.300000
+Transition ==> 25.100000
+HorizWindSp ==> 17.700001
+VertWindSp ==> 25.100000
+WindDir ==> 11.600000
+BaroPress ==> 25.100000
+Aerosol ==> 12.200000
+YWeatherCtrl
+
+
+========IG==========
+#Test No. 67
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 67
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 67
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnWeatherCtrl
+EntityID ==> 0
+LayerID ==> 15
+Humidity ==> 15
+WeatherEn ==> 0
+ScudEn ==> 0
+RandomWindsEn ==> 0
+RandomLightningEn ==> 0
+CloudType ==> 5
+Scope ==> 0
+Severity ==> 1
+AirTemp ==> 25.100000
+VisibilityRng ==> 11.200000
+ScudFreq ==> 25.100000
+Coverage ==> 14.400000
+BaseElev ==> 25.100000
+Thickness ==> 11.300000
+Transition ==> 25.100000
+HorizWindSp ==> 17.700001
+VertWindSp ==> 25.100000
+WindDir ==> 11.600000
+BaroPress ==> 25.100000
+Aerosol ==> 12.200000
+YWeatherCtrl
+
+
+========IG==========
+#Test No. 68
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 68
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 68
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnWeatherCtrl
+EntityID ==> 0
+LayerID ==> 15
+Humidity ==> 15
+WeatherEn ==> 0
+ScudEn ==> 0
+RandomWindsEn ==> 0
+RandomLightningEn ==> 0
+CloudType ==> 6
+Scope ==> 0
+Severity ==> 1
+AirTemp ==> 25.100000
+VisibilityRng ==> 11.200000
+ScudFreq ==> 25.100000
+Coverage ==> 14.400000
+BaseElev ==> 25.100000
+Thickness ==> 11.300000
+Transition ==> 25.100000
+HorizWindSp ==> 17.700001
+VertWindSp ==> 25.100000
+WindDir ==> 11.600000
+BaroPress ==> 25.100000
+Aerosol ==> 12.200000
+YWeatherCtrl
+
+
+========IG==========
+#Test No. 69
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 69
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 69
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnWeatherCtrl
+EntityID ==> 0
+LayerID ==> 15
+Humidity ==> 15
+WeatherEn ==> 0
+ScudEn ==> 0
+RandomWindsEn ==> 0
+RandomLightningEn ==> 0
+CloudType ==> 7
+Scope ==> 0
+Severity ==> 1
+AirTemp ==> 25.100000
+VisibilityRng ==> 11.200000
+ScudFreq ==> 25.100000
+Coverage ==> 14.400000
+BaseElev ==> 25.100000
+Thickness ==> 11.300000
+Transition ==> 25.100000
+HorizWindSp ==> 17.700001
+VertWindSp ==> 25.100000
+WindDir ==> 11.600000
+BaroPress ==> 25.100000
+Aerosol ==> 12.200000
+YWeatherCtrl
+
+
+========IG==========
+#Test No. 70
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 70
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 70
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnWeatherCtrl
+EntityID ==> 0
+LayerID ==> 15
+Humidity ==> 15
+WeatherEn ==> 0
+ScudEn ==> 0
+RandomWindsEn ==> 0
+RandomLightningEn ==> 0
+CloudType ==> 8
+Scope ==> 0
+Severity ==> 1
+AirTemp ==> 25.100000
+VisibilityRng ==> 11.200000
+ScudFreq ==> 25.100000
+Coverage ==> 14.400000
+BaseElev ==> 25.100000
+Thickness ==> 11.300000
+Transition ==> 25.100000
+HorizWindSp ==> 17.700001
+VertWindSp ==> 25.100000
+WindDir ==> 11.600000
+BaroPress ==> 25.100000
+Aerosol ==> 12.200000
+YWeatherCtrl
+
+
+========IG==========
+#Test No. 71
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 71
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 71
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnWeatherCtrl
+EntityID ==> 0
+LayerID ==> 15
+Humidity ==> 15
+WeatherEn ==> 0
+ScudEn ==> 0
+RandomWindsEn ==> 0
+RandomLightningEn ==> 0
+CloudType ==> 9
+Scope ==> 0
+Severity ==> 1
+AirTemp ==> 25.100000
+VisibilityRng ==> 11.200000
+ScudFreq ==> 25.100000
+Coverage ==> 14.400000
+BaseElev ==> 25.100000
+Thickness ==> 11.300000
+Transition ==> 25.100000
+HorizWindSp ==> 17.700001
+VertWindSp ==> 25.100000
+WindDir ==> 11.600000
+BaroPress ==> 25.100000
+Aerosol ==> 12.200000
+YWeatherCtrl
+
+
+========IG==========
+#Test No. 72
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 72
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 72
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnWeatherCtrl
+EntityID ==> 0
+LayerID ==> 15
+Humidity ==> 15
+WeatherEn ==> 0
+ScudEn ==> 0
+RandomWindsEn ==> 0
+RandomLightningEn ==> 0
+CloudType ==> 10
+Scope ==> 0
+Severity ==> 1
+AirTemp ==> 25.100000
+VisibilityRng ==> 11.200000
+ScudFreq ==> 25.100000
+Coverage ==> 14.400000
+BaseElev ==> 25.100000
+Thickness ==> 11.300000
+Transition ==> 25.100000
+HorizWindSp ==> 17.700001
+VertWindSp ==> 25.100000
+WindDir ==> 11.600000
+BaroPress ==> 25.100000
+Aerosol ==> 12.200000
+YWeatherCtrl
+
+
+========IG==========
+#Test No. 73
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 73
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 73
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnWeatherCtrl
+EntityID ==> 0
+LayerID ==> 15
+Humidity ==> 15
+WeatherEn ==> 0
+ScudEn ==> 0
+RandomWindsEn ==> 0
+RandomLightningEn ==> 0
+CloudType ==> 11
+Scope ==> 0
+Severity ==> 1
+AirTemp ==> 25.100000
+VisibilityRng ==> 11.200000
+ScudFreq ==> 25.100000
+Coverage ==> 14.400000
+BaseElev ==> 25.100000
+Thickness ==> 11.300000
+Transition ==> 25.100000
+HorizWindSp ==> 17.700001
+VertWindSp ==> 25.100000
+WindDir ==> 11.600000
+BaroPress ==> 25.100000
+Aerosol ==> 12.200000
+YWeatherCtrl
+
+
+========IG==========
+#Test No. 74
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 74
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 74
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnWeatherCtrl
+EntityID ==> 0
+LayerID ==> 15
+Humidity ==> 15
+WeatherEn ==> 0
+ScudEn ==> 0
+RandomWindsEn ==> 0
+RandomLightningEn ==> 0
+CloudType ==> 12
+Scope ==> 0
+Severity ==> 1
+AirTemp ==> 25.100000
+VisibilityRng ==> 11.200000
+ScudFreq ==> 25.100000
+Coverage ==> 14.400000
+BaseElev ==> 25.100000
+Thickness ==> 11.300000
+Transition ==> 25.100000
+HorizWindSp ==> 17.700001
+VertWindSp ==> 25.100000
+WindDir ==> 11.600000
+BaroPress ==> 25.100000
+Aerosol ==> 12.200000
+YWeatherCtrl
+
+
+========IG==========
+#Test No. 75
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 75
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 75
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnWeatherCtrl
+EntityID ==> 0
+LayerID ==> 15
+Humidity ==> 15
+WeatherEn ==> 0
+ScudEn ==> 0
+RandomWindsEn ==> 0
+RandomLightningEn ==> 0
+CloudType ==> 13
+Scope ==> 0
+Severity ==> 1
+AirTemp ==> 25.100000
+VisibilityRng ==> 11.200000
+ScudFreq ==> 25.100000
+Coverage ==> 14.400000
+BaseElev ==> 25.100000
+Thickness ==> 11.300000
+Transition ==> 25.100000
+HorizWindSp ==> 17.700001
+VertWindSp ==> 25.100000
+WindDir ==> 11.600000
+BaroPress ==> 25.100000
+Aerosol ==> 12.200000
+YWeatherCtrl
+
+
+========IG==========
+#Test No. 76
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 76
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 76
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnWeatherCtrl
+EntityID ==> 0
+LayerID ==> 15
+Humidity ==> 15
+WeatherEn ==> 0
+ScudEn ==> 0
+RandomWindsEn ==> 0
+RandomLightningEn ==> 0
+CloudType ==> 14
+Scope ==> 0
+Severity ==> 1
+AirTemp ==> 25.100000
+VisibilityRng ==> 11.200000
+ScudFreq ==> 25.100000
+Coverage ==> 14.400000
+BaseElev ==> 25.100000
+Thickness ==> 11.300000
+Transition ==> 25.100000
+HorizWindSp ==> 17.700001
+VertWindSp ==> 25.100000
+WindDir ==> 11.600000
+BaroPress ==> 25.100000
+Aerosol ==> 12.200000
+YWeatherCtrl
+
+
+========IG==========
+#Test No. 77
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 77
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 77
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnWeatherCtrl
+EntityID ==> 0
+LayerID ==> 15
+Humidity ==> 15
+WeatherEn ==> 0
+ScudEn ==> 0
+RandomWindsEn ==> 0
+RandomLightningEn ==> 0
+CloudType ==> 15
+Scope ==> 0
+Severity ==> 1
+AirTemp ==> 25.100000
+VisibilityRng ==> 11.200000
+ScudFreq ==> 25.100000
+Coverage ==> 14.400000
+BaseElev ==> 25.100000
+Thickness ==> 11.300000
+Transition ==> 25.100000
+HorizWindSp ==> 17.700001
+VertWindSp ==> 25.100000
+WindDir ==> 11.600000
+BaroPress ==> 25.100000
+Aerosol ==> 12.200000
+YWeatherCtrl
+
+
+========IG==========
+#Test No. 78
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 78
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 78
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnMaritimeSurfaceCtrl
+EntityRgnID ==> 0
+SurfaceCondEn ==> 0
+WhitecapEn ==> 0
+Scope ==> 0
+SurfaceHeight ==> 25.100000
+WaterTemp ==> 31.200001
+Clarity ==> 25.100000
+YMaritimeSurfaceCtrl
+
+
+========IG==========
+#Test No. 79
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 79
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 79
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnMaritimeSurfaceCtrl
+EntityRgnID ==> 15
+SurfaceCondEn ==> 1
+WhitecapEn ==> 1
+Scope ==> 1
+SurfaceHeight ==> 15.500000
+WaterTemp ==> 25.100000
+Clarity ==> 17.700001
+YMaritimeSurfaceCtrl
+
+
+========IG==========
+#Test No. 80
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 80
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 80
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnMaritimeSurfaceCtrl
+EntityRgnID ==> 240
+SurfaceCondEn ==> 1
+WhitecapEn ==> 0
+Scope ==> 2
+SurfaceHeight ==> 25.100000
+WaterTemp ==> 31.200001
+Clarity ==> 25.100000
+YMaritimeSurfaceCtrl
+
+
+========IG==========
+#Test No. 81
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 81
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 81
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnMaritimeSurfaceCtrl
+EntityRgnID ==> 3840
+SurfaceCondEn ==> 0
+WhitecapEn ==> 1
+Scope ==> 2
+SurfaceHeight ==> 15.500000
+WaterTemp ==> 25.100000
+Clarity ==> 17.700001
+YMaritimeSurfaceCtrl
+
+
+========IG==========
+#Test No. 82
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 82
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 82
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnWaveCtrl
+EntityRgnID ==> 0
+WaveID ==> 0
+WaveEn ==> 0
+Scope ==> 0
+Breaker ==> 0
+WaveHt ==> 25.100000
+WaveLen ==> 15.500000
+Period ==> 25.100000
+Direction ==> 11.800000
+PhaseOff ==> 25.100000
+Leading ==> 15.600000
+YWaveCtrl
+
+
+========IG==========
+#Test No. 83
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 83
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 83
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnWaveCtrl
+EntityRgnID ==> 15
+WaveID ==> 240
+WaveEn ==> 1
+Scope ==> 1
+Breaker ==> 1
+WaveHt ==> 11.200000
+WaveLen ==> 25.100000
+Period ==> 19.900000
+Direction ==> 25.100000
+PhaseOff ==> 18.299999
+Leading ==> 25.100000
+YWaveCtrl
+
+
+========IG==========
+#Test No. 84
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 84
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 84
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnWaveCtrl
+EntityRgnID ==> 240
+WaveID ==> 15
+WaveEn ==> 1
+Scope ==> 2
+Breaker ==> 2
+WaveHt ==> 25.100000
+WaveLen ==> 15.500000
+Period ==> 25.100000
+Direction ==> 11.800000
+PhaseOff ==> 25.100000
+Leading ==> 15.600000
+YWaveCtrl
+
+
+========IG==========
+#Test No. 85
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 85
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 85
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnWaveCtrl
+EntityRgnID ==> 3840
+WaveID ==> 15
+WaveEn ==> 1
+Scope ==> 2
+Breaker ==> 2
+WaveHt ==> 11.200000
+WaveLen ==> 25.100000
+Period ==> 19.900000
+Direction ==> 25.100000
+PhaseOff ==> 18.299999
+Leading ==> 25.100000
+YWaveCtrl
+
+
+========IG==========
+#Test No. 86
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 86
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 86
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnTerrestrialSurfaceCtrl
+EntityRgnID ==> 0
+SurfaceCondID ==> 15
+SurfaceCondEn ==> 0
+Scope ==> 0
+Severity ==> 15
+Coverage ==> 15
+YTerrestrialSurfaceCtrl
+
+
+========IG==========
+#Test No. 87
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 87
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 87
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnTerrestrialSurfaceCtrl
+EntityRgnID ==> 15
+SurfaceCondID ==> 3840
+SurfaceCondEn ==> 1
+Scope ==> 1
+Severity ==> 15
+Coverage ==> 95
+YTerrestrialSurfaceCtrl
+
+
+========IG==========
+#Test No. 88
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 88
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 88
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnTerrestrialSurfaceCtrl
+EntityRgnID ==> 240
+SurfaceCondID ==> 0
+SurfaceCondEn ==> 1
+Scope ==> 2
+Severity ==> 31
+Coverage ==> 15
+YTerrestrialSurfaceCtrl
+
+
+========IG==========
+#Test No. 89
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 89
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 89
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnTerrestrialSurfaceCtrl
+EntityRgnID ==> 3840
+SurfaceCondID ==> 240
+SurfaceCondEn ==> 1
+Scope ==> 2
+Severity ==> 6
+Coverage ==> 15
+YTerrestrialSurfaceCtrl
+
+
+========IG==========
+#Test No. 90
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 90
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 90
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnViewCtrl
+ViewID ==> 15
+GroupID ==> 240
+XOffEn ==> 1
+YOffEn ==> 1
+ZOffEn ==> 1
+RollEn ==> 1
+PitchEn ==> 1
+YawEn ==> 1
+EntityID ==> 3840
+XOff ==> 25.100000
+YOff ==> 11.600000
+ZOff ==> 25.100000
+Roll ==> 19.799999
+Pitch ==> 25.100000
+Yaw ==> 17.299999
+YViewCtrl
+
+
+========IG==========
+#Test No. 91
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 91
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 91
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnViewCtrl
+ViewID ==> 240
+GroupID ==> 15
+XOffEn ==> 0
+YOffEn ==> 0
+ZOffEn ==> 0
+RollEn ==> 0
+PitchEn ==> 0
+YawEn ==> 0
+EntityID ==> 240
+XOff ==> 1.100000
+YOff ==> 25.100000
+ZOff ==> 14.600000
+Roll ==> 25.100000
+Pitch ==> 33.200001
+Yaw ==> 25.100000
+YViewCtrl
+
+
+========IG==========
+#Test No. 92
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 92
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 92
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnViewCtrl
+ViewID ==> 3840
+GroupID ==> 15
+XOffEn ==> 1
+YOffEn ==> 0
+ZOffEn ==> 1
+RollEn ==> 0
+PitchEn ==> 1
+YawEn ==> 0
+EntityID ==> 15
+XOff ==> 25.100000
+YOff ==> 11.600000
+ZOff ==> 25.100000
+Roll ==> 19.799999
+Pitch ==> 25.100000
+Yaw ==> 17.299999
+YViewCtrl
+
+
+========IG==========
+#Test No. 93
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 93
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 93
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnViewCtrl
+ViewID ==> 15
+GroupID ==> 15
+XOffEn ==> 0
+YOffEn ==> 1
+ZOffEn ==> 0
+RollEn ==> 1
+PitchEn ==> 0
+YawEn ==> 1
+EntityID ==> 15
+XOff ==> 25.100000
+YOff ==> 11.600000
+ZOff ==> 25.100000
+Roll ==> 19.799999
+Pitch ==> 25.100000
+Yaw ==> 17.299999
+YViewCtrl
+
+
+========IG==========
+#Test No. 94
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 94
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 94
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnSensorCtrl
+ViewID ==> 15
+SensorID ==> 240
+SensorOn ==> 1
+Polarity ==> 0
+LineDropEn ==> 1
+AutoGainEn ==> 1
+TrackPolarity ==> 0
+ResponseType ==> 0
+Gain ==> 0.800000
+Level ==> 0.700000
+ACCoupling ==> 1.300000
+Noise ==> 0.400000
+YSensorCtrl
+
+
+========IG==========
+#Test No. 95
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 95
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 95
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnSensorCtrl
+ViewID ==> 240
+SensorID ==> 15
+SensorOn ==> 0
+Polarity ==> 2
+LineDropEn ==> 0
+AutoGainEn ==> 0
+TrackPolarity ==> 1
+ResponseType ==> 1
+Gain ==> 0.800000
+Level ==> 0.700000
+ACCoupling ==> 1.300000
+Noise ==> 0.400000
+YSensorCtrl
+
+
+========IG==========
+#Test No. 96
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 96
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 96
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnSensorCtrl
+ViewID ==> 3840
+SensorID ==> 15
+SensorOn ==> 1
+Polarity ==> 0
+LineDropEn ==> 0
+AutoGainEn ==> 1
+TrackPolarity ==> 1
+ResponseType ==> 0
+Gain ==> 0.800000
+Level ==> 0.700000
+ACCoupling ==> 1.300000
+Noise ==> 0.400000
+YSensorCtrl
+
+
+========IG==========
+#Test No. 97
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 97
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 97
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnSensorCtrl
+ViewID ==> 15
+SensorID ==> 15
+SensorOn ==> 1
+Polarity ==> 0
+LineDropEn ==> 1
+AutoGainEn ==> 0
+TrackPolarity ==> 1
+ResponseType ==> 0
+Gain ==> 0.800000
+Level ==> 0.700000
+ACCoupling ==> 1.300000
+Noise ==> 0.400000
+YSensorCtrl
+
+
+========IG==========
+#Test No. 98
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 98
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 98
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnSensorCtrl
+ViewID ==> 15
+SensorID ==> 15
+SensorOn ==> 1
+Polarity ==> 0
+LineDropEn ==> 1
+AutoGainEn ==> 1
+TrackPolarity ==> 1
+ResponseType ==> 0
+Gain ==> 0.800000
+Level ==> 0.700000
+ACCoupling ==> 1.300000
+Noise ==> 0.400000
+YSensorCtrl
+
+
+========IG==========
+#Test No. 99
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 99
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 99
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnSensorCtrl
+ViewID ==> 15
+SensorID ==> 15
+SensorOn ==> 1
+Polarity ==> 0
+LineDropEn ==> 1
+AutoGainEn ==> 1
+TrackPolarity ==> 1
+ResponseType ==> 0
+Gain ==> 0.800000
+Level ==> 0.700000
+ACCoupling ==> 1.300000
+Noise ==> 0.400000
+YSensorCtrl
+
+
+========IG==========
+#Test No. 100
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 100
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 100
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnSensorCtrl
+ViewID ==> 15
+SensorID ==> 15
+SensorOn ==> 1
+Polarity ==> 0
+LineDropEn ==> 1
+AutoGainEn ==> 1
+TrackPolarity ==> 1
+ResponseType ==> 0
+Gain ==> 0.800000
+Level ==> 0.700000
+ACCoupling ==> 1.300000
+Noise ==> 0.400000
+YSensorCtrl
+
+
+========IG==========
+#Test No. 101
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 101
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 101
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnSensorCtrl
+ViewID ==> 15
+SensorID ==> 15
+SensorOn ==> 1
+Polarity ==> 0
+LineDropEn ==> 1
+AutoGainEn ==> 1
+TrackPolarity ==> 1
+ResponseType ==> 0
+Gain ==> 0.800000
+Level ==> 0.700000
+ACCoupling ==> 1.300000
+Noise ==> 0.400000
+YSensorCtrl
+
+
+========IG==========
+#Test No. 102
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 102
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 102
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnMotionTrackCtrl
+ViewID ==> 15
+TrackerID ==> 240
+TrackerEn ==> 1
+BoresightEn ==> 1
+XEn ==> 1
+YEn ==> 1
+ZEn ==> 1
+RollEn ==> 1
+PitchEn ==> 1
+YawEn ==> 1
+Scope ==> 0
+YMotionTrackCtrl
+
+
+========IG==========
+#Test No. 103
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 103
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 103
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnMotionTrackCtrl
+ViewID ==> 240
+TrackerID ==> 15
+TrackerEn ==> 0
+BoresightEn ==> 0
+XEn ==> 0
+YEn ==> 0
+ZEn ==> 0
+RollEn ==> 0
+PitchEn ==> 0
+YawEn ==> 0
+Scope ==> 1
+YMotionTrackCtrl
+
+
+========IG==========
+#Test No. 104
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 104
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 104
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnMotionTrackCtrl
+ViewID ==> 3840
+TrackerID ==> 15
+TrackerEn ==> 0
+BoresightEn ==> 1
+XEn ==> 0
+YEn ==> 1
+ZEn ==> 0
+RollEn ==> 1
+PitchEn ==> 0
+YawEn ==> 1
+Scope ==> 0
+YMotionTrackCtrl
+
+
+========IG==========
+#Test No. 105
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 105
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 105
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnMotionTrackCtrl
+ViewID ==> 15
+TrackerID ==> 15
+TrackerEn ==> 1
+BoresightEn ==> 0
+XEn ==> 1
+YEn ==> 0
+ZEn ==> 1
+RollEn ==> 0
+PitchEn ==> 1
+YawEn ==> 0
+Scope ==> 0
+YMotionTrackCtrl
+
+
+========IG==========
+#Test No. 106
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 106
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 106
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnEarthModelDef
+CustomERMEn ==> 1
+EquatorialRadius ==> 35.900000
+Flattening ==> 1.200000
+YEarthModelDef
+
+
+========IG==========
+#Test No. 107
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 107
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 107
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnEarthModelDef
+CustomERMEn ==> 0
+EquatorialRadius ==> 126.500000
+Flattening ==> 35.900000
+YEarthModelDef
+
+
+========IG==========
+#Test No. 108
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 108
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 108
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnTrajectory
+EntityID ==> 15
+AccelX ==> 25.100000
+AccelY ==> 15.600000
+AccelZ ==> 25.100000
+RetardationRate ==> 22.299999
+TermVel ==> 25.100000
+YTrajectory
+
+
+========IG==========
+#Test No. 109
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 109
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 109
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnTrajectory
+EntityID ==> 240
+AccelX ==> 3.200000
+AccelY ==> 25.100000
+AccelZ ==> 18.400000
+RetardationRate ==> 25.100000
+TermVel ==> 12.100000
+YTrajectory
+
+
+========IG==========
+#Test No. 110
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 110
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 110
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnTrajectory
+EntityID ==> 3840
+AccelX ==> 25.100000
+AccelY ==> 23.299999
+AccelZ ==> 25.100000
+RetardationRate ==> 14.400000
+TermVel ==> 25.100000
+YTrajectory
+
+
+========IG==========
+#Test No. 111
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 111
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 111
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnViewDef
+ViewID ==> 15
+GroupID ==> 240
+FOVNearEn ==> 1
+FOVFarEn ==> 1
+FOVLeftEn ==> 1
+FOVRightEn ==> 1
+FOVTopEn ==> 1
+FOVBottomEn ==> 1
+MirrorMode ==> 0
+PixelReplicateMode ==> 0
+ProjectionType ==> 0
+Reorder ==> 1
+ViewType ==> 1
+FOVNear ==> 25.100000
+FOVFar ==> 30.299999
+FOVLeft ==> 25.100000
+FOVRight ==> 45.500000
+FOVTop ==> 25.100000
+FOVBottom ==> 10.200000
+YViewDef
+
+
+========IG==========
+#Test No. 112
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 112
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 112
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnViewDef
+ViewID ==> 240
+GroupID ==> 15
+FOVNearEn ==> 0
+FOVFarEn ==> 0
+FOVLeftEn ==> 0
+FOVRightEn ==> 0
+FOVTopEn ==> 0
+FOVBottomEn ==> 0
+MirrorMode ==> 1
+PixelReplicateMode ==> 1
+ProjectionType ==> 1
+Reorder ==> 0
+ViewType ==> 2
+FOVNear ==> 2.200000
+FOVFar ==> 25.100000
+FOVLeft ==> -2.500000
+FOVRight ==> 25.100000
+FOVTop ==> 50.099998
+FOVBottom ==> 25.100000
+YViewDef
+
+
+========IG==========
+#Test No. 113
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 113
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 113
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnViewDef
+ViewID ==> 3840
+GroupID ==> 15
+FOVNearEn ==> 1
+FOVFarEn ==> 0
+FOVLeftEn ==> 1
+FOVRightEn ==> 0
+FOVTopEn ==> 1
+FOVBottomEn ==> 0
+MirrorMode ==> 2
+PixelReplicateMode ==> 2
+ProjectionType ==> 1
+Reorder ==> 1
+ViewType ==> 3
+FOVNear ==> 25.100000
+FOVFar ==> 30.299999
+FOVLeft ==> 25.100000
+FOVRight ==> 45.500000
+FOVTop ==> 25.100000
+FOVBottom ==> 10.200000
+YViewDef
+
+
+========IG==========
+#Test No. 114
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 114
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 114
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnViewDef
+ViewID ==> 15
+GroupID ==> 15
+FOVNearEn ==> 0
+FOVFarEn ==> 1
+FOVLeftEn ==> 0
+FOVRightEn ==> 1
+FOVTopEn ==> 0
+FOVBottomEn ==> 1
+MirrorMode ==> 3
+PixelReplicateMode ==> 3
+ProjectionType ==> 1
+Reorder ==> 0
+ViewType ==> 4
+FOVNear ==> 25.100000
+FOVFar ==> 30.299999
+FOVLeft ==> 25.100000
+FOVRight ==> 45.500000
+FOVTop ==> 25.100000
+FOVBottom ==> 10.200000
+YViewDef
+
+
+========IG==========
+#Test No. 115
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 115
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 115
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnViewDef
+ViewID ==> 15
+GroupID ==> 15
+FOVNearEn ==> 1
+FOVFarEn ==> 1
+FOVLeftEn ==> 0
+FOVRightEn ==> 0
+FOVTopEn ==> 1
+FOVBottomEn ==> 1
+MirrorMode ==> 2
+PixelReplicateMode ==> 4
+ProjectionType ==> 1
+Reorder ==> 0
+ViewType ==> 5
+FOVNear ==> 25.100000
+FOVFar ==> 30.299999
+FOVLeft ==> 25.100000
+FOVRight ==> 45.500000
+FOVTop ==> 25.100000
+FOVBottom ==> 10.200000
+YViewDef
+
+
+========IG==========
+#Test No. 116
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 116
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 116
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnViewDef
+ViewID ==> 15
+GroupID ==> 15
+FOVNearEn ==> 0
+FOVFarEn ==> 0
+FOVLeftEn ==> 1
+FOVRightEn ==> 1
+FOVTopEn ==> 0
+FOVBottomEn ==> 0
+MirrorMode ==> 2
+PixelReplicateMode ==> 5
+ProjectionType ==> 1
+Reorder ==> 1
+ViewType ==> 6
+FOVNear ==> 25.100000
+FOVFar ==> 30.299999
+FOVLeft ==> 25.100000
+FOVRight ==> 45.500000
+FOVTop ==> 25.100000
+FOVBottom ==> 10.200000
+YViewDef
+
+
+========IG==========
+#Test No. 117
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 117
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 117
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnViewDef
+ViewID ==> 15
+GroupID ==> 15
+FOVNearEn ==> 0
+FOVFarEn ==> 0
+FOVLeftEn ==> 0
+FOVRightEn ==> 0
+FOVTopEn ==> 0
+FOVBottomEn ==> 0
+MirrorMode ==> 2
+PixelReplicateMode ==> 6
+ProjectionType ==> 1
+Reorder ==> 0
+ViewType ==> 7
+FOVNear ==> 25.100000
+FOVFar ==> 30.299999
+FOVLeft ==> 25.100000
+FOVRight ==> 45.500000
+FOVTop ==> 25.100000
+FOVBottom ==> 10.200000
+YViewDef
+
+
+========IG==========
+#Test No. 118
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 118
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 118
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnViewDef
+ViewID ==> 15
+GroupID ==> 15
+FOVNearEn ==> 0
+FOVFarEn ==> 0
+FOVLeftEn ==> 0
+FOVRightEn ==> 0
+FOVTopEn ==> 0
+FOVBottomEn ==> 0
+MirrorMode ==> 2
+PixelReplicateMode ==> 7
+ProjectionType ==> 1
+Reorder ==> 0
+ViewType ==> 7
+FOVNear ==> 25.100000
+FOVFar ==> 30.299999
+FOVLeft ==> 25.100000
+FOVRight ==> 45.500000
+FOVTop ==> 25.100000
+FOVBottom ==> 10.200000
+YViewDef
+
+
+========IG==========
+#Test No. 119
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 119
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 119
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnCollDetSegDef
+EntityID ==> 15
+SegmentID ==> 240
+SegmentEn ==> 1
+X1 ==> 25.100000
+Y1 ==> 10.200000
+Z1 ==> 25.100000
+X2 ==> 50.299999
+Y2 ==> 25.100000
+Z2 ==> 40.200001
+Mask ==> 3840
+YCollDetSegDef
+
+
+========IG==========
+#Test No. 120
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 120
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 120
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnCollDetSegDef
+EntityID ==> 240
+SegmentID ==> 15
+SegmentEn ==> 0
+X1 ==> 40.200001
+Y1 ==> 25.100000
+Z1 ==> 10.200000
+X2 ==> 25.100000
+Y2 ==> 50.299999
+Z2 ==> 25.100000
+Mask ==> 240
+YCollDetSegDef
+
+
+========IG==========
+#Test No. 121
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 121
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 121
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnCollDetSegDef
+EntityID ==> 3840
+SegmentID ==> 15
+SegmentEn ==> 1
+X1 ==> 25.100000
+Y1 ==> 10.200000
+Z1 ==> 25.100000
+X2 ==> 50.299999
+Y2 ==> 25.100000
+Z2 ==> 40.200001
+Mask ==> 15
+YCollDetSegDef
+
+
+========IG==========
+#Test No. 122
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 122
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 122
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnCollDetVolDef
+EntityID ==> 15
+VolID ==> 240
+VolEn ==> 1
+VolType ==> 0
+Xoff ==> 25.100000
+Yoff ==> 13.300000
+Zoff ==> 25.100000
+HeightOrRadius ==> 3000.300049
+Width ==> 25.100000
+Depth ==> 2000.300049
+Roll ==> 25.100000
+Pitch ==> 36.299999
+Yaw ==> 25.100000
+YCollDetVolDef
+
+
+========IG==========
+#Test No. 123
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 123
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 123
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnCollDetVolDef
+EntityID ==> 240
+VolID ==> 15
+VolEn ==> 0
+VolType ==> 1
+Xoff ==> 36.299999
+Yoff ==> 25.100000
+Zoff ==> 13.300000
+HeightOrRadius ==> 25.100000
+Width ==> 3000.300049
+Depth ==> 25.100000
+Roll ==> 25.100000
+Pitch ==> 25.100000
+Yaw ==> 36.299999
+YCollDetVolDef
+
+
+========IG==========
+#Test No. 124
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 124
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 124
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnCollDetVolDef
+EntityID ==> 3840
+VolID ==> 15
+VolEn ==> 1
+VolType ==> 1
+Xoff ==> 25.100000
+Yoff ==> 13.300000
+Zoff ==> 25.100000
+HeightOrRadius ==> 3000.300049
+Width ==> 25.100000
+Depth ==> 2000.300049
+Roll ==> 25.100000
+Pitch ==> 36.299999
+Yaw ==> 25.100000
+YCollDetVolDef
+
+
+========IG==========
+#Test No. 125
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 125
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 125
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnHatHotReq
+HatHotID ==> 3840
+ReqType ==> 0
+SrcCoordSys ==> 0
+EntityID ==> 15
+Xoff ==> 35.900000
+Yoff ==> -91.300000
+Zoff ==> 15.300000
+YHatHotReq
+
+
+========IG==========
+#Test No. 126
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 126
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 126
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnHatHotReq
+HatHotID ==> 15
+ReqType ==> 1
+SrcCoordSys ==> 1
+EntityID ==> 240
+Xoff ==> -91.300000
+Yoff ==> 15.300000
+Zoff ==> 35.900000
+YHatHotReq
+
+
+========IG==========
+#Test No. 127
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 127
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 127
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnHatHotReq
+HatHotID ==> 240
+ReqType ==> 2
+SrcCoordSys ==> 1
+EntityID ==> 3840
+Xoff ==> 15.300000
+Yoff ==> 35.900000
+Zoff ==> -91.300000
+YHatHotReq
+
+
+========IG==========
+#Test No. 128
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 128
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 128
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnLosSegReq
+LosID ==> 15
+ReqType ==> 0
+SrcCoordSys ==> 0
+DstCoordSys ==> 0
+ResponseCoordSys ==> 0
+AlphaThresh ==> 15
+EntityID ==> 240
+SrcXoff ==> 35.900000
+SrcYoff ==> -91.300000
+SrcZoff ==> 11.300000
+DstXoff ==> 35.900000
+DstYoff ==> -91.300000
+DstZoff ==> 11.300000
+Mask ==> 3840
+YLosSegReq
+
+
+========IG==========
+#Test No. 129
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 129
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 129
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnLosSegReq
+LosID ==> 240
+ReqType ==> 1
+SrcCoordSys ==> 1
+DstCoordSys ==> 1
+ResponseCoordSys ==> 1
+AlphaThresh ==> 240
+EntityID ==> 3840
+SrcXoff ==> 11.300000
+SrcYoff ==> 35.900000
+SrcZoff ==> -91.300000
+DstXoff ==> 11.300000
+DstYoff ==> 35.900000
+DstZoff ==> -91.300000
+Mask ==> 240
+YLosSegReq
+
+
+========IG==========
+#Test No. 130
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 130
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 130
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnLosSegReq
+LosID ==> 3840
+ReqType ==> 0
+SrcCoordSys ==> 1
+DstCoordSys ==> 0
+ResponseCoordSys ==> 1
+AlphaThresh ==> 15
+EntityID ==> 15
+SrcXoff ==> -91.300000
+SrcYoff ==> 11.300000
+SrcZoff ==> 35.900000
+DstXoff ==> -91.300000
+DstYoff ==> 11.300000
+DstZoff ==> 35.900000
+Mask ==> 15
+YLosSegReq
+
+
+========IG==========
+#Test No. 131
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 131
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 131
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnLosSegReq
+LosID ==> 15
+ReqType ==> 1
+SrcCoordSys ==> 0
+DstCoordSys ==> 1
+ResponseCoordSys ==> 0
+AlphaThresh ==> 15
+EntityID ==> 15
+SrcXoff ==> 35.900000
+SrcYoff ==> -91.300000
+SrcZoff ==> 11.300000
+DstXoff ==> 35.900000
+DstYoff ==> -91.300000
+DstZoff ==> 11.300000
+Mask ==> 15
+YLosSegReq
+
+
+========IG==========
+#Test No. 132
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 132
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 132
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnLosSegReq
+LosID ==> 15
+ReqType ==> 0
+SrcCoordSys ==> 0
+DstCoordSys ==> 1
+ResponseCoordSys ==> 1
+AlphaThresh ==> 15
+EntityID ==> 15
+SrcXoff ==> 35.900000
+SrcYoff ==> -91.300000
+SrcZoff ==> 11.300000
+DstXoff ==> 35.900000
+DstYoff ==> -91.300000
+DstZoff ==> 11.300000
+Mask ==> 15
+YLosSegReq
+
+
+========IG==========
+#Test No. 133
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 133
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 133
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnLosSegReq
+LosID ==> 15
+ReqType ==> 1
+SrcCoordSys ==> 1
+DstCoordSys ==> 0
+ResponseCoordSys ==> 0
+AlphaThresh ==> 15
+EntityID ==> 15
+SrcXoff ==> 35.900000
+SrcYoff ==> -91.300000
+SrcZoff ==> 11.300000
+DstXoff ==> 35.900000
+DstYoff ==> -91.300000
+DstZoff ==> 11.300000
+Mask ==> 15
+YLosSegReq
+
+
+========IG==========
+#Test No. 134
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 134
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 134
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnLosVectReq
+LosID ==> 15
+ReqType ==> 0
+SrcCoordSys ==> 0
+ResponseCoordSys ==> 0
+AlphaThresh ==> 240
+EntityID ==> 3840
+VectAz ==> 25.100000
+VectEl ==> 11.300000
+MinRange ==> 25.100000
+MaxRange ==> 11.300000
+SrcXoff ==> 35.900000
+SrcYoff ==> -91.300000
+SrcZoff ==> 15.500000
+Mask ==> 240
+YLosVectReq
+
+
+========IG==========
+#Test No. 135
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 135
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 135
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnLosVectReq
+LosID ==> 240
+ReqType ==> 1
+SrcCoordSys ==> 1
+ResponseCoordSys ==> 1
+AlphaThresh ==> 15
+EntityID ==> 240
+VectAz ==> 11.300000
+VectEl ==> 25.100000
+MinRange ==> 11.300000
+MaxRange ==> 25.100000
+SrcXoff ==> -91.300000
+SrcYoff ==> 15.500000
+SrcZoff ==> 35.900000
+Mask ==> 3840
+YLosVectReq
+
+
+========IG==========
+#Test No. 136
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 136
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 136
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnLosVectReq
+LosID ==> 3840
+ReqType ==> 1
+SrcCoordSys ==> 0
+ResponseCoordSys ==> 0
+AlphaThresh ==> 15
+EntityID ==> 15
+VectAz ==> 25.100000
+VectEl ==> 25.100000
+MinRange ==> 11.300000
+MaxRange ==> 11.300000
+SrcXoff ==> 15.500000
+SrcYoff ==> 35.900000
+SrcZoff ==> -91.300000
+Mask ==> 15
+YLosVectReq
+
+
+========IG==========
+#Test No. 137
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 137
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 137
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnLosVectReq
+LosID ==> 15
+ReqType ==> 0
+SrcCoordSys ==> 1
+ResponseCoordSys ==> 0
+AlphaThresh ==> 15
+EntityID ==> 15
+VectAz ==> 11.300000
+VectEl ==> 11.300000
+MinRange ==> 25.100000
+MaxRange ==> 25.100000
+SrcXoff ==> 35.900000
+SrcYoff ==> 35.900000
+SrcZoff ==> 35.900000
+Mask ==> 15
+YLosVectReq
+
+
+========IG==========
+#Test No. 138
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 138
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 138
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnLosVectReq
+LosID ==> 15
+ReqType ==> 1
+SrcCoordSys ==> 1
+ResponseCoordSys ==> 0
+AlphaThresh ==> 15
+EntityID ==> 15
+VectAz ==> 25.100000
+VectEl ==> 25.100000
+MinRange ==> 25.100000
+MaxRange ==> 25.100000
+SrcXoff ==> 35.900000
+SrcYoff ==> 35.900000
+SrcZoff ==> 35.900000
+Mask ==> 15
+YLosVectReq
+
+
+========IG==========
+#Test No. 139
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 139
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 139
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnLosVectReq
+LosID ==> 15
+ReqType ==> 0
+SrcCoordSys ==> 0
+ResponseCoordSys ==> 1
+AlphaThresh ==> 15
+EntityID ==> 15
+VectAz ==> 25.100000
+VectEl ==> 25.100000
+MinRange ==> 25.100000
+MaxRange ==> 25.100000
+SrcXoff ==> 35.900000
+SrcYoff ==> 35.900000
+SrcZoff ==> 35.900000
+Mask ==> 15
+YLosVectReq
+
+
+========IG==========
+#Test No. 140
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 140
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 140
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnLosVectReq
+LosID ==> 15
+ReqType ==> 1
+SrcCoordSys ==> 0
+ResponseCoordSys ==> 1
+AlphaThresh ==> 15
+EntityID ==> 15
+VectAz ==> 25.100000
+VectEl ==> 25.100000
+MinRange ==> 25.100000
+MaxRange ==> 25.100000
+SrcXoff ==> 35.900000
+SrcYoff ==> 35.900000
+SrcZoff ==> 35.900000
+Mask ==> 15
+YLosVectReq
+
+
+========IG==========
+#Test No. 141
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 141
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 141
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnLosVectReq
+LosID ==> 15
+ReqType ==> 0
+SrcCoordSys ==> 1
+ResponseCoordSys ==> 1
+AlphaThresh ==> 15
+EntityID ==> 15
+VectAz ==> 25.100000
+VectEl ==> 25.100000
+MinRange ==> 25.100000
+MaxRange ==> 25.100000
+SrcXoff ==> 35.900000
+SrcYoff ==> 35.900000
+SrcZoff ==> 35.900000
+Mask ==> 15
+YLosVectReq
+
+
+========IG==========
+#Test No. 142
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 142
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 142
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnPostionReq
+ObjectID ==> 15
+ArtPartID ==> 240
+UpdateMode ==> 0
+ObjectClass ==> 0
+CoordSys ==> 0
+YPositionReq
+
+
+========IG==========
+#Test No. 143
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 143
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 143
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnPostionReq
+ObjectID ==> 240
+ArtPartID ==> 15
+UpdateMode ==> 1
+ObjectClass ==> 1
+CoordSys ==> 1
+YPositionReq
+
+
+========IG==========
+#Test No. 144
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 144
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 144
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnPostionReq
+ObjectID ==> 3840
+ArtPartID ==> 15
+UpdateMode ==> 1
+ObjectClass ==> 2
+CoordSys ==> 2
+YPositionReq
+
+
+========IG==========
+#Test No. 145
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 145
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 145
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnPostionReq
+ObjectID ==> 15
+ArtPartID ==> 15
+UpdateMode ==> 1
+ObjectClass ==> 3
+CoordSys ==> 2
+YPositionReq
+
+
+========IG==========
+#Test No. 146
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 146
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 146
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnPostionReq
+ObjectID ==> 15
+ArtPartID ==> 15
+UpdateMode ==> 1
+ObjectClass ==> 4
+CoordSys ==> 2
+YPositionReq
+
+
+========IG==========
+#Test No. 147
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 147
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 147
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnEnvCondReq
+ReqType ==> 15
+Lat ==> 35.900000
+Lon ==> -91.300000
+Alt ==> 11.500000
+YEnvCondReq
+
+
+========IG==========
+#Test No. 148
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 148
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 148
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnEnvCondReq
+ReqType ==> 14
+Lat ==> 21.100000
+Lon ==> -91.300000
+Alt ==> 35.900000
+YEnvCondReq
+
+
+========IG==========
+#Test No. 149
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 149
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 149
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnEnvCondReq
+ReqType ==> 13
+Lat ==> 35.900000
+Lon ==> -91.300000
+Alt ==> 35.900000
+YEnvCondReq
+
+
+========IG==========
+#Test No. 150
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 150
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 150
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnEnvCondReq
+ReqType ==> 12
+Lat ==> 35.900000
+Lon ==> -91.300000
+Alt ==> 35.900000
+YEnvCondReq
+
+
+========IG==========
+#Test No. 151
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 151
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 151
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnEnvCondReq
+ReqType ==> 11
+Lat ==> 35.900000
+Lon ==> -91.300000
+Alt ==> 35.900000
+YEnvCondReq
+
+
+========IG==========
+#Test No. 152
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 152
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 152
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnEnvCondReq
+ReqType ==> 10
+Lat ==> 35.900000
+Lon ==> -91.300000
+Alt ==> 35.900000
+YEnvCondReq
+
+
+========IG==========
+#Test No. 153
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 153
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 153
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnEnvCondReq
+ReqType ==> 9
+Lat ==> 35.900000
+Lon ==> -91.300000
+Alt ==> 35.900000
+YEnvCondReq
+
+
+========IG==========
+#Test No. 154
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 154
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 154
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnEnvCondReq
+ReqType ==> 8
+Lat ==> 35.900000
+Lon ==> -91.300000
+Alt ==> 35.900000
+YEnvCondReq
+
+
+========IG==========
+#Test No. 155
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 155
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 155
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnEnvCondReq
+ReqType ==> 7
+Lat ==> 35.900000
+Lon ==> -91.300000
+Alt ==> 35.900000
+YEnvCondReq
+
+
+========IG==========
+#Test No. 156
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 156
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 156
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnEnvCondReq
+ReqType ==> 6
+Lat ==> 35.900000
+Lon ==> -91.300000
+Alt ==> 35.900000
+YEnvCondReq
+
+
+========IG==========
+#Test No. 157
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 157
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 157
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnEnvCondReq
+ReqType ==> 5
+Lat ==> 35.900000
+Lon ==> -91.300000
+Alt ==> 35.900000
+YEnvCondReq
+
+
+========IG==========
+#Test No. 158
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 158
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 158
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnEnvCondReq
+ReqType ==> 4
+Lat ==> 35.900000
+Lon ==> -91.300000
+Alt ==> 35.900000
+YEnvCondReq
+
+
+========IG==========
+#Test No. 159
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 159
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 159
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnEnvCondReq
+ReqType ==> 3
+Lat ==> 35.900000
+Lon ==> -91.300000
+Alt ==> 35.900000
+YEnvCondReq
+
+
+========IG==========
+#Test No. 160
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 160
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 160
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnEnvCondReq
+ReqType ==> 2
+Lat ==> 35.900000
+Lon ==> -91.300000
+Alt ==> 35.900000
+YEnvCondReq
+
+
+========IG==========
+#Test No. 161
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 161
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 161
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnEnvCondReq
+ReqType ==> 1
+Lat ==> 35.900000
+Lon ==> -91.300000
+Alt ==> 35.900000
+YEnvCondReq
+
+
+========IG==========
+#Test No. 162
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 162
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 162
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnEnvCondReq
+ReqType ==> 0
+Lat ==> 35.900000
+Lon ==> -91.300000
+Alt ==> 35.900000
+YEnvCondReq
+
+
+========IG==========
+#Test No. 163
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 163
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 163
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnEnvCondReq
+ReqType ==> 0
+Lat ==> 35.900000
+Lon ==> -91.300000
+Alt ==> 35.900000
+YEnvCondReq
+
+
+========IG==========
+#Test No. 164
+XSOF
+DatabaseID ==> 1
+IGStatus ==> 0
+IGMode ==> 1
+TimestampValid ==> 0
+EarthRefModel ==> 0
+FrameCntr ==> 164
+TimeStampV3 ==> 0
+YSOF
+XIGMsg
+MsgID ==> 3840
+Msg ==> Fighter Aircraft
+YIGMsg
+
+
+=======HOST=========
+#Test No. 164
+OnIGCtrl
+Version ==> 3
+DatabaseID ==> 1
+IGMode ==> 1
+TimestampValid ==> 0
+FrameCntr ==> 0
+TimeStampV3 ==> 0
+YIGCtrl
+OnEnvCondReq
+ReqType ==> 0
+Lat ==> 35.900000
+Lon ==> -91.300000
+Alt ==> 35.900000
+YEnvCondReq
