@@ -50,6 +50,13 @@
  *  10/06/2005 Greg Basler                       Version 1.5.6
  *  Fixed the ProcessIncomingMsg and GetFirstPacket methods to correctly 
  *  handle frame counter synchronization.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the ProcessIncomingMsg method to use CIGI minor version numbers.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the GetFirstPacket and GetNextPacket methods to use CIGI minor 
+ *  version numbers.
  * </pre>
  *  Author: The Boeing Company
  *  Version: 1.6.0
@@ -147,6 +154,7 @@ int CigiIncomingMsg::ProcessIncomingMsg(unsigned char *Buff, int Size)
    unsigned char PacketSize;
    CigiBasePacket *Packet;
    unsigned char Version;
+   unsigned char MinorVer;
    int tMVer;
    CigiBaseSOF *SOF;
    CigiBaseIGCtrl *IGCtrl;
@@ -167,44 +175,18 @@ int CigiIncomingMsg::ProcessIncomingMsg(unsigned char *Buff, int Size)
 
       PacketID = *Buff;
       PacketSize = *(Buff+1);
-      Version = *(Buff+2);
 
-
-      // If there is an unrecognized version ...
-      // Set the version to 3 and do the best
-      //   compatibility conversion possible.
-      tMVer = (int)Version;
-#ifndef CIGI_NO_EXCEPT
-      try
-      {
-         VJmp->SetCigiVersion(tMVer);
-      }
-      catch(CigiValueOutOfRangeException)
-      {
-         VJmp->SetCigiVersion(3);
-         tMVer = 0;
-      }
-#else
-      if(VJmp->SetCigiVersion(tMVer) != CIGI_SUCCESS)
-      {
-         VJmp->SetCigiVersion(3);
-         tMVer = 0;
-      }
-#endif
-
-
-      ValidPacket = false;
       if(VJmp->GetJmpTbltype() == CigiVersionJumpTable::Host)
       {
          if(PacketID == 101) // CIGI_START_OF_FRAME_OPCODE)
          {
-            SOF = (CigiBaseSOF *)VJmp->GetPcktHndlr(101);
-            SOF->Unpack(CrntPacket,false,NULL);
-            Swap = SOF->GetSwap();
-            Packet = (CigiBasePacket *)SOF;
-            ValidPacket = true;
-            if(VJmp->IsSynchronous())
-               VJmp->SetFrameCnt(SOF->GetFrameCntr());
+            Version = (int)(*(Buff+2));
+
+            if(Version < 3)
+               MinorVer = 0;
+            else
+               MinorVer = (int)((*(Buff+5) >> 4) & 0x0f);
+
          }
          else
          {
@@ -220,11 +202,13 @@ int CigiIncomingMsg::ProcessIncomingMsg(unsigned char *Buff, int Size)
       {
          if(PacketID == 1) // CIGI_IG_CONTROL_OPCODE)
          {
-            IGCtrl = (CigiBaseIGCtrl *)VJmp->GetPcktHndlr(1);
-            IGCtrl->Unpack(CrntPacket,false,NULL);
-            Swap = IGCtrl->GetSwap();
-            Packet = (CigiBasePacket *)IGCtrl;
-            ValidPacket = true;
+            Version = (int)(*(Buff+2));
+
+            if(Version < 3)
+               MinorVer = 0;
+            else
+               MinorVer = (int)((*(Buff+4) >> 4) & 0x0f);
+
          }
          else
          {
@@ -235,6 +219,61 @@ int CigiIncomingMsg::ProcessIncomingMsg(unsigned char *Buff, int Size)
             return(CIGI_ERROR_MISSING_IG_CONTROL_PACKET);
 
          }
+      }
+
+
+      // If there is an unrecognized version ...
+      // Set the version to 3 and do the best
+      //   compatibility conversion possible.
+      tMVer = ((Version << 8) & 0x0000ff00) | 
+               (MinorVer & 0x000000ff);
+
+      if((Version != VJmp->GetCigiVersion()) ||
+         (MinorVer != VJmp->GetCigiMinorVersion()))
+      {
+
+#ifndef CIGI_NO_EXCEPT
+         try
+         {
+            VJmp->SetCigiVersion(Version,MinorVer);
+         }
+         catch(CigiValueOutOfRangeException)
+         {
+            VJmp->SetCigiVersion(3,2);
+            tMVer = 0;
+         }
+#else
+         if(VJmp->SetCigiVersion(Version,MinorVer) != CIGI_SUCCESS)
+         {
+            VJmp->SetCigiVersion(3,2);
+            tMVer = 0;
+         }
+#endif
+      }
+
+
+      ValidPacket = false;
+      if(PacketID == 101)
+      {
+         SOF = (CigiBaseSOF *)VJmp->GetPcktHndlr(101);
+         SOF->Unpack(CrntPacket,false,NULL);
+         Swap = SOF->GetSwap();
+         Packet = (CigiBasePacket *)SOF;
+         ValidPacket = true;
+         VJmp->SetReceivedFrameID(SOF->GetFrameCntr());
+         if((VJmp->IsSynchronous()) &&
+            ((VJmp->GetCigiVersion() < 3) ||
+            ((VJmp->GetCigiVersion() == 3) && (VJmp->GetCigiMinorVersion() < 2))))
+            VJmp->SetFrameCnt(SOF->GetFrameCntr());
+      }
+      else
+      {
+         IGCtrl = (CigiBaseIGCtrl *)VJmp->GetPcktHndlr(1);
+         IGCtrl->Unpack(CrntPacket,false,NULL);
+         Swap = IGCtrl->GetSwap();
+         Packet = (CigiBasePacket *)IGCtrl;
+         ValidPacket = true;
+         VJmp->SetReceivedFrameID(IGCtrl->GetFrameCntr());
       }
 
       ReadBufferPos = (int)PacketSize;
@@ -445,24 +484,34 @@ int CigiIncomingMsg::ProcessIncomingMsg(unsigned char *Buff, int Size)
          else
          {
 
+            // Break The Most Mature Cigi Version into Cigi Version
+            //  and Cigi Minor Version
+            Version = (MostMatureCigiVersionReceived >> 8) & 0x000000ff;
+            MinorVer = MostMatureCigiVersionReceived & 0x000000ff;
+
             // Set version to the most mature Cigi version received
 #ifndef CIGI_NO_EXCEPT
             try
             {
-               VJmp->SetCigiVersion(MostMatureCigiVersionReceived);
+               VJmp->SetCigiVersion(Version,MinorVer);
             }
             catch(CigiValueOutOfRangeException)
             {
                // Reset version back to tMVer
+
+               // Convert tMVer to Version & Minor Version
+               Version = (tMVer >> 8) & 0x000000ff;
+               MinorVer = tMVer & 0x000000ff;
+
                try
                {
-                  VJmp->SetCigiVersion(tMVer);
+                  VJmp->SetCigiVersion(Version,MinorVer);
                   MostMatureCigiVersionReceived = tMVer;
                }
                catch(CigiValueOutOfRangeException)
                {
-                  // Default to Version 3
-                  VJmp->SetCigiVersion(3);
+                  // Default to Version 3.2
+                  VJmp->SetCigiVersion(3,2);
                   MostMatureCigiVersionReceived = 0;
                }
             }
@@ -470,10 +519,15 @@ int CigiIncomingMsg::ProcessIncomingMsg(unsigned char *Buff, int Size)
             if(VJmp->SetCigiVersion(MostMatureCigiVersionReceived) != CIGI_SUCCESS)
             {
                // Reset version back to tMVer
-               if(VJmp->SetCigiVersion(tMVer) != CIGI_SUCCESS)
+
+               // Convert tMVer to Version & Minor Version
+               Version = (tMVer >> 8) & 0x000000ff;
+               MinorVer = tMVer & 0x000000ff;
+
+               if(VJmp->SetCigiVersion(Version,MinorVer) != CIGI_SUCCESS)
                {
-                  // Default to Version 3
-                  VJmp->SetCigiVersion(3);
+                  // Default to Version 3.2
+                  VJmp->SetCigiVersion(3,2);
                   MostMatureCigiVersionReceived = 0;
                }
                else
@@ -755,7 +809,8 @@ CigiBasePacket * CigiIncomingMsg::GetFirstPacket()
    unsigned char PacketID;
    unsigned char PacketSize;
    CigiBasePacket *Packet;
-   unsigned char Version;
+   int Version;
+   int MinorVer;
    int tMVer;
    CigiBaseSOF *SOF;
    CigiBaseIGCtrl *IGCtrl;
@@ -768,44 +823,60 @@ CigiBasePacket * CigiIncomingMsg::GetFirstPacket()
 
    PacketID = *CrntPacket;
    PacketSize = *(CrntPacket+1);
-   Version = *(CrntPacket+2);
+   Version = (int)(*(CrntPacket+2));
+
+   if(Version < 3)
+      MinorVer = 0;
+   else
+      MinorVer = (int)((*(CrntPacket+4) >> 4) & 0x0f);
+
+
 
    // If there is an unrecognized version ...
    // Set the version to 3 and do the best
    //   compatibility conversion possible.
-   tMVer = (int)Version;
+   tMVer = ((Version << 8) & 0x0000ff00) | 
+      (MinorVer & 0x000000ff);
+
+   if((Version != VJmp->GetCigiVersion()) ||
+      (MinorVer != VJmp->GetCigiMinorVersion()))
+   {
+
 #ifndef CIGI_NO_EXCEPT
-   try
-   {
-      VJmp->SetCigiVersion(tMVer);
-      IterationVersion = tMVer;
-   }
-   catch(CigiValueOutOfRangeException)
-   {
-      VJmp->SetCigiVersion(3);
-      tMVer = 0;
-      IterationVersion = 3;
-   }
+      try
+      {
+         VJmp->SetCigiVersion(Version,MinorVer);
+         IterationVersion = tMVer;
+      }
+      catch(CigiValueOutOfRangeException)
+      {
+         VJmp->SetCigiVersion(3,2);
+         tMVer = 0;
+         IterationVersion = ((3 << 8) & 0x0000ff00) | 2;
+      }
 #else
-   IterationVersion = tMVer;
-   if(VJmp->SetCigiVersion(tMVer) != CIGI_SUCCESS)
-   {
-      VJmp->SetCigiVersion(3);
-      tMVer = 0;
-      IterationVersion = 3;
-   }
+      if(VJmp->SetCigiVersion(Version,MinorVer) != CIGI_SUCCESS)
+      {
+         VJmp->SetCigiVersion(3,2);
+         tMVer = 0;
+         IterationVersion = ((3 << 8) & 0x0000ff00) | 2;
+      }
 #endif
+   }
 
 
    if(VJmp->GetJmpTbltype() == CigiVersionJumpTable::Host)
    {
-      if(PacketID == 101)//CIGI_START_OF_FRAME_OPCODE)
+      if(PacketID == 101) // CIGI_START_OF_FRAME_OPCODE)
       {
          SOF = (CigiBaseSOF *)VJmp->GetPcktHndlr(101);
          SOF->Unpack(CrntPacket,false,NULL);
          Swap = SOF->GetSwap();
          Packet = (CigiBasePacket *)SOF;
-         if(VJmp->IsSynchronous())
+         VJmp->SetReceivedFrameID(SOF->GetFrameCntr());
+         if((VJmp->IsSynchronous()) &&
+            ((VJmp->GetCigiVersion() < 3) ||
+            ((VJmp->GetCigiVersion() == 3) && (VJmp->GetCigiMinorVersion() < 2))))
             VJmp->SetFrameCnt(SOF->GetFrameCntr());
       }
       else
@@ -820,7 +891,7 @@ CigiBasePacket * CigiIncomingMsg::GetFirstPacket()
    }
    else
    {
-      if(PacketID == 1)//CIGI_IG_CONTROL_OPCODE)
+      if(PacketID == 1) // CIGI_IG_CONTROL_OPCODE)
       {
          IGCtrl = (CigiBaseIGCtrl *)VJmp->GetPcktHndlr(1);
          IGCtrl->Unpack(CrntPacket,false,NULL);
@@ -838,8 +909,10 @@ CigiBasePacket * CigiIncomingMsg::GetFirstPacket()
       }
    }
 
+
    ReadBufferPos = (int)PacketSize;
    CrntPacket += (int)PacketSize;
+
 
    // Determine the most mature Cigi version received
    if(MostMatureCigiVersionReceived != tMVer)
@@ -853,24 +926,34 @@ CigiBasePacket * CigiIncomingMsg::GetFirstPacket()
       else
       {
 
+         // Break The Most Mature Cigi Version into Cigi Version
+         //  and Cigi Minor Version
+         Version = (MostMatureCigiVersionReceived >> 8) & 0x000000ff;
+         MinorVer = MostMatureCigiVersionReceived & 0x000000ff;
+
          // Set version to the most mature Cigi version received
 #ifndef CIGI_NO_EXCEPT
          try
          {
-            VJmp->SetCigiVersion(MostMatureCigiVersionReceived);
+            VJmp->SetCigiVersion(Version,MinorVer);
          }
          catch(CigiValueOutOfRangeException)
          {
             // Reset version back to tMVer
+
+            // Convert tMVer to Version & Minor Version
+            Version = (tMVer >> 8) & 0x000000ff;
+            MinorVer = tMVer & 0x000000ff;
+
             try
             {
-               VJmp->SetCigiVersion(tMVer);
+               VJmp->SetCigiVersion(Version,MinorVer);
                MostMatureCigiVersionReceived = tMVer;
             }
             catch(CigiValueOutOfRangeException)
             {
-               // Default to Version 3
-               VJmp->SetCigiVersion(3);
+               // Default to Version 3.2
+               VJmp->SetCigiVersion(3,2);
                MostMatureCigiVersionReceived = 0;
             }
          }
@@ -878,10 +961,15 @@ CigiBasePacket * CigiIncomingMsg::GetFirstPacket()
          if(VJmp->SetCigiVersion(MostMatureCigiVersionReceived) != CIGI_SUCCESS)
          {
             // Reset version back to tMVer
-            if(VJmp->SetCigiVersion(tMVer) != CIGI_SUCCESS)
+
+            // Convert tMVer to Version & Minor Version
+            Version = (tMVer >> 8) & 0x000000ff;
+            MinorVer = tMVer & 0x000000ff;
+
+            if(VJmp->SetCigiVersion(Version,MinorVer) != CIGI_SUCCESS)
             {
-               // Default to Version 3
-               VJmp->SetCigiVersion(3);
+               // Default to Version 3.2
+               VJmp->SetCigiVersion(3,2);
                MostMatureCigiVersionReceived = 0;
             }
             else
@@ -896,7 +984,6 @@ CigiBasePacket * CigiIncomingMsg::GetFirstPacket()
    }
 
 
-
    return(Packet);
 
 }
@@ -909,24 +996,30 @@ CigiBasePacket * CigiIncomingMsg::GetNextPacket()
    unsigned char PacketID;
    unsigned char PacketSize;
    CigiBasePacket *Packet;
+   int Version;
+   int MinorVer;
+   int tMVer = ((VJmp->GetCigiVersion() << 8) & 0x0000ff00) |
+                (VJmp->GetCigiMinorVersion() & 0x000000ff);
 
-   if(IterationVersion != VJmp->GetCigiVersion())
+   if(IterationVersion != tMVer)
    {
+      Version = (IterationVersion >> 8) & 0x000000ff;
+      MinorVer = IterationVersion & 0x000000ff;
 #ifndef CIGI_NO_EXCEPT
       try
       {
-         VJmp->SetCigiVersion(IterationVersion);
+         VJmp->SetCigiVersion(Version,MinorVer);
       }
       catch(CigiValueOutOfRangeException)
       {
-         VJmp->SetCigiVersion(3);
-         IterationVersion = 3;
+         VJmp->SetCigiVersion(3,2);
+         IterationVersion = ((3 << 8) & 0x0000ff00) | 2;
       }
 #else
       if(VJmp->SetCigiVersion(IterationVersion) != CIGI_SUCCESS)
       {
-         VJmp->SetCigiVersion(3);
-         IterationVersion = 3;
+         VJmp->SetCigiVersion(3,2);
+         IterationVersion = ((3 << 8) & 0x0000ff00) | 2;
       }
 #endif
    }
@@ -951,18 +1044,24 @@ CigiBasePacket * CigiIncomingMsg::GetNextPacket()
    // Determine the most mature Cigi version received
    if(MostMatureCigiVersionReceived != IterationVersion)
    {
+
+      // Break The Most Mature Cigi Version into Cigi Version
+      //  and Cigi Minor Version
+      Version = (MostMatureCigiVersionReceived >> 8) & 0x000000ff;
+      MinorVer = MostMatureCigiVersionReceived & 0x000000ff;
+
 #ifndef CIGI_NO_EXCEPT
       try
       {
-         VJmp->SetCigiVersion(MostMatureCigiVersionReceived);
+         VJmp->SetCigiVersion(Version,MinorVer);
       }
       catch(CigiValueOutOfRangeException)
       {
-         VJmp->SetCigiVersion(3);
+         VJmp->SetCigiVersion(3,2);
       }
 #else
-      if(VJmp->SetCigiVersion(MostMatureCigiVersionReceived) != CIGI_SUCCESS)
-         VJmp->SetCigiVersion(3);
+      if(VJmp->SetCigiVersion(Version,MinorVer) != CIGI_SUCCESS)
+         VJmp->SetCigiVersion(3,2);
 
 #endif
    }

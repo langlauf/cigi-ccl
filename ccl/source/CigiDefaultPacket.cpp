@@ -33,6 +33,10 @@
  *  
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Defined _EXPORT_CCL_ for exporting the class in a Windows DLL.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the class constructur to initialize the MinorVersion member 
+ *  variable.
  * </pre>
  *  Author: The Boeing Company
  *  Version: 1.6.0
@@ -56,6 +60,7 @@ CigiDefaultPacket::CigiDefaultPacket()
    PacketID = 0;
    PacketSize = 0;
    Version = 3;
+   MinorVersion = 0;
 
 }
 

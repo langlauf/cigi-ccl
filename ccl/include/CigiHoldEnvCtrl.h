@@ -34,6 +34,9 @@
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Added the CIGI_SPEC modifier to the class declaration for exporting the 
  *  class in a Windows DLL.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Initialized the MinorVersion member variable in the constructor.
  * </pre>
  *  Author: The Boeing Company
  *  Version: 1.6.0
@@ -70,6 +73,7 @@ public:
       PacketID = CIGI_HOLD_ENV_CTRL_PACKET_ID_V3;
       PacketSize = CIGI_HOLD_ENV_CTRL_PACKET_SIZE_V3;
       Version = 3;
+      MinorVersion = 0;
 
       Hour = 0;
       Minute = 0;

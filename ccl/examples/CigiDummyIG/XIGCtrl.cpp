@@ -23,7 +23,7 @@ XIGCtrl::~XIGCtrl()
 
 void XIGCtrl::OnPacketReceived(CigiBasePacket *Packet)
 {
-   CigiIGCtrlV3 *InPckt = (CigiIGCtrlV3 *)Packet;
+   CigiIGCtrlV3_2 *InPckt = (CigiIGCtrlV3_2 *)Packet;
 
    bool ok = true;
 
@@ -33,8 +33,10 @@ void XIGCtrl::OnPacketReceived(CigiBasePacket *Packet)
    printf("DatabaseID ==> %d\n",InPckt->GetDatabaseID());
    printf("IGMode ==> %d\n",InPckt->GetIGMode());
    printf("TimestampValid ==> %d\n",InPckt->GetTimeStampValid());
+   printf("MinorVersion ==> %d\n",InPckt->GetMinorVersion());
    printf("FrameCntr ==> %d\n",InPckt->GetFrameCntr());
    printf("TimeStampV3 ==> %d\n",InPckt->GetTimeStamp());
+   printf("IGFrameCntr ==> %d\n",InPckt->GetLastRcvdIGFrame());
 
 
 }

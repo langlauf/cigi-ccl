@@ -85,8 +85,11 @@ pkginclude_HEADERS = \
 	CigiException.h\
 	CigiExceptions.h\
 	CigiHatHotReqV3.h\
+	CigiHatHotReqV3_2.h\
 	CigiHatHotRespV3.h\
+	CigiHatHotRespV3_2.h\
 	CigiHatHotXRespV3.h\
+	CigiHatHotXRespV3_2.h\
 	CigiHatReqV1.h\
 	CigiHatReqV2.h\
 	CigiHatRespV1.h\
@@ -98,6 +101,7 @@ pkginclude_HEADERS = \
 	CigiIGCtrlV1.h\
 	CigiIGCtrlV2.h\
 	CigiIGCtrlV3.h\
+	CigiIGCtrlV3_2.h\
 	CigiIGMsgV2.h\
 	CigiIGMsgV3.h\
 	CigiIGSession.h\
@@ -106,13 +110,17 @@ pkginclude_HEADERS = \
 	CigiLosRespV1.h\
 	CigiLosRespV2.h\
 	CigiLosRespV3.h\
+	CigiLosRespV3_2.h\
 	CigiLosSegReqV1.h\
 	CigiLosSegReqV2.h\
 	CigiLosSegReqV3.h\
+	CigiLosSegReqV3_2.h\
 	CigiLosVectReqV1.h\
 	CigiLosVectReqV2.h\
 	CigiLosVectReqV3.h\
+	CigiLosVectReqV3_2.h\
 	CigiLosXRespV3.h\
+	CigiLosXRespV3_2.h\
 	CigiMaritimeSurfaceCtrlV3.h\
 	CigiMaritimeSurfaceRespV3.h\
 	CigiMessage.h\
@@ -123,9 +131,11 @@ pkginclude_HEADERS = \
 	CigiRateCtrlV1.h\
 	CigiRateCtrlV2.h\
 	CigiRateCtrlV3.h\
+	CigiRateCtrlV3_2.h\
 	CigiSOFV1.h\
 	CigiSOFV2.h\
 	CigiSOFV3.h\
+	CigiSOFV3_2.h\
 	CigiSensorCtrlV1.h\
 	CigiSensorCtrlV2.h\
 	CigiSensorCtrlV3.h\

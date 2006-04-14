@@ -52,8 +52,8 @@
 // From CCL
 #include <CigiIGSession.h>
 #include <CigiExceptions.h>
-#include <CigiIGCtrlV3.h>
-#include <CigiSOFV3.h>
+#include <CigiIGCtrlV3_2.h>
+#include <CigiSOFV3_2.h>
 
 // Handling routines
 #include "DefaultProc.h"
@@ -128,10 +128,11 @@ Network network;
 
 // CIGI specific 
 static CigiIGSession *IGSn;
+static CigiVersionJumpTable *pVJmp;
 static CigiOutgoingMsg *OmsgPtr;
 static CigiIncomingMsg *ImsgPtr;
 static DefaultProc DefaultPckt;
-static CigiSOFV3 CSOF;
+static CigiSOFV3_2 CSOF;
 
 static XIGCtrl Pr_IGCtrl;
 static XEntityCtrl Pr_EntityCtrl;
@@ -186,7 +187,7 @@ static float timeDelayLimit;
 static int Hz;
 
 
-
+static CigiSOFV3_2 check_SOF;
 
 // ================================================
 // Pre-declaration of Local routines
@@ -217,28 +218,13 @@ int main(int argc, char* argv[])
 
 
 
-   // First SOF:
    Omsg.BeginMsg();
-
-
-   // load the SOF
-   Omsg << CSOF;
-
-   // Transfer Cigi msg
-   Omsg.UpdateFrameCntr();
-   Omsg.LockMsg();
-   pCigiOutBuf = (unsigned char *)Omsg.GetMsg(CigiOutSz);
-   Omsg.UnlockMsg();
-
-   // send CIGI message
-   int sentBytes = network.send(pCigiOutBuf,CigiOutSz);
-
 
 
    while(1)
    {
       cout << "================================\n";
-      cout << "Frame: " << hex << CSOF.GetFrameCntr() << endl;
+      cout << "Frame: " << pVJmp->GetFrameCnt() << endl;
       cout << "vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv\n";
 
       /* process incoming CIGI message - this could be long */
@@ -254,28 +240,38 @@ int main(int argc, char* argv[])
       cout << "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n\n";
 
 
-      Omsg.BeginMsg();
-
-
-      // update the frame counter
-//      CSOF.SetFrameCntr(CSOF.GetFrameCntr() + 1);
-
       // load the IG Control
       Omsg << CSOF;
 
-      // Transfer Cigi msg
-      Omsg.UpdateFrameCntr();
-      Omsg.LockMsg();
-      pCigiOutBuf = (unsigned char *)Omsg.GetMsg(CigiOutSz);
-      Omsg.UnlockMsg();
 
 
       // wait until start of frame time
       waitUntilBeginningOfFrame();
 
 
+      // Do packaging here to 
+      // Package msg
+      try {
+         Omsg.PackageMsg(&pCigiOutBuf,CigiOutSz);
+      } catch( CigiException &theException ){
+         std::cout << "getNetMessages - Exception: " << theException.what() << std::endl;
+      }
+
+
+      // Update Frame IDs
+      Omsg.UpdateSOF(pCigiOutBuf);
+
+
       // send SOF message
       int sentBytes = network.send(pCigiOutBuf,CigiOutSz);
+
+
+      // Check frame counter
+		check_SOF.Unpack(pCigiOutBuf,false,NULL);
+		cout << check_SOF.GetFrameCntr() << endl;
+
+
+      Omsg.FreeMsg();   // Frees the buffer containing the message that was just sent
 
 
       // wait for Host message
@@ -299,8 +295,8 @@ int main(int argc, char* argv[])
       }
 
    }
-   
-   
+
+
    // shut down the network
    network.closeSocket();
    
@@ -340,7 +336,7 @@ void ReadConfig(void)
    Port_H2IG = 8000;
    Port_IG2H = 8001;
    HostAddr = "127.0.0.1";
-   
+  
    
    if(stat)
    {
@@ -409,23 +405,26 @@ int init_cigi_if(void){
    
    IGSn = new CigiIGSession(1,32768,2,32768);
    // Add packet event handlers here!
-   
+ 
+   CigiVersionJumpTable &VJmp = IGSn->GetVersionJumpTableMgr();
+	pVJmp = &VJmp;
+ 
    CigiOutgoingMsg &Omsg = IGSn->GetOutgoingMsgMgr();
    CigiIncomingMsg &Imsg = IGSn->GetIncomingMsgMgr();
    OmsgPtr = &Omsg;
    ImsgPtr = &Imsg;
    
-   IGSn->SetCigiVersion(3);
+   IGSn->SetCigiVersion(3,2);
    IGSn->SetSynchronous(true);
    
-   Imsg.SetReaderCigiVersion(3);
+   Imsg.SetReaderCigiVersion(3,2);
    Imsg.UsingIteration(false);
    
    // set up a default handler for unhandled packets
    Imsg.RegisterEventProcessor(0, (CigiBaseEventProcessor *) &DefaultPckt);
 
    // Register all the Event processors
-   Imsg.RegisterEventProcessor(CIGI_IG_CTRL_PACKET_ID_V3,
+   Imsg.RegisterEventProcessor(CIGI_IG_CTRL_PACKET_ID_V3_2,
                               (CigiBaseEventProcessor *) &Pr_IGCtrl);
    Imsg.RegisterEventProcessor(CIGI_ENTITY_CTRL_PACKET_ID_V3,
                               (CigiBaseEventProcessor *) &Pr_EntityCtrl);
@@ -439,7 +438,7 @@ int init_cigi_if(void){
                               (CigiBaseEventProcessor *) &Pr_ArtPartCtrl);
    Imsg.RegisterEventProcessor(CIGI_SHORT_ART_PART_CTRL_PACKET_ID_V3,
                               (CigiBaseEventProcessor *) &Pr_ShortArtPartCtrl);
-   Imsg.RegisterEventProcessor(CIGI_RATE_CTRL_PACKET_ID_V3,
+   Imsg.RegisterEventProcessor(CIGI_RATE_CTRL_PACKET_ID_V3_2,
                               (CigiBaseEventProcessor *) &Pr_RateCtrl);
    Imsg.RegisterEventProcessor(CIGI_CELESTIAL_CTRL_PACKET_ID_V3,
                               (CigiBaseEventProcessor *) &Pr_CelestialCtrl);
@@ -471,11 +470,11 @@ int init_cigi_if(void){
                               (CigiBaseEventProcessor *) &Pr_CollDetSegDef);
    Imsg.RegisterEventProcessor(CIGI_COLL_DET_VOL_DEF_PACKET_ID_V3,
                               (CigiBaseEventProcessor *) &Pr_CollDetVolDef);
-   Imsg.RegisterEventProcessor(CIGI_HAT_HOT_REQ_PACKET_ID_V3,
+   Imsg.RegisterEventProcessor(CIGI_HAT_HOT_REQ_PACKET_ID_V3_2,
                               (CigiBaseEventProcessor *) &Pr_HatHotReq);
-   Imsg.RegisterEventProcessor(CIGI_LOS_SEG_REQ_PACKET_ID_V3,
+   Imsg.RegisterEventProcessor(CIGI_LOS_SEG_REQ_PACKET_ID_V3_2,
                               (CigiBaseEventProcessor *) &Pr_LosSegReq);
-   Imsg.RegisterEventProcessor(CIGI_LOS_VECT_REQ_PACKET_ID_V3,
+   Imsg.RegisterEventProcessor(CIGI_LOS_VECT_REQ_PACKET_ID_V3_2,
                               (CigiBaseEventProcessor *) &Pr_LosVectReq);
    Imsg.RegisterEventProcessor(CIGI_POSITION_REQ_PACKET_ID_V3,
                               (CigiBaseEventProcessor *) &Pr_PositionReq);

@@ -37,6 +37,17 @@
  *  
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Changed native C++ types in function declarations to CCL-defined types.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added a forward reference and granted friend access to the 
+ *  CigiRateCtrlV3_2 class.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added the CoordSys member variable to indicate which coordinate system 
+ *  rates are applied to.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added the CoordSysGrp enumeration for the CigiBaseLosSegReq group.
  * </pre>
  *  Author: The Boeing Company
  *  Version: 1.6.0
@@ -51,6 +62,7 @@
 class CigiRateCtrlV1;
 class CigiRateCtrlV2;
 class CigiRateCtrlV3;
+class CigiRateCtrlV3_2;
 
 
 class CIGI_SPEC CigiBaseRateCtrl : public CigiBasePacket
@@ -59,8 +71,21 @@ class CIGI_SPEC CigiBaseRateCtrl : public CigiBasePacket
 friend class CigiRateCtrlV1;
 friend class CigiRateCtrlV2;
 friend class CigiRateCtrlV3;
+friend class CigiRateCtrlV3_2;
 
 public:
+
+
+   //=========================================================
+   //! The enumeration for the CigiBaseLosSegReq Group
+   //!
+   enum CoordSysGrp
+   {
+      World=0,
+      Parent=0,
+      Local=1
+   };
+
 
    //==> Management
 
@@ -287,6 +312,14 @@ protected:
    //! false - Applied to the entity.
    //!
    bool ApplyToArtPart;
+
+   //=========================================================
+   //! ArtPartIDV3<br>
+   //! The Coordinate system in which the rates are applied.<br>
+   //! 0-World/Parent<br>
+   //! 1-Local
+   //!
+   CoordSysGrp CoordSys;
 
    //=========================================================
    //! XRate<br>

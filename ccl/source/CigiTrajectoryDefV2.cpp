@@ -36,6 +36,10 @@
  *  
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Removed the inline defnitions for the PackedPointer union.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the class constructur to initialize the MinorVersion member 
+ *  variable.
  * </pre>
  *  Author: The Boeing Company
  *  Version: 1.6.0
@@ -77,6 +81,7 @@ CigiTrajectoryDefV2::CigiTrajectoryDefV2()
    PacketID = CIGI_TRAJECTORY_DEF_PACKET_ID_V2;
    PacketSize = CIGI_TRAJECTORY_DEF_PACKET_SIZE_V2;
    Version = 2;
+   MinorVersion = 0;
 
    EntityID = 0;
    Accel = 0.0;

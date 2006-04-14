@@ -40,6 +40,12 @@
  *  
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Implemented the SetDatabaseID function as inline.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Removed the SetFrameCntr function, to be implemented in child classes.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added the LastRcvdIGFrame member variable to track the last frame received.
  * </pre>
  *  Author: The Boeing Company
  *  Version: 1.6.0
@@ -53,6 +59,7 @@
 class CigiIGCtrlV1;
 class CigiIGCtrlV2;
 class CigiIGCtrlV3;
+class CigiIGCtrlV3_2;
 
 
 //=========================================================
@@ -64,6 +71,7 @@ class CIGI_SPEC CigiBaseIGCtrl : public CigiBasePacket
 friend class CigiIGCtrlV1;
 friend class CigiIGCtrlV2;
 friend class CigiIGCtrlV3;
+friend class CigiIGCtrlV3_2;
 
 public:
 
@@ -168,30 +176,6 @@ public:
 	int SetDatabaseID(const char DataBaseIDIn, bool bndchk=true);
 
 
-   //+> Frame Counter
-
-   //=========================================================
-   //! Gets the Frame Counter value
-   //! \return Current frame this data represents
-   //!
-   Cigi_uint32 GetFrameCntr(void) const { return(FrameCntr); }
-
-   //=========================================================
-   //! Sets the Frame Counter with bound checking control
-   //! \param FrameCntrIn - Specifies the frame.
-   //! \param bndchk - Enables (true) or disables (false) bounds checking
-   //!
-   //! \return This returns CIGI_SUCCESS or an error code 
-   //!   defined in CigiErrorCodes.h
-   //!
-   int SetFrameCntr(const Cigi_uint32 FrameCntrIn, bool bndchk=true)
-   {
-      FrameCntr = FrameCntrIn;
-
-      return(CIGI_SUCCESS);
-   }
-
-
    //+> IG Mode
 
    //=========================================================
@@ -215,6 +199,16 @@ public:
    //!   defined in CigiErrorCodes.h
    //!
 	int SetIGMode(IGModeGrp IGModeIn, bool bndchk=true);
+
+
+   //+> Frame Counter
+
+   //=========================================================
+   //! Gets the Frame Counter value
+   //! \return Current frame this data represents
+   //!
+   Cigi_uint32 GetFrameCntr(void) const { return(FrameCntr); }
+
 
 
 
@@ -241,6 +235,12 @@ protected:
    //! Specifies current frame being processed<br>
    //!
    Cigi_uint32 FrameCntr;
+
+   //=========================================================
+   //! Last Received IG Frame<br>
+   //! Specifies IG frame received last<br>
+   //!
+   Cigi_uint32 LastRcvdIGFrame;
 
    //=========================================================
    //! Time Stamp - V1 format<br>

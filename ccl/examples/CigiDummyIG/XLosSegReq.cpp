@@ -23,7 +23,7 @@ XLosSegReq::~XLosSegReq()
 
 void XLosSegReq::OnPacketReceived(CigiBasePacket *Packet)
 {
-   CigiLosSegReqV3 *InPckt = (CigiLosSegReqV3 *)Packet;
+   CigiLosSegReqV3_2 *InPckt = (CigiLosSegReqV3_2 *)Packet;
 
    printf("===> LosSegReq <===\n");
 
@@ -32,6 +32,7 @@ void XLosSegReq::OnPacketReceived(CigiBasePacket *Packet)
    printf("SrcCoordSys ==> %d\n",InPckt->GetSrcCoordSys());
    printf("DstCoordSys ==> %d\n",InPckt->GetDstCoordSys());
    printf("ResponseCoordSys ==> %d\n",InPckt->GetResponseCoordSys());
+   printf("DestinationEntityValid ==> %d\n",InPckt->GetDestEntityIDValid());
    printf("AlphaThresh ==> %d\n",InPckt->GetAlphaThresh());
    printf("EntityID ==> %d\n",InPckt->GetEntityID());
    printf("SrcXoff ==> %f\n",InPckt->GetSrcXoff());
@@ -41,6 +42,8 @@ void XLosSegReq::OnPacketReceived(CigiBasePacket *Packet)
    printf("DstYoff ==> %f\n",InPckt->GetDstYoff());
    printf("DstZoff ==> %f\n",InPckt->GetDstZoff());
    printf("Mask ==> %d\n",InPckt->GetMask());
+   printf("UpdatePeriod ==> %d\n",InPckt->GetUpdatePeriod());
+   printf("DestinationEntityID ==> %d\n",InPckt->GetDestEntityID());
 
 
 }

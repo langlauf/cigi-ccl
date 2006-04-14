@@ -31,6 +31,7 @@ void XSensorCtrl::OnPacketReceived(CigiBasePacket *Packet)
 
    printf("ViewID ==> %d\n",InPckt->GetViewID());
    printf("SensorID ==> %d\n",InPckt->GetSensorID());
+   printf("TrackMode ==> %d\n",InPckt->GetTrackMode());
    printf("SensorOn ==> %d\n",InPckt->GetSensorOn());
    printf("Polarity ==> %d\n",InPckt->GetPolarity());
    printf("LineDropEn ==> %d\n",InPckt->GetLineDropEn());

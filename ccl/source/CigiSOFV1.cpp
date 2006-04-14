@@ -36,6 +36,13 @@
  *  
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Removed the inline defnitions for the PackedPointer union.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the class constructur to initialize the MinorVersion and 
+ *  LastRcvdHostFrame member variables.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the Unpack method to set the LastRcvdHostFrame member variable.
  * </pre>
  *  Author: The Boeing Company
  *  Version: 1.6.0
@@ -73,6 +80,7 @@ CigiSOFV1::CigiSOFV1()
    PacketID = CIGI_SOF_PACKET_ID_V1;
    PacketSize = CIGI_SOF_PACKET_SIZE_V1;
    Version = 1;
+   MinorVersion = 0;
 
    BSwapEn = false;
    DatabaseID = 0;
@@ -83,6 +91,7 @@ CigiSOFV1::CigiSOFV1()
    IGMode = Standby;
    TimestampValid = false;
    EarthRefModel = WGS84;
+   LastRcvdHostFrame = 0;
 
 }
 
@@ -154,6 +163,8 @@ int CigiSOFV1::Unpack(unsigned char * Buff, bool Swap, void *Spec)
    CDta.s++;
 
    CIGI_SCOPY4(&FrameCntr,CDta.l++);
+
+   LastRcvdHostFrame = FrameCntr;
 
    // Timestamp & timestamp valid are not handled in this version.
 

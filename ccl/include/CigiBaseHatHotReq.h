@@ -34,6 +34,14 @@
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Added the CIGI_SPEC modifier to the class declaration for exporting the 
  *  class in a Windows DLL.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added a forward reference and granted friend access to the 
+ *  CigiHatHotReqV3_2 class.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added the UpdatePeriod variable to set the number of frames between each 
+ *  hat/hot update from the IG.
  * </pre>
  *  Author: The Boeing Company
  *  Version: 1.6.0
@@ -49,6 +57,7 @@ class CigiHatReqV1;
 class CigiHatReqV2;
 class CigiHotReqV2;
 class CigiHatHotReqV3;
+class CigiHatHotReqV3_2;
 
 
 class CIGI_SPEC CigiBaseHatHotReq : public CigiBasePacket
@@ -58,6 +67,7 @@ friend class CigiHatReqV1;
 friend class CigiHatReqV2;
 friend class CigiHotReqV2;
 friend class CigiHatHotReqV3;
+friend class CigiHatHotReqV3_2;
 
 public:
 
@@ -210,6 +220,13 @@ protected:
    //!
    //!
    CoordSysGrp SrcCoordSys;
+
+   //=========================================================
+   //! UpdatePeriod<br>
+   //! The number of frames between each hat/hot update from
+   //!  the IG.  If 0 - single shot
+   //!
+   unsigned char UpdatePeriod;
 
    //=========================================================
    //! EntityID<br>

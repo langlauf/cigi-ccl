@@ -6,7 +6,7 @@
 #define _PROC_XRateCtrl_INCLUDED_
 
 #include "CigiBaseEventProcessor.h"
-#include "CigiRateCtrlV3.h"
+#include "CigiRateCtrlV3_2.h"
 
 class XRateCtrl : public CigiBaseEventProcessor
 {
@@ -16,10 +16,10 @@ public:
 
    virtual void OnPacketReceived(CigiBasePacket *Packet);
 
-   void SetOrigPckt(CigiRateCtrlV3 *TPcktIn) { TPckt = TPcktIn; }
+   void SetOrigPckt(CigiRateCtrlV3_2 *TPcktIn) { TPckt = TPcktIn; }
 
 protected:
-   CigiRateCtrlV3 *TPckt;
+   CigiRateCtrlV3_2 *TPckt;
 
 };
 

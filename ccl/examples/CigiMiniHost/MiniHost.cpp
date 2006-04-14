@@ -53,8 +53,8 @@
 #include <CigiHostSession.h>
 #include <CigiExceptions.h>
 #include <CigiEntityCtrlV3.h>
-#include <CigiIGCtrlV3.h>
-#include <CigiSOFV3.h>
+#include <CigiIGCtrlV3_2.h>
+#include <CigiSOFV3_2.h>
 #include <CigiAnimationStopV3.h>
 
 // Handling routines
@@ -105,7 +105,7 @@ static SOFP *pSOFP;
 static AnimStop *pAnimStop;
 static DefaultProc DefaultPckt;
 static CigiEntityCtrlV3 COwn;
-static CigiIGCtrlV3 CIGC;
+static CigiIGCtrlV3_2 CIGC;
 
 // CIGI network message buffers and information
 int recvLen;
@@ -168,8 +168,11 @@ int main(int argc, char* argv[])
    COwn.SetYaw(0.0);
    COwn.SetPitch(0.0);
    COwn.SetRoll(0.0);
-   
-   
+
+
+   Omsg.BeginMsg();
+
+
    while(1)
    {
       
@@ -182,10 +185,8 @@ int main(int argc, char* argv[])
             std::cout << "getNetMessages - Exception: " << theException.what() << std::endl;
          }
       }
-      
-      Omsg.BeginMsg();
-      
-      
+
+
       // load the IG Control
       Omsg << CIGC;
       
@@ -193,16 +194,20 @@ int main(int argc, char* argv[])
       double olat = COwn.GetLat();
       COwn.SetLat(olat + 0.0000137);
       
+
       Omsg << COwn;
-      
-      
-      // Transfer Cigi msg
-      Omsg.UpdateFrameCntr();
-      Omsg.LockMsg();
-      pCigiOutBuf = (unsigned char *)Omsg.GetMsg(CigiOutSz);
-      Omsg.UnlockMsg();
-      
-      
+
+
+
+      // Do packaging here to 
+      // Package msg
+      try {
+         Omsg.PackageMsg(&pCigiOutBuf,CigiOutSz);
+      } catch( CigiException &theException ){
+         std::cout << "getNetMessages - Exception: " << theException.what() << std::endl;
+      }
+
+
       // wait for Start Of Frame
       long HoldTime;
       bool RcvrProc = false;
@@ -222,12 +227,22 @@ int main(int argc, char* argv[])
             }
          }
       }
-      
-      
-      
-      // send CIGI message
-      int sentBytes = network.send(pCigiOutBuf,CigiOutSz);
-      
+
+
+      if(pCigiOutBuf != NULL)
+      {
+         if(CigiInSz > 0)
+            Omsg.UpdateIGCtrl(pCigiOutBuf,CInBuf);
+         else
+            Omsg.UpdateIGCtrl(pCigiOutBuf,NULL);
+
+
+         // send CIGI message
+         int sentBytes = network.send(pCigiOutBuf,CigiOutSz);
+      }
+
+      Omsg.FreeMsg();   // Frees the buffer containing the message that was just sent
+
    }
    
    
@@ -371,10 +386,10 @@ int init_cigi_if(void){
    OmsgPtr = &Omsg;
    ImsgPtr = &Imsg;
    
-   HostSn->SetCigiVersion(3);
+   HostSn->SetCigiVersion(3,2);
    HostSn->SetSynchronous(true);
    
-   Imsg.SetReaderCigiVersion(3);
+   Imsg.SetReaderCigiVersion(3,2);
    Imsg.UsingIteration(false);
    
    // set up a default handler for unhandled packets
@@ -382,7 +397,7 @@ int init_cigi_if(void){
    
    // register SOF
    Imsg.RegisterEventProcessor(
-      CIGI_SOF_PACKET_ID_V3,
+      CIGI_SOF_PACKET_ID_V3_2,
       (CigiBaseEventProcessor *) pSOFP);
    
    //Register animation stop

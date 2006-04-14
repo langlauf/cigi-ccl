@@ -39,6 +39,14 @@
  *  
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Changed native C++ types to use CCL-defined types instead where appropriate.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the class constructur to initialize the MinorVersion, 
+ *  DestEntityIDValid, UpdatePeriod, and DestEntityID member variables.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the Unpack method to set the DestEntityIDValid, UpdatePeriod, and 
+ *  DestEntityID member variables.
  * </pre>
  *  Author: The Boeing Company
  *  Version: 1.6.0
@@ -65,6 +73,7 @@ CigiLosSegReqV3::CigiLosSegReqV3()
    PacketID = CIGI_LOS_SEG_REQ_PACKET_ID_V3;
    PacketSize = CIGI_LOS_SEG_REQ_PACKET_SIZE_V3;
    Version = 3;
+   MinorVersion = 0;
 
    LosID = 0;
    ReqType = Basic;
@@ -80,6 +89,9 @@ CigiLosSegReqV3::CigiLosSegReqV3()
    DstYLon = 0.0;
    DstZAlt = 0.0;
    Mask = 0;
+   DestEntityIDValid = false;
+   UpdatePeriod = 0;
+   DestEntityID = 0;
    ValidV1or2 = true;
 
 }
@@ -189,6 +201,10 @@ int CigiLosSegReqV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
    ValidV1or2 = ((SrcCoordSys == Geodetic)&&
                  (DstCoordSys == Geodetic));
 
+
+   DestEntityIDValid = false;
+   UpdatePeriod = 0;
+   DestEntityID = 0;
 
    return(PacketSize);
 

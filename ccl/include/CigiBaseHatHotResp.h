@@ -34,6 +34,13 @@
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Added the CIGI_SPEC modifier to the class declaration for exporting the 
  *  class in a Windows DLL.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added forward references and granted friend access to the 
+ *  CigiHatHotRespV3_2 and CigiHatHotXRespV3_2 classes.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added a HostFrame member variable to track when the hat/hot was calculated.
  * </pre>
  *  Author: The Boeing Company
  *  Version: 1.6.0
@@ -50,6 +57,8 @@ class CigiHatRespV2;
 class CigiHotRespV2;
 class CigiHatHotRespV3;
 class CigiHatHotXRespV3;
+class CigiHatHotRespV3_2;
+class CigiHatHotXRespV3_2;
 
 
 class CIGI_SPEC CigiBaseHatHotResp : public CigiBasePacket
@@ -60,6 +69,8 @@ friend class CigiHatRespV2;
 friend class CigiHotRespV2;
 friend class CigiHatHotRespV3;
 friend class CigiHatHotXRespV3;
+friend class CigiHatHotRespV3_2;
+friend class CigiHatHotXRespV3_2;
 
 public:
 
@@ -177,6 +188,13 @@ protected:
    //! Data is valid.
    //!
    bool Valid;
+
+   //=========================================================
+   //! HostFrame<br>
+   //! The least significant nibble of the Host frame number
+   //!  when the hat/hot was calculated.
+   //!
+   unsigned char HostFrame;
 
    //=========================================================
    //! ReqType<br>

@@ -36,6 +36,13 @@
  *  
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Removed the inline defnitions for the PackedPointer union.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the class constructur to initialize the MinorVersion and 
+ *  CoordSys member variables.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the Unpack method to set the CoordSys member variable.
  * </pre>
  *  Author: The Boeing Company
  *  Version: 1.6.0
@@ -77,11 +84,13 @@ CigiRateCtrlV2::CigiRateCtrlV2()
    PacketID = CIGI_RATE_CTRL_PACKET_ID_V2;
    PacketSize = CIGI_RATE_CTRL_PACKET_SIZE_V2;
    Version = 2;
+   MinorVersion = 0;
 
    EntityID = 0;
    ArtPartIDV1 = 0;
    ArtPartIDV3 = 0;
    ApplyToArtPart = false;
+   CoordSys = Local;
    XRate = 0.0;
    YRate = 0.0;
    ZRate = 0.0;
@@ -193,6 +202,8 @@ int CigiRateCtrlV2::Unpack(unsigned char * Buff, bool Swap, void *Spec)
       
 
    }
+
+   CoordSys = Local;
 
    return(PacketSize);
 

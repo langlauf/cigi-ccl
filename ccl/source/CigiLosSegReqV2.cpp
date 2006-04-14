@@ -36,6 +36,14 @@
  *  
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Removed the inline defnitions for the PackedPointer union.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the class constructur to initialize the MinorVersion, 
+ *  DestEntityIDValid, UpdatePeriod, and DestEntityID member variables.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the Unpack method to set the DestEntityIDValid, UpdatePeriod, and 
+ *  DestEntityID member variables.
  * </pre>
  *  Author: The Boeing Company
  *  Version: 1.6.0
@@ -77,6 +85,7 @@ CigiLosSegReqV2::CigiLosSegReqV2()
    PacketID = CIGI_LOS_SEG_REQ_PACKET_ID_V2;
    PacketSize = CIGI_LOS_SEG_REQ_PACKET_SIZE_V2;
    Version = 2;
+   MinorVersion = 0;
 
    LosID = 0;
    ReqType = Basic;
@@ -92,6 +101,9 @@ CigiLosSegReqV2::CigiLosSegReqV2()
    DstYLon = 0.0;
    DstZAlt = 0.0;
    Mask = 0;
+   DestEntityIDValid = false;
+   UpdatePeriod = 0;
+   DestEntityID = 0;
    ValidV1or2 = true;
 
 }
@@ -171,6 +183,11 @@ int CigiLosSegReqV2::Unpack(unsigned char * Buff, bool Swap, void *Spec)
    CIGI_SCOPY8(&DstZAlt, CDta.d++);
    CIGI_SCOPY8(&DstXLat, CDta.d++);
    CIGI_SCOPY8(&DstYLon, CDta.d++);
+
+
+   DestEntityIDValid = false;
+   UpdatePeriod = 0;
+   DestEntityID = 0;
 
    ValidV1or2 = true;
 

@@ -39,6 +39,13 @@
  *  
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Changed native C++ types to use CCL-defined types instead where appropriate.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the class constructur to initialize the MinorVersion and 
+ *  LastRcvdHostFrame member variables.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the Unpack method to set the LastRcvdHostFrame member variable.
  * </pre>
  *  Author: The Boeing Company
  *  Version: 1.6.0
@@ -64,6 +71,7 @@ CigiSOFV3::CigiSOFV3()
    PacketID = CIGI_SOF_PACKET_ID_V3;
    PacketSize = CIGI_SOF_PACKET_SIZE_V3;
    Version = 3;
+   MinorVersion = 0;
 
    BSwapEn = false;
    DatabaseID = 0;
@@ -74,6 +82,7 @@ CigiSOFV3::CigiSOFV3()
    IGMode = Standby;
    TimestampValid = false;
    EarthRefModel = WGS84;
+   LastRcvdHostFrame = 0;
 
 }
 
@@ -166,6 +175,7 @@ int CigiSOFV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
 
    TimeStampV2 = ((float)TimeStampV3) * 10.0f;
 
+   LastRcvdHostFrame = FrameCntr;
 
    return(CIGI_SUCCESS);
 

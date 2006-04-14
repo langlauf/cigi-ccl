@@ -39,6 +39,13 @@
  *  
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Changed native C++ types to use CCL-defined types instead where appropriate.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the class constructur to initialize the MinorVersion and 
+ *  UpdatePeriod member variables.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the Unpack method to set the UpdatePeriod member variable.
  * </pre>
  *  Author: The Boeing Company
  *  Version: 1.6.0
@@ -65,6 +72,7 @@ CigiLosVectReqV3::CigiLosVectReqV3()
    PacketID = CIGI_LOS_VECT_REQ_PACKET_ID_V3;
    PacketSize = CIGI_LOS_VECT_REQ_PACKET_SIZE_V3;
    Version = 3;
+   MinorVersion = 0;
 
    LosID = 0;
    ReqType = Basic;
@@ -80,6 +88,7 @@ CigiLosVectReqV3::CigiLosVectReqV3()
    SrcYLon = 0.0;
    SrcZAlt = 0.0;
    Mask = 0;
+   UpdatePeriod = 0;
    ValidV1or2 = true;
 
 }
@@ -188,6 +197,8 @@ int CigiLosVectReqV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
       CigiSwap8(&SrcZAlt, CDta.d++);
       CigiSwap4(&Mask, CDta.l++);
    }
+
+   UpdatePeriod = 0;
 
    ValidV1or2 = (SrcCoordSys == Geodetic);
 

@@ -36,6 +36,10 @@
  *  
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Removed the inline defnitions for the PackedPointer union.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the class constructur to initialize the MinorVersion member 
+ *  variable.
  * </pre>
  *  Author: The Boeing Company
  *  Version: 1.6.0
@@ -62,6 +66,7 @@ CigiCollDetSegRespV3::CigiCollDetSegRespV3()
    PacketID = CIGI_COLL_DET_SEG_RESP_PACKET_ID_V3;
    PacketSize = CIGI_COLL_DET_SEG_RESP_PACKET_SIZE_V3;
    Version = 3;
+   MinorVersion = 0;
 
    EntityID = 0;
    SegID = 0;

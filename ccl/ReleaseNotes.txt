@@ -2,6 +2,15 @@
 Release Notes:
 
  -------------------------------------------------------------------------------
+  Release: CCL Version 1.7.0
+  Date: April 14, 2006
+ -------------------------------------------------------------------------------
+
+The CCL is a C++ language library for implementing CIGI in both host and IG 
+applications. Version 1.7.0 adds support for CIGI version 3.2.
+
+
+ -------------------------------------------------------------------------------
   Release: CCL Version 1.6.0
   Date: March 02, 2006
  -------------------------------------------------------------------------------

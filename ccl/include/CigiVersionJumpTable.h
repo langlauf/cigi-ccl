@@ -34,6 +34,65 @@
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Added the CIGI_SPEC modifier to the class declaration for exporting the 
  *  class in a Windows DLL.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added the CIGI_RELEASED_MINOR_VERSION preprocessor definition.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added a forward class declaration for the CigiOutgoingMsg class.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added the OutgoingMsg member variable to store a pointer to the outgoing 
+ *  message.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added the CigiMinorVersion member variable.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added the ReaderCigiMinorVersion member variable to indicate the CIGI minor 
+ *  version used by the reader and processing routines.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added the SetOutgoingMsg accessor method.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added the GetCigiMinorVersion accessor method.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added the GetCigiTotalVersion method to get the CIGI version of the 
+ *  external interface.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added an overloaded SetCigiVersion method to accept a CigiMinorVersionIn 
+ *  parameter.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the existing SetCigiVersion method to use the new implementation
+ *  with a default minor version number of 0.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added an overloaded SetReaderCigiVersion method to accept a 
+ *  CigiMinorVersionIn parameter.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the existing SetReaderCigiVersion method to use the new 
+ *  implementation with a default minor version number of 0.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added the GetReaderCigiMinorVersion accessor method.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added the GetReaderCigiTotalVersion method to get the reader's CIGI total 
+ *  version.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added the NextFrame method to get the current frame count.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added the SetReceivedFrameID accessor method.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added the GetReceivedFrameID accessor method.
  * </pre>
  *  Author: The Boeing Company
  *  Version: 1.6.0
@@ -43,10 +102,13 @@
 #define _CIGI_VERSION_AND_JUMP_TABLE_INCLUDED_
 
 #define CIGI_MAX_VERSION 3
+#define CIGI_RELEASED_MINOR_VERSION 2
 
 #include "CigiBasePacket.h"
 #include "CigiDefaultPacket.h"
 
+
+class CigiOutgoingMsg;
 
 
 //=========================================================
@@ -149,6 +211,16 @@ public:
 	virtual ~CigiVersionJumpTable();
 
 
+   //=========================================================
+   //! Setting the pointer to the outgoing message
+   //! \param OutgoingMsgIn - The pointer to the outgoing message
+   //!
+	void SetOutgoingMsg(CigiOutgoingMsg *OutgoingMsgIn)
+   {
+      OutgoingMsg = OutgoingMsgIn;
+   }
+
+
 
    //==> Processing Member functions
 
@@ -156,6 +228,7 @@ public:
 
    //=========================================================
    //! Sets the Cigi Version with bound checking control
+   //!  This is for CIGI versions before 3.2
    //! \param CigiVersionIn - Sets the Cigi Version of
    //!   the external interface
    //! \param bndchk - Enables (true) or disables (false) bounds checking
@@ -163,7 +236,25 @@ public:
    //! \return This returns CIGI_SUCCESS or an error code 
    //!   defined in CigiErrorCodes.h
    //!
-	int SetCigiVersion(const int CigiVersionIn, bool bndchk=true);
+	inline int SetCigiVersion(const int CigiVersionIn, bool bndchk=true)
+   {
+      return(SetCigiVersion(CigiVersionIn,0,bndchk));
+   }
+
+   //=========================================================
+   //! Sets the complete Cigi Version with bound checking control
+   //! \param CigiVersionIn - Sets the Cigi Version of
+   //!   the external interface
+   //! \param CigiMinorVersionIn - Sets the Cigi Minor Version of
+   //!   the external interface
+   //! \param bndchk - Enables (true) or disables (false) bounds checking
+   //!
+   //! \return This returns CIGI_SUCCESS or an error code 
+   //!   defined in CigiErrorCodes.h
+   //!
+	int SetCigiVersion(const int CigiVersionIn,
+                      const int CigiMinorVersionIn,
+                      bool bndchk=true);
 
    //=========================================================
    //! Gets the Cigi Version of the external interface.
@@ -171,10 +262,29 @@ public:
    //!
    int GetCigiVersion(void) const { return(CigiVersion); }
 
+   //=========================================================
+   //! Gets the Cigi Minor Version of the external interface.
+   //! \return the Cigi Minor Version of the external interface.
+   //!
+   int GetCigiMinorVersion(void) const { return(CigiMinorVersion); }
+
+   //=========================================================
+   //! Gets the Cigi Version of the external interface.
+   //! \param CigiVersionRef - A reference to a Cigi Version variable.
+   //! \param CigiMinorVersionRef - A reference to a Cigi Minor
+   //!   version variable.
+   //!
+   void GetCigiTotalVersion(int &CigiVersionRef, int &CigiMinorVersionRef)
+   {
+      CigiVersionRef = CigiVersion;
+      CigiMinorVersionRef = CigiMinorVersion;
+   }
+
    //+> Reader's Cigi Version
 
    //=========================================================
    //! Sets the Reader's Cigi Version with bound checking control
+   //!  This is for CIGI versions before 3.2
    //! \param CigiVersionIn - Sets the Cigi Version of
    //!   the reading and processing routines.
    //! \param bndchk - Enables (true) or disables (false) bounds checking
@@ -182,13 +292,49 @@ public:
    //! \return This returns CIGI_SUCCESS or an error code 
    //!   defined in CigiErrorCodes.h
    //!
-   int SetReaderCigiVersion(const int CigiVersionIn, bool bndchk=true);
+   inline int SetReaderCigiVersion(const int CigiVersionIn, bool bndchk=true)
+   {
+      return(SetReaderCigiVersion(CigiVersionIn,0,bndchk));
+   }
+
+   //=========================================================
+   //! Sets the Reader's Cigi Version with bound checking control
+   //! \param CigiVersionIn - Sets the Cigi Version of
+   //!   the reading and processing routines.
+   //! \param CigiMinorVersionIn - Sets the Cigi Minor Version of
+   //!   the reading and processing routines.
+   //! \param bndchk - Enables (true) or disables (false) bounds checking
+   //!
+   //! \return This returns CIGI_SUCCESS or an error code 
+   //!   defined in CigiErrorCodes.h
+   //!
+   int SetReaderCigiVersion(const int CigiVersionIn,
+                            const int CigiMinorVersionIn,
+                            bool bndchk=true);
 
    //=========================================================
    //! Gets the Reader's Cigi Version.
    //! \return the Cigi Version of the reader and processing routines.
    //!
    int GetReaderCigiVersion(void) const { return(ReaderCigiVersion); }
+
+   //=========================================================
+   //! Gets the Reader's Cigi Minor Version.
+   //! \return the Cigi Minor Version of the reader and processing routines.
+   //!
+   int GetReaderCigiMinorVersion(void) const { return(ReaderCigiMinorVersion); }
+
+   //=========================================================
+   //! Gets the Reader's Cigi Total Version.
+   //! \param CigiVersionRef - A reference to a Reader's Cigi Version variable.
+   //! \param CigiMinorVersionRef - A reference to a Reader's Cigi Minor 
+   //!   version variable.
+   //!
+   void GetReaderCigiTotalVersion(int &CigiVersionRef, int &CigiMinorVersionRef)
+   {
+      CigiVersionRef = ReaderCigiVersion;
+      CigiMinorVersionRef = ReaderCigiMinorVersion;
+   }
 
    //+> Frame Count
 
@@ -203,6 +349,31 @@ public:
    //! \return the current frame count of the session.
    //!
    int GetFrameCnt(void) const { return(FrameCnt); }
+
+   //=========================================================
+   //! Gets the current Frame Count.
+   //! \return the current frame count of the session.
+   //!
+   Cigi_uint32 NextFrame(void)
+   {
+      FrameCnt++;
+      return(FrameCnt);
+   }
+
+   //=========================================================
+   //! Sets the last received Frame ID.
+   //! \param FrameCntIn - Sets the last received frame id.
+   //!
+   void SetReceivedFrameID(const Cigi_uint32 ReceivedFrameIDIn)
+   {
+      ReceivedFrameID = ReceivedFrameIDIn;
+   }
+
+   //=========================================================
+   //! Gets the last received Frame ID.
+   //! \return the last received Frame ID.
+   //!
+   Cigi_uint32 GetReceivedFrameID(void) const { return(ReceivedFrameID); }
 
    //+> Synchronous Operation
 
@@ -371,9 +542,19 @@ protected:
 	int CigiVersion;
 
    //=========================================================
+   //! Cigi Minor Version used by the external interface.
+   //!
+	int CigiMinorVersion;
+
+   //=========================================================
    //! Cigi Version used by the reader and processing routines.
    //!
    int ReaderCigiVersion;
+
+   //=========================================================
+   //! Cigi Minor Version used by the reader and processing routines.
+   //!
+   int ReaderCigiMinorVersion;
 
    //=========================================================
    //! The Jump Table type - Host or IG
@@ -406,6 +587,12 @@ protected:
    //! The third index is the convert from packet id.
    //!
    unsigned char PacketIDMap[4][256];
+
+
+   //=========================================================
+   //! A pointer to the outgoing message object
+   //!
+   CigiOutgoingMsg *OutgoingMsg;
 
    //=========================================================
    //! The Packet valid to send Table
@@ -449,6 +636,11 @@ protected:
    int FrameCnt;
 
    //=========================================================
+   //! The frame ID last received
+   //!
+   Cigi_uint32 ReceivedFrameID;
+
+   //=========================================================
    //! The synchronous operation flag
    //!
    bool Synchronous;
@@ -480,7 +672,7 @@ protected:
    //=========================================================
    //! Set all external interface jump tables for V3 output
    //!
-	void SetJmpTblV3(void);
+	void SetJmpTblV3(const int CigiMinorVersionIn);
 
    //=========================================================
    //! Initialize all Packet ID map tables

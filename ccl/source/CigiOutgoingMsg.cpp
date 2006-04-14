@@ -40,6 +40,26 @@
  *  02/20/2006 Greg Basler                       Version 1.6.0
  *  Added the PackageMsg and FreeMsg methods to better update the frame
  *  the frame counter in the IG_Ctrl packet for hosts
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the class constructor and destructor methods to initialize 
+ *  (allocate) and destroy the CurrentIGCtrl and CurrentSOF member variables.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Updated the overloaded << operators for the CigiBaseIGCtrl parameter to set 
+ *  the CurrentIGCtrl member variable, and for the CigiBaseSOF parameter to set 
+ *  the CurrentSOF member variable.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Updated the UpdateFrameCntr methods to use minor version numbers and to add 
+ *  additional frame synchronization functionality.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the UpdateIGCtrl and UpdateSOF methods to use minor version 
+ *  numbers and to add additional frame synchronization functionality.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Implemented the Reset method.
  * </pre>
  *  Author: The Boeing Company
  *  Version: 1.6.0
@@ -54,6 +74,8 @@
 #include "CigiExceptions.h"
 #include "CigiSwapping.h"
 
+#include "CigiIGCtrlV3.h"
+#include "CigiSOFV3.h"
 
 #ifdef CIGI_LITTLE_ENDIAN
    #define CIGI_SCOPY2 CigiSwap2
@@ -76,6 +98,10 @@
 CigiOutgoingMsg::CigiOutgoingMsg()
 {
    PackagedMsg = -1;
+
+   CurrentIGCtrl = new CigiIGCtrlV3;
+   CurrentSOF = new CigiSOFV3;
+
 }
 
 // ================================================
@@ -83,6 +109,9 @@ CigiOutgoingMsg::CigiOutgoingMsg()
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 CigiOutgoingMsg::~CigiOutgoingMsg()
 {
+
+   delete CurrentIGCtrl;
+   delete CurrentSOF;
 
 }
 
@@ -139,6 +168,8 @@ int CigiOutgoingMsg::BeginMsg()
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 CigiOutgoingMsg & CigiOutgoingMsg::operator <<(CigiBaseIGCtrl &refPacket)
 {
+   *CurrentIGCtrl = refPacket;
+
    unsigned char JTblNdx =
       VJmp->GetCnvtID(refPacket.GetPacketID(),refPacket.GetVersion());
 
@@ -167,6 +198,8 @@ CigiOutgoingMsg & CigiOutgoingMsg::operator <<(CigiBaseIGCtrl &refPacket)
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 CigiOutgoingMsg & CigiOutgoingMsg::operator <<(CigiBaseSOF &refPacket)
 {
+   *CurrentSOF = refPacket;
+
    unsigned char JTblNdx =
       VJmp->GetCnvtID(refPacket.GetPacketID(),refPacket.GetVersion());
 
@@ -650,21 +683,44 @@ int CigiOutgoingMsg::UpdateFrameCntr()
       }
    }
 
+   int MajorVer = VJmp->GetCigiVersion();
+
    Cigi_uint32 *buf = (Cigi_uint32 *)BasePtr[CrntMsgBuf];
 
+   Cigi_uint32 Frame = 0;
+
+   bool FrmCtrl = ((MajorVer > 3) ||
+         ((MajorVer == 3) && (VJmp->GetCigiMinorVersion() > 1)));
+
    if((!VJmp->IsSynchronous())||
-      (VJmp->GetJmpTbltype() == CigiVersionJumpTable::IG))
-      VJmp->SetFrameCnt(VJmp->GetFrameCnt() + 1);
+      (VJmp->GetJmpTbltype() == CigiVersionJumpTable::IG) || FrmCtrl)
+      Frame = VJmp->NextFrame();
+   else
+      Frame = VJmp->GetFrameCnt();
 
 
-   if(VJmp->GetCigiVersion() == 3)
-      buf[VJmp->GetOutFrameBufPos()] = VJmp->GetFrameCnt();
+   Cigi_uint32 *pBufr = &buf[VJmp->GetOutFrameBufPos()];
+
+   if(MajorVer >= 3)
+   {
+      *pBufr = Frame;
+      if(FrmCtrl)
+      {
+         pBufr += 2;
+         *pBufr = VJmp->GetReceivedFrameID();
+      }
+   }
    else
    {
-      Cigi_uint32 *pBufr = &buf[VJmp->GetOutFrameBufPos()];
-      Cigi_uint32  tFrC  = VJmp->GetFrameCnt();
-      CIGI_SCOPY4(pBufr,&tFrC);
+      CIGI_SCOPY4(pBufr,&Frame);
+      if(FrmCtrl)
+      {
+         pBufr += 2;
+         Frame = VJmp->GetReceivedFrameID();
+         CIGI_SCOPY4(pBufr,&Frame);
+      }
    }
+
 
 
    return(CIGI_SUCCESS);
@@ -678,21 +734,45 @@ int CigiOutgoingMsg::UpdateFrameCntr()
 int CigiOutgoingMsg::UpdateFrameCntr(unsigned char *OutgoingMsg)
 {
 
-   VJmp->SetFrameCnt(VJmp->GetFrameCnt() + 1);
-
    Cigi_uint32 Frame = 0;
    Cigi_uint32 *pBufr = NULL;
 
+   if((VJmp == NULL)||(OutgoingMsg == NULL))
+      return(CIGI_ERROR_UNEXPECTED_NULL);
+
+   int MajorVer = VJmp->GetCigiVersion();
+
+   bool FrmCtrl = ((MajorVer > 3) ||
+         ((MajorVer == 3) && (VJmp->GetCigiMinorVersion() > 1)));
+
+   if((!VJmp->IsSynchronous())||
+      (VJmp->GetJmpTbltype() == CigiVersionJumpTable::IG) || FrmCtrl)
+      Frame = VJmp->NextFrame();
+   else
+      Frame = VJmp->GetFrameCnt();
 
    pBufr = ((Cigi_uint32 *)OutgoingMsg) + VJmp->GetOutFrameBufPos();
 
-   if(VJmp->GetCigiVersion() == 3)
-      *pBufr = VJmp->GetFrameCnt();
+   if(MajorVer >= 3)
+   {
+      *pBufr = Frame;
+      if(FrmCtrl)
+      {
+         pBufr += 2;
+         *pBufr = VJmp->GetReceivedFrameID();
+      }
+   }
    else
    {
-      Frame = VJmp->GetFrameCnt();
       CIGI_SCOPY4(pBufr,&Frame);
+      if(FrmCtrl)
+      {
+         pBufr += 2;
+         Frame = VJmp->GetReceivedFrameID();
+         CIGI_SCOPY4(pBufr,&Frame);
+      }
    }
+
 
 
    return(CIGI_SUCCESS);
@@ -707,9 +787,14 @@ int CigiOutgoingMsg::UpdateIGCtrl(unsigned char *OutgoingMsg, unsigned char *Inc
 {
 
    Cigi_uint32 Frame = 0;
+   Cigi_uint32 InFrame = 0;
    Cigi_uint32 *pBufr = NULL;
    char *OBufr = NULL;
    char *IBufr = NULL;
+   int MajorVer = VJmp->GetCigiVersion();
+
+   if((VJmp == NULL)||(OutgoingMsg == NULL))
+      return(CIGI_ERROR_UNEXPECTED_NULL);
 
 
    // Note: For all current CIGI Versions in the
@@ -717,11 +802,21 @@ int CigiOutgoingMsg::UpdateIGCtrl(unsigned char *OutgoingMsg, unsigned char *Inc
    //  The Packet ID is in the same location in the packets.
    //  The version ID is in the same location in the packets.
    //  The database ID is in the same location in the packets.
-   //  The frame counter is in the same location in the packets.
+   //  The outgoing frame counter is in the same location in the packets.
 
-   // For Async operation, simply increment the frame counter
-   if(!VJmp->IsSynchronous())
-      VJmp->SetFrameCnt(VJmp->GetFrameCnt() + 1);
+   bool FrmCtrl = ((MajorVer > 3) ||
+         ((MajorVer == 3) && (VJmp->GetCigiMinorVersion() > 1)));
+
+
+
+   if((!VJmp->IsSynchronous())||(IncomingMsg == NULL))
+   {
+      Frame = VJmp->NextFrame();
+      if(FrmCtrl)
+      {
+         InFrame = VJmp->GetReceivedFrameID();
+      }
+   }
    else
    {
       // For synchronous host operation,
@@ -742,7 +837,12 @@ int CigiOutgoingMsg::UpdateIGCtrl(unsigned char *OutgoingMsg, unsigned char *Inc
          {
             CIGI_SCOPY4(&Frame,pBufr);
          }
-         VJmp->SetFrameCnt(Frame);
+
+         if(FrmCtrl)
+         {
+            InFrame = Frame;
+            Frame = VJmp->NextFrame();
+         }
 
          // check and adjust the Database IDs
          OBufr = (char *)(OutgoingMsg + 3);
@@ -752,19 +852,38 @@ int CigiOutgoingMsg::UpdateIGCtrl(unsigned char *OutgoingMsg, unsigned char *Inc
             if((*OBufr == *IBufr)||(*IBufr < 0))
                *OBufr = 0;
          }
-
+      }
+      else
+      {
+         Frame = VJmp->NextFrame();
+         if(FrmCtrl)
+         {
+            InFrame = VJmp->GetReceivedFrameID();
+         }
       }
    }
 
 
+
    pBufr = ((Cigi_uint32 *)OutgoingMsg) + VJmp->GetOutFrameBufPos();
 
-   if(VJmp->GetCigiVersion() == 3)
-      *pBufr = VJmp->GetFrameCnt();
+   if(VJmp->GetCigiVersion() >= 3)
+   {
+      *pBufr = Frame;
+      if(FrmCtrl)
+      {
+         pBufr += 2;
+         *pBufr = InFrame;
+      }
+   }
    else
    {
-      Frame = VJmp->GetFrameCnt();
       CIGI_SCOPY4(pBufr,&Frame);
+      if(FrmCtrl)
+      {
+         pBufr += 2;
+         CIGI_SCOPY4(pBufr,&InFrame);
+      }
    }
 
 
@@ -776,13 +895,8 @@ int CigiOutgoingMsg::UpdateIGCtrl(unsigned char *OutgoingMsg, unsigned char *Inc
 // ================================================
 // UpdateSOF
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiOutgoingMsg::UpdateSOF(unsigned char *OutgoingMsg, unsigned char *LastIGCtrl)
+int CigiOutgoingMsg::UpdateSOF(unsigned char *OutgoingMsg)
 {
-
-   Cigi_uint32 Frame = 0;
-   Cigi_uint32 *pBufr = NULL;
-
-
    // Note: For all current CIGI Versions in the
    //  IG Control and Start-Of-Frame packets:
    //  The Packet ID is in the same location in the packets.
@@ -792,18 +906,37 @@ int CigiOutgoingMsg::UpdateSOF(unsigned char *OutgoingMsg, unsigned char *LastIG
    // For Async operation or for IG operation,
    //   simply increment the frame counter
 
+   if((VJmp == NULL)||(OutgoingMsg == NULL))
+      return(CIGI_ERROR_UNEXPECTED_NULL);
 
-   VJmp->SetFrameCnt(VJmp->GetFrameCnt() + 1);
+   int MajorVer = VJmp->GetCigiVersion();
+
+   Cigi_uint32 Frame = VJmp->NextFrame();
+
+   bool FrmCtrl = ((MajorVer > 3) ||
+         ((MajorVer == 3) && (VJmp->GetCigiMinorVersion() > 1)));
 
 
-   pBufr = ((Cigi_uint32 *)OutgoingMsg) + VJmp->GetOutFrameBufPos();
+   Cigi_uint32 *pBufr = ((Cigi_uint32 *)OutgoingMsg) + VJmp->GetOutFrameBufPos();
 
-   if(VJmp->GetCigiVersion() == 3)
-      *pBufr = VJmp->GetFrameCnt();
+   if(VJmp->GetCigiVersion() >= 3)
+   {
+      *pBufr = Frame;
+      if(FrmCtrl)
+      {
+         pBufr += 2;
+         *pBufr = VJmp->GetReceivedFrameID();
+      }
+   }
    else
    {
-      Frame = VJmp->GetFrameCnt();
       CIGI_SCOPY4(pBufr,&Frame);
+      if(FrmCtrl)
+      {
+         pBufr += 2;
+         Frame = VJmp->GetReceivedFrameID();
+         CIGI_SCOPY4(pBufr,&Frame);
+      }
    }
 
 
@@ -1042,6 +1175,54 @@ int CigiOutgoingMsg::FreeMsg(void)
    BuffFillCnt[PackagedMsg] = 0;
 
    PackagedMsg = -1;
+
+   return(CIGI_SUCCESS);
+
+}
+
+
+
+// ================================================
+// Reset
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+int CigiOutgoingMsg::Reset(void)
+{
+   int ndx;
+
+   for(ndx=0;ndx<BufferCount;ndx++)
+   {
+      BuffFillCnt[ndx] = 0;
+      Data[ndx] = false;
+   }
+
+   CrntMsgBuf = 0;
+   FillBufferPos = BasePtr[CrntMsgBuf] + VJmp->GetIGCtrlSize();
+   PackagedMsg = -1;
+   ValidIGCtrlSOF = false;
+   Locked = false;
+   CrntMsgBuf = 0;
+   FillBufferPos = BasePtr[CrntMsgBuf];
+
+   if(Active)
+   {
+      if(VJmp->GetJmpTbltype() ==
+            CigiVersionJumpTable::Host)
+      {
+         // adjust the following for IG Control Packet
+         BuffFillCnt[CrntMsgBuf] = VJmp->GetIGCtrlSize();
+         FillBufferPos = BasePtr[CrntMsgBuf] + VJmp->GetIGCtrlSize();
+         *this << *CurrentIGCtrl;
+         ValidIGCtrlSOF = true;
+      }
+      else
+      {
+         // adjust the following for SOF Packet
+         BuffFillCnt[CrntMsgBuf] = VJmp->GetSOFSize();
+         FillBufferPos = BasePtr[CrntMsgBuf] + VJmp->GetSOFSize();
+         *this << *CurrentSOF;
+         ValidIGCtrlSOF = true;
+      }
+   }
 
    return(CIGI_SUCCESS);
 

@@ -39,6 +39,13 @@
  *  
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Changed native C++ types to use CCL-defined types instead where appropriate.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the class constructur to initialize the MinorVersion and 
+ *  CoordSys member variables.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the Unpack method to set the CoordSys member variable.
  * </pre>
  *  Author: The Boeing Company
  *  Version: 1.6.0
@@ -65,11 +72,13 @@ CigiRateCtrlV3::CigiRateCtrlV3()
    PacketID = CIGI_RATE_CTRL_PACKET_ID_V3;
    PacketSize = CIGI_RATE_CTRL_PACKET_SIZE_V3;
    Version = 3;
+   MinorVersion = 0;
 
    EntityID = 0;
    ArtPartIDV1 = 0;
    ArtPartIDV3 = 0;
    ApplyToArtPart = false;
+   CoordSys = Local;
    XRate = 0.0;
    YRate = 0.0;
    ZRate = 0.0;
@@ -191,6 +200,7 @@ int CigiRateCtrlV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
    else
       ArtPartIDV1 = -1;
 
+   CoordSys = Local;
 
    return(PacketSize);
 

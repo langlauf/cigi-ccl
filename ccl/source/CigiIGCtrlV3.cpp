@@ -39,6 +39,13 @@
  *  
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Changed native C++ types to use CCL-defined types instead where appropriate.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the class constructur to initialize the MinorVersion and 
+ *  LastRcvdIGFrame member variables.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the Unpack method to set the LastRcvdIGFrame member variable.
  * </pre>
  *  Author: The Boeing Company
  *  Version: 1.6.0
@@ -63,6 +70,7 @@ CigiIGCtrlV3::CigiIGCtrlV3()
    PacketID = CIGI_IG_CTRL_PACKET_ID_V3;
    PacketSize = CIGI_IG_CTRL_PACKET_SIZE_V3;
    Version = 3;
+   MinorVersion = 0;
 
    BSwapEn = false;
    DatabaseID = 0;
@@ -75,6 +83,7 @@ CigiIGCtrlV3::CigiIGCtrlV3()
    TrackDeviceEn = Disable;
    BoresightTrackDevice = false;
    TimestampValid = false;
+   LastRcvdIGFrame = 0;
 
 }
 
@@ -163,6 +172,7 @@ int CigiIGCtrlV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
    TimeStampV1 = TimeStampV3 / 10;
    TimeStampV2 = (float)TimeStampV1;
 
+   LastRcvdIGFrame = FrameCntr;
 
    return(CIGI_SUCCESS);
 

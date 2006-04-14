@@ -43,6 +43,14 @@
  *  
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Changed native C++ types in function declarations to CCL-defined types.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added a forward reference and granted friend access to the 
+ *  CigiSOFV3_2 class.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added the LastRcvdHostFrame member variable to specify the last host frame 
+ *  received.
  * </pre>
  *  Author: The Boeing Company
  *  Version: 1.6.0
@@ -57,6 +65,7 @@
 class CigiSOFV1;
 class CigiSOFV2;
 class CigiSOFV3;
+class CigiSOFV3_2;
 
 
 //=========================================================
@@ -69,6 +78,7 @@ class CIGI_SPEC CigiBaseSOF : public CigiBasePacket
 friend class CigiSOFV1;
 friend class CigiSOFV2;
 friend class CigiSOFV3;
+friend class CigiSOFV3_2;
 
 public:
 
@@ -294,6 +304,12 @@ protected:
    //! Specifies current frame being processed<br>
    //!
    Cigi_uint32 FrameCntr;
+
+   //=========================================================
+   //! Last Received Host Frame<br>
+   //! Specifies the host frame received last<br>
+   //!
+   Cigi_uint32 LastRcvdHostFrame;
 
    //=========================================================
    //! Time Stamp - V2 format<br>

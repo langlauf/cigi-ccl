@@ -36,6 +36,13 @@
  *  
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Removed the inline defnitions for the PackedPointer union.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the class constructur to initialize the MinorVersion and 
+ *  HostFrame member variables.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the Unpack method to use the HostFrame member variable.
  * </pre>
  *  Author: The Boeing Company
  *  Version: 1.6.0
@@ -77,10 +84,12 @@ CigiHotRespV2::CigiHotRespV2()
    PacketID = CIGI_HOT_RESP_PACKET_ID_V2;
    PacketSize = CIGI_HOT_RESP_PACKET_SIZE_V2;
    Version = 2;
+   MinorVersion = 0;
 
    HatHotID = 0;
    Valid = false;
    ReqType = HOT;
+   HostFrame = 0;
    Hat = 0.0;
    Hot = 0.0;
    Material = 0;
@@ -179,6 +188,8 @@ int CigiHotRespV2::Unpack(unsigned char * Buff, bool Swap, void *Spec)
 
    VldHat = Valid;
    VldHot = false;
+
+   HostFrame = 0;
 
    return(PacketSize);
 

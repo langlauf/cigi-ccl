@@ -69,8 +69,11 @@ libcigicl_la_SOURCES = \
 	CigiEventList.cpp\
 	CigiEventNotificationV3.cpp\
 	CigiHatHotReqV3.cpp\
+	CigiHatHotReqV3_2.cpp\
 	CigiHatHotRespV3.cpp\
+	CigiHatHotRespV3_2.cpp\
 	CigiHatHotXRespV3.cpp\
+	CigiHatHotXRespV3_2.cpp\
 	CigiHatReqV1.cpp\
 	CigiHatReqV2.cpp\
 	CigiHatRespV1.cpp\
@@ -81,6 +84,7 @@ libcigicl_la_SOURCES = \
 	CigiIGCtrlV1.cpp\
 	CigiIGCtrlV2.cpp\
 	CigiIGCtrlV3.cpp\
+	CigiIGCtrlV3_2.cpp\
 	CigiIGMsgV2.cpp\
 	CigiIGMsgV3.cpp\
 	CigiIGSession.cpp\
@@ -89,13 +93,17 @@ libcigicl_la_SOURCES = \
 	CigiLosRespV1.cpp\
 	CigiLosRespV2.cpp\
 	CigiLosRespV3.cpp\
+	CigiLosRespV3_2.cpp\
 	CigiLosSegReqV1.cpp\
 	CigiLosSegReqV2.cpp\
 	CigiLosSegReqV3.cpp\
+	CigiLosSegReqV3_2.cpp\
 	CigiLosVectReqV1.cpp\
 	CigiLosVectReqV2.cpp\
 	CigiLosVectReqV3.cpp\
+	CigiLosVectReqV3_2.cpp\
 	CigiLosXRespV3.cpp\
+	CigiLosXRespV3_2.cpp\
 	CigiMaritimeSurfaceCtrlV3.cpp\
 	CigiMaritimeSurfaceRespV3.cpp\
 	CigiMessage.cpp\
@@ -106,9 +114,11 @@ libcigicl_la_SOURCES = \
 	CigiRateCtrlV1.cpp\
 	CigiRateCtrlV2.cpp\
 	CigiRateCtrlV3.cpp\
+	CigiRateCtrlV3_2.cpp\
 	CigiSOFV1.cpp\
 	CigiSOFV2.cpp\
 	CigiSOFV3.cpp\
+	CigiSOFV3_2.cpp\
 	CigiSensorCtrlV1.cpp\
 	CigiSensorCtrlV2.cpp\
 	CigiSensorCtrlV3.cpp\

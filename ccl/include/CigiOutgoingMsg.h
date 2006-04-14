@@ -38,6 +38,28 @@
  *  02/20/2006 Greg Basler                       Version 1.6.0
  *  Added the PackageMsg, GetCurrentlyPackagedMsg, and FreeMsg methods to
  *  better update the frame the frame counter in the IG_Ctrl packet for hosts
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Granted friend access to the CigiVersionJumpTable class.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added an overloaded UpdateSOF method without the LastIGCtrl parameter to 
+ *  update the the start of frame packet's frame counter.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Deprecated the existing UpdateSOF method and modified it to call the new 
+ *  implementation.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added a protected Reset method to reset the buffer system.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added the CurrentIGCtrl member variable to store the last IGCtrl packed 
+ *  into a message.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added the CurrentSOF member variable to store the last SOF packed into a 
+ *  message.
  * </pre>
  *  Author: The Boeing Company
  *  Version: 1.6.0
@@ -64,6 +86,9 @@ class CigiOutgoingMsg;
 class CIGI_SPEC CigiOutgoingMsg : public CigiMessage  
 {
 public:
+
+friend class CigiVersionJumpTable;
+
 
    //==> Management
 
@@ -212,15 +237,26 @@ public:
 	int UpdateIGCtrl(unsigned char *OutgoingMsg, unsigned char *IncomingMsg);
 
    //=========================================================
-   //! Updates SOF's Frame Counter
+   //! Updates SOF's Frame Counter - deprecated
    //! \param OutgoingMsg - A pointer to the outgoing msg buffer
-   //! \param LastIGCtrl - A pointer to the buffer containing the
-   //!   last IG Ctrl packet received
+   //! \param LastIGCtrl - No longer used
    //!
    //! \return This returns CIGI_SUCCESS or an error code 
    //!   defined in CigiErrorCodes.h
    //!
-	int UpdateSOF(unsigned char *OutgoingMsg, unsigned char *LastIGCtrl);
+	int UpdateSOF(unsigned char *OutgoingMsg, unsigned char *LastIGCtrl)
+   {
+      return(UpdateSOF(OutgoingMsg));
+   }
+
+   //=========================================================
+   //! Updates SOF's Frame Counter
+   //! \param OutgoingMsg - A pointer to the outgoing msg buffer
+   //!
+   //! \return This returns CIGI_SUCCESS or an error code 
+   //!   defined in CigiErrorCodes.h
+   //!
+	int UpdateSOF(unsigned char *OutgoingMsg);
 
    //=========================================================
    //! Locks the message for sending
@@ -308,6 +344,31 @@ public:
    //!   defined in CigiErrorCodes.h
    //!
    int FreeMsg(void);
+
+
+
+
+protected:
+
+
+   //=========================================================
+   //! Resets the buffer system.  
+   //!
+   //! \return This returns CIGI_SUCCESS or an error code 
+   //!   defined in CigiErrorCodes.h
+   //!
+	int Reset(void);
+
+   //=========================================================
+   //! The last IGCtrl packed into a message
+   //!
+   CigiBaseIGCtrl *CurrentIGCtrl;
+
+   //=========================================================
+   //! The last SOF packed into a message
+   //!
+   CigiBaseSOF *CurrentSOF;
+
 
 
 };

@@ -23,7 +23,7 @@ XRateCtrl::~XRateCtrl()
 
 void XRateCtrl::OnPacketReceived(CigiBasePacket *Packet)
 {
-   CigiRateCtrlV3 *InPckt = (CigiRateCtrlV3 *)Packet;
+   CigiRateCtrlV3_2 *InPckt = (CigiRateCtrlV3_2 *)Packet;
 
    bool ok = true;
 
@@ -32,6 +32,7 @@ void XRateCtrl::OnPacketReceived(CigiBasePacket *Packet)
    printf("EntityID ==> %d\n",InPckt->GetEntityID());
    printf("ArtPartID ==> %d\n",InPckt->GetArtPartID());
    printf("ApplyToArtPart ==> %d\n",InPckt->GetApplyToArtPart());
+   printf("CoordSystem ==> %d\n",InPckt->GetCoordSys());
    printf("XRate ==> %f\n",InPckt->GetXRate());
    printf("YRate ==> %f\n",InPckt->GetYRate());
    printf("ZRate ==> %f\n",InPckt->GetZRate());

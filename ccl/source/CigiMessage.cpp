@@ -33,6 +33,10 @@
  *  
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Defined _EXPORT_CCL_ for exporting the class in a Windows DLL.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the CreateBuffer method to add additional padding at the end of 
+ *  the buffer when created to allow overruns due to version change problems.
  * </pre>
  *  Author: The Boeing Company
  *  Version: 1.6.0
@@ -107,7 +111,10 @@ int CigiMessage::CreateBuffer(const int NumBuf, const int BufLen)
    if(!BufferCreated)
    {
       BufferCount = NumBuf;
-      BufferSize  = BufLen;
+
+      // The 64 is to add space at the end of each buffer to allow
+      //   overruns due to problems due to version change
+      BufferSize  = BufLen + 64;
 
       double *OrigBuf = new double[NumBuf * ((BufLen/8) + 1)];
       BufferBlock = (unsigned char *)OrigBuf;

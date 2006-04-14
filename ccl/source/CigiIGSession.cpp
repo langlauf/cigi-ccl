@@ -33,6 +33,9 @@
  *  
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Defined _EXPORT_CCL_ for exporting the class in a Windows DLL.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the class constructor to set the CIGI minor version.
  * </pre>
  *  Author: The Boeing Company
  *  Version: 1.6.0
@@ -55,7 +58,7 @@ CigiIGSession::CigiIGSession(const int NumInBuf, const int InBufLen,
                CigiVersionJumpTable::IG)
 {
 
-   VJmp.SetCigiVersion(CIGI_MAX_VERSION,false);
+   VJmp.SetCigiVersion(CIGI_MAX_VERSION,CIGI_RELEASED_MINOR_VERSION,false);
 
 }
 

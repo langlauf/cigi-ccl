@@ -34,6 +34,17 @@
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Added the CIGI_SPEC modifier to the class declaration for exporting the 
  *  class in a Windows DLL.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added the GetCigiMinorVersion accessor method.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added an overloaded SetCigiVersion method to accept a CigiMinorVersionIn 
+ *  parameter.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the existing SetCigiVersion method to use the new SetCigiVersion 
+ *  method with a default minor version of 0.
  * </pre>
  *  Author: The Boeing Company
  *  Version: 1.6.0
@@ -81,7 +92,27 @@ public:
    //!
 	int SetCigiVersion(const int CigiVersionIn, bool bndchk=true)
    {
-      return( VJmp.SetCigiVersion(CigiVersionIn, bndchk));
+      return( VJmp.SetCigiVersion(CigiVersionIn, 0, bndchk));
+   }
+
+   //=========================================================
+   //! Sets the Cigi version of the external interface
+   //!   with bound checking control
+   //! \param CigiVersionIn - The Cigi Version being used.
+   //! \param CigiMinorVersionIn - Sets the Cigi Minor Version of
+   //!   the external interface
+   //! \param bndchk - Enables (true) or disables (false) bounds checking
+   //!
+   //! \return This returns CIGI_SUCCESS or an error code 
+   //!   defined in CigiErrorCodes.h
+   //!
+	int SetCigiVersion(const int CigiVersionIn,
+                      const int CigiMinorVersionIn,
+                      bool bndchk=true)
+   {
+      return( VJmp.SetCigiVersion(CigiVersionIn,
+                                  CigiMinorVersionIn,
+                                  bndchk));
    }
 
    //=========================================================
@@ -89,6 +120,12 @@ public:
    //! \return the Cigi version of the external interface.
    //!
    int GetCigiVersion(void) { return( VJmp.GetCigiVersion() ); }
+
+   //=========================================================
+   //! Gets the Cigi Minor Version of the external interface.
+   //! \return the Cigi Minor Version of the external interface.
+   //!
+   int GetCigiMinorVersion(void) const { return(VJmp.GetCigiMinorVersion()); }
 
 
    //+> Managers

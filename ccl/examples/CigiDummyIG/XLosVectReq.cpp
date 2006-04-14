@@ -23,7 +23,7 @@ XLosVectReq::~XLosVectReq()
 
 void XLosVectReq::OnPacketReceived(CigiBasePacket *Packet)
 {
-   CigiLosVectReqV3 *InPckt = (CigiLosVectReqV3 *)Packet;
+   CigiLosVectReqV3_2 *InPckt = (CigiLosVectReqV3_2 *)Packet;
 
    bool ok = true;
 
@@ -43,5 +43,7 @@ void XLosVectReq::OnPacketReceived(CigiBasePacket *Packet)
    printf("SrcYoff ==> %f\n",InPckt->GetSrcYoff());
    printf("SrcZoff ==> %f\n",InPckt->GetSrcZoff());
    printf("Mask ==> %d\n",InPckt->GetMask());
+   printf("UpdatePeriod ==> %d\n",InPckt->GetUpdatePeriod());
 
 }
+

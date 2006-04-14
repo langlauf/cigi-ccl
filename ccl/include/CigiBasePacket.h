@@ -37,6 +37,12 @@
  *  
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Changed the type of the Version member variable from int to unsigned char.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added the MinorVersion member variable.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added the GetMinorVersion method for accessing the minor version.
  * </pre>
  *  Author: The Boeing Company
  *  Version: 1.6.0
@@ -107,6 +113,12 @@ public:
    //!
    unsigned char GetVersion(void) const { return(Version); }
 
+   //=========================================================
+   //! Gets the CIGI minor version of this packet.
+   //! \return The CIGI minor version of this packet.
+   //!
+   unsigned char GetMinorVersion(void) const { return(MinorVersion); }
+
 
 protected:
 
@@ -124,6 +136,11 @@ protected:
    //! CIGI version of this packet
    //!
 	unsigned char Version;
+
+   //=========================================================
+   //! CIGI minor version of this packet
+   //!
+	unsigned char MinorVersion;
 
 };
 

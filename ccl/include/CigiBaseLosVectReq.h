@@ -51,6 +51,7 @@
 class CigiLosVectReqV1;
 class CigiLosVectReqV2;
 class CigiLosVectReqV3;
+class CigiLosVectReqV3_2;
 
 
 class CIGI_SPEC CigiBaseLosVectReq : public CigiBasePacket
@@ -59,6 +60,7 @@ class CIGI_SPEC CigiBaseLosVectReq : public CigiBasePacket
 friend class CigiLosVectReqV1;
 friend class CigiLosVectReqV2;
 friend class CigiLosVectReqV3;
+friend class CigiLosVectReqV3_2;
 
 public:
 
@@ -346,6 +348,13 @@ protected:
    //!   be generated when intersected.
    //!
    Cigi_uint32 Mask;
+
+   //=========================================================
+   //! UpdatePeriod<br>
+   //! The number of frames between each LOS update from
+   //!  the IG.  If 0 - single shot
+   //!
+   unsigned char UpdatePeriod;
 
    //=========================================================
    //! ValidV1or2<br>

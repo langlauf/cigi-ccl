@@ -36,6 +36,13 @@
  *  
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Removed the inline defnitions for the PackedPointer union.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the class constructur to initialize the MinorVersion and 
+ *  HostFrame member variables.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the Unpack method to set the HostFrame member variable.
  * </pre>
  *  Author: The Boeing Company
  *  Version: 1.6.0
@@ -62,6 +69,7 @@ CigiLosRespV3::CigiLosRespV3()
    PacketID = CIGI_LOS_RESP_PACKET_ID_V3;
    PacketSize = CIGI_LOS_RESP_PACKET_SIZE_V3;
    Version = 3;
+   MinorVersion = 0;
 
    LosID = 0;
    Valid = false;
@@ -69,6 +77,7 @@ CigiLosRespV3::CigiLosRespV3()
    RangeValid = false;
    Visible = false;
    IntersectionCoordSys = Geodetic;
+   HostFrame = 0;
    RespCount = 0;
    EntityID = 0;
    Range = 0.0;
@@ -168,6 +177,7 @@ int CigiLosRespV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
    }
 
 
+   HostFrame = 0;
    LatOrXoff = 0.0;
    LonOrYoff = 0.0;
    AltOrZoff = 0.0;

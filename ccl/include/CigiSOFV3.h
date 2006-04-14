@@ -37,6 +37,9 @@
  *  
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Changed native C++ types in function declarations to CCL-defined types.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added the GetFrameCntr and SetFrameCntr accessor methods.
  * </pre>
  *  Author: The Boeing Company
  *  Version: 1.6.0
@@ -97,6 +100,31 @@ public:
 
 
    //==> Accessing Member Variable Values functions
+
+
+   //+> Frame Counter
+
+   //=========================================================
+   //! Gets the Frame Counter value
+   //! \return Current frame this data represents
+   //!
+   Cigi_uint32 GetFrameCntr(void) const { return(FrameCntr); }
+
+   //=========================================================
+   //! Sets the Frame Counter with bound checking control
+   //! \param FrameCntrIn - Specifies the frame.
+   //! \param bndchk - Enables (true) or disables (false) bounds checking
+   //!
+   //! \return This returns CIGI_SUCCESS or an error code 
+   //!   defined in CigiErrorCodes.h
+   //!
+   int SetFrameCntr(const Cigi_uint32 FrameCntrIn, bool bndchk=true)
+   {
+      FrameCntr = FrameCntrIn;
+      LastRcvdHostFrame = FrameCntrIn;
+
+      return(CIGI_SUCCESS);
+   }
 
 
    //+> Timestamp

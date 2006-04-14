@@ -36,6 +36,10 @@
  *  
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Changed native C++ types to use CCL-defined types instead where appropriate.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the class constructur to initialize the MinorVersion member 
+ *  variable.
  * </pre>
  *  Author: The Boeing Company
  *  Version: 1.6.0
@@ -77,6 +81,7 @@ CigiIGMsgV2::CigiIGMsgV2()
    PacketID = CIGI_IG_MSG_PACKET_ID_V2;
    PacketSize = 4;
    Version = 2;
+   MinorVersion = 0;
 
    MsgID = 0;
    Msg[0] = 0;

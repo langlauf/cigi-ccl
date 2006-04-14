@@ -37,6 +37,13 @@
  *  
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Changed native C++ types in function declarations to CCL-defined types.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added forward references and granted friend access to the 
+ *  CigiLosRespV3_2 and CigiLosXRespV3_2 classes.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added a HostFrame member variable to track when the los was calculated.
  * </pre>
  *  The Boeing Company
  *  Version: 1.6.0
@@ -52,6 +59,8 @@ class CigiLosRespV1;
 class CigiLosRespV2;
 class CigiLosRespV3;
 class CigiLosXRespV3;
+class CigiLosRespV3_2;
+class CigiLosXRespV3_2;
 
 
 class CIGI_SPEC CigiBaseLosResp : public CigiBasePacket
@@ -61,6 +70,8 @@ friend class CigiLosRespV1;
 friend class CigiLosRespV2;
 friend class CigiLosRespV3;
 friend class CigiLosXRespV3;
+friend class CigiLosRespV3_2;
+friend class CigiLosXRespV3_2;
 
 
 public:
@@ -306,6 +317,13 @@ protected:
    //!   or Start Point.
    //!
    bool Visible;
+
+   //=========================================================
+   //! HostFrame<br>
+   //! The least significant nibble of the Host frame number
+   //!  when the los was calculated.
+   //!
+   unsigned char HostFrame;
 
    //=========================================================
    //! IntersectionCoordSys<br>

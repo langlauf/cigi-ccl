@@ -1,4 +1,17 @@
 
+Version 1.7.0
+-------------
+[04.14.2006]
+
+Changes/Additions: 
+------------------
+
+• Added compatibility with CIGI version 3.2.
+
+• Introduced minor version numbers to the library to handle packet translations 
+  for CIGI version 3.2.
+
+
 Version 1.6.0
 -------------
 [03.02.2006]

@@ -26,7 +26,7 @@
 
 #include "SOFP.h"
 
-#include <CigiSOFV3.h>
+#include <CigiSOFV3_2.h>
 
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
@@ -54,7 +54,7 @@ SOFP::~SOFP()
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 void SOFP::OnPacketReceived(CigiBasePacket *Packet)
 {
-	CigiSOFV3 *sof = (CigiSOFV3 *)(Packet);
+	CigiSOFV3_2 *sof = (CigiSOFV3_2 *)(Packet);
 
    // We are actually not processing any information in the SOF
    // The incoming msg and host session are pulling out the version

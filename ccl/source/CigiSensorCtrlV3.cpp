@@ -39,6 +39,10 @@
  *  
  *  02/20/2006 Greg Basler                       Version 1.6.0
  *  Corrected the unpacking of the polarity flag.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the class constructur to initialize the MinorVersion member 
+ *  variable.
  * </pre>
  *  Author: The Boeing Company
  *  Version: 1.6.0
@@ -65,6 +69,7 @@ CigiSensorCtrlV3::CigiSensorCtrlV3()
    PacketID = CIGI_SENSOR_CTRL_PACKET_ID_V3;
    PacketSize = CIGI_SENSOR_CTRL_PACKET_SIZE_V3;
    Version = 3;
+   MinorVersion = 0;
 
    ViewID = 0;
    SensorID = 0;

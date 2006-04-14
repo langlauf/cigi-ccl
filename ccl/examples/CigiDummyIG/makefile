@@ -1,12 +1,8 @@
 #################################
 #
-#  This makefile is used to create the MiniHost Executable
-#  It is specific to this platform/option combination (i.e.,
-#  IRIX_n32 is for "-n32 -mips4" options, LINUX_32 is for Linux files) and
-#  the Library and options are set accordingly.  It is normally invoked from 
-#  the make.cigi script found in the directory above this.  All platform
-#  specific files are stored in this directory.  It depends on the variables
-#  CC, CPP, F77 and the CFLAGS, CCFLAGS, FFLAGS being defined, along with
+#  This makefile is used to create the CigiDummyIG Executable
+#  It depends on the variables CC, CPP, F77 and 
+#  the CFLAGS, CCFLAGS, FFLAGS being defined, along with
 #  LIBDIR to indicate the current platform/option value.
 #
 #################################

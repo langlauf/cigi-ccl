@@ -459,11 +459,23 @@ SOURCE=..\source\CigiHatHotReqV3.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=..\source\CigiHatHotReqV3_2.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=..\source\CigiHatHotRespV3.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=..\source\CigiHatHotRespV3_2.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=..\source\CigiHatHotXRespV3.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\source\CigiHatHotXRespV3_2.cpp
 # End Source File
 # Begin Source File
 
@@ -507,6 +519,10 @@ SOURCE=..\source\CigiIGCtrlV3.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=..\source\CigiIGCtrlV3_2.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=..\source\CigiIGMsgV2.cpp
 # End Source File
 # Begin Source File
@@ -539,6 +555,10 @@ SOURCE=..\source\CigiLosRespV3.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=..\source\CigiLosRespV3_2.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=..\source\CigiLosSegReqV1.cpp
 # End Source File
 # Begin Source File
@@ -548,6 +568,10 @@ SOURCE=..\source\CigiLosSegReqV2.cpp
 # Begin Source File
 
 SOURCE=..\source\CigiLosSegReqV3.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\source\CigiLosSegReqV3_2.cpp
 # End Source File
 # Begin Source File
 
@@ -563,7 +587,15 @@ SOURCE=..\source\CigiLosVectReqV3.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=..\source\CigiLosVectReqV3_2.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=..\source\CigiLosXRespV3.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\source\CigiLosXRespV3_2.cpp
 # End Source File
 # Begin Source File
 
@@ -604,6 +636,10 @@ SOURCE=..\source\CigiRateCtrlV2.cpp
 # Begin Source File
 
 SOURCE=..\source\CigiRateCtrlV3.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\source\CigiRateCtrlV3_2.cpp
 # End Source File
 # Begin Source File
 
@@ -656,6 +692,10 @@ SOURCE=..\source\CigiSOFV2.cpp
 # Begin Source File
 
 SOURCE=..\source\CigiSOFV3.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\source\CigiSOFV3_2.cpp
 # End Source File
 # Begin Source File
 
@@ -1067,11 +1107,23 @@ SOURCE=..\include\CigiHatHotReqV3.h
 # End Source File
 # Begin Source File
 
+SOURCE=..\include\CigiHatHotReqV3_2.h
+# End Source File
+# Begin Source File
+
 SOURCE=..\include\CigiHatHotRespV3.h
 # End Source File
 # Begin Source File
 
+SOURCE=..\include\CigiHatHotRespV3_2.h
+# End Source File
+# Begin Source File
+
 SOURCE=..\include\CigiHatHotXRespV3.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\include\CigiHatHotXRespV3_2.h
 # End Source File
 # Begin Source File
 
@@ -1119,6 +1171,10 @@ SOURCE=..\include\CigiIGCtrlV3.h
 # End Source File
 # Begin Source File
 
+SOURCE=..\include\CigiIGCtrlV3_2.h
+# End Source File
+# Begin Source File
+
 SOURCE=..\include\CigiIGMsgV2.h
 # End Source File
 # Begin Source File
@@ -1151,6 +1207,10 @@ SOURCE=..\include\CigiLosRespV3.h
 # End Source File
 # Begin Source File
 
+SOURCE=..\include\CigiLosRespV3_2.h
+# End Source File
+# Begin Source File
+
 SOURCE=..\include\CigiLosSegReqV1.h
 # End Source File
 # Begin Source File
@@ -1160,6 +1220,10 @@ SOURCE=..\include\CigiLosSegReqV2.h
 # Begin Source File
 
 SOURCE=..\include\CigiLosSegReqV3.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\include\CigiLosSegReqV3_2.h
 # End Source File
 # Begin Source File
 
@@ -1175,7 +1239,15 @@ SOURCE=..\include\CigiLosVectReqV3.h
 # End Source File
 # Begin Source File
 
+SOURCE=..\include\CigiLosVectReqV3_2.h
+# End Source File
+# Begin Source File
+
 SOURCE=..\include\CigiLosXRespV3.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\include\CigiLosXRespV3_2.h
 # End Source File
 # Begin Source File
 
@@ -1216,6 +1288,10 @@ SOURCE=..\include\CigiRateCtrlV2.h
 # Begin Source File
 
 SOURCE=..\include\CigiRateCtrlV3.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\include\CigiRateCtrlV3_2.h
 # End Source File
 # Begin Source File
 
@@ -1268,6 +1344,10 @@ SOURCE=..\include\CigiSOFV2.h
 # Begin Source File
 
 SOURCE=..\include\CigiSOFV3.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\include\CigiSOFV3_2.h
 # End Source File
 # Begin Source File
 

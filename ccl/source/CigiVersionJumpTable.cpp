@@ -37,6 +37,25 @@
  *  04/06/2005 Greg Basler                       Version 1.5.2
  *  Fixed an error in the RegisterUserPacket function to properly handle 
  *  user-defined packets when translating between different versions of CIGI.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Updated the class to support CIGI version 3.2.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added the CIGI_IG_CONTROL_SIZE_V3_2 and CIGI_START_OF_FRAME_SIZE_V3_2 
+ *  preprocessor definitions.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the class constructor to intialize the OutoingMsg member variable 
+ *  to NULL. And to set the CIGI and CIGI reader versions to 3.2.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Implemented the overloaded SetCigiVersion and SetReaderCigiVersion methods 
+ *  to accept a CigiMinorVersionIn parameter and handle minor version numbers.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Implemented the overloaded SetJmpTblV3 method for compatability with CIGI 
+ *  version 3.2.
  * </pre>
  *  Author: The Boeing Company
  *  Version: 1.6.0
@@ -50,6 +69,8 @@
 
 #include "CigiVersionJumpTable.h"
 
+#include "CigiOutgoingMsg.h"
+
 // ===============================
 // packets
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
@@ -58,6 +79,7 @@
 #include "CigiIGCtrlV1.h"
 #include "CigiIGCtrlV2.h"
 #include "CigiIGCtrlV3.h"
+#include "CigiIGCtrlV3_2.h"
 
 // Entity control
 #include "CigiEntityCtrlV1.h"
@@ -78,6 +100,7 @@
 #include "CigiRateCtrlV1.h"
 #include "CigiRateCtrlV2.h"
 #include "CigiRateCtrlV3.h"
+#include "CigiRateCtrlV3_2.h"
 
 // Sensor Control
 #include "CigiSensorCtrlV1.h"
@@ -103,17 +126,20 @@
 #include "CigiLosSegReqV1.h"
 #include "CigiLosSegReqV2.h"
 #include "CigiLosSegReqV3.h"
+#include "CigiLosSegReqV3_2.h"
 
 // LOS Vector Request
 #include "CigiLosVectReqV1.h"
 #include "CigiLosVectReqV2.h"
 #include "CigiLosVectReqV3.h"
+#include "CigiLosVectReqV3_2.h"
 
 // Hat Hot Request
 #include "CigiHatReqV1.h"
 #include "CigiHatReqV2.h"
 #include "CigiHotReqV2.h"
 #include "CigiHatHotReqV3.h"
+#include "CigiHatHotReqV3_2.h"
 
 // Environmental Control
 #include "CigiEnvCtrlV1.h"
@@ -168,6 +194,7 @@
 #include "CigiSOFV1.h"
 #include "CigiSOFV2.h"
 #include "CigiSOFV3.h"
+#include "CigiSOFV3_2.h"
 
 // Collision Detection Segment Response
 #include "CigiCollDetSegRespV1.h"
@@ -186,16 +213,20 @@
 #include "CigiLosRespV1.h"
 #include "CigiLosRespV2.h"
 #include "CigiLosRespV3.h"
+#include "CigiLosRespV3_2.h"
 
 // Los Extended Response
 #include "CigiLosXRespV3.h"
+#include "CigiLosXRespV3_2.h"
 
-// Hat Hot Response  ZZZ
+// Hat Hot Response
 #include "CigiHatRespV1.h"
 #include "CigiHatRespV2.h"
 #include "CigiHotRespV2.h"
 #include "CigiHatHotRespV3.h"
 #include "CigiHatHotXRespV3.h"
+#include "CigiHatHotRespV3_2.h"
+#include "CigiHatHotXRespV3_2.h"
 
 // Collision Detection Volume Response
 #include "CigiCollDetVolRespV2.h"
@@ -239,10 +270,12 @@
 #define CIGI_IG_CONTROL_SIZE_V1 16
 #define CIGI_IG_CONTROL_SIZE_V2 16
 #define CIGI_IG_CONTROL_SIZE_V3 16
+#define CIGI_IG_CONTROL_SIZE_V3_2 24
 
 #define CIGI_START_OF_FRAME_SIZE_V1  12
 #define CIGI_START_OF_FRAME_SIZE_V2  16
 #define CIGI_START_OF_FRAME_SIZE_V3  16
+#define CIGI_START_OF_FRAME_SIZE_V3_2  24
 
 // ====================================================================
 // Construction/Destruction
@@ -255,6 +288,8 @@ CigiVersionJumpTable::CigiVersionJumpTable(JumpTableType JmpTblType)
 {
 
    JTblType = JmpTblType;
+
+   OutgoingMsg = NULL;
 
    CigiVersion = CIGI_MAX_VERSION + 1;
 
@@ -286,9 +321,8 @@ CigiVersionJumpTable::CigiVersionJumpTable(JumpTableType JmpTblType)
    // default initialize Cigi Versions
    CigiVersion = 10;
    ReaderCigiVersion = 10;
-   SetCigiVersion(3,false);
-   SetReaderCigiVersion(3,false);
-
+   SetCigiVersion(3,2,false);
+   SetReaderCigiVersion(3,2,false);
 
 }
 
@@ -312,7 +346,9 @@ CigiVersionJumpTable::~CigiVersionJumpTable()
 // ================================================
 // SetCigiVersion
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiVersionJumpTable::SetCigiVersion(const int CigiVersionIn, bool bndchk)
+int CigiVersionJumpTable::SetCigiVersion(const int CigiVersionIn,
+                                         const int CigiMinorVersionIn,
+                                         bool bndchk)
 {
 
 #ifndef CIGI_NO_BND_CHK
@@ -325,9 +361,11 @@ int CigiVersionJumpTable::SetCigiVersion(const int CigiVersionIn, bool bndchk)
    }
 #endif
 
-   if(CigiVersionIn != CigiVersion)
+   if((CigiVersionIn != CigiVersion) ||
+      (CigiMinorVersionIn != CigiMinorVersion))
    {
       CigiVersion = CigiVersionIn;
+      CigiMinorVersion = CigiMinorVersionIn;
 
       switch(CigiVersion)
       {
@@ -339,6 +377,8 @@ int CigiVersionJumpTable::SetCigiVersion(const int CigiVersionIn, bool bndchk)
          SetProcTypeV1();
          IGCtrlSize = CIGI_IG_CONTROL_SIZE_V1;
          SOFSize = CIGI_START_OF_FRAME_SIZE_V1;
+         if(OutgoingMsg != NULL)
+            OutgoingMsg->Reset();
          break;
       case 2:
          ClearTbls();
@@ -348,15 +388,27 @@ int CigiVersionJumpTable::SetCigiVersion(const int CigiVersionIn, bool bndchk)
          SetProcTypeV2();
          IGCtrlSize = CIGI_IG_CONTROL_SIZE_V2;
          SOFSize = CIGI_START_OF_FRAME_SIZE_V2;
+         if(OutgoingMsg != NULL)
+            OutgoingMsg->Reset();
          break;
       case 3:
          ClearTbls();
-         SetJmpTblV3();
+         SetJmpTblV3(CigiMinorVersionIn);
          SetPacketIDMapsV3();
          SetVldTblsV3();
          SetProcTypeV3();
-         IGCtrlSize = CIGI_IG_CONTROL_SIZE_V3;
-         SOFSize = CIGI_START_OF_FRAME_SIZE_V3;
+         if(CigiMinorVersionIn >= 2)
+         {
+            IGCtrlSize = CIGI_IG_CONTROL_SIZE_V3_2;
+            SOFSize = CIGI_START_OF_FRAME_SIZE_V3_2;
+         }
+         else
+         {
+            IGCtrlSize = CIGI_IG_CONTROL_SIZE_V3;
+            SOFSize = CIGI_START_OF_FRAME_SIZE_V3;
+         }
+         if(OutgoingMsg != NULL)
+            OutgoingMsg->Reset();
          break;
       default:
          #ifndef CIGI_NO_EXCEPT
@@ -378,7 +430,9 @@ int CigiVersionJumpTable::SetCigiVersion(const int CigiVersionIn, bool bndchk)
 // ================================================
 // SetReaderCigiVersion
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiVersionJumpTable::SetReaderCigiVersion(const int CigiVersionIn, bool bndchk)
+int CigiVersionJumpTable::SetReaderCigiVersion(const int CigiVersionIn,
+                                               const int CigiMinorVersionIn,
+                                               bool bndchk)
 {
 
 #ifndef CIGI_NO_BND_CHK
@@ -391,9 +445,11 @@ int CigiVersionJumpTable::SetReaderCigiVersion(const int CigiVersionIn, bool bnd
    }
 #endif
 
-   if(CigiVersionIn != ReaderCigiVersion)
+   if((CigiVersionIn != ReaderCigiVersion) ||
+      (CigiMinorVersionIn != ReaderCigiMinorVersion))
    {
       ReaderCigiVersion = CigiVersionIn;
+      ReaderCigiMinorVersion = CigiMinorVersionIn;
 
       ClearReaderTbls();
 
@@ -575,21 +631,46 @@ void CigiVersionJumpTable::SetJmpTblV2()
 // ================================================
 // SetJmpTblV3
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-void CigiVersionJumpTable::SetJmpTblV3()
+void CigiVersionJumpTable::SetJmpTblV3(const int CigiMinorVersionIn)
 {
 
-   JmpTbl[CIGI_IG_CTRL_PACKET_ID_V3] = (CigiBasePacket *) new CigiIGCtrlV3;
+   if(CigiMinorVersionIn >= 2)
+   {
+      JmpTbl[CIGI_IG_CTRL_PACKET_ID_V3] = (CigiBasePacket *) new CigiIGCtrlV3_2;
+      JmpTbl[CIGI_RATE_CTRL_PACKET_ID_V3] = (CigiBasePacket *) new CigiRateCtrlV3_2;
+      JmpTbl[CIGI_HAT_HOT_REQ_PACKET_ID_V3] = (CigiBasePacket *) new CigiHatHotReqV3_2;
+      JmpTbl[CIGI_LOS_SEG_REQ_PACKET_ID_V3] = (CigiBasePacket *) new CigiLosSegReqV3_2;
+      JmpTbl[CIGI_LOS_VECT_REQ_PACKET_ID_V3] = (CigiBasePacket *) new CigiLosVectReqV3_2;
+      JmpTbl[CIGI_LOS_VECT_REQ_PACKET_ID_V3] = (CigiBasePacket *) new CigiLosVectReqV3_2;
+      
+      JmpTbl[CIGI_SOF_PACKET_ID_V3] = (CigiBasePacket *) new CigiSOFV3_2;
+      JmpTbl[CIGI_LOS_RESP_PACKET_ID_V3] = (CigiBasePacket *) new CigiLosRespV3_2;
+      JmpTbl[CIGI_LOS_XRESP_PACKET_ID_V3] = (CigiBasePacket *) new CigiLosXRespV3_2;
+      JmpTbl[CIGI_HAT_HOT_RESP_PACKET_ID_V3] = (CigiBasePacket *) new CigiHatHotRespV3_2;
+      JmpTbl[CIGI_HAT_HOT_XRESP_PACKET_ID_V3] = (CigiBasePacket *) new CigiHatHotXRespV3_2;
+   }
+   else
+   {
+      JmpTbl[CIGI_IG_CTRL_PACKET_ID_V3] = (CigiBasePacket *) new CigiIGCtrlV3;
+      JmpTbl[CIGI_RATE_CTRL_PACKET_ID_V3] = (CigiBasePacket *) new CigiRateCtrlV3;
+      JmpTbl[CIGI_HAT_HOT_REQ_PACKET_ID_V3] = (CigiBasePacket *) new CigiHatHotReqV3;
+      JmpTbl[CIGI_LOS_SEG_REQ_PACKET_ID_V3] = (CigiBasePacket *) new CigiLosSegReqV3;
+      JmpTbl[CIGI_LOS_VECT_REQ_PACKET_ID_V3] = (CigiBasePacket *) new CigiLosVectReqV3;
+      
+      JmpTbl[CIGI_SOF_PACKET_ID_V3] = (CigiBasePacket *) new CigiSOFV3;
+      JmpTbl[CIGI_LOS_RESP_PACKET_ID_V3] = (CigiBasePacket *) new CigiLosRespV3;
+      JmpTbl[CIGI_LOS_XRESP_PACKET_ID_V3] = (CigiBasePacket *) new CigiLosXRespV3;
+      JmpTbl[CIGI_HAT_HOT_RESP_PACKET_ID_V3] = (CigiBasePacket *) new CigiHatHotRespV3;
+      JmpTbl[CIGI_HAT_HOT_XRESP_PACKET_ID_V3] = (CigiBasePacket *) new CigiHatHotXRespV3;
+   }
+
    JmpTbl[CIGI_ENTITY_CTRL_PACKET_ID_V3] = (CigiBasePacket *) new CigiEntityCtrlV3;
    JmpTbl[CIGI_VIEW_DEF_PACKET_ID_V3] = (CigiBasePacket *) new CigiViewDefV3;
    JmpTbl[CIGI_VIEW_CTRL_PACKET_ID_V3] = (CigiBasePacket *) new CigiViewCtrlV3;
-   JmpTbl[CIGI_RATE_CTRL_PACKET_ID_V3] = (CigiBasePacket *) new CigiRateCtrlV3;
    JmpTbl[CIGI_SENSOR_CTRL_PACKET_ID_V3] = (CigiBasePacket *) new CigiSensorCtrlV3;
    JmpTbl[CIGI_TRAJECTORY_DEF_PACKET_ID_V3] = (CigiBasePacket *) new CigiTrajectoryDefV3;
    JmpTbl[CIGI_WEATHER_CTRL_PACKET_ID_V3] = (CigiBasePacket *) new CigiWeatherCtrlV3;
    JmpTbl[CIGI_COLL_DET_SEG_DEF_PACKET_ID_V3] = (CigiBasePacket *) new CigiCollDetSegDefV3;
-   JmpTbl[CIGI_LOS_SEG_REQ_PACKET_ID_V3] = (CigiBasePacket *) new CigiLosSegReqV3;
-   JmpTbl[CIGI_LOS_VECT_REQ_PACKET_ID_V3] = (CigiBasePacket *) new CigiLosVectReqV3;
-   JmpTbl[CIGI_HAT_HOT_REQ_PACKET_ID_V3] = (CigiBasePacket *) new CigiHatHotReqV3;
    JmpTbl[CIGI_ATMOS_CTRL_PACKET_ID_V3] = (CigiBasePacket *) new CigiAtmosCtrlV3;
    JmpTbl[CIGI_CELESTIAL_CTRL_PACKET_ID_V3] = (CigiBasePacket *) new CigiCelestialCtrlV3;
    JmpTbl[CIGI_ART_PART_CTRL_PACKET_ID_V3] = (CigiBasePacket *) new CigiArtPartCtrlV3;
@@ -607,14 +688,9 @@ void CigiVersionJumpTable::SetJmpTblV3()
    JmpTbl[CIGI_COMP_CTRL_PACKET_ID_V3] = (CigiBasePacket *) new CigiCompCtrlV3;
    JmpTbl[CIGI_SHORT_COMP_CTRL_PACKET_ID_V3] = (CigiBasePacket *) new CigiShortCompCtrlV3;
 
-   JmpTbl[CIGI_SOF_PACKET_ID_V3] = (CigiBasePacket *) new CigiSOFV3;
    JmpTbl[CIGI_COLL_DET_SEG_RESP_PACKET_ID_V3] = (CigiBasePacket *) new CigiCollDetSegRespV3;
    JmpTbl[CIGI_SENSOR_RESP_PACKET_ID_V3] = (CigiBasePacket *) new CigiSensorRespV3;
    JmpTbl[CIGI_SENSOR_XRESP_PACKET_ID_V3] = (CigiBasePacket *) new CigiSensorXRespV3;
-   JmpTbl[CIGI_LOS_RESP_PACKET_ID_V3] = (CigiBasePacket *) new CigiLosRespV3;
-   JmpTbl[CIGI_LOS_XRESP_PACKET_ID_V3] = (CigiBasePacket *) new CigiLosXRespV3;
-   JmpTbl[CIGI_HAT_HOT_RESP_PACKET_ID_V3] = (CigiBasePacket *) new CigiHatHotRespV3;
-   JmpTbl[CIGI_HAT_HOT_XRESP_PACKET_ID_V3] = (CigiBasePacket *) new CigiHatHotXRespV3;
    JmpTbl[CIGI_COLL_DET_VOL_RESP_PACKET_ID_V3] = (CigiBasePacket *) new CigiCollDetVolRespV3;
    JmpTbl[CIGI_POSITION_RESP_PACKET_ID_V3] = (CigiBasePacket *) new CigiPositionRespV3;
    JmpTbl[CIGI_WEATHER_COND_RESP_PACKET_ID_V3] = (CigiBasePacket *) new CigiWeatherCondRespV3;
@@ -1178,6 +1254,8 @@ void CigiVersionJumpTable::SetVldTblsV2()
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 void CigiVersionJumpTable::SetVldTblsV3()
 {
+
+   // All packet ID for version 3.2 are the same as version 3.
 
    if(JTblType == Host)
    {

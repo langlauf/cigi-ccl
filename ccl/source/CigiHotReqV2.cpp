@@ -36,6 +36,13 @@
  *  
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Removed the inline defnitions for the PackedPointer union.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the class constructur to initialize the MinorVersion and 
+ *  UpdatePeriod member variables.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Modified the Unpack method to use the UpdatePeriod member variable.
  * </pre>
  *  Author: The Boeing Company
  *  Version: 1.6.0
@@ -77,10 +84,12 @@ CigiHotReqV2::CigiHotReqV2()
    PacketID = CIGI_HOT_REQ_PACKET_ID_V2;
    PacketSize = CIGI_HOT_REQ_PACKET_SIZE_V2;
    Version = 2;
+   MinorVersion = 0;
 
    HatHotID = 0;
    ReqType = HAT;
    SrcCoordSys = Geodetic;
+   UpdatePeriod = 0;
    EntityID = 0;
    LatOrXoff = 0.0;
    LonOrYoff = 0.0;
@@ -163,6 +172,7 @@ int CigiHotReqV2::Unpack(unsigned char * Buff, bool Swap, void *Spec)
    SrcCoordSys = Geodetic;
    IsValidV1or2 = true;
 
+   UpdatePeriod = 0;
 
    return(PacketSize);
 

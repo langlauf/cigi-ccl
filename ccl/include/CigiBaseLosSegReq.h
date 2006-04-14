@@ -37,6 +37,22 @@
  *  
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Changed native C++ types in function declarations to CCL-defined types.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added a forward reference and granted friend access to the 
+ *  CigiLosSegReqV3_2 class.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added the DestEntityIDValid member variable to determine if a 
+ *  detination entity's ID is valid or not.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added the UpdatePeriod member variable to specify the number of frames 
+ *  between each LOS update from the IG.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added the DestEntityID member variable to specify the ID of the destination 
+ *  entity, if there is one.
  * </pre>
  *  The Boeing Company
  *  Version: 1.6.0
@@ -51,6 +67,7 @@
 class CigiLosSegReqV1;
 class CigiLosSegReqV2;
 class CigiLosSegReqV3;
+class CigiLosSegReqV3_2;
 
 
 class CIGI_SPEC CigiBaseLosSegReq : public CigiBasePacket
@@ -59,6 +76,7 @@ class CIGI_SPEC CigiBaseLosSegReq : public CigiBasePacket
 friend class CigiLosSegReqV1;
 friend class CigiLosSegReqV2;
 friend class CigiLosSegReqV3;
+friend class CigiLosSegReqV3_2;
 
 public:
 
@@ -319,6 +337,12 @@ protected:
    CoordSysGrp ResponseCoordSys;
 
    //=========================================================
+   //! DestEntityIDValid<br>
+   //! Specifies the destination entity's ID is valid or not.
+   //!
+   bool DestEntityIDValid;
+
+   //=========================================================
    //! AlphaThresh<br>
    //!  The lowest alpha value of a polygon that will result
    //!    in an intersection response.
@@ -385,6 +409,20 @@ protected:
    //!  The material mask.
    //!
    Cigi_uint32 Mask;
+
+   //=========================================================
+   //! UpdatePeriod<br>
+   //! The number of frames between each LOS update from
+   //!  the IG.  If 0 - single shot
+   //!
+   unsigned char UpdatePeriod;
+
+   //=========================================================
+   //! DestEntityID<br>
+   //! If there is a destination entity, this specifies the ID
+   //!  of the destination entity.
+   //!
+   Cigi_uint16 DestEntityID;
 
    //=========================================================
    //! ValidV1or2<br>

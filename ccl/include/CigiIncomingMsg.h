@@ -41,7 +41,17 @@
  *
  *  10/28/2005 Greg Basler                       Version 1.5.7
  *  Corrected the description for SetReaderCigiVersion.
- *
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added the GetReaderCigiMinorVersion accessor method.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Added an overloaded SetReaderCigiVersion method to accept a 
+ *  CigiMinorVersionIn parameter.
+ *  
+ *  04/14/2006 Greg Basler                       Version 1.7.0
+ *  Updated the existing SetReaderCigiVersion method to call the new 
+ *  implementation with a default version number of 0.
  * </pre>
  *  Author: The Boeing Company
  *  Version: 1.6.0
@@ -396,7 +406,23 @@ public:
    //!
    int SetReaderCigiVersion(const int CigiVersionIn, bool bndchk=true)
    {
-      return(VJmp->SetReaderCigiVersion(CigiVersionIn,bndchk));
+      return(VJmp->SetReaderCigiVersion(CigiVersionIn,0,bndchk));
+   }
+
+   //=========================================================
+   //! Sets the CIGI version that the reader is using.
+   //! \param CigiVersionIn - The CIGI version to which the application
+   //!   is coded.<br>
+   //! \param CigiMinorVersionIn - The CIGI minor version to which the application
+   //!   is coded.<br>
+   //! \param bndchk - Enables (true) or disables (false) bounds checking
+   //!
+   //! \return This returns CIGI_SUCCESS or an error code 
+   //!   defined in CigiErrorCodes.h
+   //!
+   int SetReaderCigiVersion(const int CigiVersionIn, const int CigiMinorVersionIn, bool bndchk=true)
+   {
+      return(VJmp->SetReaderCigiVersion(CigiVersionIn,CigiMinorVersionIn,bndchk));
    }
 
    //=========================================================
@@ -407,6 +433,12 @@ public:
    {
       return(VJmp->GetReaderCigiVersion());
    }
+
+   //=========================================================
+   //! Gets the Reader's Cigi Minor Version.
+   //! \return the Cigi Minor Version of the reader and processing routines.
+   //!
+   int GetReaderCigiMinorVersion(void) const { return(VJmp->GetReaderCigiMinorVersion()); }
 
 
 
