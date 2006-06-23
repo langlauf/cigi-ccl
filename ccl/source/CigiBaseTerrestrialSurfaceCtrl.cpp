@@ -33,9 +33,13 @@
  *  
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Defined _EXPORT_CCL_ for exporting the class in a Windows DLL.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -98,14 +102,14 @@ int CigiBaseTerrestrialSurfaceCtrl::SetScope(const ScopeGrp ScopeIn, bool bndchk
 // ================================================
 // Severity
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiBaseTerrestrialSurfaceCtrl::SetSeverity(const unsigned char SeverityIn, bool bndchk)
+int CigiBaseTerrestrialSurfaceCtrl::SetSeverity(const Cigi_uint8 SeverityIn, bool bndchk)
 {
 
 #ifndef CIGI_NO_BND_CHK
    if(bndchk && ((SeverityIn < 0)||(SeverityIn > 31)))
    {
 #ifndef CIGI_NO_EXCEPT
-      throw CigiValueOutOfRangeException("Severity",(unsigned char)SeverityIn,0,31);
+      throw CigiValueOutOfRangeException("Severity",(Cigi_uint8)SeverityIn,0,31);
 #endif
       return(CIGI_ERROR_VALUE_OUT_OF_RANGE);
    }
@@ -120,14 +124,14 @@ int CigiBaseTerrestrialSurfaceCtrl::SetSeverity(const unsigned char SeverityIn, 
 // ================================================
 // Coverage
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiBaseTerrestrialSurfaceCtrl::SetCoverage(const unsigned char CoverageIn, bool bndchk)
+int CigiBaseTerrestrialSurfaceCtrl::SetCoverage(const Cigi_uint8 CoverageIn, bool bndchk)
 {
 
 #ifndef CIGI_NO_BND_CHK
    if(bndchk && ((CoverageIn < 0)||(CoverageIn > 100)))
    {
 #ifndef CIGI_NO_EXCEPT
-      throw CigiValueOutOfRangeException("Coverage",(unsigned char)CoverageIn,0,100);
+      throw CigiValueOutOfRangeException("Coverage",(Cigi_uint8)CoverageIn,0,100);
 #endif
       return(CIGI_ERROR_VALUE_OUT_OF_RANGE);
    }

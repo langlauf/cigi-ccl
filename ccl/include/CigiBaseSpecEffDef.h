@@ -37,9 +37,13 @@
  *  
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Changed native C++ types in function declarations to CCL-defined types.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 
@@ -98,7 +102,7 @@ public:
    //! \return This returns CIGI_SUCCESS or an error code 
    //!   defined in CigiErrorCodes.h
    //!
-   virtual int Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const=0;
+   virtual int Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const=0;
 
    //=========================================================
    //! A pure virtual Unpack function.
@@ -110,7 +114,7 @@ public:
    //! \return This returns CIGI_SUCCESS or an error code 
    //!   defined in CigiErrorCodes.h
    //!
-   virtual int Unpack(unsigned char * Buff, bool Swap, void *Spec) =0;
+   virtual int Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec) =0;
 
 
 
@@ -186,7 +190,7 @@ public:
    //!
    //! \return This returns CIGI_SUCCESS or an error code
    //!   defined in CigiErrorCodes.h
-   int SetRed(const unsigned char RedIn, bool bndchk=true)
+   int SetRed(const Cigi_uint8 RedIn, bool bndchk=true)
    {
       Red = RedIn;
       return(CIGI_SUCCESS);
@@ -195,7 +199,7 @@ public:
    //=========================================================
    //! Gets the Red value.
    //! \return the current Red.
-   unsigned char GetRed(void) const { return(Red); }
+   Cigi_uint8 GetRed(void) const { return(Red); }
 
 
    //+> Green
@@ -207,7 +211,7 @@ public:
    //!
    //! \return This returns CIGI_SUCCESS or an error code
    //!   defined in CigiErrorCodes.h
-   int SetGreen(const unsigned char GreenIn, bool bndchk=true)
+   int SetGreen(const Cigi_uint8 GreenIn, bool bndchk=true)
    {
       Green = GreenIn;
       return(CIGI_SUCCESS);
@@ -216,7 +220,7 @@ public:
    //=========================================================
    //! Gets the Green value.
    //! \return the current Green.
-   unsigned char GetGreen(void) const { return(Green); }
+   Cigi_uint8 GetGreen(void) const { return(Green); }
 
 
    //+> Blue
@@ -228,7 +232,7 @@ public:
    //!
    //! \return This returns CIGI_SUCCESS or an error code
    //!   defined in CigiErrorCodes.h
-   int SetBlue(const unsigned char BlueIn, bool bndchk=true)
+   int SetBlue(const Cigi_uint8 BlueIn, bool bndchk=true)
    {
       Blue = BlueIn;
       return(CIGI_SUCCESS);
@@ -237,7 +241,7 @@ public:
    //=========================================================
    //! Gets the Blue value.
    //! \return the current Blue.
-   unsigned char GetBlue(void) const { return(Blue); }
+   Cigi_uint8 GetBlue(void) const { return(Blue); }
 
 
    //+> XScale
@@ -421,19 +425,19 @@ protected:
    //! Red<br>
    //! Red color component
    //!
-   unsigned char Red;
+   Cigi_uint8 Red;
 
    //=========================================================
    //! Green<br>
    //! Green color component
    //!
-   unsigned char Green;
+   Cigi_uint8 Green;
 
    //=========================================================
    //! Blue<br>
    //! Blue color component
    //!
-   unsigned char Blue;
+   Cigi_uint8 Blue;
 
    //=========================================================
    //! XScale<br>

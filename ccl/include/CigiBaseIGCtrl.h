@@ -46,9 +46,13 @@
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
  *  Added the LastRcvdIGFrame member variable to track the last frame received.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #if !defined(_CIGI_BASE_IG_CTRL_INCLUDED_)
@@ -124,7 +128,7 @@ public:
    //! \return This returns CIGI_SUCCESS or an error code 
    //!   defined in CigiErrorCodes.h
    //!
-	virtual int Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const=0;
+	virtual int Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const=0;
 
    //=========================================================
    //! A pure virtual Unpack function.
@@ -136,7 +140,7 @@ public:
    //! \return This returns CIGI_SUCCESS or an error code 
    //!   defined in CigiErrorCodes.h
    //!
-	virtual int Unpack(unsigned char * Buff, bool Swap, void *Spec) =0;
+	virtual int Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec) =0;
 
 
 
@@ -161,7 +165,7 @@ public:
    //! Gets the Database ID value
    //! \return DatabaseID - uniquely identifies the specific database
    //!
-   char GetDatabaseID(void) const { return(DatabaseID); }
+   Cigi_int8 GetDatabaseID(void) const { return(DatabaseID); }
 
    //=========================================================
    //! Sets the Database ID with bound checking control
@@ -173,7 +177,7 @@ public:
    //! \return This returns CIGI_SUCCESS or an error code 
    //!   defined in CigiErrorCodes.h
    //!
-	int SetDatabaseID(const char DataBaseIDIn, bool bndchk=true);
+	int SetDatabaseID(const Cigi_int8 DataBaseIDIn, bool bndchk=true);
 
 
    //+> IG Mode
@@ -228,7 +232,7 @@ protected:
    //!  0 - No Action.<br>
    //!  1 - 127 - Command to load the specified Database
    //!
-   char DatabaseID;
+   Cigi_int8 DatabaseID;
 
    //=========================================================
    //! Frame Counter<br>

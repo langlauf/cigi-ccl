@@ -41,11 +41,15 @@
  *  Changed native C++ types to use CCL-defined types instead where appropriate.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
- *  Modified the class constructur to initialize the MinorVersion member 
+ *  Modified the class constructor to initialize the MinorVersion member 
  *  variable.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -126,11 +130,11 @@ CigiEnvCtrlV1::~CigiEnvCtrlV1()
 // ================================================
 // Pack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiEnvCtrlV1::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const
+int CigiEnvCtrlV1::Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const
 {
    double DBuf[6];
 
-   unsigned char *tBuf = (unsigned char *)DBuf;
+   Cigi_uint8 *tBuf = (Cigi_uint8 *)DBuf;
 
    PackPointer CDta;
 
@@ -169,11 +173,11 @@ int CigiEnvCtrlV1::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec)
 // ================================================
 // Unpack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiEnvCtrlV1::Unpack(unsigned char * Buff, bool Swap, void *Spec)
+int CigiEnvCtrlV1::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
 {
    double DBuf[6];
 
-   unsigned char *tBuf = (unsigned char *)DBuf;
+   Cigi_uint8 *tBuf = (Cigi_uint8 *)DBuf;
 
    PackPointer CDta;
 
@@ -186,7 +190,7 @@ int CigiEnvCtrlV1::Unpack(unsigned char * Buff, bool Swap, void *Spec)
    Hour = *CDta.c++;
    Minute = *CDta.c++;
 
-   unsigned char HDta = *CDta.c++;
+   Cigi_uint8 HDta = *CDta.c++;
    EphemerisEn = ((HDta & 0x80) != 0);
    Humidity = HDta & 0x7f;
 
@@ -196,10 +200,10 @@ int CigiEnvCtrlV1::Unpack(unsigned char * Buff, bool Swap, void *Spec)
    Cigi_uint32 date;
    CIGI_SCOPY4(&date, CDta.l++);
 
-   Month = (unsigned char)(date / 1000000);
+   Month = (Cigi_uint8)(date / 1000000);
    date -= ((Cigi_uint32)Month * 1000000);
 
-   Day = (unsigned char)(date / 10000);
+   Day = (Cigi_uint8)(date / 10000);
    date -= ((Cigi_uint32)Day * 10000);
 
    Year = (Cigi_uint16)date;
@@ -226,14 +230,14 @@ int CigiEnvCtrlV1::Unpack(unsigned char * Buff, bool Swap, void *Spec)
 // ================================================
 // Hour
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiEnvCtrlV1::SetHour(const unsigned char HourIn, bool bndchk)
+int CigiEnvCtrlV1::SetHour(const Cigi_uint8 HourIn, bool bndchk)
 {
 
 #ifndef CIGI_NO_BND_CHK
    if(bndchk && ((HourIn < 0)||(HourIn > 23)))
    {
 #ifndef CIGI_NO_EXCEPT
-      throw CigiValueOutOfRangeException("Hour",(unsigned char)HourIn,0,23);
+      throw CigiValueOutOfRangeException("Hour",(Cigi_uint8)HourIn,0,23);
 #endif
       return(CIGI_ERROR_VALUE_OUT_OF_RANGE);
    }
@@ -248,14 +252,14 @@ int CigiEnvCtrlV1::SetHour(const unsigned char HourIn, bool bndchk)
 // ================================================
 // Minute
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiEnvCtrlV1::SetMinute(const unsigned char MinuteIn, bool bndchk)
+int CigiEnvCtrlV1::SetMinute(const Cigi_uint8 MinuteIn, bool bndchk)
 {
 
 #ifndef CIGI_NO_BND_CHK
    if(bndchk && ((MinuteIn < 0)||(MinuteIn > 59)))
    {
 #ifndef CIGI_NO_EXCEPT
-      throw CigiValueOutOfRangeException("Minute",(unsigned char)MinuteIn,0,59);
+      throw CigiValueOutOfRangeException("Minute",(Cigi_uint8)MinuteIn,0,59);
 #endif
       return(CIGI_ERROR_VALUE_OUT_OF_RANGE);
    }
@@ -270,14 +274,14 @@ int CigiEnvCtrlV1::SetMinute(const unsigned char MinuteIn, bool bndchk)
 // ================================================
 // Humidity
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiEnvCtrlV1::SetHumidity(const unsigned char HumidityIn, bool bndchk)
+int CigiEnvCtrlV1::SetHumidity(const Cigi_uint8 HumidityIn, bool bndchk)
 {
 
 #ifndef CIGI_NO_BND_CHK
    if(bndchk && ((HumidityIn < 0)||(HumidityIn > 100)))
    {
 #ifndef CIGI_NO_EXCEPT
-      throw CigiValueOutOfRangeException("Humidity",(unsigned char)HumidityIn,0,100);
+      throw CigiValueOutOfRangeException("Humidity",(Cigi_uint8)HumidityIn,0,100);
 #endif
       return(CIGI_ERROR_VALUE_OUT_OF_RANGE);
    }
@@ -292,14 +296,14 @@ int CigiEnvCtrlV1::SetHumidity(const unsigned char HumidityIn, bool bndchk)
 // ================================================
 // Month
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiEnvCtrlV1::SetMonth(const unsigned char MonthIn, bool bndchk)
+int CigiEnvCtrlV1::SetMonth(const Cigi_uint8 MonthIn, bool bndchk)
 {
 
 #ifndef CIGI_NO_BND_CHK
    if(bndchk && ((MonthIn < 1)||(MonthIn > 12)))
    {
 #ifndef CIGI_NO_EXCEPT
-      throw CigiValueOutOfRangeException("Month",(unsigned char)MonthIn,1,12);
+      throw CigiValueOutOfRangeException("Month",(Cigi_uint8)MonthIn,1,12);
 #endif
       return(CIGI_ERROR_VALUE_OUT_OF_RANGE);
    }
@@ -314,14 +318,14 @@ int CigiEnvCtrlV1::SetMonth(const unsigned char MonthIn, bool bndchk)
 // ================================================
 // Day
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiEnvCtrlV1::SetDay(const unsigned char DayIn, bool bndchk)
+int CigiEnvCtrlV1::SetDay(const Cigi_uint8 DayIn, bool bndchk)
 {
 
 #ifndef CIGI_NO_BND_CHK
    if(bndchk && ((DayIn < 1)||(DayIn > 31)))
    {
 #ifndef CIGI_NO_EXCEPT
-      throw CigiValueOutOfRangeException("Day",(unsigned char)DayIn,1,31);
+      throw CigiValueOutOfRangeException("Day",(Cigi_uint8)DayIn,1,31);
 #endif
       return(CIGI_ERROR_VALUE_OUT_OF_RANGE);
    }

@@ -38,11 +38,15 @@
  *  Removed the inline defnitions for the PackedPointer union.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
- *  Modified the class constructur to initialize the MinorVersion member 
+ *  Modified the class constructor to initialize the MinorVersion member 
  *  variable.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -107,7 +111,7 @@ CigiAtmosCtrlV3::~CigiAtmosCtrlV3()
 // ================================================
 // Pack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiAtmosCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const
+int CigiAtmosCtrlV3::Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const
 {
    PackPointer CDta;
 
@@ -140,7 +144,7 @@ int CigiAtmosCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spe
 // ================================================
 // Unpack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiAtmosCtrlV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
+int CigiAtmosCtrlV3::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
 {
    PackPointer CDta;
 
@@ -225,14 +229,14 @@ void CigiAtmosCtrlV3::FillHold(CigiBaseEnvCtrl * Hold) const
 // ================================================
 // Humidity
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiAtmosCtrlV3::SetHumidity(const unsigned char HumidityIn, bool bndchk)
+int CigiAtmosCtrlV3::SetHumidity(const Cigi_uint8 HumidityIn, bool bndchk)
 {
 
 #ifndef CIGI_NO_BND_CHK
    if(bndchk && ((HumidityIn < 0)||(HumidityIn > 100)))
    {
 #ifndef CIGI_NO_EXCEPT
-      throw CigiValueOutOfRangeException("Humidity",(unsigned char)HumidityIn,0,100);
+      throw CigiValueOutOfRangeException("Humidity",(Cigi_uint8)HumidityIn,0,100);
 #endif
       return(CIGI_ERROR_VALUE_OUT_OF_RANGE);
    }

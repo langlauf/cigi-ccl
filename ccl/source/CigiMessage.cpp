@@ -37,9 +37,13 @@
  *  04/14/2006 Greg Basler                       Version 1.7.0
  *  Modified the CreateBuffer method to add additional padding at the end of 
  *  the buffer when created to allow overruns due to version change problems.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -117,8 +121,8 @@ int CigiMessage::CreateBuffer(const int NumBuf, const int BufLen)
       BufferSize  = BufLen + 64;
 
       double *OrigBuf = new double[NumBuf * ((BufLen/8) + 1)];
-      BufferBlock = (unsigned char *)OrigBuf;
-      BasePtr = new unsigned char *[NumBuf];
+      BufferBlock = (Cigi_uint8 *)OrigBuf;
+      BasePtr = new Cigi_uint8 *[NumBuf];
       BuffFillCnt = new int[NumBuf];
       Data = new bool[NumBuf];
       for(int ndx=0;ndx<NumBuf;ndx++)

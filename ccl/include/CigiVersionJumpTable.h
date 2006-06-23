@@ -93,9 +93,13 @@
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
  *  Added the GetReceivedFrameID accessor method.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #if !defined(_CIGI_VERSION_AND_JUMP_TABLE_INCLUDED_)
@@ -448,7 +452,7 @@ public:
    //!
    //! \return the packet id of the current external interface.
    //!
-   unsigned char GetCnvtID(const unsigned char PacketID, const int Version)
+   Cigi_uint8 GetCnvtID(const Cigi_uint8 PacketID, const int Version)
    {
       if((Version > 0)&&(Version < 4))
          return(PacketIDMap[Version][PacketID]);
@@ -464,7 +468,7 @@ public:
    //!
    //! \return the reader's packet id.
    //!
-   unsigned char GetCnvtToReaderID(const unsigned char PacketID)
+   Cigi_uint8 GetCnvtToReaderID(const Cigi_uint8 PacketID)
    {
          return(PacketIDMap[0][PacketID]);
    }
@@ -479,7 +483,7 @@ public:
    //! \return the a flag specifying whether the specified
    //!   packet is valid to send.
    //!
-   bool GetSndVld(const unsigned char SndPcktID) const { return(VldSnd[SndPcktID]); }
+   bool GetSndVld(const Cigi_uint8 SndPcktID) const { return(VldSnd[SndPcktID]); }
 
    //=========================================================
    //! Gets the receive valid flag for the specified packet id.
@@ -488,7 +492,7 @@ public:
    //! \return the a flag specifying whether the specified
    //!   packet is valid to receive.
    //!
-   bool GetRcvVld(const unsigned char RcvPcktID) const { return(VldRcv[RcvPcktID]); }
+   bool GetRcvVld(const Cigi_uint8 RcvPcktID) const { return(VldRcv[RcvPcktID]); }
 
    //=========================================================
    //! Gets the handling object for a specific packet id.
@@ -496,7 +500,7 @@ public:
    //!
    //! \return An pointer to the handling object for the specified packet.
    //!
-   CigiBasePacket * GetPcktHndlr(const unsigned char PacketID) const { return(JmpTbl[PacketID]); }
+   CigiBasePacket * GetPcktHndlr(const Cigi_uint8 PacketID) const { return(JmpTbl[PacketID]); }
 
    //=========================================================
    //! Gets the signal type for a specific packet id.
@@ -504,7 +508,7 @@ public:
    //!
    //! \return An pointer to the handling object for the specified packet.
    //!
-   SignalTblType GetSignalType(const unsigned char PacketID) const { return(SignalMap[PacketID]); }
+   SignalTblType GetSignalType(const Cigi_uint8 PacketID) const { return(SignalMap[PacketID]); }
 
    //=========================================================
    //! Gets the Process type for a specific packet id.
@@ -512,7 +516,7 @@ public:
    //!
    //! \return An pointer to the handling object for the specified packet.
    //!
-   int GetProcType(const unsigned char PacketID) const { return(ProcType[PacketID]); }
+   int GetProcType(const Cigi_uint8 PacketID) const { return(ProcType[PacketID]); }
 
 
    //+> Registering
@@ -529,7 +533,7 @@ public:
    //! \return the a flag specifying whether the specified
    //!   packet is valid to send.
    //!
-	int RegisterUserPacket(CigiBasePacket *Packet, unsigned char PacketID, bool HostSend, bool IGSend);
+	int RegisterUserPacket(CigiBasePacket *Packet, Cigi_uint8 PacketID, bool HostSend, bool IGSend);
 
 
 protected:
@@ -578,7 +582,7 @@ protected:
    //!   1 - 3 => the convert from Cigi version.<br>
    //! The second index is the convert from packet id.
    //!
-   unsigned char TotalPacketIDMap[4][4][256];
+   Cigi_uint8 TotalPacketIDMap[4][4][256];
 
    //=========================================================
    //! The Packet ID Mapping Table
@@ -586,7 +590,7 @@ protected:
    //! The second index is the convert to Cigi version.<br>
    //! The third index is the convert from packet id.
    //!
-   unsigned char PacketIDMap[4][256];
+   Cigi_uint8 PacketIDMap[4][256];
 
 
    //=========================================================

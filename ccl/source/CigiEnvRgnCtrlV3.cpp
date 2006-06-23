@@ -38,11 +38,15 @@
  *  Removed the inline defnitions for the PackedPointer union.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
- *  Modified the class constructur to initialize the MinorVersion member 
+ *  Modified the class constructor to initialize the MinorVersion member 
  *  variable.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -99,7 +103,7 @@ CigiEnvRgnCtrlV3::~CigiEnvRgnCtrlV3()
 // ================================================
 // Pack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiEnvRgnCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const
+int CigiEnvRgnCtrlV3::Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const
 {
    PackPointer CDta;
 
@@ -112,7 +116,7 @@ int CigiEnvRgnCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Sp
 
    *CDta.s++ = Data->RegionID;
 
-   unsigned char MDta = Data->RgnState & 0x03;
+   Cigi_uint8 MDta = Data->RgnState & 0x03;
    MDta |= (Data->WeatherProp << 2) & 0x04;
    MDta |= (Data->Aerosol << 3) & 0x08;
    MDta |= (Data->MaritimeSurface << 4) & 0x10;
@@ -138,7 +142,7 @@ int CigiEnvRgnCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Sp
 // ================================================
 // Unpack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiEnvRgnCtrlV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
+int CigiEnvRgnCtrlV3::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
 {
    PackPointer CDta;
 
@@ -150,7 +154,7 @@ int CigiEnvRgnCtrlV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
    {
       RegionID = *CDta.s++;
 
-      unsigned char HDta = *CDta.c++;
+      Cigi_uint8 HDta = *CDta.c++;
       RgnState = (RgnStateGrp)(HDta & 0x03);
       WeatherProp = (MergeCtrlGrp)((HDta >> 2) & 0x01);
       Aerosol = (MergeCtrlGrp)((HDta >> 3) & 0x01);
@@ -171,7 +175,7 @@ int CigiEnvRgnCtrlV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
    {
       CigiSwap2(&RegionID, CDta.s++);
 
-      unsigned char HDta = *CDta.c++;
+      Cigi_uint8 HDta = *CDta.c++;
       RgnState = (RgnStateGrp)(HDta & 0x03);
       WeatherProp = (MergeCtrlGrp)((HDta >> 2) & 0x01);
       Aerosol = (MergeCtrlGrp)((HDta >> 3) & 0x01);

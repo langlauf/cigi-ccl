@@ -36,16 +36,20 @@
  *  class in a Windows DLL.
  *  
  *  01/21/2005 Greg Basler                       Version 1.5
- *  Changed the type of the Version member variable from int to unsigned char.
+ *  Changed the type of the Version member variable from int to Cigi_uint8.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
  *  Added the MinorVersion member variable.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
  *  Added the GetMinorVersion method for accessing the minor version.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #if !defined(_CIGI_BASE_PACKET_INCLUDED_)
@@ -81,7 +85,7 @@ public:
    //! \return This returns CIGI_SUCCESS or an error code 
    //!   defined in CigiErrorCodes.h
    //!
-	virtual int Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const=0;
+	virtual int Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const=0;
 
    //=========================================================
    //! A pure virtual Unpack function.
@@ -93,31 +97,31 @@ public:
    //! \return This returns CIGI_SUCCESS or an error code 
    //!   defined in CigiErrorCodes.h
    //!
-	virtual int Unpack(unsigned char * Buff, bool Swap, void *Spec) =0;
+	virtual int Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec) =0;
 
    //=========================================================
    //! Gets the packet id.
    //! \return The packet id.
    //!
-   unsigned char GetPacketID(void) const { return(PacketID); }
+   Cigi_uint8 GetPacketID(void) const { return(PacketID); }
 
    //=========================================================
    //! Gets the size of the packet.
    //! \return The size in bytes of the packet.
    //!
-   unsigned char GetPacketSize(void) const { return(PacketSize); }
+   Cigi_uint8 GetPacketSize(void) const { return(PacketSize); }
 
    //=========================================================
    //! Gets the CIGI version of this packet.
    //! \return The CIGI version of this packet.
    //!
-   unsigned char GetVersion(void) const { return(Version); }
+   Cigi_uint8 GetVersion(void) const { return(Version); }
 
    //=========================================================
    //! Gets the CIGI minor version of this packet.
    //! \return The CIGI minor version of this packet.
    //!
-   unsigned char GetMinorVersion(void) const { return(MinorVersion); }
+   Cigi_uint8 GetMinorVersion(void) const { return(MinorVersion); }
 
 
 protected:
@@ -125,22 +129,22 @@ protected:
    //=========================================================
    //! Packet ID or Opcode
    //!
-	unsigned char PacketID;
+	Cigi_uint8 PacketID;
 
    //=========================================================
    //! Packet size in bytes
    //!
-	unsigned char PacketSize;
+	Cigi_uint8 PacketSize;
 
    //=========================================================
    //! CIGI version of this packet
    //!
-	unsigned char Version;
+	Cigi_uint8 Version;
 
    //=========================================================
    //! CIGI minor version of this packet
    //!
-	unsigned char MinorVersion;
+	Cigi_uint8 MinorVersion;
 
 };
 

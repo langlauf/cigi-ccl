@@ -41,11 +41,15 @@
  *  Changed native C++ types to use CCL-defined types instead where appropriate.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
- *  Modified the class constructur to initialize the MinorVersion member 
+ *  Modified the class constructor to initialize the MinorVersion member 
  *  variable.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -144,7 +148,7 @@ CigiShortCompCtrlV3::~CigiShortCompCtrlV3()
 // ================================================
 // Pack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiShortCompCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const
+int CigiShortCompCtrlV3::Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const
 {
    PackPointer CDta;
 
@@ -160,7 +164,7 @@ int CigiShortCompCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void 
 
    *CDta.c++ = Data->CompClassV3 & 0x0f;
 
-   *CDta.c++ = (unsigned char)((Data->CompState > 0x00ff) ?
+   *CDta.c++ = (Cigi_uint8)((Data->CompState > 0x00ff) ?
                                  0x00ff : Data->CompState);
 
    *CDta.l++ = Data->CompData[0];
@@ -173,7 +177,7 @@ int CigiShortCompCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void 
 // ================================================
 // Unpack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiShortCompCtrlV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
+int CigiShortCompCtrlV3::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
 {
    PackPointer CDta;
 
@@ -257,9 +261,9 @@ int CigiShortCompCtrlV3::SetCompClassV3(const CompClassV3Grp CompClassV3In, bool
 
 
 // ================================================
-// SetCompData - unsigned char
+// SetCompData - Cigi_uint8
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiShortCompCtrlV3::SetCompData(const unsigned char CompDataIn,
+int CigiShortCompCtrlV3::SetCompData(const Cigi_uint8 CompDataIn,
                     const unsigned int Word,
                     const BytePos Pos,
                     bool bndchk)
@@ -301,17 +305,17 @@ int CigiShortCompCtrlV3::SetCompData(const unsigned char CompDataIn,
 
 
 // ================================================
-// SetCompData - char
+// SetCompData - Cigi_int8
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiShortCompCtrlV3::SetCompData(const char CompDataIn,
+int CigiShortCompCtrlV3::SetCompData(const Cigi_int8 CompDataIn,
                     const unsigned int Word,
                     const BytePos Pos,
                     bool bndchk)
 {
 
    union {
-      char sc;
-      unsigned char uc;
+      Cigi_int8 sc;
+      Cigi_uint8 uc;
    } bxfer;
 
    int Err = 0;
@@ -616,11 +620,11 @@ int CigiShortCompCtrlV3::SetCompData(const double CompDataIn,
 // ================================================
 // GetUCharCompData
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-unsigned char CigiShortCompCtrlV3::GetUCharCompData(const unsigned int Word,
+Cigi_uint8 CigiShortCompCtrlV3::GetUCharCompData(const unsigned int Word,
                                const BytePos Pos)
 {
 
-   unsigned char tDta;
+   Cigi_uint8 tDta;
 
    int Err = 0;
 
@@ -641,7 +645,7 @@ unsigned char CigiShortCompCtrlV3::GetUCharCompData(const unsigned int Word,
       tDta = 0;
    }
    else
-      tDta = (unsigned char)((CompData[Word] >> (Pos * 8)) & 0x000000ff);
+      tDta = (Cigi_uint8)((CompData[Word] >> (Pos * 8)) & 0x000000ff);
 
    return(tDta);
 }
@@ -650,12 +654,12 @@ unsigned char CigiShortCompCtrlV3::GetUCharCompData(const unsigned int Word,
 // ================================================
 // GetCharCompData
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-char CigiShortCompCtrlV3::GetCharCompData(const unsigned int Word,
+Cigi_int8 CigiShortCompCtrlV3::GetCharCompData(const unsigned int Word,
                      const BytePos Pos)
 {
    union {
-      char sc;
-      unsigned char uc;
+      Cigi_int8 sc;
+      Cigi_uint8 uc;
    } tDta;
 
    int Err = 0;
@@ -677,7 +681,7 @@ char CigiShortCompCtrlV3::GetCharCompData(const unsigned int Word,
       tDta.uc = 0;
    }
    else
-      tDta.uc = (unsigned char)((CompData[Word] >> (Pos * 8)) & 0x000000ff);
+      tDta.uc = (Cigi_uint8)((CompData[Word] >> (Pos * 8)) & 0x000000ff);
 
    return(tDta.sc);
 }

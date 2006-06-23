@@ -37,9 +37,13 @@
  *  
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Changed native C++ types in function declarations to CCL-defined types.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 
@@ -97,7 +101,7 @@ public:
    //! \return This returns CIGI_SUCCESS or an error code 
    //!   defined in CigiErrorCodes.h
    //!
-   virtual int Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const=0;
+   virtual int Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const=0;
 
    //=========================================================
    //! A pure virtual Unpack function.
@@ -109,7 +113,7 @@ public:
    //! \return This returns CIGI_SUCCESS or an error code 
    //!   defined in CigiErrorCodes.h
    //!
-   virtual int Unpack(unsigned char * Buff, bool Swap, void *Spec) =0;
+   virtual int Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec) =0;
 
 
    //==> Hold Object Manipulation
@@ -133,25 +137,25 @@ protected:
    //! Hour<br>
    //! The current hour.
    //!
-   unsigned char Hour;
+   Cigi_uint8 Hour;
 
    //=========================================================
    //! Minute<br>
    //! The current minute.
    //!
-   unsigned char Minute;
+   Cigi_uint8 Minute;
 
    //=========================================================
    //! Month<br>
    //! The current month.
    //!
-   unsigned char Month;
+   Cigi_uint8 Month;
 
    //=========================================================
    //! Day<br>
    //! The current day of the month.
    //!
-   unsigned char Day;
+   Cigi_uint8 Day;
 
    //=========================================================
    //! Year<br>
@@ -211,7 +215,7 @@ protected:
    //! Humidity<br>
    //! The current humidity.
    //!
-   unsigned char Humidity;
+   Cigi_uint8 Humidity;
 
    //=========================================================
    //! AirTemp<br>

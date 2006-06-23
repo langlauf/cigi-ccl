@@ -41,11 +41,15 @@
  *  Changed native C++ types to use CCL-defined types instead where appropriate.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
- *  Modified the class constructur to initialize the MinorVersion member 
+ *  Modified the class constructor to initialize the MinorVersion member 
  *  variable.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -117,11 +121,11 @@ CigiSensorRespV2::~CigiSensorRespV2()
 // ================================================
 // Pack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiSensorRespV2::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const
+int CigiSensorRespV2::Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const
 {
    double DBuf[6];
 
-   unsigned char *tBuf = (unsigned char *)DBuf;
+   Cigi_uint8 *tBuf = (Cigi_uint8 *)DBuf;
 
    PackPointer CDta;
 
@@ -132,8 +136,8 @@ int CigiSensorRespV2::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Sp
    *CDta.c++ = PacketID;
    *CDta.c++ = PacketSize;
 
-   unsigned char HDta = (unsigned char)((Data->ViewID << 3) & 0x00f8);
-   HDta |= (unsigned char)((Data->SensorStat << 1) & 0x06);
+   Cigi_uint8 HDta = (Cigi_uint8)((Data->ViewID << 3) & 0x00f8);
+   HDta |= (Cigi_uint8)((Data->SensorStat << 1) & 0x06);
    *CDta.c++ = HDta;
 
    *CDta.c++ = Data->SensorID;
@@ -158,11 +162,11 @@ int CigiSensorRespV2::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Sp
 // ================================================
 // Unpack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiSensorRespV2::Unpack(unsigned char * Buff, bool Swap, void *Spec)
+int CigiSensorRespV2::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
 {
    double DBuf[6];
 
-   unsigned char *tBuf = (unsigned char *)DBuf;
+   Cigi_uint8 *tBuf = (Cigi_uint8 *)DBuf;
 
    PackPointer CDta;
 
@@ -172,7 +176,7 @@ int CigiSensorRespV2::Unpack(unsigned char * Buff, bool Swap, void *Spec)
 
    CDta.c += 2;  // Step over packet id and size
 
-   unsigned char HDta = *CDta.c++;
+   Cigi_uint8 HDta = *CDta.c++;
    ViewID = (Cigi_uint16)((HDta >> 3) & 0x1f);
    SensorStat = (SensorStatGrp)((HDta >> 1) & 0x03);
    SensorID = *CDta.c++;

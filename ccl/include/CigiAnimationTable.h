@@ -37,9 +37,13 @@
  *  
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Changed native C++ types in function declarations to CCL-defined types.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #if !defined(_CIGI_ANIMATION_TABLE_INCLUDED_)
@@ -110,7 +114,7 @@ protected:
    //! 2 Play<br>
    //! 3 Continue<br>
    //!
-	unsigned char AnimationTable[16384];
+	Cigi_uint8 AnimationTable[16384];
 
 };
 

@@ -60,9 +60,13 @@
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
  *  Implemented the Reset method.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #include <stdlib.h>
@@ -170,7 +174,7 @@ CigiOutgoingMsg & CigiOutgoingMsg::operator <<(CigiBaseIGCtrl &refPacket)
 {
    *CurrentIGCtrl = refPacket;
 
-   unsigned char JTblNdx =
+   Cigi_uint8 JTblNdx =
       VJmp->GetCnvtID(refPacket.GetPacketID(),refPacket.GetVersion());
 
    bool Valid = VJmp->GetSndVld(JTblNdx);
@@ -200,7 +204,7 @@ CigiOutgoingMsg & CigiOutgoingMsg::operator <<(CigiBaseSOF &refPacket)
 {
    *CurrentSOF = refPacket;
 
-   unsigned char JTblNdx =
+   Cigi_uint8 JTblNdx =
       VJmp->GetCnvtID(refPacket.GetPacketID(),refPacket.GetVersion());
 
    bool Valid = VJmp->GetSndVld(JTblNdx);
@@ -232,7 +236,7 @@ CigiOutgoingMsg & CigiOutgoingMsg::operator <<(CigiBaseEntityCtrl &refPacket)
    if(!Active || Locked)
       return(*this);  // add exception coding here!
 
-   unsigned char JTblNdx =
+   Cigi_uint8 JTblNdx =
       VJmp->GetCnvtID(refPacket.GetPacketID(),refPacket.GetVersion());
 
    bool Valid = VJmp->GetSndVld(JTblNdx);
@@ -314,7 +318,7 @@ CigiOutgoingMsg & CigiOutgoingMsg::operator <<(CigiBaseEnvCtrl &refPacket)
    if(!Active || Locked)
       return(*this);  // add exception coding here!
 
-   unsigned char JTblNdx =
+   Cigi_uint8 JTblNdx =
       VJmp->GetCnvtID(refPacket.GetPacketID(),refPacket.GetVersion());
 
    bool Valid = VJmp->GetSndVld(JTblNdx);
@@ -324,8 +328,8 @@ CigiOutgoingMsg & CigiOutgoingMsg::operator <<(CigiBaseEnvCtrl &refPacket)
 
       CigiBasePacket * PackHndlr = VJmp->GetPcktHndlr(JTblNdx);
 
-      unsigned char FillVer = refPacket.GetVersion();
-      unsigned char SendVer = PackHndlr->GetVersion();
+      Cigi_uint8 FillVer = refPacket.GetVersion();
+      Cigi_uint8 SendVer = PackHndlr->GetVersion();
 
       // If the fill and send versions are the same or
       //   they are both below version 3
@@ -590,7 +594,7 @@ CigiOutgoingMsg & CigiOutgoingMsg::operator <<(CigiBasePacket &refBasePacket)
    if(!Active || Locked)
       return(*this);  // add exception coding here!
 
-   unsigned char JTblNdx =
+   Cigi_uint8 JTblNdx =
       VJmp->GetCnvtID(refBasePacket.GetPacketID(),refBasePacket.GetVersion());
 
    bool Valid = VJmp->GetSndVld(JTblNdx);
@@ -731,7 +735,7 @@ int CigiOutgoingMsg::UpdateFrameCntr()
 // ================================================
 // UpdateFrameCntr
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiOutgoingMsg::UpdateFrameCntr(unsigned char *OutgoingMsg)
+int CigiOutgoingMsg::UpdateFrameCntr(Cigi_uint8 *OutgoingMsg)
 {
 
    Cigi_uint32 Frame = 0;
@@ -783,14 +787,14 @@ int CigiOutgoingMsg::UpdateFrameCntr(unsigned char *OutgoingMsg)
 // ================================================
 // UpdateIGCtrl
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiOutgoingMsg::UpdateIGCtrl(unsigned char *OutgoingMsg, unsigned char *IncomingMsg)
+int CigiOutgoingMsg::UpdateIGCtrl(Cigi_uint8 *OutgoingMsg, Cigi_uint8 *IncomingMsg)
 {
 
    Cigi_uint32 Frame = 0;
    Cigi_uint32 InFrame = 0;
    Cigi_uint32 *pBufr = NULL;
-   char *OBufr = NULL;
-   char *IBufr = NULL;
+   Cigi_int8 *OBufr = NULL;
+   Cigi_int8 *IBufr = NULL;
    int MajorVer = VJmp->GetCigiVersion();
 
    if((VJmp == NULL)||(OutgoingMsg == NULL))
@@ -845,10 +849,10 @@ int CigiOutgoingMsg::UpdateIGCtrl(unsigned char *OutgoingMsg, unsigned char *Inc
          }
 
          // check and adjust the Database IDs
-         OBufr = (char *)(OutgoingMsg + 3);
+         OBufr = (Cigi_int8 *)(OutgoingMsg + 3);
          if(OBufr > 0)
          {
-            IBufr = (char *)(IncomingMsg + 3);
+            IBufr = (Cigi_int8 *)(IncomingMsg + 3);
             if((*OBufr == *IBufr)||(*IBufr < 0))
                *OBufr = 0;
          }
@@ -895,7 +899,7 @@ int CigiOutgoingMsg::UpdateIGCtrl(unsigned char *OutgoingMsg, unsigned char *Inc
 // ================================================
 // UpdateSOF
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiOutgoingMsg::UpdateSOF(unsigned char *OutgoingMsg)
+int CigiOutgoingMsg::UpdateSOF(Cigi_uint8 *OutgoingMsg)
 {
    // Note: For all current CIGI Versions in the
    //  IG Control and Start-Of-Frame packets:
@@ -988,7 +992,7 @@ int CigiOutgoingMsg::LockMsg()
 // ================================================
 // GetMsg
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-unsigned char * CigiOutgoingMsg::GetMsg(int &length)
+Cigi_uint8 * CigiOutgoingMsg::GetMsg(int &length)
 {
 
    if(!Active)
@@ -1003,7 +1007,7 @@ unsigned char * CigiOutgoingMsg::GetMsg(int &length)
 // ================================================
 // GetBuffer
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-unsigned char * CigiOutgoingMsg::GetBuffer()
+Cigi_uint8 * CigiOutgoingMsg::GetBuffer()
 {
 
    if(!Active)
@@ -1064,7 +1068,7 @@ int CigiOutgoingMsg::UnlockMsg()
 // ================================================
 // PackageMsg
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiOutgoingMsg::PackageMsg(unsigned char **Msg, int &length)
+int CigiOutgoingMsg::PackageMsg(Cigi_uint8 **Msg, int &length)
 {
 
    *Msg = NULL;

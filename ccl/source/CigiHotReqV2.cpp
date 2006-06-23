@@ -38,14 +38,18 @@
  *  Removed the inline defnitions for the PackedPointer union.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
- *  Modified the class constructur to initialize the MinorVersion and 
+ *  Modified the class constructor to initialize the MinorVersion and 
  *  UpdatePeriod member variables.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
  *  Modified the Unpack method to use the UpdatePeriod member variable.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -113,11 +117,11 @@ CigiHotReqV2::~CigiHotReqV2()
 // ================================================
 // Pack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiHotReqV2::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const
+int CigiHotReqV2::Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const
 {
    double DBuf[6];
 
-   unsigned char *tBuf = (unsigned char *)DBuf;
+   Cigi_uint8 *tBuf = (Cigi_uint8 *)DBuf;
 
    PackPointer CDta;
 
@@ -147,11 +151,11 @@ int CigiHotReqV2::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) 
 // ================================================
 // Unpack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiHotReqV2::Unpack(unsigned char * Buff, bool Swap, void *Spec)
+int CigiHotReqV2::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
 {
    double DBuf[6];
 
-   unsigned char *tBuf = (unsigned char *)DBuf;
+   Cigi_uint8 *tBuf = (Cigi_uint8 *)DBuf;
 
    PackPointer CDta;
 

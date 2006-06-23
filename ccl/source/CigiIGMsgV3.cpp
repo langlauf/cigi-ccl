@@ -38,11 +38,15 @@
  *  Removed the inline defnitions for the PackedPointer union.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
- *  Modified the class constructur to initialize the MinorVersion member 
+ *  Modified the class constructor to initialize the MinorVersion member 
  *  variable.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -89,7 +93,7 @@ CigiIGMsgV3::~CigiIGMsgV3()
 // ================================================
 // Pack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiIGMsgV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const
+int CigiIGMsgV3::Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const
 {
 
    PackPointer CDta;
@@ -112,7 +116,7 @@ int CigiIGMsgV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) c
 // ================================================
 // Unpack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiIGMsgV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
+int CigiIGMsgV3::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
 {
 
    PackPointer CDta;
@@ -165,7 +169,7 @@ int CigiIGMsgV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
 // ================================================
 // SetMsg
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiIGMsgV3::SetMsg(const char *MsgIn, bool bndchk)
+int CigiIGMsgV3::SetMsg(const Cigi_Ascii *MsgIn, bool bndchk)
 {
 
    MsgLen = strlen(MsgIn);

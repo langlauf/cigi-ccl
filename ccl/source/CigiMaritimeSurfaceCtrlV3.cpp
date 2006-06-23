@@ -41,11 +41,15 @@
  *  Changed native C++ types to use CCL-defined types instead where appropriate.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
- *  Modified the class constructur to initialize the MinorVersion member 
+ *  Modified the class constructor to initialize the MinorVersion member 
  *  variable.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -96,7 +100,7 @@ CigiMaritimeSurfaceCtrlV3::~CigiMaritimeSurfaceCtrlV3()
 // ================================================
 // Pack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiMaritimeSurfaceCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const
+int CigiMaritimeSurfaceCtrlV3::Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const
 {
    PackPointer CDta;
 
@@ -109,7 +113,7 @@ int CigiMaritimeSurfaceCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Buff,
 
    *CDta.s++ = Data->EntityRgnID;
 
-   unsigned char HDta = (Data->SurfaceCondEn) ? 0x01 : 0;
+   Cigi_uint8 HDta = (Data->SurfaceCondEn) ? 0x01 : 0;
    HDta |= (Data->WhitecapEn) ? 0x02 : 0;
    HDta |= (Data->Scope << 2) & 0x0c;
    *CDta.c++ = HDta;
@@ -129,7 +133,7 @@ int CigiMaritimeSurfaceCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Buff,
 // ================================================
 // Unpack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiMaritimeSurfaceCtrlV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
+int CigiMaritimeSurfaceCtrlV3::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
 {
    PackPointer CDta;
 

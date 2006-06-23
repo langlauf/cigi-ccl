@@ -38,11 +38,15 @@
  *  Removed the inline defnitions for the PackedPointer union.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
- *  Modified the class constructur to initialize the MinorVersion member 
+ *  Modified the class constructor to initialize the MinorVersion member 
  *  variable.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -106,11 +110,11 @@ CigiCollDetVolRespV2::~CigiCollDetVolRespV2()
 // ================================================
 // Pack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiCollDetVolRespV2::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const
+int CigiCollDetVolRespV2::Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const
 {
    double DBuf[6];
 
-   unsigned char *tBuf = (unsigned char *)DBuf;
+   Cigi_uint8 *tBuf = (Cigi_uint8 *)DBuf;
 
    PackPointer CDta;
 
@@ -123,7 +127,7 @@ int CigiCollDetVolRespV2::Pack(CigiBasePacket * Base, unsigned char * Buff, void
 
    CIGI_SCOPY2(CDta.s++, &Data->EntityID);
 
-   unsigned char HDta = (Data->VolID << 1) & 0xfe;
+   Cigi_uint8 HDta = (Data->VolID << 1) & 0xfe;
    HDta |= (Cigi_uint16)(Data->CollType & 0x01);
    *CDta.c++ = HDta;
 
@@ -140,11 +144,11 @@ int CigiCollDetVolRespV2::Pack(CigiBasePacket * Base, unsigned char * Buff, void
 // ================================================
 // Unpack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiCollDetVolRespV2::Unpack(unsigned char * Buff, bool Swap, void *Spec)
+int CigiCollDetVolRespV2::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
 {
    double DBuf[6];
 
-   unsigned char *tBuf = (unsigned char *)DBuf;
+   Cigi_uint8 *tBuf = (Cigi_uint8 *)DBuf;
 
    PackPointer CDta;
 
@@ -156,7 +160,7 @@ int CigiCollDetVolRespV2::Unpack(unsigned char * Buff, bool Swap, void *Spec)
 
    CIGI_SCOPY2(&EntityID, CDta.s++);
 
-   unsigned char HDta = *CDta.c++;
+   Cigi_uint8 HDta = *CDta.c++;
    VolID = (HDta >> 1) & 0x7f;
    CollType = (CollTypeGrp)(HDta & 0x01);
 
@@ -178,14 +182,14 @@ int CigiCollDetVolRespV2::Unpack(unsigned char * Buff, bool Swap, void *Spec)
 // ================================================
 // VolID
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiCollDetVolRespV2::SetVolID(const unsigned char VolIDIn, bool bndchk)
+int CigiCollDetVolRespV2::SetVolID(const Cigi_uint8 VolIDIn, bool bndchk)
 {
 
 #ifndef CIGI_NO_BND_CHK
    if(bndchk && ((VolIDIn < 0)||(VolIDIn > 127)))
    {
 #ifndef CIGI_NO_EXCEPT
-      throw CigiValueOutOfRangeException("VolID",(unsigned char)VolIDIn,0,127);
+      throw CigiValueOutOfRangeException("VolID",(Cigi_uint8)VolIDIn,0,127);
 #endif
       return(CIGI_ERROR_VALUE_OUT_OF_RANGE);
    }

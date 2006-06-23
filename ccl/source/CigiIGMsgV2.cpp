@@ -38,11 +38,15 @@
  *  Changed native C++ types to use CCL-defined types instead where appropriate.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
- *  Modified the class constructur to initialize the MinorVersion member 
+ *  Modified the class constructor to initialize the MinorVersion member 
  *  variable.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -104,14 +108,14 @@ CigiIGMsgV2::~CigiIGMsgV2()
 // ================================================
 // Pack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiIGMsgV2::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const
+int CigiIGMsgV2::Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const
 {
 
    Cigi_int16 tbuf;
 
    CigiBaseIGMsg * Data = ( CigiBaseIGMsg *)Base;
 
-   unsigned char *CDta = Buff;
+   Cigi_uint8 *CDta = Buff;
 
    *CDta++ = PacketID;
    *CDta++ = Data->PacketSize;
@@ -130,13 +134,13 @@ int CigiIGMsgV2::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) c
 // ================================================
 // Unpack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiIGMsgV2::Unpack(unsigned char * Buff, bool Swap, void *Spec)
+int CigiIGMsgV2::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
 {
 
    Cigi_int16 tbuf;
    int tPktSz;
 
-   unsigned char *CDta = Buff;
+   Cigi_uint8 *CDta = Buff;
 
    CDta++;  // Step over packet id
 
@@ -181,7 +185,7 @@ int CigiIGMsgV2::Unpack(unsigned char * Buff, bool Swap, void *Spec)
 // ================================================
 // SetMsg
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiIGMsgV2::SetMsg(const char *MsgIn, bool bndchk)
+int CigiIGMsgV2::SetMsg(const Cigi_Ascii *MsgIn, bool bndchk)
 {
 
    MsgLen = strlen(MsgIn);

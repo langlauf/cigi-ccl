@@ -41,11 +41,15 @@
  *  Changed native C++ types to use CCL-defined types instead where appropriate.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
- *  Modified the class constructur to initialize the MinorVersion member 
+ *  Modified the class constructor to initialize the MinorVersion member 
  *  variable.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -120,7 +124,7 @@ CigiArtPartCtrlV1::~CigiArtPartCtrlV1()
 // ================================================
 // Pack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiArtPartCtrlV1::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const
+int CigiArtPartCtrlV1::Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const
 {
    double DBuf[6];
 
@@ -134,7 +138,7 @@ int CigiArtPartCtrlV1::Pack(CigiBasePacket * Base, unsigned char * Buff, void *S
       Cigi_int16 s;
    } tuCnvt;
 
-   unsigned char *tBuf = (unsigned char *)DBuf;
+   Cigi_uint8 *tBuf = (Cigi_uint8 *)DBuf;
 
    PackPointer CDta;
 
@@ -148,7 +152,7 @@ int CigiArtPartCtrlV1::Pack(CigiBasePacket * Base, unsigned char * Buff, void *S
    CIGI_SCOPY2(CDta.s++, &Data->EntityID);
    *CDta.c++ = Data->ArtPartIDV1;
 
-   unsigned char HDta = 0;
+   Cigi_uint8 HDta = 0;
 
    if(Data->ArtPartEn)
       HDta = 0x80;
@@ -230,19 +234,19 @@ int CigiArtPartCtrlV1::Pack(CigiBasePacket * Base, unsigned char * Buff, void *S
 // ================================================
 // Unpack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiArtPartCtrlV1::Unpack(unsigned char * Buff, bool Swap, void *Spec)
+int CigiArtPartCtrlV1::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
 {
    union ArtPartConv
    {
-      unsigned char uc;
-      char c;
+      Cigi_uint8 uc;
+      Cigi_int8 c;
    } ArtC;
 
    double DBuf[6];
 
    Cigi_int16  tsCnvt;
 
-   unsigned char *tBuf = (unsigned char *)DBuf;
+   Cigi_uint8 *tBuf = (Cigi_uint8 *)DBuf;
 
    PackPointer CDta;
 
@@ -307,12 +311,12 @@ int CigiArtPartCtrlV1::Unpack(unsigned char * Buff, bool Swap, void *Spec)
 // ================================================
 // SetArtPartID
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiArtPartCtrlV1::SetArtPartID(const char ArtPartIDIn, bool bndchk)
+int CigiArtPartCtrlV1::SetArtPartID(const Cigi_int8 ArtPartIDIn, bool bndchk)
 {
    union ArtPartConv
    {
-      unsigned char uc;
-      char c;
+      Cigi_uint8 uc;
+      Cigi_int8 c;
    } ArtC;
 
    ArtPartIDV1 = ArtPartIDIn;

@@ -38,11 +38,15 @@
  *  Removed the inline defnitions for the PackedPointer union.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
- *  Modified the class constructur to initialize the MinorVersion member 
+ *  Modified the class constructor to initialize the MinorVersion member 
  *  variable.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -126,14 +130,14 @@ CigiEntityCtrlV1::~CigiEntityCtrlV1()
 // ================================================
 // Pack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiEntityCtrlV1::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const
+int CigiEntityCtrlV1::Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const
 {
    EntityStV1Grp en_rslt;
    EffectStateGrp ef_rslt;
    float talt;
    double DBuf[6];
 
-   unsigned char *tBuf = (unsigned char *)DBuf;
+   Cigi_uint8 *tBuf = (Cigi_uint8 *)DBuf;
 
    PackPointer CDta;
 
@@ -148,7 +152,7 @@ int CigiEntityCtrlV1::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Sp
    *CDta.c++ = PacketSize;
    CIGI_SCOPY2(CDta.s++, &Data->EntityID);
    
-   unsigned char HDta = (unsigned char)(((Data->AttachState << 6) & 0x40) |
+   Cigi_uint8 HDta = (Cigi_uint8)(((Data->AttachState << 6) & 0x40) |
                                ((Data->CollisionDetectEn << 5) & 0x20));
 
 
@@ -157,7 +161,7 @@ int CigiEntityCtrlV1::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Sp
    else  // Standby & Remove
       en_rslt = DestructV1;
 
-   HDta |= (unsigned char)((en_rslt << 7) & 0x80);
+   HDta |= (Cigi_uint8)((en_rslt << 7) & 0x80);
 
 
    AnimationStateGrp tAState = Data->AnimationState;
@@ -177,7 +181,7 @@ int CigiEntityCtrlV1::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Sp
    }
 
    ef_rslt = (EffectStateGrp)(tAState - 4);
-   HDta |= (unsigned char)((ef_rslt << 2) & 0x1C);
+   HDta |= (Cigi_uint8)((ef_rslt << 2) & 0x1C);
 
    tAState = ToV3[tAState];
    if(tAState != NoAction)
@@ -208,7 +212,7 @@ int CigiEntityCtrlV1::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Sp
 // ================================================
 // Unpack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiEntityCtrlV1::Unpack(unsigned char * Buff, bool Swap, void *Spec)
+int CigiEntityCtrlV1::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
 {
    float talt;
 
@@ -216,7 +220,7 @@ int CigiEntityCtrlV1::Unpack(unsigned char * Buff, bool Swap, void *Spec)
 
    double DBuf[6];
 
-   unsigned char *tBuf = (unsigned char *)DBuf;
+   Cigi_uint8 *tBuf = (Cigi_uint8 *)DBuf;
 
    CigiAnimationTable *ATbl = (CigiAnimationTable *) Spec;
 
@@ -227,7 +231,7 @@ int CigiEntityCtrlV1::Unpack(unsigned char * Buff, bool Swap, void *Spec)
    CDta.c += 2;
    CIGI_SCOPY2(&EntityID, CDta.s++);
 
-   unsigned char HDta = *CDta.c;
+   Cigi_uint8 HDta = *CDta.c;
    AttachState = (AttachStateGrp)((HDta >> 6) &0x01);
    CollisionDetectEn = (CollisionDetectGrp)((HDta >> 5) & 0x01);
    SetEntityState((EntityStV1Grp)((HDta >> 7) & 0x01),false);

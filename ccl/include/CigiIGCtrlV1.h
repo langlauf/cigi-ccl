@@ -40,9 +40,13 @@
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
  *  Added the SetFrameCntr accessor method.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #if !defined(_CIGI_IG_CTRL_V1_INCLUDED_)
@@ -83,7 +87,7 @@ public:
    //! \return This returns CIGI_SUCCESS or an error code 
    //!   defined in CigiErrorCodes.h
    //!
-	virtual int Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const;
+	virtual int Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const;
 
    //=========================================================
    //! The virtual Unpack function for CIGI 1
@@ -95,7 +99,7 @@ public:
    //! \return This returns CIGI_SUCCESS or an error code 
    //!   defined in CigiErrorCodes.h
    //!
-	virtual int Unpack(unsigned char * Buff, bool Swap, void *Spec);
+	virtual int Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec);
 
 
 

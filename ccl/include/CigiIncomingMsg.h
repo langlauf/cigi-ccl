@@ -52,9 +52,13 @@
  *  04/14/2006 Greg Basler                       Version 1.7.0
  *  Updated the existing SetReaderCigiVersion method to call the new 
  *  implementation with a default version number of 0.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #if !defined(_CIGI_INCOMING_MESSAGE_INCLUDED_)
@@ -107,7 +111,7 @@ public:
    //! \return This returns CIGI_SUCCESS or an error code 
    //!   defined in CigiErrorCodes.h
    //!
-	int ProcessIncomingMsg(unsigned char *Buff, int Size);
+	int ProcessIncomingMsg(Cigi_uint8 *Buff, int Size);
 
    //=========================================================
    //! This processes the incoming message using the internal buffer
@@ -334,7 +338,7 @@ public:
    //!   input a message.
    //! \return This returns a pointer to the next Message buffer.
    //!
-   unsigned char *GetNextBuffToLoad(void);
+   Cigi_uint8 *GetNextBuffToLoad(void);
 
    //=========================================================
    //! Advances the message buffer index to the next Message buffer
@@ -360,7 +364,7 @@ public:
    //! Gets a pointer to the current Message buffer.
    //! \return the pointer to the Message buffer
    //!
-   unsigned char * GetMsgBuffer()
+   Cigi_uint8 * GetMsgBuffer()
    {
       return(BasePtr[CrntMsgBuf]);
    }
@@ -459,13 +463,13 @@ protected:
    //! MsgStart<br>
    //! A pointer to the first byte of the message.
    //!
-   unsigned char *MsgStart;
+   Cigi_uint8 *MsgStart;
 
    //=========================================================
    //! CrntPacket<br>
    //! A pointer to the first byte of the current packet.
    //!
-   unsigned char *CrntPacket;
+   Cigi_uint8 *CrntPacket;
 
    //=========================================================
    //! ReadBufferPos<br>
@@ -527,7 +531,7 @@ protected:
    //! \param Packet - A pointer to the packet object that has
    //!    parsed the current message packet.
    //!
-   bool SignalJump(const unsigned char PacketID, CigiBasePacket *Packet);
+   bool SignalJump(const Cigi_uint8 PacketID, CigiBasePacket *Packet);
 
 };
 

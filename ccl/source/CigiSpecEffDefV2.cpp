@@ -41,11 +41,15 @@
  *  Changed native C++ types to use CCL-defined types instead where appropriate.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
- *  Modified the class constructur to initialize the MinorVersion member 
+ *  Modified the class constructor to initialize the MinorVersion member 
  *  variable.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -118,11 +122,11 @@ CigiSpecEffDefV2::~CigiSpecEffDefV2()
 // ================================================
 // Pack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiSpecEffDefV2::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const
+int CigiSpecEffDefV2::Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const
 {
    double DBuf[6];
 
-   unsigned char *tBuf = (unsigned char *)DBuf;
+   Cigi_uint8 *tBuf = (Cigi_uint8 *)DBuf;
 
    PackPointer CDta;
 
@@ -135,7 +139,7 @@ int CigiSpecEffDefV2::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Sp
 
    CIGI_SCOPY2(CDta.h++, &Data->EntityID);
 
-   unsigned char HDta = (Data->SeqDir << 7) & 0x80;
+   Cigi_uint8 HDta = (Data->SeqDir << 7) & 0x80;
    HDta |= (Data->ColorEn) ? 0x40 : 0;
    *CDta.c++ = HDta;
 
@@ -176,11 +180,11 @@ int CigiSpecEffDefV2::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Sp
 // ================================================
 // Unpack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiSpecEffDefV2::Unpack(unsigned char * Buff, bool Swap, void *Spec)
+int CigiSpecEffDefV2::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
 {
    double DBuf[6];
 
-   unsigned char *tBuf = (unsigned char *)DBuf;
+   Cigi_uint8 *tBuf = (Cigi_uint8 *)DBuf;
 
    PackPointer CDta;
 
@@ -192,7 +196,7 @@ int CigiSpecEffDefV2::Unpack(unsigned char * Buff, bool Swap, void *Spec)
 
    CIGI_SCOPY2(&EntityID, CDta.h++);
 
-   unsigned char HDta = *CDta.c++;
+   Cigi_uint8 HDta = *CDta.c++;
    SeqDir = (SeqDirGrp)((HDta >> 7) & 0x01);
    ColorEn = ((HDta & 0x40) != 0);
 

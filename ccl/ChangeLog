@@ -1,4 +1,18 @@
 
+Version 1.7.1
+-------------
+[06.23.2006]
+
+Changes/Additions: 
+------------------
+
+• Defined new CIGI types Cigi_int8 and Cigi_uint8.
+
+• Replaced use of native char and unsigned char types to use Cigi_int8 and 
+  Cigi_uint8 instead, to account for systems where char and unsigned char types 
+  are not 1 byte in size.
+
+
 Version 1.7.0
 -------------
 [04.14.2006]

@@ -37,9 +37,13 @@
  *  
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Changed native C++ types in function declarations to CCL-defined types.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 
@@ -86,7 +90,7 @@ public:
    //! \return This returns CIGI_SUCCESS or an error code 
    //!   defined in CigiErrorCodes.h
    //!
-   virtual int Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const;
+   virtual int Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const;
    //=========================================================
    //! The virtual Unpack function for CIGI 1
    //! \param Buff - A pointer to the current pack point.
@@ -97,7 +101,7 @@ public:
    //! \return This returns CIGI_SUCCESS or an error code 
    //!   defined in CigiErrorCodes.h
    //!
-   virtual int Unpack(unsigned char * Buff, bool Swap, void *Spec);
+   virtual int Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec);
 
 
 
@@ -133,12 +137,12 @@ public:
    //!
    //! \return This returns CIGI_SUCCESS or an error code
    //!   defined in CigiErrorCodes.h
-   int SetViewID(const unsigned char ViewIDIn, bool bndchk=true);
+   int SetViewID(const Cigi_uint8 ViewIDIn, bool bndchk=true);
 
    //=========================================================
    //! Gets the ViewID value.
    //! \return the current ViewID.
-   unsigned char GetViewID(void) const { return(ViewID); }
+   Cigi_uint8 GetViewID(void) const { return(ViewID); }
 
 
    //+> CompState
@@ -193,7 +197,7 @@ public:
    //!
    //! \return This returns CIGI_SUCCESS or an error code
    //!   defined in CigiErrorCodes.h
-   int SetCompData(const unsigned char CompDataIn,
+   int SetCompData(const Cigi_uint8 CompDataIn,
                        const unsigned int Word,
                        const BytePos Pos,
                        bool bndchk=true);
@@ -207,7 +211,7 @@ public:
    //!
    //! \return This returns CIGI_SUCCESS or an error code
    //!   defined in CigiErrorCodes.h
-   int SetCompData(const char CompDataIn,
+   int SetCompData(const Cigi_int8 CompDataIn,
                        const unsigned int Word,
                        const BytePos Pos,
                        bool bndchk=true);
@@ -306,8 +310,8 @@ public:
    //! \param Word - The word position
    //! \param Pos - The byte position
    //!
-   //! \return This returns the specified unsigned char value.
-   unsigned char GetUCharCompData(const unsigned int Word,
+   //! \return This returns the specified Cigi_uint8 value.
+   Cigi_uint8 GetUCharCompData(const unsigned int Word,
                                   const BytePos Pos);
 
    //=========================================================
@@ -315,8 +319,8 @@ public:
    //! \param Word - The word position
    //! \param Pos - The byte position
    //!
-   //! \return This returns the specified char value.
-   char GetCharCompData(const unsigned int Word,
+   //! \return This returns the specified Cigi_int8 value.
+   Cigi_int8 GetCharCompData(const unsigned int Word,
                         const BytePos Pos);
 
    //=========================================================

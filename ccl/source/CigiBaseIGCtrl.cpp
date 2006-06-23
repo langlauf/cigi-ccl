@@ -37,9 +37,13 @@
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Implemented the SetDatabaseID method in the implemenation file instead of 
  *  inlining it in the header file.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -80,7 +84,7 @@ CigiBaseIGCtrl::~CigiBaseIGCtrl()
 // ================================================
 // SetDatabaseID
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiBaseIGCtrl::SetDatabaseID(const char DataBaseIDIn, bool bndchk)
+int CigiBaseIGCtrl::SetDatabaseID(const Cigi_int8 DataBaseIDIn, bool bndchk)
 {
 
 #ifndef CIGI_NO_BND_CHK

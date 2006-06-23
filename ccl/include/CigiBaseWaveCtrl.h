@@ -37,9 +37,13 @@
  *  
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Changed native C++ types in function declarations to CCL-defined types.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 
@@ -107,7 +111,7 @@ public:
    //! \return This returns CIGI_SUCCESS or an error code 
    //!   defined in CigiErrorCodes.h
    //!
-   virtual int Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const=0;
+   virtual int Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const=0;
 
    //=========================================================
    //! A pure virtual Unpack function.
@@ -119,7 +123,7 @@ public:
    //! \return This returns CIGI_SUCCESS or an error code 
    //!   defined in CigiErrorCodes.h
    //!
-   virtual int Unpack(unsigned char * Buff, bool Swap, void *Spec) =0;
+   virtual int Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec) =0;
 
 
 
@@ -155,7 +159,7 @@ public:
    //!
    //! \return This returns CIGI_SUCCESS or an error code
    //!   defined in CigiErrorCodes.h
-   int SetWaveID(const unsigned char WaveIDIn, bool bndchk=true)
+   int SetWaveID(const Cigi_uint8 WaveIDIn, bool bndchk=true)
    {
       WaveID = WaveIDIn;
       return(CIGI_SUCCESS);
@@ -164,7 +168,7 @@ public:
    //=========================================================
    //! Gets the WaveID value.
    //! \return the current WaveID.
-   unsigned char GetWaveID(void) const { return(WaveID); }
+   Cigi_uint8 GetWaveID(void) const { return(WaveID); }
 
 
    //+> WaveEn
@@ -345,7 +349,7 @@ protected:
    //! WaveID<br>
    //! Wave ID
    //!
-   unsigned char WaveID;
+   Cigi_uint8 WaveID;
 
    //=========================================================
    //! WaveEn<br>

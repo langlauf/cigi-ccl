@@ -38,11 +38,15 @@
  *  Removed the inline defnitions for the PackedPointer union.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
- *  Modified the class constructur to initialize the MinorVersion member 
+ *  Modified the class constructor to initialize the MinorVersion member 
  *  variable.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -111,7 +115,7 @@ CigiWeatherCtrlV3::~CigiWeatherCtrlV3()
 // ================================================
 // Pack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiWeatherCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const
+int CigiWeatherCtrlV3::Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const
 {
    PackPointer CDta;
 
@@ -132,7 +136,7 @@ int CigiWeatherCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *S
    *CDta.c++ = Data->LayerID;
    *CDta.c++ = Data->Humidity;
 
-   unsigned char HDta = (Data->WeatherEn) ? 0x01 : 0x00;
+   Cigi_uint8 HDta = (Data->WeatherEn) ? 0x01 : 0x00;
    HDta |= (Data->ScudEn) ? 0x02 : 0x00;
    HDta |= (Data->RandomWindsEn) ? 0x04 : 0x00;
    HDta |= (Data->RandomLightningEn) ? 0x08 : 0x00;
@@ -170,11 +174,11 @@ int CigiWeatherCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *S
 // ================================================
 // Unpack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiWeatherCtrlV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
+int CigiWeatherCtrlV3::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
 {
    PackPointer CDta;
 
-   static unsigned char PhenTbl[10] = { 3,1,2,2,4,5,5,5,6,6 };
+   static Cigi_uint8 PhenTbl[10] = { 3,1,2,2,4,5,5,5,6,6 };
 
    CDta.c = Buff;
 
@@ -186,7 +190,7 @@ int CigiWeatherCtrlV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
       LayerID = *CDta.c++;
       Humidity = *CDta.c++;
 
-      unsigned char HDta = *CDta.c++;
+      Cigi_uint8 HDta = *CDta.c++;
       WeatherEn = ((HDta & 0x01) != 0);
       ScudEn = ((HDta & 0x02) != 0);
       RandomWindsEn = ((HDta & 0x04) != 0);
@@ -216,7 +220,7 @@ int CigiWeatherCtrlV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
       LayerID = *CDta.c++;
       Humidity = *CDta.c++;
 
-      unsigned char HDta = *CDta.c++;
+      Cigi_uint8 HDta = *CDta.c++;
       WeatherEn = ((HDta & 0x01) != 0);
       ScudEn = ((HDta & 0x02) != 0);
       RandomWindsEn = ((HDta & 0x04) != 0);
@@ -270,14 +274,14 @@ int CigiWeatherCtrlV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
 // ================================================
 // Humidity
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiWeatherCtrlV3::SetHumidity(const unsigned char HumidityIn, bool bndchk)
+int CigiWeatherCtrlV3::SetHumidity(const Cigi_uint8 HumidityIn, bool bndchk)
 {
 
 #ifndef CIGI_NO_BND_CHK
    if(bndchk && ((HumidityIn < 0)||(HumidityIn > 100)))
    {
 #ifndef CIGI_NO_EXCEPT
-      throw CigiValueOutOfRangeException("Humidity",(unsigned char)HumidityIn,0,100);
+      throw CigiValueOutOfRangeException("Humidity",(Cigi_uint8)HumidityIn,0,100);
 #endif
       return(CIGI_ERROR_VALUE_OUT_OF_RANGE);
    }

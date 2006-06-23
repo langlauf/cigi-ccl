@@ -38,11 +38,15 @@
  *  Removed the inline defnitions for the PackedPointer union.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
- *  Modified the class constructur to initialize the MinorVersion member 
+ *  Modified the class constructor to initialize the MinorVersion member 
  *  variable.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -96,7 +100,7 @@ CigiPositionRespV3::~CigiPositionRespV3()
 // ================================================
 // Pack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiPositionRespV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const
+int CigiPositionRespV3::Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const
 {
    PackPointer CDta;
 
@@ -110,7 +114,7 @@ int CigiPositionRespV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *
    *CDta.s++ = Data->ObjectID;
    *CDta.c++ = Data->ArtPartID;
 
-   unsigned char HDta = Data->ObjectClass & 0x07;
+   Cigi_uint8 HDta = Data->ObjectClass & 0x07;
    HDta |= (Data->CoordSys << 3) & 0x18;
    *CDta.c++ = HDta;
 
@@ -132,7 +136,7 @@ int CigiPositionRespV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *
 // ================================================
 // Unpack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiPositionRespV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
+int CigiPositionRespV3::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
 {
    PackPointer CDta;
 
@@ -145,7 +149,7 @@ int CigiPositionRespV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
       ObjectID = *CDta.s++;
       ArtPartID = *CDta.c++;
 
-      unsigned char HDta = *CDta.c++;
+      Cigi_uint8 HDta = *CDta.c++;
       ObjectClass = (ObjectClassGrp)(HDta & 0x07);
       CoordSys = (CoordSysGrp)((HDta >> 3) & 0x03);
 
@@ -163,7 +167,7 @@ int CigiPositionRespV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
       CigiSwap2(&ObjectID, CDta.s++);
       ArtPartID = *CDta.c++;
 
-      unsigned char HDta = *CDta.c++;
+      Cigi_uint8 HDta = *CDta.c++;
       ObjectClass = (ObjectClassGrp)(HDta & 0x07);
       CoordSys = (CoordSysGrp)((HDta >> 3) & 0x03);
 

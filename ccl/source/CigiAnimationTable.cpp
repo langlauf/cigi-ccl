@@ -36,9 +36,13 @@
  *  
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Changed native C++ types to use CCL-defined types instead where appropriate.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 
@@ -103,7 +107,7 @@ int CigiAnimationTable::SetPastAnimation(const Cigi_uint16 EntityID, const Cigi_
 
    int ndx;
    int shift;
-   unsigned char mask;
+   Cigi_uint8 mask;
 
    shift = EntityID & 0x3;
 
@@ -111,7 +115,7 @@ int CigiAnimationTable::SetPastAnimation(const Cigi_uint16 EntityID, const Cigi_
 
    mask = 0x03 << shift;
    AnimationTable[ndx] = (AnimationTable[ndx] & (~mask)) |
-                         ((unsigned char)(State & 0x03) << shift);
+                         ((Cigi_uint8)(State & 0x03) << shift);
 
    return(CIGI_SUCCESS);
 

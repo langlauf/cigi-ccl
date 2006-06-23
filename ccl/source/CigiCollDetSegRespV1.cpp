@@ -38,11 +38,15 @@
  *  Removed the inline defnitions for the PackedPointer union.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
- *  Modified the class constructur to initialize the MinorVersion member 
+ *  Modified the class constructor to initialize the MinorVersion member 
  *  variable.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -111,11 +115,11 @@ CigiCollDetSegRespV1::~CigiCollDetSegRespV1()
 // ================================================
 // Pack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiCollDetSegRespV1::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const
+int CigiCollDetSegRespV1::Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const
 {
    double DBuf[6];
 
-   unsigned char *tBuf = (unsigned char *)DBuf;
+   Cigi_uint8 *tBuf = (Cigi_uint8 *)DBuf;
 
    PackPointer CDta;
 
@@ -128,7 +132,7 @@ int CigiCollDetSegRespV1::Pack(CigiBasePacket * Base, unsigned char * Buff, void
 
    CIGI_SCOPY2(CDta.s++, &Data->EntityID);
 
-   unsigned char HDta = (Data->SegID << 1) & 0xfe;
+   Cigi_uint8 HDta = (Data->SegID << 1) & 0xfe;
    *CDta.c++ = HDta;
 
    *CDta.c++ = 0;
@@ -160,11 +164,11 @@ int CigiCollDetSegRespV1::Pack(CigiBasePacket * Base, unsigned char * Buff, void
 // ================================================
 // Unpack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiCollDetSegRespV1::Unpack(unsigned char * Buff, bool Swap, void *Spec)
+int CigiCollDetSegRespV1::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
 {
    double DBuf[6];
 
-   unsigned char *tBuf = (unsigned char *)DBuf;
+   Cigi_uint8 *tBuf = (Cigi_uint8 *)DBuf;
 
    PackPointer CDta;
 
@@ -202,14 +206,14 @@ int CigiCollDetSegRespV1::Unpack(unsigned char * Buff, bool Swap, void *Spec)
 // ================================================
 // SegID
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiCollDetSegRespV1::SetSegID(const unsigned char SegIDIn, bool bndchk)
+int CigiCollDetSegRespV1::SetSegID(const Cigi_uint8 SegIDIn, bool bndchk)
 {
 
 #ifndef CIGI_NO_BND_CHK
    if(bndchk && ((SegIDIn < 0)||(SegIDIn > 127)))
    {
 #ifndef CIGI_NO_EXCEPT
-      throw CigiValueOutOfRangeException("SegID",(unsigned char)SegIDIn,0,127);
+      throw CigiValueOutOfRangeException("SegID",(Cigi_uint8)SegIDIn,0,127);
 #endif
       return(CIGI_ERROR_VALUE_OUT_OF_RANGE);
    }

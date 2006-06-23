@@ -57,9 +57,13 @@
  *  04/14/2006 Greg Basler                       Version 1.7.0
  *  Modified the GetFirstPacket and GetNextPacket methods to use CIGI minor 
  *  version numbers.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -147,14 +151,14 @@ CigiIncomingMsg::~CigiIncomingMsg()
 // ================================================
 // ProcessIncomingMsg
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiIncomingMsg::ProcessIncomingMsg(unsigned char *Buff, int Size)
+int CigiIncomingMsg::ProcessIncomingMsg(Cigi_uint8 *Buff, int Size)
 {
-   unsigned char PacketID;
-   unsigned char ReadPacketID;
-   unsigned char PacketSize;
+   Cigi_uint8 PacketID;
+   Cigi_uint8 ReadPacketID;
+   Cigi_uint8 PacketSize;
    CigiBasePacket *Packet;
-   unsigned char Version;
-   unsigned char MinorVer;
+   Cigi_uint8 Version;
+   Cigi_uint8 MinorVer;
    int tMVer;
    CigiBaseSOF *SOF;
    CigiBaseIGCtrl *IGCtrl;
@@ -377,7 +381,7 @@ int CigiIncomingMsg::ProcessIncomingMsg(unsigned char *Buff, int Size)
             bool PacketProcessed = false;
 
             int Step = 1;
-            unsigned char Pckt[2];
+            Cigi_uint8 Pckt[2];
 
             switch(ProcType)
             {
@@ -555,7 +559,7 @@ int CigiIncomingMsg::ProcessIncomingMsg(unsigned char *Buff, int Size)
 // ================================================
 // SignalJump
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-bool CigiIncomingMsg::SignalJump(const unsigned char PacketID, CigiBasePacket *Packet)
+bool CigiIncomingMsg::SignalJump(const Cigi_uint8 PacketID, CigiBasePacket *Packet)
 {
    CigiVersionJumpTable::SignalTblType JmpNdx =
       VJmp->GetSignalType(PacketID);
@@ -751,7 +755,7 @@ bool CigiIncomingMsg::SignalJump(const unsigned char PacketID, CigiBasePacket *P
 // ================================================
 // GetNextBuffToLoad
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-unsigned char *CigiIncomingMsg::GetNextBuffToLoad(void)
+Cigi_uint8 *CigiIncomingMsg::GetNextBuffToLoad(void)
 {
 
    if(BufferCount != 1)
@@ -806,8 +810,8 @@ void CigiIncomingMsg::AdvanceCrntBuffer(void)
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 CigiBasePacket * CigiIncomingMsg::GetFirstPacket()
 {
-   unsigned char PacketID;
-   unsigned char PacketSize;
+   Cigi_uint8 PacketID;
+   Cigi_uint8 PacketSize;
    CigiBasePacket *Packet;
    int Version;
    int MinorVer;
@@ -993,8 +997,8 @@ CigiBasePacket * CigiIncomingMsg::GetFirstPacket()
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 CigiBasePacket * CigiIncomingMsg::GetNextPacket()
 {
-   unsigned char PacketID;
-   unsigned char PacketSize;
+   Cigi_uint8 PacketID;
+   Cigi_uint8 PacketSize;
    CigiBasePacket *Packet;
    int Version;
    int MinorVer;

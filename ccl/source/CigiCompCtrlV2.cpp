@@ -41,11 +41,15 @@
  *  Changed native C++ types to use CCL-defined types instead where appropriate.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
- *  Modified the class constructur to initialize the MinorVersion member 
+ *  Modified the class constructor to initialize the MinorVersion member 
  *  variable.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -129,11 +133,11 @@ CigiCompCtrlV2::~CigiCompCtrlV2()
 // ================================================
 // Pack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiCompCtrlV2::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const
+int CigiCompCtrlV2::Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const
 {
    double DBuf[6];
 
-   unsigned char *tBuf = (unsigned char *)DBuf;
+   Cigi_uint8 *tBuf = (Cigi_uint8 *)DBuf;
 
    PackPointer CDta;
 
@@ -165,11 +169,11 @@ int CigiCompCtrlV2::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec
 // ================================================
 // Unpack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiCompCtrlV2::Unpack(unsigned char * Buff, bool Swap, void *Spec)
+int CigiCompCtrlV2::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
 {
    double DBuf[6];
 
-   unsigned char *tBuf = (unsigned char *)DBuf;
+   Cigi_uint8 *tBuf = (Cigi_uint8 *)DBuf;
 
    PackPointer CDta;
 
@@ -238,9 +242,9 @@ int CigiCompCtrlV2::SetCompClassV2(const CompClassV2Grp CompClassV2In, bool bndc
 
 
 // ================================================
-// SetCompData - unsigned char
+// SetCompData - Cigi_uint8
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiCompCtrlV2::SetCompData(const unsigned char CompDataIn,
+int CigiCompCtrlV2::SetCompData(const Cigi_uint8 CompDataIn,
                     const unsigned int Word,
                     const BytePos Pos,
                     bool bndchk)
@@ -282,17 +286,17 @@ int CigiCompCtrlV2::SetCompData(const unsigned char CompDataIn,
 
 
 // ================================================
-// SetCompData - char
+// SetCompData - Cigi_int8
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiCompCtrlV2::SetCompData(const char CompDataIn,
+int CigiCompCtrlV2::SetCompData(const Cigi_int8 CompDataIn,
                     const unsigned int Word,
                     const BytePos Pos,
                     bool bndchk)
 {
 
    union {
-      char sc;
-      unsigned char uc;
+      Cigi_int8 sc;
+      Cigi_uint8 uc;
    } cxfer;
 
    int Err = 0;
@@ -598,11 +602,11 @@ int CigiCompCtrlV2::SetCompData(const double CompDataIn,
 // ================================================
 // GetUCharCompData
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-unsigned char CigiCompCtrlV2::GetUCharCompData(const unsigned int Word,
+Cigi_uint8 CigiCompCtrlV2::GetUCharCompData(const unsigned int Word,
                                const BytePos Pos)
 {
 
-   unsigned char tDta;
+   Cigi_uint8 tDta;
 
    int Err = 0;
 
@@ -623,7 +627,7 @@ unsigned char CigiCompCtrlV2::GetUCharCompData(const unsigned int Word,
       tDta = 0;
    }
    else
-      tDta = (unsigned char)((CompData[Word] >> (Pos * 8)) & 0x000000ff);
+      tDta = (Cigi_uint8)((CompData[Word] >> (Pos * 8)) & 0x000000ff);
 
    return(tDta);
 }
@@ -632,12 +636,12 @@ unsigned char CigiCompCtrlV2::GetUCharCompData(const unsigned int Word,
 // ================================================
 // GetCharCompData
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-char CigiCompCtrlV2::GetCharCompData(const unsigned int Word,
+Cigi_int8 CigiCompCtrlV2::GetCharCompData(const unsigned int Word,
                      const BytePos Pos)
 {
    union {
-      char sc;
-      unsigned char uc;
+      Cigi_int8 sc;
+      Cigi_uint8 uc;
    } tDta;
 
    int Err = 0;
@@ -659,7 +663,7 @@ char CigiCompCtrlV2::GetCharCompData(const unsigned int Word,
       tDta.uc = 0;
    }
    else
-      tDta.uc = (unsigned char)((CompData[Word] >> (Pos * 8)) & 0x000000ff);
+      tDta.uc = (Cigi_uint8)((CompData[Word] >> (Pos * 8)) & 0x000000ff);
 
    return(tDta.sc);
 }

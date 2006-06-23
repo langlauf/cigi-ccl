@@ -41,14 +41,18 @@
  *  Changed native C++ types to use CCL-defined types instead where appropriate.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
- *  Modified the class constructur to initialize the MinorVersion and 
+ *  Modified the class constructor to initialize the MinorVersion and 
  *  CoordSys member variables.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
  *  Modified the Unpack method to set the CoordSys member variable.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -103,7 +107,7 @@ CigiRateCtrlV3::~CigiRateCtrlV3()
 // ================================================
 // Pack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiRateCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const
+int CigiRateCtrlV3::Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const
 {
    PackPointer CDta;
 
@@ -117,7 +121,7 @@ int CigiRateCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec
    *CDta.s++ = Data->EntityID;
    *CDta.c++ = Data->ArtPartIDV3;
 
-   unsigned char HDta = 0;
+   Cigi_uint8 HDta = 0;
 
    if(Data->ApplyToArtPart)
       HDta = 0x01;
@@ -139,12 +143,12 @@ int CigiRateCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec
 // ================================================
 // Unpack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiRateCtrlV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
+int CigiRateCtrlV3::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
 {
    union ArtPartConv
    {
-      unsigned char uc;
-      char c;
+      Cigi_uint8 uc;
+      Cigi_int8 c;
    } ArtC;
 
    PackPointer CDta;
@@ -216,12 +220,12 @@ int CigiRateCtrlV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
 // ================================================
 // SetArtPartID
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiRateCtrlV3::SetArtPartID(const unsigned char ArtPartIDIn, bool bndchk)
+int CigiRateCtrlV3::SetArtPartID(const Cigi_uint8 ArtPartIDIn, bool bndchk)
 {
    union ArtPartConv
    {
-      unsigned char uc;
-      char c;
+      Cigi_uint8 uc;
+      Cigi_int8 c;
    } ArtC;
 
    ArtPartIDV3 = ArtPartIDIn;
@@ -247,8 +251,8 @@ int CigiRateCtrlV3::SetApplyToArtPart(const bool ApplyToArtPartIn, bool bndchk)
 {
    union ArtPartConv
    {
-      unsigned char uc;
-      char c;
+      Cigi_uint8 uc;
+      Cigi_int8 c;
    } ArtC;
 
    ApplyToArtPart = ApplyToArtPartIn;

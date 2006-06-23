@@ -60,9 +60,13 @@
  *  04/14/2006 Greg Basler                       Version 1.7.0
  *  Added the CurrentSOF member variable to store the last SOF packed into a 
  *  message.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #if !defined(_CIGI_OUTGOING_MESSAGE_INCLUDED_)
@@ -224,7 +228,7 @@ friend class CigiVersionJumpTable;
    //! \return This returns CIGI_SUCCESS or an error code 
    //!   defined in CigiErrorCodes.h
    //!
-	int UpdateFrameCntr(unsigned char *OutgoingMsg);
+	int UpdateFrameCntr(Cigi_uint8 *OutgoingMsg);
 
    //=========================================================
    //! Updates the IG Control's Frame Counter and Database ID if needed
@@ -234,7 +238,7 @@ friend class CigiVersionJumpTable;
    //! \return This returns CIGI_SUCCESS or an error code 
    //!   defined in CigiErrorCodes.h
    //!
-	int UpdateIGCtrl(unsigned char *OutgoingMsg, unsigned char *IncomingMsg);
+	int UpdateIGCtrl(Cigi_uint8 *OutgoingMsg, Cigi_uint8 *IncomingMsg);
 
    //=========================================================
    //! Updates SOF's Frame Counter - deprecated
@@ -244,7 +248,7 @@ friend class CigiVersionJumpTable;
    //! \return This returns CIGI_SUCCESS or an error code 
    //!   defined in CigiErrorCodes.h
    //!
-	int UpdateSOF(unsigned char *OutgoingMsg, unsigned char *LastIGCtrl)
+	int UpdateSOF(Cigi_uint8 *OutgoingMsg, Cigi_uint8 *LastIGCtrl)
    {
       return(UpdateSOF(OutgoingMsg));
    }
@@ -256,7 +260,7 @@ friend class CigiVersionJumpTable;
    //! \return This returns CIGI_SUCCESS or an error code 
    //!   defined in CigiErrorCodes.h
    //!
-	int UpdateSOF(unsigned char *OutgoingMsg);
+	int UpdateSOF(Cigi_uint8 *OutgoingMsg);
 
    //=========================================================
    //! Locks the message for sending
@@ -274,13 +278,13 @@ friend class CigiVersionJumpTable;
 
    //! \return Message - A pointer to the beginning of the message.
    //!
-	unsigned char * GetMsg(int &length);
+	Cigi_uint8 * GetMsg(int &length);
 
    //=========================================================
    //! Gets a pointer to the beginning of the buffer.
    //! \return Buffer - A pointer to the beginning of the buffer.
    //!
-   unsigned char * GetBuffer(void);
+   Cigi_uint8 * GetBuffer(void);
 
    //=========================================================
    //! Gets the length of the message in bytes. 
@@ -308,7 +312,7 @@ friend class CigiVersionJumpTable;
    //! \return This returns CIGI_SUCCESS or an error code 
    //!   defined in CigiErrorCodes.h
    //!
-	int PackageMsg(unsigned char **Msg, int &length);
+	int PackageMsg(Cigi_uint8 **Msg, int &length);
 
    //=========================================================
    //! Gets the currently Packaged message.
@@ -321,7 +325,7 @@ friend class CigiVersionJumpTable;
    //! \return This returns CIGI_SUCCESS or an error code 
    //!   defined in CigiErrorCodes.h
    //!
-	int GetCurrentlyPackagedMsg(unsigned char **Msg, int &length)
+	int GetCurrentlyPackagedMsg(Cigi_uint8 **Msg, int &length)
    {
       if(PackagedMsg >= 0)
       {
@@ -331,7 +335,7 @@ friend class CigiVersionJumpTable;
       }
       else
       {
-         *Msg = (unsigned char *)0;  // equivalent to NULL
+         *Msg = (Cigi_uint8 *)0;  // equivalent to NULL
          length = 0;
          return(false);
       }

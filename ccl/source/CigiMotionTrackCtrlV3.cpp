@@ -38,11 +38,15 @@
  *  Removed the inline defnitions for the PackedPointer union.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
- *  Modified the class constructur to initialize the MinorVersion member 
+ *  Modified the class constructor to initialize the MinorVersion member 
  *  variable.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -97,7 +101,7 @@ CigiMotionTrackCtrlV3::~CigiMotionTrackCtrlV3()
 // ================================================
 // Pack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiMotionTrackCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const
+int CigiMotionTrackCtrlV3::Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const
 {
    PackPointer CDta;
 
@@ -111,7 +115,7 @@ int CigiMotionTrackCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Buff, voi
    *CDta.s++ = Data->ViewID;
    *CDta.c++ = Data->TrackerID;
 
-   unsigned char HDta = (Data->TrackerEn) ? 0x01 : 0;
+   Cigi_uint8 HDta = (Data->TrackerEn) ? 0x01 : 0;
    HDta |= (Data->BoresightEn) ? 0x02 : 0;
    HDta |= (Data->XEn) ? 0x04 : 0;
    HDta |= (Data->YEn) ? 0x08 : 0;
@@ -133,7 +137,7 @@ int CigiMotionTrackCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Buff, voi
 // ================================================
 // Unpack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiMotionTrackCtrlV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
+int CigiMotionTrackCtrlV3::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
 {
    PackPointer CDta;
 
@@ -148,7 +152,7 @@ int CigiMotionTrackCtrlV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
 
    TrackerID = *CDta.c++;
 
-   unsigned char HDta = *CDta.c++;
+   Cigi_uint8 HDta = *CDta.c++;
    TrackerEn = ((HDta & 0x01) != 0);
    BoresightEn = ((HDta & 0x02) != 0);
    XEn = ((HDta & 0x04) != 0);

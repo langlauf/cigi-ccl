@@ -41,11 +41,15 @@
  *  Changed native C++ types to use CCL-defined types instead where appropriate.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
- *  Modified the class constructur to initialize the MinorVersion member 
+ *  Modified the class constructor to initialize the MinorVersion member 
  *  variable.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -119,11 +123,11 @@ CigiViewCtrlV1::~CigiViewCtrlV1()
 // ================================================
 // Pack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiViewCtrlV1::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const
+int CigiViewCtrlV1::Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const
 {
    double DBuf[6];
 
-   unsigned char *tBuf = (unsigned char *)DBuf;
+   Cigi_uint8 *tBuf = (Cigi_uint8 *)DBuf;
 
    PackPointer CDta;
 
@@ -136,17 +140,17 @@ int CigiViewCtrlV1::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec
 
    CIGI_SCOPY2(CDta.s++, &Data->EntityID);
 
-   unsigned char HDta = 0;
+   Cigi_uint8 HDta = 0;
 
    if(Data->ViewID < 32)
-      HDta = (unsigned char)((Data->ViewID << 3) & 0xf8);
+      HDta = (Cigi_uint8)((Data->ViewID << 3) & 0xf8);
    else
-      HDta = (unsigned char)0xf8;
+      HDta = (Cigi_uint8)0xf8;
 
    if(Data->GroupID < 8)
-      HDta |= (unsigned char)(Data->GroupID & 0x07);
+      HDta |= (Cigi_uint8)(Data->GroupID & 0x07);
    else
-      HDta |= (unsigned char)0x07;
+      HDta |= (Cigi_uint8)0x07;
 
    *CDta.c++ = HDta;
    *CDta.c++ = 0;
@@ -171,11 +175,11 @@ int CigiViewCtrlV1::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec
 // ================================================
 // Unpack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiViewCtrlV1::Unpack(unsigned char * Buff, bool Swap, void *Spec)
+int CigiViewCtrlV1::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
 {
    double DBuf[6];
 
-   unsigned char *tBuf = (unsigned char *)DBuf;
+   Cigi_uint8 *tBuf = (Cigi_uint8 *)DBuf;
 
    PackPointer CDta;
 
@@ -187,10 +191,10 @@ int CigiViewCtrlV1::Unpack(unsigned char * Buff, bool Swap, void *Spec)
 
    CIGI_SCOPY2(&EntityID, CDta.s++);
 
-   unsigned char HDta = *CDta.c++;
+   Cigi_uint8 HDta = *CDta.c++;
 
    ViewID = (Cigi_uint16)((HDta >> 3) & 0x1f);
-   GroupID = (unsigned char)(HDta & 0x07);
+   GroupID = (Cigi_uint8)(HDta & 0x07);
 
    CDta.c += 3;
    
@@ -215,7 +219,7 @@ int CigiViewCtrlV1::Unpack(unsigned char * Buff, bool Swap, void *Spec)
 // ================================================
 // ViewID
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiViewCtrlV1::SetViewID(const unsigned char ViewIDIn, bool bndchk)
+int CigiViewCtrlV1::SetViewID(const Cigi_uint8 ViewIDIn, bool bndchk)
 {
 
 #ifndef CIGI_NO_BND_CHK
@@ -237,14 +241,14 @@ int CigiViewCtrlV1::SetViewID(const unsigned char ViewIDIn, bool bndchk)
 // ================================================
 // GroupID
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiViewCtrlV1::SetGroupID(const unsigned char GroupIDIn, bool bndchk)
+int CigiViewCtrlV1::SetGroupID(const Cigi_uint8 GroupIDIn, bool bndchk)
 {
 
 #ifndef CIGI_NO_BND_CHK
    if(bndchk && ((GroupIDIn < 0)||(GroupIDIn > 7)))
    {
 #ifndef CIGI_NO_EXCEPT
-      throw CigiValueOutOfRangeException("GroupID",(unsigned char)GroupIDIn,0,7);
+      throw CigiValueOutOfRangeException("GroupID",(Cigi_uint8)GroupIDIn,0,7);
 #endif
       return(CIGI_ERROR_VALUE_OUT_OF_RANGE);
    }

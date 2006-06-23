@@ -41,11 +41,15 @@
  *  Changed native C++ types to use CCL-defined types instead where appropriate.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
- *  Modified the class constructur to initialize the MinorVersion member 
+ *  Modified the class constructor to initialize the MinorVersion member 
  *  variable.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -110,7 +114,7 @@ CigiCelestialCtrlV3::~CigiCelestialCtrlV3()
 // ================================================
 // Pack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiCelestialCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const
+int CigiCelestialCtrlV3::Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const
 {
    PackPointer CDta;
 
@@ -129,7 +133,7 @@ int CigiCelestialCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void 
    *CDta.c++ = Data->Hour;
    *CDta.c++ = Data->Minute;
 
-   unsigned char HDta = (Data->EphemerisEn) ? 0x01 : 0;
+   Cigi_uint8 HDta = (Data->EphemerisEn) ? 0x01 : 0;
    HDta |= (Data->SunEn) ? 0x02 : 0;
    HDta |= (Data->MoonEn) ? 0x04 : 0;
    HDta |= (Data->StarEn) ? 0x08 : 0;
@@ -154,7 +158,7 @@ int CigiCelestialCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void 
 // ================================================
 // Unpack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiCelestialCtrlV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
+int CigiCelestialCtrlV3::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
 {
    PackPointer CDta;
 
@@ -169,7 +173,7 @@ int CigiCelestialCtrlV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
       Hour = *CDta.c++;
       Minute = *CDta.c++;
 
-      unsigned char HDta = *CDta.c++;
+      Cigi_uint8 HDta = *CDta.c++;
       EphemerisEn = ((HDta & 0x01) != 0);
       SunEn = ((HDta & 0x02) != 0);
       MoonEn = ((HDta & 0x04) != 0);
@@ -187,7 +191,7 @@ int CigiCelestialCtrlV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
       Hour = *CDta.c++;
       Minute = *CDta.c++;
 
-      unsigned char HDta = *CDta.c++;
+      Cigi_uint8 HDta = *CDta.c++;
       EphemerisEn = ((HDta & 0x01) != 0);
       SunEn = ((HDta & 0x02) != 0);
       MoonEn = ((HDta & 0x04) != 0);
@@ -201,10 +205,10 @@ int CigiCelestialCtrlV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
    }
 
    // Determine date
-   Month = (unsigned char)(date / 1000000);
+   Month = (Cigi_uint8)(date / 1000000);
    date -= ((Cigi_uint32)Month * 1000000);
 
-   Day = (unsigned char)(date / 10000);
+   Day = (Cigi_uint8)(date / 10000);
    date -= ((Cigi_uint32)Day * 10000);
 
    Year = (Cigi_uint16)date;
@@ -274,14 +278,14 @@ void CigiCelestialCtrlV3::FillHold(CigiBaseEnvCtrl * Hold) const
 // ================================================
 // Hour
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiCelestialCtrlV3::SetHour(const unsigned char HourIn, bool bndchk)
+int CigiCelestialCtrlV3::SetHour(const Cigi_uint8 HourIn, bool bndchk)
 {
 
 #ifndef CIGI_NO_BND_CHK
    if(bndchk && ((HourIn < 0)||(HourIn > 23)))
    {
 #ifndef CIGI_NO_EXCEPT
-      throw CigiValueOutOfRangeException("Hour",(unsigned char)HourIn,0,23);
+      throw CigiValueOutOfRangeException("Hour",(Cigi_uint8)HourIn,0,23);
 #endif
       return(CIGI_ERROR_VALUE_OUT_OF_RANGE);
    }
@@ -296,14 +300,14 @@ int CigiCelestialCtrlV3::SetHour(const unsigned char HourIn, bool bndchk)
 // ================================================
 // Minute
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiCelestialCtrlV3::SetMinute(const unsigned char MinuteIn, bool bndchk)
+int CigiCelestialCtrlV3::SetMinute(const Cigi_uint8 MinuteIn, bool bndchk)
 {
 
 #ifndef CIGI_NO_BND_CHK
    if(bndchk && ((MinuteIn < 0)||(MinuteIn > 59)))
    {
 #ifndef CIGI_NO_EXCEPT
-      throw CigiValueOutOfRangeException("Minute",(unsigned char)MinuteIn,0,59);
+      throw CigiValueOutOfRangeException("Minute",(Cigi_uint8)MinuteIn,0,59);
 #endif
       return(CIGI_ERROR_VALUE_OUT_OF_RANGE);
    }
@@ -318,14 +322,14 @@ int CigiCelestialCtrlV3::SetMinute(const unsigned char MinuteIn, bool bndchk)
 // ================================================
 // Month
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiCelestialCtrlV3::SetMonth(const unsigned char MonthIn, bool bndchk)
+int CigiCelestialCtrlV3::SetMonth(const Cigi_uint8 MonthIn, bool bndchk)
 {
 
 #ifndef CIGI_NO_BND_CHK
    if(bndchk && ((MonthIn < 1)||(MonthIn > 12)))
    {
 #ifndef CIGI_NO_EXCEPT
-      throw CigiValueOutOfRangeException("Month",(unsigned char)MonthIn,1,12);
+      throw CigiValueOutOfRangeException("Month",(Cigi_uint8)MonthIn,1,12);
 #endif
       return(CIGI_ERROR_VALUE_OUT_OF_RANGE);
    }
@@ -340,14 +344,14 @@ int CigiCelestialCtrlV3::SetMonth(const unsigned char MonthIn, bool bndchk)
 // ================================================
 // Day
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiCelestialCtrlV3::SetDay(const unsigned char DayIn, bool bndchk)
+int CigiCelestialCtrlV3::SetDay(const Cigi_uint8 DayIn, bool bndchk)
 {
 
 #ifndef CIGI_NO_BND_CHK
    if(bndchk && ((DayIn < 1)||(DayIn > 31)))
    {
 #ifndef CIGI_NO_EXCEPT
-      throw CigiValueOutOfRangeException("Day",(unsigned char)DayIn,1,31);
+      throw CigiValueOutOfRangeException("Day",(Cigi_uint8)DayIn,1,31);
 #endif
       return(CIGI_ERROR_VALUE_OUT_OF_RANGE);
    }

@@ -38,7 +38,7 @@
  *  Modified the class constructor to set the CIGI minor version.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_

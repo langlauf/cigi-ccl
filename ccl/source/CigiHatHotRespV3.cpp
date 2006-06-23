@@ -38,14 +38,18 @@
  *  Removed the inline defnitions for the PackedPointer union.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
- *  Modified the class constructur to initialize the MinorVersion and 
+ *  Modified the class constructor to initialize the MinorVersion and 
  *  HostFrame member variables.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
  *  Modified the Unpack method to use the HostFrame member variable.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -100,7 +104,7 @@ CigiHatHotRespV3::~CigiHatHotRespV3()
 // ================================================
 // Pack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiHatHotRespV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const
+int CigiHatHotRespV3::Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const
 {
    PackPointer CDta;
 
@@ -131,8 +135,8 @@ int CigiHatHotRespV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Sp
    }
 
 
-   unsigned char HDta = (tValid) ? 0x01 : 0;
-   HDta |= (unsigned char)((tReqType << 1) & 0x02);
+   Cigi_uint8 HDta = (tValid) ? 0x01 : 0;
+   HDta |= (Cigi_uint8)((tReqType << 1) & 0x02);
    *CDta.c++ = HDta;
    *CDta.c++ = 0;
    *CDta.s++ = 0;
@@ -155,7 +159,7 @@ int CigiHatHotRespV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Sp
 // ================================================
 // Unpack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiHatHotRespV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
+int CigiHatHotRespV3::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
 {
    PackPointer CDta;
 
@@ -167,7 +171,7 @@ int CigiHatHotRespV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
    {
       HatHotID = *CDta.s++;
 
-      unsigned char HDta = *CDta.c++;
+      Cigi_uint8 HDta = *CDta.c++;
       Valid = ((HDta & 0x01) != 0);
       ReqType = (ReqTypeGrp)((HDta >> 1) & 0x01);
 
@@ -204,7 +208,7 @@ int CigiHatHotRespV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
    {
       CigiSwap2(&HatHotID, CDta.s++);
 
-      unsigned char HDta = *CDta.c++;
+      Cigi_uint8 HDta = *CDta.c++;
       Valid = ((HDta & 0x01) != 0);
       ReqType = (ReqTypeGrp)((HDta >> 1) & 0x01);
 

@@ -56,9 +56,13 @@
  *  04/14/2006 Greg Basler                       Version 1.7.0
  *  Implemented the overloaded SetJmpTblV3 method for compatability with CIGI 
  *  version 3.2.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -1363,7 +1367,7 @@ void CigiVersionJumpTable::SetVldTblsV3()
 // RegisterUserPacket
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 int CigiVersionJumpTable::RegisterUserPacket(CigiBasePacket *Packet,
-                                             unsigned char PacketID,
+                                             Cigi_uint8 PacketID,
                                              bool HostSend, bool IGSend)
 {
 
@@ -1371,7 +1375,7 @@ int CigiVersionJumpTable::RegisterUserPacket(CigiBasePacket *Packet,
    {
 
 #ifndef CIGI_NO_EXCEPT
-      throw CigiInvalidUserPacketException((unsigned char)PacketID);
+      throw CigiInvalidUserPacketException((Cigi_uint8)PacketID);
 #endif
       return(CIGI_ERROR_INVALID_USER_PACKET);
 

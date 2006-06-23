@@ -33,9 +33,13 @@
  *  
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Defined _EXPORT_CCL_ for exporting the class in a Windows DLL.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -76,14 +80,14 @@ CigiBaseWeatherCondResp::~CigiBaseWeatherCondResp()
 // ================================================
 // Humidity
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiBaseWeatherCondResp::SetHumidity(const unsigned char HumidityIn, bool bndchk)
+int CigiBaseWeatherCondResp::SetHumidity(const Cigi_uint8 HumidityIn, bool bndchk)
 {
 
 #ifndef CIGI_NO_BND_CHK
    if(bndchk && ((HumidityIn < 0)||(HumidityIn > 100)))
    {
 #ifndef CIGI_NO_EXCEPT
-      throw CigiValueOutOfRangeException("Humidity",(unsigned char)HumidityIn,0,100);
+      throw CigiValueOutOfRangeException("Humidity",(Cigi_uint8)HumidityIn,0,100);
 #endif
       return(CIGI_ERROR_VALUE_OUT_OF_RANGE);
    }

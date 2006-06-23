@@ -38,7 +38,7 @@
  *  Changed native C++ types to use CCL-defined types instead where appropriate.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_

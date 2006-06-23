@@ -41,9 +41,13 @@
  *  02/20/2006 Greg Basler                       Version 1.6.0
  *  Added the PackagedMsg variable to allow for correct updating of the
  *  host's IG_Ctrl's frame counter.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #if !defined(_CIGI_MESSAGE_INCLUDED_)
@@ -118,7 +122,7 @@ protected:
    //! Buffer Block<br>
    //! A pointer to the complete buffer set.
    //!
-	unsigned char * BufferBlock;
+	Cigi_uint8 * BufferBlock;
 
    //=========================================================
    //! Buffer Count<br>
@@ -137,13 +141,13 @@ protected:
    //! A pointer to an array of pointers to the beginning of
    //!   each buffer
    //!
-   unsigned char **BasePtr;
+   Cigi_uint8 **BasePtr;
 
    //=========================================================
    //! Fill Buffer position<br>
    //! An index into the current buffer to the current byte.
    //!
-   unsigned char *FillBufferPos;
+   Cigi_uint8 *FillBufferPos;
 
    //=========================================================
    //! Current Message Buffer<br>

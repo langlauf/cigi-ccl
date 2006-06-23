@@ -42,9 +42,13 @@
  *  04/06/2005 Greg Basler                       Version 1.5.2
  *  Included the CigiTypes.h header file. Modified the CigiCopy2 and CigiCopy4 
  *  macros to use the cigi-defined data types instead of native types.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 
@@ -90,7 +94,7 @@ void CIGI_SPEC CigiSwap8( void *dest, const void *src);
 //! \param _src_ - Specifies the source byte to copy.
 //!
 #define CigiCopy1( _dest_, _src_)                           \
-    ( *( ( char*)( _dest_)) = *( ( char*)( _src_)) )
+    ( *( ( Cigi_int8*)( _dest_)) = *( ( Cigi_int8*)( _src_)) )
 
 //=========================================================
 //! Copies the Cigi_int16 pointed to by src into the short <br>

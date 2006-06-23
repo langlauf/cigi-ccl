@@ -34,9 +34,13 @@
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Added the CIGI_SPEC modifier to the class declaration for exporting the 
  *  class in a Windows DLL.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 
@@ -83,7 +87,7 @@ public:
    //! \return This returns CIGI_SUCCESS or an error code 
    //!   defined in CigiErrorCodes.h
    //!
-   virtual int Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const;
+   virtual int Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const;
    //=========================================================
    //! The virtual Unpack function for CIGI 3
    //! \param Buff - A pointer to the current pack point.
@@ -94,7 +98,7 @@ public:
    //! \return This returns CIGI_SUCCESS or an error code 
    //!   defined in CigiErrorCodes.h
    //!
-   virtual int Unpack(unsigned char * Buff, bool Swap, void *Spec);
+   virtual int Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec);
 
 
 
@@ -109,7 +113,7 @@ public:
    //!
    //! \return This returns CIGI_SUCCESS or an error code
    //!   defined in CigiErrorCodes.h
-   int SetVolID(const unsigned char VolIDIn, bool bndchk=true)
+   int SetVolID(const Cigi_uint8 VolIDIn, bool bndchk=true)
    {
       VolID = VolIDIn;
       return(CIGI_SUCCESS);
@@ -118,7 +122,7 @@ public:
    //=========================================================
    //! Gets the VolID value.
    //! \return the current VolID.
-   unsigned char GetVolID(void) const { return(VolID); }
+   Cigi_uint8 GetVolID(void) const { return(VolID); }
 
 
    //+> CollVolID
@@ -130,7 +134,7 @@ public:
    //!
    //! \return This returns CIGI_SUCCESS or an error code
    //!   defined in CigiErrorCodes.h
-   int SetCollVolID(const unsigned char CollVolIDIn, bool bndchk=true)
+   int SetCollVolID(const Cigi_uint8 CollVolIDIn, bool bndchk=true)
    {
       CollVolID = CollVolIDIn;
       return(CIGI_SUCCESS);
@@ -139,7 +143,7 @@ public:
    //=========================================================
    //! Gets the CollVolID value.
    //! \return the current CollVolID.
-   unsigned char GetCollVolID(void) const { return(CollVolID); }
+   Cigi_uint8 GetCollVolID(void) const { return(CollVolID); }
 
 
 

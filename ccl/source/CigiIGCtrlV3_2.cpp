@@ -28,20 +28,16 @@
  *  DATE     NAME                                SCR NUMBER
  *  DESCRIPTION OF CHANGE........................
  *  
- *  09/17/2003 Greg Basler                       CIGI_CR_DR_1
- *  Initial Release.
+ *  04/14/2006 Greg Basler                       Version 1.7
+ *  Initial Release for CIGI 3.2 compatibility.
+ *  Based on CigiIGCtrlV3.cpp"
  *  
- *  01/21/2005 Greg Basler                       Version 1.5
- *  Defined _EXPORT_CCL_ for exporting the class in a Windows DLL.
- *  
- *  01/21/2005 Greg Basler                       Version 1.5
- *  Removed the inline defnitions for the PackedPointer union.
- *  
- *  01/21/2005 Greg Basler                       Version 1.5
- *  Changed native C++ types to use CCL-defined types instead where appropriate.
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -96,7 +92,7 @@ CigiIGCtrlV3_2::~CigiIGCtrlV3_2()
 // ================================================
 // Pack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiIGCtrlV3_2::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const
+int CigiIGCtrlV3_2::Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const
 {
    PackPointer CDta;
 
@@ -111,9 +107,9 @@ int CigiIGCtrlV3_2::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec
 
    *CDta.b++ = Data->DatabaseID;
 
-   unsigned char HDta = (Data->MinorVersion << 4) & 0xf0;
+   Cigi_uint8 HDta = (Data->MinorVersion << 4) & 0xf0;
    HDta |= (Data->TimestampValid) ? 0x04 : 0;
-   HDta |= (unsigned char)(Data->IGMode & 0x03);
+   HDta |= (Cigi_uint8)(Data->IGMode & 0x03);
 
    *CDta.c++ = HDta;
    *CDta.c++ = 0;
@@ -132,7 +128,7 @@ int CigiIGCtrlV3_2::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec
 // ================================================
 // Unpack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiIGCtrlV3_2::Unpack(unsigned char * Buff, bool Swap, void *Spec)
+int CigiIGCtrlV3_2::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
 {
 
    PackPointer CDta;
@@ -143,7 +139,7 @@ int CigiIGCtrlV3_2::Unpack(unsigned char * Buff, bool Swap, void *Spec)
 
    DatabaseID = *CDta.b++;
 
-   unsigned char HDta = *CDta.c++;
+   Cigi_uint8 HDta = *CDta.c++;
 
    IGMode = (IGModeGrp)(HDta & 0x03);
    TimestampValid = ((HDta & 0x04) != 0);

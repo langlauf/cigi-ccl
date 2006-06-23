@@ -34,9 +34,13 @@
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Added the CIGI_SPEC modifier to the class declaration for exporting the 
  *  class in a Windows DLL.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #if !defined(_CIGI_IO_INCLUDED_)
@@ -120,7 +124,7 @@ protected:
    //! \return This returns CIGI_SUCCESS or an error code 
    //!   defined in CigiErrorCodes.h
    //!
-   virtual int Write(unsigned char * Buffer, int Length) =0;
+   virtual int Write(Cigi_uint8 * Buffer, int Length) =0;
 
    //=========================================================
    //! A pure virtual function to input the data.<br>
@@ -129,7 +133,7 @@ protected:
    //! \param MaxLength - The maximum length allowed for the message in bytes.
    //! \return This returns the number of bytes in the message
    //!
-   virtual int Read(unsigned char * Buffer, int MaxLength) =0;
+   virtual int Read(Cigi_uint8 * Buffer, int MaxLength) =0;
 
 
 };

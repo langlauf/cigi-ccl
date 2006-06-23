@@ -38,11 +38,15 @@
  *  Removed the inline defnitions for the PackedPointer union.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
- *  Modified the class constructur to initialize the MinorVersion member 
+ *  Modified the class constructor to initialize the MinorVersion member 
  *  variable.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -95,7 +99,7 @@ CigiShortArtPartCtrlV3::~CigiShortArtPartCtrlV3()
 // ================================================
 // Pack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiShortArtPartCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const
+int CigiShortArtPartCtrlV3::Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const
 {
    PackPointer CDta;
 
@@ -110,7 +114,7 @@ int CigiShortArtPartCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Buff, vo
    *CDta.c++ = Data->ArtPart1;
    *CDta.c++ = Data->ArtPart2;
 
-   unsigned char HDta = Data->DofSelect1 & 0x07;
+   Cigi_uint8 HDta = Data->DofSelect1 & 0x07;
    HDta |= (Data->DofSelect2 << 3) & 0x38;
    HDta |= (Data->ArtPart1En) ? 0x40 : 0;
    HDta |= (Data->ArtPart2En) ? 0x80 : 0;
@@ -128,7 +132,7 @@ int CigiShortArtPartCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Buff, vo
 // ================================================
 // Unpack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiShortArtPartCtrlV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
+int CigiShortArtPartCtrlV3::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
 {
    PackPointer CDta;
 
@@ -142,7 +146,7 @@ int CigiShortArtPartCtrlV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
       ArtPart1 = *CDta.c++;
       ArtPart2 = *CDta.c++;
 
-      unsigned char HDta = *CDta.c++;
+      Cigi_uint8 HDta = *CDta.c++;
       DofSelect1 = (DofSelectGrp)(HDta & 0x07);
       DofSelect2 = (DofSelectGrp)((HDta >> 3) & 0x07);
       ArtPart1En = ((HDta & 0x40) != 0);
@@ -159,7 +163,7 @@ int CigiShortArtPartCtrlV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
       ArtPart1 = *CDta.c++;
       ArtPart2 = *CDta.c++;
 
-      unsigned char HDta = *CDta.c++;
+      Cigi_uint8 HDta = *CDta.c++;
       DofSelect1 = (DofSelectGrp)(HDta & 0x07);
       DofSelect2 = (DofSelectGrp)((HDta >> 3) & 0x07);
       ArtPart1En = ((HDta & 0x40) != 0);

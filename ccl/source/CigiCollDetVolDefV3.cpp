@@ -41,11 +41,15 @@
  *  Changed native C++ types to use CCL-defined types instead where appropriate.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
- *  Modified the class constructur to initialize the MinorVersion member 
+ *  Modified the class constructor to initialize the MinorVersion member 
  *  variable.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -102,7 +106,7 @@ CigiCollDetVolDefV3::~CigiCollDetVolDefV3()
 // ================================================
 // Pack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiCollDetVolDefV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const
+int CigiCollDetVolDefV3::Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const
 {
    PackPointer CDta;
 
@@ -116,7 +120,7 @@ int CigiCollDetVolDefV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void 
    *CDta.s++ = Data->EntityID;
    *CDta.c++ = Data->VolID;
 
-   unsigned char HDta = (Data->VolEn) ? 0x01 : 0;
+   Cigi_uint8 HDta = (Data->VolEn) ? 0x01 : 0;
    HDta |= (Data->VolType << 1) & 0x02;
    *CDta.c++ = HDta;
 
@@ -141,7 +145,7 @@ int CigiCollDetVolDefV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void 
 // ================================================
 // Unpack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiCollDetVolDefV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
+int CigiCollDetVolDefV3::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
 {
    PackPointer CDta;
 

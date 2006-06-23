@@ -45,9 +45,13 @@
  *  04/14/2006 Greg Basler                       Version 1.7.0
  *  Modified the existing SetCigiVersion method to use the new SetCigiVersion 
  *  method with a default minor version of 0.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #if !defined(_CIGI_SESSION_INCLUDED_)
@@ -191,7 +195,7 @@ public:
    //!   defined in CigiErrorCodes.h
    //!
 	int RegisterUserPacket(CigiBasePacket *Packet,
-                          unsigned char PacketID,
+                          Cigi_uint8 PacketID,
                           bool HostSend, bool IGSend)
    {
       return(VJmp.RegisterUserPacket(Packet, PacketID, HostSend, IGSend));

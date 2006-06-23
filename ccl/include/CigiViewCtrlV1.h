@@ -37,10 +37,14 @@
  *  
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Changed the ViewIDIn parameter type from const unsigned short to const 
- *  unsigned char in the SetViewID method.
+ *  Cigi_uint8 in the SetViewID method.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 
@@ -87,7 +91,7 @@ public:
    //! \return This returns CIGI_SUCCESS or an error code 
    //!   defined in CigiErrorCodes.h
    //!
-   virtual int Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const;
+   virtual int Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const;
    //=========================================================
    //! The virtual Unpack function for CIGI 1
    //! \param Buff - A pointer to the current pack point.
@@ -98,7 +102,7 @@ public:
    //! \return This returns CIGI_SUCCESS or an error code 
    //!   defined in CigiErrorCodes.h
    //!
-   virtual int Unpack(unsigned char * Buff, bool Swap, void *Spec);
+   virtual int Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec);
 
 
 
@@ -114,17 +118,17 @@ public:
    //!
    //! \return This returns CIGI_SUCCESS or an error code
    //!   defined in CigiErrorCodes.h
-   int SetViewID(const unsigned char ViewIDIn, bool bndchk=true);
+   int SetViewID(const Cigi_uint8 ViewIDIn, bool bndchk=true);
 
    //=========================================================
    //! Gets the ViewID value.
    //! \return the current ViewID.
-   unsigned char GetViewID(void) const
+   Cigi_uint8 GetViewID(void) const
    {
       if(ViewID < 31)
-         return((unsigned char)ViewID);
+         return((Cigi_uint8)ViewID);
       else
-         return((unsigned char)0x1f);
+         return((Cigi_uint8)0x1f);
    }
 
 
@@ -137,17 +141,17 @@ public:
    //!
    //! \return This returns CIGI_SUCCESS or an error code
    //!   defined in CigiErrorCodes.h
-   int SetGroupID(const unsigned char GroupIDIn, bool bndchk=true);
+   int SetGroupID(const Cigi_uint8 GroupIDIn, bool bndchk=true);
 
    //=========================================================
    //! Gets the GroupID value.
    //! \return the current GroupID.
-   unsigned char GetGroupID(void) const
+   Cigi_uint8 GetGroupID(void) const
    {
       if(GroupID < 8)
          return(GroupID);
       else
-         return((unsigned char)0x07);
+         return((Cigi_uint8)0x07);
    }
 
 

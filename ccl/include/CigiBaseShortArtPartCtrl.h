@@ -37,9 +37,13 @@
  *  
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Changed native C++ types in function declarations to CCL-defined types.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 
@@ -101,7 +105,7 @@ public:
    //! \return This returns CIGI_SUCCESS or an error code 
    //!   defined in CigiErrorCodes.h
    //!
-   virtual int Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const=0;
+   virtual int Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const=0;
 
    //=========================================================
    //! A pure virtual Unpack function.
@@ -113,7 +117,7 @@ public:
    //! \return This returns CIGI_SUCCESS or an error code 
    //!   defined in CigiErrorCodes.h
    //!
-   virtual int Unpack(unsigned char * Buff, bool Swap, void *Spec) =0;
+   virtual int Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec) =0;
 
 
 
@@ -149,7 +153,7 @@ public:
    //!
    //! \return This returns CIGI_SUCCESS or an error code
    //!   defined in CigiErrorCodes.h
-   int SetArtPart1(const unsigned char ArtPart1In, bool bndchk=true)
+   int SetArtPart1(const Cigi_uint8 ArtPart1In, bool bndchk=true)
    {
       ArtPart1 = ArtPart1In;
       return(CIGI_SUCCESS);
@@ -158,7 +162,7 @@ public:
    //=========================================================
    //! Gets the ArtPart1 value.
    //! \return the current ArtPart1.
-   unsigned char GetArtPart1(void) const { return(ArtPart1); }
+   Cigi_uint8 GetArtPart1(void) const { return(ArtPart1); }
 
 
    //+> ArtPart2
@@ -170,7 +174,7 @@ public:
    //!
    //! \return This returns CIGI_SUCCESS or an error code
    //!   defined in CigiErrorCodes.h
-   int SetArtPart2(const unsigned char ArtPart2In, bool bndchk=true)
+   int SetArtPart2(const Cigi_uint8 ArtPart2In, bool bndchk=true)
    {
       ArtPart2 = ArtPart2In;
       return(CIGI_SUCCESS);
@@ -179,7 +183,7 @@ public:
    //=========================================================
    //! Gets the ArtPart2 value.
    //! \return the current ArtPart2.
-   unsigned char GetArtPart2(void) const { return(ArtPart2); }
+   Cigi_uint8 GetArtPart2(void) const { return(ArtPart2); }
 
 
    //+> DofSelect1
@@ -329,13 +333,13 @@ protected:
    //! ArtPart1<br>
    //! Articulated part 1 ID
    //!
-   unsigned char ArtPart1;
+   Cigi_uint8 ArtPart1;
 
    //=========================================================
    //! ArtPart2<br>
    //! Articulated part 2 ID
    //!
-   unsigned char ArtPart2;
+   Cigi_uint8 ArtPart2;
 
    //=========================================================
    //! DofSelect1<br>

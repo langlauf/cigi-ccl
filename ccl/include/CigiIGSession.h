@@ -36,7 +36,7 @@
  *  class in a Windows DLL.
  * </pre>
  * @author The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #if !defined(_CIGI_IG_SESSION_INCLUDED_)

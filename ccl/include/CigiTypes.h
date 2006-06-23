@@ -40,9 +40,13 @@
  *  
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Defined Cigi_uint16, Cigi_uint32, and Cigi_uint64 for various processors.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 
@@ -53,6 +57,10 @@
 
 
 #if defined(WIN32)
+
+   typedef unsigned char Cigi_uint8;
+   typedef char Cigi_int8;
+   typedef char Cigi_Ascii;
 
    typedef unsigned short Cigi_uint16;
    typedef short Cigi_int16;
@@ -86,6 +94,10 @@
 
 #elif defined(__GNUC__)
 
+   typedef unsigned char Cigi_uint8;
+   typedef char Cigi_int8;
+   typedef char Cigi_Ascii;
+
    typedef unsigned short Cigi_uint16;
    typedef short Cigi_int16;
 
@@ -102,6 +114,10 @@
 #else
 
    // Use these or put your own definitions here!
+
+   typedef unsigned char Cigi_uint8;
+   typedef char Cigi_int8;
+   typedef char Cigi_Ascii;
 
    typedef unsigned short Cigi_uint16;
    typedef short Cigi_int16;
@@ -122,8 +138,8 @@
 
 typedef union PackPointerUnion
 {
-   unsigned char *c;
-   char *b;
+   Cigi_uint8 *c;
+   Cigi_int8 *b;
    Cigi_uint16 *s;
    Cigi_int16 *h;
    Cigi_uint32 *l;

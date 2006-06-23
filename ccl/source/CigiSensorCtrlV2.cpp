@@ -41,11 +41,15 @@
  *  Changed native C++ types to use CCL-defined types instead where appropriate.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
- *  Modified the class constructur to initialize the MinorVersion member 
+ *  Modified the class constructor to initialize the MinorVersion member 
  *  variable.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -117,12 +121,12 @@ CigiSensorCtrlV2::~CigiSensorCtrlV2()
 // ================================================
 // Pack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiSensorCtrlV2::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const
+int CigiSensorCtrlV2::Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const
 {
    double DBuf[6];
    Cigi_uint16 tViewID;
 
-   unsigned char *tBuf = (unsigned char *)DBuf;
+   Cigi_uint8 *tBuf = (Cigi_uint8 *)DBuf;
 
    PackPointer CDta;
 
@@ -138,7 +142,7 @@ int CigiSensorCtrlV2::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Sp
    if(tViewID > 31)
       tViewID = 31;
 
-   unsigned char HDta = (unsigned char)tViewID << 3;
+   Cigi_uint8 HDta = (Cigi_uint8)tViewID << 3;
 
    if(Data->SensorOn)
       HDta |= 0x04;
@@ -153,7 +157,7 @@ int CigiSensorCtrlV2::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Sp
 
    *CDta.c++ = Data->SensorID;
 
-   HDta = (unsigned char)(Data->TrackMode << 4);
+   HDta = (Cigi_uint8)(Data->TrackMode << 4);
 
    if(Data->AutoGainEn)
       HDta |= 0x08;
@@ -180,11 +184,11 @@ int CigiSensorCtrlV2::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Sp
 // ================================================
 // Unpack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiSensorCtrlV2::Unpack(unsigned char * Buff, bool Swap, void *Spec)
+int CigiSensorCtrlV2::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
 {
    double DBuf[6];
 
-   unsigned char *tBuf = (unsigned char *)DBuf;
+   Cigi_uint8 *tBuf = (Cigi_uint8 *)DBuf;
 
    PackPointer CDta;
 
@@ -194,9 +198,9 @@ int CigiSensorCtrlV2::Unpack(unsigned char * Buff, bool Swap, void *Spec)
 
    CDta.c += 2;  // Step over packet id and size
 
-   unsigned char HDta = *CDta.c++;
+   Cigi_uint8 HDta = *CDta.c++;
 
-   ViewID = (unsigned char)((HDta >> 3) & 0x1f);
+   ViewID = (Cigi_uint8)((HDta >> 3) & 0x1f);
    SensorOn = ((HDta & 0x04) != 0);
    Polarity = (PolarityGrp)((HDta >> 1) & 0x01);
    LineDropEn = ((HDta & 0x01) != 0);

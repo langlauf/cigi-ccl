@@ -34,9 +34,13 @@
  *  01/21/2005 Greg Basler                       Version 1.5
  *  Added the CIGI_SPEC modifier to the class declarations for exporting the 
  *  classes in a Windows DLL.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 
@@ -692,7 +696,7 @@ public:
    //=========================================================
    //! Constructor used to specify the invalid user packet id
    //!
-   CigiInvalidUserPacketException(unsigned char PacketID)
+   CigiInvalidUserPacketException(Cigi_uint8 PacketID)
    {
       int IPacketID = (int)PacketID;
       sprintf(ErrMsg,"Cigi User Defined Packets Must Have an ID above 199\nUsed ID was %d\n",IPacketID);

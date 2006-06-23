@@ -38,11 +38,15 @@
  *  Removed the inline defnitions for the PackedPointer union.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
- *  Modified the class constructur to initialize the MinorVersion member 
+ *  Modified the class constructor to initialize the MinorVersion member 
  *  variable.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -92,7 +96,7 @@ CigiTerrestrialSurfaceCtrlV3::~CigiTerrestrialSurfaceCtrlV3()
 // ================================================
 // Pack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiTerrestrialSurfaceCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const
+int CigiTerrestrialSurfaceCtrlV3::Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const
 {
    PackPointer CDta;
 
@@ -106,7 +110,7 @@ int CigiTerrestrialSurfaceCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Bu
    *CDta.s++ = Data->EntityRgnID;
    *CDta.s++ = Data->SurfaceCondID;
 
-   unsigned char HDta = (Data->SurfaceCondEn) ? 0x01 : 0;
+   Cigi_uint8 HDta = (Data->SurfaceCondEn) ? 0x01 : 0;
    HDta |= (Data->Scope << 1) & 0x06;
    HDta |= (Data->Severity << 3) & 0xf8;
    *CDta.c++ = HDta;
@@ -120,7 +124,7 @@ int CigiTerrestrialSurfaceCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Bu
 // ================================================
 // Unpack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiTerrestrialSurfaceCtrlV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
+int CigiTerrestrialSurfaceCtrlV3::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
 {
    PackPointer CDta;
 
@@ -133,7 +137,7 @@ int CigiTerrestrialSurfaceCtrlV3::Unpack(unsigned char * Buff, bool Swap, void *
       EntityRgnID = *CDta.s++;
       SurfaceCondID = *CDta.s++;
 
-      unsigned char HDta = *CDta.c++;
+      Cigi_uint8 HDta = *CDta.c++;
       SurfaceCondEn = ((HDta & 0x01) != 0);
       Scope = (ScopeGrp)((HDta >> 1) & 0x03);
       Severity = (HDta >> 3) & 0x1f;
@@ -145,7 +149,7 @@ int CigiTerrestrialSurfaceCtrlV3::Unpack(unsigned char * Buff, bool Swap, void *
       CigiSwap2(&EntityRgnID, CDta.s++);
       CigiSwap2(&SurfaceCondID, CDta.s++);
 
-      unsigned char HDta = *CDta.c++;
+      Cigi_uint8 HDta = *CDta.c++;
       SurfaceCondEn = ((HDta & 0x01) != 0);
       Scope = (ScopeGrp)((HDta >> 1) & 0x03);
       Severity = (HDta >> 3) & 0x1f;

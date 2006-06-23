@@ -37,9 +37,13 @@
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
  *  Initialized the MinorVersion member variable in the constructor.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 
@@ -117,7 +121,7 @@ public:
    //! \return This returns CIGI_SUCCESS or an error code 
    //!   defined in CigiErrorCodes.h
    //!
-   virtual int Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const { return(0); }
+   virtual int Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const { return(0); }
    //=========================================================
    //! The virtual Unpack function for CIGI 3
    //! \param Buff - A pointer to the current pack point.
@@ -129,7 +133,7 @@ public:
    //! \return This returns CIGI_SUCCESS or an error code 
    //!   defined in CigiErrorCodes.h
    //!
-   virtual int Unpack(unsigned char * Buff, bool Swap, void *Spec) { return(0); }
+   virtual int Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec) { return(0); }
 
 
    //==> Hold Object Manipulation

@@ -41,11 +41,15 @@
  *  Changed native C++ types to use CCL-defined types instead where appropriate.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
- *  Modified the class constructur to initialize the MinorVersion member 
+ *  Modified the class constructor to initialize the MinorVersion member 
  *  variable.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -117,11 +121,11 @@ CigiCollDetVolDefV2::~CigiCollDetVolDefV2()
 // ================================================
 // Pack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiCollDetVolDefV2::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const
+int CigiCollDetVolDefV2::Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const
 {
    double DBuf[6];
 
-   unsigned char *tBuf = (unsigned char *)DBuf;
+   Cigi_uint8 *tBuf = (Cigi_uint8 *)DBuf;
 
    PackPointer CDta;
 
@@ -134,7 +138,7 @@ int CigiCollDetVolDefV2::Pack(CigiBasePacket * Base, unsigned char * Buff, void 
 
    CIGI_SCOPY2(CDta.s++, &Data->EntityID);
 
-   unsigned char HDta = Data->VolID & 0x7f;
+   Cigi_uint8 HDta = Data->VolID & 0x7f;
    HDta |= (Data->VolEn) ? 0x80 : 0;
    *CDta.c++ = HDta;
 
@@ -176,11 +180,11 @@ int CigiCollDetVolDefV2::Pack(CigiBasePacket * Base, unsigned char * Buff, void 
 // ================================================
 // Unpack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiCollDetVolDefV2::Unpack(unsigned char * Buff, bool Swap, void *Spec)
+int CigiCollDetVolDefV2::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
 {
    double DBuf[6];
 
-   unsigned char *tBuf = (unsigned char *)DBuf;
+   Cigi_uint8 *tBuf = (Cigi_uint8 *)DBuf;
 
    PackPointer CDta;
 
@@ -192,7 +196,7 @@ int CigiCollDetVolDefV2::Unpack(unsigned char * Buff, bool Swap, void *Spec)
 
    CIGI_SCOPY2(&EntityID, CDta.s++);
 
-   unsigned char HDta = *CDta.c++;
+   Cigi_uint8 HDta = *CDta.c++;
    VolID = HDta & 0x7f;
    VolEn = ((HDta & 0x80) != 0);
 

@@ -41,11 +41,15 @@
  *  Corrected the unpacking of the polarity flag.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
- *  Modified the class constructur to initialize the MinorVersion member 
+ *  Modified the class constructor to initialize the MinorVersion member 
  *  variable.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -102,7 +106,7 @@ CigiSensorCtrlV3::~CigiSensorCtrlV3()
 // ================================================
 // Pack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiSensorCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const
+int CigiSensorCtrlV3::Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const
 {
    PackPointer CDta;
 
@@ -116,7 +120,7 @@ int CigiSensorCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Sp
    *CDta.s++ = Data->ViewID;
    *CDta.c++ = Data->SensorID;
 
-   unsigned char HDta = (unsigned char)(Data->TrackMode << 5);
+   Cigi_uint8 HDta = (Cigi_uint8)(Data->TrackMode << 5);
 
    if(Data->TrackPolarity == TrackBlack)
       HDta |= 0x10;
@@ -135,7 +139,7 @@ int CigiSensorCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Sp
 
    *CDta.c++ = HDta;
 
-   *CDta.c++ = (unsigned char)(Data->ResponseType & 0x01);
+   *CDta.c++ = (Cigi_uint8)(Data->ResponseType & 0x01);
 
    *CDta.c++ = 0;
 
@@ -151,7 +155,7 @@ int CigiSensorCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Sp
 // ================================================
 // Unpack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiSensorCtrlV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
+int CigiSensorCtrlV3::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
 {
    PackPointer CDta;
 
@@ -164,7 +168,7 @@ int CigiSensorCtrlV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
       ViewID = *CDta.s++;
       SensorID = *CDta.c++;
 
-      unsigned char HDta = *CDta.c++;
+      Cigi_uint8 HDta = *CDta.c++;
 
       SensorOn = ((HDta & 0x01) != 0);
       Polarity = (PolarityGrp)((HDta >> 1) & 0x01);
@@ -189,7 +193,7 @@ int CigiSensorCtrlV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
       CigiSwap2(&ViewID, CDta.s++);
       SensorID = *CDta.c++;
 
-      unsigned char HDta = *CDta.c++;
+      Cigi_uint8 HDta = *CDta.c++;
 
       SensorOn = ((HDta & 0x01) != 0);
       Polarity = (PolarityGrp)((HDta >> 1) & 0x01);

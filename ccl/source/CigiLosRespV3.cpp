@@ -38,14 +38,18 @@
  *  Removed the inline defnitions for the PackedPointer union.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
- *  Modified the class constructur to initialize the MinorVersion and 
+ *  Modified the class constructor to initialize the MinorVersion and 
  *  HostFrame member variables.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
  *  Modified the Unpack method to set the HostFrame member variable.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -110,7 +114,7 @@ CigiLosRespV3::~CigiLosRespV3()
 // ================================================
 // Pack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiLosRespV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const
+int CigiLosRespV3::Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const
 {
    PackPointer CDta;
 
@@ -123,7 +127,7 @@ int CigiLosRespV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec)
 
    *CDta.s++ = Data->LosID;
 
-   unsigned char HDta = (Data->Valid) ? 0x01 : 0x00;
+   Cigi_uint8 HDta = (Data->Valid) ? 0x01 : 0x00;
    HDta |= (Data->EntityIDValid) ? 0x02 : 0x00;
    HDta |= (Data->Visible) ? 0x04 : 0x00;
    *CDta.c++ = HDta;
@@ -139,7 +143,7 @@ int CigiLosRespV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec)
 // ================================================
 // Unpack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiLosRespV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
+int CigiLosRespV3::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
 {
    PackPointer CDta;
 
@@ -151,7 +155,7 @@ int CigiLosRespV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
    {
       LosID = *CDta.s++;
 
-      unsigned char HDta = *CDta.c++;
+      Cigi_uint8 HDta = *CDta.c++;
       Valid = ((HDta & 0x01) != 0);
       EntityIDValid = ((HDta & 0x02) != 0);
       Visible = ((HDta & 0x04) != 0);
@@ -165,7 +169,7 @@ int CigiLosRespV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
    {
       CigiSwap2(&LosID, CDta.s++);
 
-      unsigned char HDta = *CDta.c++;
+      Cigi_uint8 HDta = *CDta.c++;
       Valid = ((HDta & 0x01) != 0);
       EntityIDValid = ((HDta & 0x02) != 0);
       Visible = ((HDta & 0x04) != 0);

@@ -32,7 +32,7 @@
  *  Initial Release.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #if ! defined( _CIGI_ERROR_CODES_INCLUDED_)

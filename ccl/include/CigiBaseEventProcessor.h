@@ -36,7 +36,7 @@
  *  class in a Windows DLL.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #if !defined(_CIGI_BASE_EVENT_PROCESSOR_INCLUDED_)

@@ -41,11 +41,15 @@
  *  Changed native C++ types to use CCL-defined types instead where appropriate.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
- *  Modified the class constructur to initialize the MinorVersion member 
+ *  Modified the class constructor to initialize the MinorVersion member 
  *  variable.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -116,11 +120,11 @@ CigiCompCtrlV1::~CigiCompCtrlV1()
 // ================================================
 // Pack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiCompCtrlV1::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const
+int CigiCompCtrlV1::Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const
 {
    double DBuf[6];
 
-   unsigned char *tBuf = (unsigned char *)DBuf;
+   Cigi_uint8 *tBuf = (Cigi_uint8 *)DBuf;
 
    PackPointer CDta;
 
@@ -133,7 +137,7 @@ int CigiCompCtrlV1::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec
 
    CIGI_SCOPY2(CDta.s++, &Data->EntityID);
 
-   unsigned char HDta = (Data->ViewID << 3) & 0xf8;
+   Cigi_uint8 HDta = (Data->ViewID << 3) & 0xf8;
    HDta |= (Data->CompAssoc << 1) & 0x06;
    *CDta.c++ = HDta;
 
@@ -154,7 +158,7 @@ int CigiCompCtrlV1::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec
 // ================================================
 // Unpack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiCompCtrlV1::Unpack(unsigned char * Buff, bool Swap, void *Spec)
+int CigiCompCtrlV1::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
 {
    // V1 to V3 Component Class conversion table
    const CompClassV3Grp Assoc2ClassV3[3] =
@@ -166,7 +170,7 @@ int CigiCompCtrlV1::Unpack(unsigned char * Buff, bool Swap, void *Spec)
 
    double DBuf[6];
 
-   unsigned char *tBuf = (unsigned char *)DBuf;
+   Cigi_uint8 *tBuf = (Cigi_uint8 *)DBuf;
 
    PackPointer CDta;
 
@@ -178,7 +182,7 @@ int CigiCompCtrlV1::Unpack(unsigned char * Buff, bool Swap, void *Spec)
 
    CIGI_SCOPY2(&EntityID, CDta.s++);
 
-   unsigned char HDta = *CDta.c++;
+   Cigi_uint8 HDta = *CDta.c++;
    ViewID = (HDta >> 3) & 0x1f;
    CompAssoc = (CompAssocGrp)((HDta >> 1) & 0x03);
 
@@ -208,14 +212,14 @@ int CigiCompCtrlV1::Unpack(unsigned char * Buff, bool Swap, void *Spec)
 // ================================================
 // ViewID
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiCompCtrlV1::SetViewID(const unsigned char ViewIDIn, bool bndchk)
+int CigiCompCtrlV1::SetViewID(const Cigi_uint8 ViewIDIn, bool bndchk)
 {
 
 #ifndef CIGI_NO_BND_CHK
    if(bndchk && (ViewIDIn > 31))
    {
 #ifndef CIGI_NO_EXCEPT
-      throw CigiValueOutOfRangeException("ViewID",(unsigned char)ViewIDIn,0,31);
+      throw CigiValueOutOfRangeException("ViewID",(Cigi_uint8)ViewIDIn,0,31);
 #endif
       return(CIGI_ERROR_VALUE_OUT_OF_RANGE);
    }
@@ -262,9 +266,9 @@ int CigiCompCtrlV1::SetCompAssoc(const CompAssocGrp CompAssocIn, bool bndchk)
 
 
 // ================================================
-// SetCompData - unsigned char
+// SetCompData - Cigi_uint8
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiCompCtrlV1::SetCompData(const unsigned char CompDataIn,
+int CigiCompCtrlV1::SetCompData(const Cigi_uint8 CompDataIn,
                     const unsigned int Word,
                     const BytePos Pos,
                     bool bndchk)
@@ -306,17 +310,17 @@ int CigiCompCtrlV1::SetCompData(const unsigned char CompDataIn,
 
 
 // ================================================
-// SetCompData - char
+// SetCompData - Cigi_int8
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiCompCtrlV1::SetCompData(const char CompDataIn,
+int CigiCompCtrlV1::SetCompData(const Cigi_int8 CompDataIn,
                     const unsigned int Word,
                     const BytePos Pos,
                     bool bndchk)
 {
 
    union {
-      unsigned char uc;
-      char sc;
+      Cigi_uint8 uc;
+      Cigi_int8 sc;
    } cxfer;
 
    int Err = 0;
@@ -622,11 +626,11 @@ int CigiCompCtrlV1::SetCompData(const double CompDataIn,
 // ================================================
 // GetUCharCompData
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-unsigned char CigiCompCtrlV1::GetUCharCompData(const unsigned int Word,
+Cigi_uint8 CigiCompCtrlV1::GetUCharCompData(const unsigned int Word,
                                const BytePos Pos)
 {
 
-   unsigned char tDta;
+   Cigi_uint8 tDta;
 
    int Err = 0;
 
@@ -647,7 +651,7 @@ unsigned char CigiCompCtrlV1::GetUCharCompData(const unsigned int Word,
       tDta = 0;
    }
    else
-      tDta = (unsigned char)((CompData[Word] >> (Pos * 8)) & 0x000000ff);
+      tDta = (Cigi_uint8)((CompData[Word] >> (Pos * 8)) & 0x000000ff);
 
    return(tDta);
 }
@@ -656,12 +660,12 @@ unsigned char CigiCompCtrlV1::GetUCharCompData(const unsigned int Word,
 // ================================================
 // GetCharCompData
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-char CigiCompCtrlV1::GetCharCompData(const unsigned int Word,
+Cigi_int8 CigiCompCtrlV1::GetCharCompData(const unsigned int Word,
                      const BytePos Pos)
 {
    union {
-      char sc;
-      unsigned char uc;
+      Cigi_int8 sc;
+      Cigi_uint8 uc;
    } tDta;
 
    int Err = 0;
@@ -683,7 +687,7 @@ char CigiCompCtrlV1::GetCharCompData(const unsigned int Word,
       tDta.uc = 0;
    }
    else
-      tDta.uc = (unsigned char)((CompData[Word] >> (Pos * 8)) & 0x000000ff);
+      tDta.uc = (Cigi_uint8)((CompData[Word] >> (Pos * 8)) & 0x000000ff);
 
    return(tDta.sc);
 }

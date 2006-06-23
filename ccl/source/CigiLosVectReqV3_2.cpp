@@ -28,20 +28,16 @@
  *  DATE     NAME                                SCR NUMBER
  *  DESCRIPTION OF CHANGE........................
  *  
- *  09/17/2003 Greg Basler                       CIGI_CR_DR_1
- *  Initial Release.
+ *  04/14/2006 Greg Basler                       Version 1.7
+ *  Initial Release for CIGI 3.2 compatibility.
+ *  Based on CigiLosVectReqV3.cpp"
  *  
- *  01/21/2005 Greg Basler                       Version 1.5
- *  Defined _EXPORT_CCL_ for exporting the class in a Windows DLL.
- *  
- *  01/21/2005 Greg Basler                       Version 1.5
- *  Removed the inline defnitions for the PackedPointer union.
- *  
- *  01/21/2005 Greg Basler                       Version 1.5
- *  Changed native C++ types to use CCL-defined types instead where appropriate.
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -101,7 +97,7 @@ CigiLosVectReqV3_2::~CigiLosVectReqV3_2()
 // ================================================
 // Pack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiLosVectReqV3_2::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const
+int CigiLosVectReqV3_2::Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const
 {
    PackPointer CDta;
 
@@ -114,9 +110,9 @@ int CigiLosVectReqV3_2::Pack(CigiBasePacket * Base, unsigned char * Buff, void *
 
    *CDta.s++ = Data->LosID;
 
-   unsigned char HDta = (unsigned char)(Data->ReqType & 0x01);
-   HDta |= (unsigned char)((Data->SrcCoordSys << 1) & 0x02);
-   HDta |= (unsigned char)((Data->ResponseCoordSys << 2) & 0x04);
+   Cigi_uint8 HDta = (Cigi_uint8)(Data->ReqType & 0x01);
+   HDta |= (Cigi_uint8)((Data->SrcCoordSys << 1) & 0x02);
+   HDta |= (Cigi_uint8)((Data->ResponseCoordSys << 2) & 0x04);
    *CDta.c++ = HDta;
 
    *CDta.c++ = Data->AlphaThresh;
@@ -144,7 +140,7 @@ int CigiLosVectReqV3_2::Pack(CigiBasePacket * Base, unsigned char * Buff, void *
 // ================================================
 // Unpack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiLosVectReqV3_2::Unpack(unsigned char * Buff, bool Swap, void *Spec)
+int CigiLosVectReqV3_2::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
 {
    PackPointer CDta;
 

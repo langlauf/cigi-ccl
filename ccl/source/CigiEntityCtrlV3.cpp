@@ -38,11 +38,15 @@
  *  Removed the inline defnitions for the PackedPointer union.
  *  
  *  04/14/2006 Greg Basler                       Version 1.7.0
- *  Modified the class constructur to initialize the MinorVersion member 
+ *  Modified the class constructor to initialize the MinorVersion member 
  *  variable.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.1
+ *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
+ *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.6.0
+ *  Version: 1.7.1
  */
 
 #define _EXPORT_CCL_
@@ -112,7 +116,7 @@ CigiEntityCtrlV3::~CigiEntityCtrlV3()
 // ================================================
 // Pack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiEntityCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Spec) const
+int CigiEntityCtrlV3::Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const
 {
    PackPointer CDta;
 
@@ -127,7 +131,7 @@ int CigiEntityCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Sp
    *CDta.c++ = PacketSize;
    *CDta.s++ = Data->EntityID;
    
-   unsigned char HDta = (unsigned char)((Data->EntityState & 0x03) |
+   Cigi_uint8 HDta = (Cigi_uint8)((Data->EntityState & 0x03) |
                                         ((Data->AttachState << 2) & 0x04) |
                                         ((Data->CollisionDetectEn << 3) & 0x08) |
                                         ((Data->InheritAlpha << 4) & 0x10) |
@@ -153,7 +157,7 @@ int CigiEntityCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Sp
 
    ATbl->SetPastAnimation(Data->EntityID,tAState);
 
-   HDta = (unsigned char)((Data->AnimationDir & 0x01) |
+   HDta = (Cigi_uint8)((Data->AnimationDir & 0x01) |
                           ((Data->AnimationLoopMode << 1) & 0x02) |
                           ((tAState << 2) & 0x0C));
 
@@ -178,14 +182,14 @@ int CigiEntityCtrlV3::Pack(CigiBasePacket * Base, unsigned char * Buff, void *Sp
 // ================================================
 // Unpack
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-int CigiEntityCtrlV3::Unpack(unsigned char * Buff, bool Swap, void *Spec)
+int CigiEntityCtrlV3::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
 {
 
    PackPointer CDta;
 
    CigiAnimationTable *ATbl = (CigiAnimationTable *) Spec;
 
-   unsigned char HDta1, HDta2;
+   Cigi_uint8 HDta1, HDta2;
 
    CDta.c = Buff;
 
