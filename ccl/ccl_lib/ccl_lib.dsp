@@ -7,28 +7,26 @@
 CFG=ccl_lib - Win32 libDebugMT_DLL
 !MESSAGE This is not a valid makefile. To build this project using NMAKE,
 !MESSAGE use the Export Makefile command and run
-!MESSAGE 
+!MESSAGE
 !MESSAGE NMAKE /f "ccl_lib.mak".
-!MESSAGE 
+!MESSAGE
 !MESSAGE You can specify a configuration when running NMAKE
 !MESSAGE by defining the macro CFG on the command line. For example:
-!MESSAGE 
+!MESSAGE
 !MESSAGE NMAKE /f "ccl_lib.mak" CFG="ccl_lib - Win32 libDebugMT_DLL"
-!MESSAGE 
+!MESSAGE
 !MESSAGE Possible choices for configuration are:
-!MESSAGE 
+!MESSAGE
 !MESSAGE "ccl_lib - Win32 libDebugST" (based on "Win32 (x86) Static Library")
 !MESSAGE "ccl_lib - Win32 libDebugMT" (based on "Win32 (x86) Static Library")
 !MESSAGE "ccl_lib - Win32 libDebugMT_DLL" (based on "Win32 (x86) Static Library")
 !MESSAGE "ccl_lib - Win32 libReleaseST" (based on "Win32 (x86) Static Library")
 !MESSAGE "ccl_lib - Win32 libReleaseMT" (based on "Win32 (x86) Static Library")
 !MESSAGE "ccl_lib - Win32 libReleaseMT_DLL" (based on "Win32 (x86) Static Library")
-!MESSAGE 
+!MESSAGE
 
 # Begin Project
 # PROP AllowPerConfigDependencies 0
-# PROP Scc_ProjName ""
-# PROP Scc_LocalPath ""
 CPP=cl.exe
 RSC=rc.exe
 
@@ -176,7 +174,7 @@ LIB32=link.exe -lib
 # ADD BASE LIB32 /nologo
 # ADD LIB32 /nologo
 
-!ENDIF 
+!ENDIF
 
 # Begin Target
 

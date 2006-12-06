@@ -1,4 +1,4 @@
-AC_INIT([CIGI Class Library], [1.5.0], 
+AC_INIT([CIGI Class Library], [1.7.4], 
         [contactname@domain.com], 
         [cigicl])
 AM_INIT_AUTOMAKE

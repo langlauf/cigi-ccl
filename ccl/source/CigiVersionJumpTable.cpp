@@ -60,9 +60,13 @@
  *  06/23/2006 Greg Basler                       Version 1.7.1
  *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
  *  Cigi_uint8.
+ *  
+ *  06/23/2006 Greg Basler                       Version 1.7.4
+ *  Removed redundant line in SetJmpTblV3 about CigiLosVectReqV3_2.  This was
+ *  causing a memory leak over time.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.7.3
+ *  Version: 1.7.4
  */
 
 #define _EXPORT_CCL_
@@ -644,7 +648,6 @@ void CigiVersionJumpTable::SetJmpTblV3(const int CigiMinorVersionIn)
       JmpTbl[CIGI_RATE_CTRL_PACKET_ID_V3] = (CigiBasePacket *) new CigiRateCtrlV3_2;
       JmpTbl[CIGI_HAT_HOT_REQ_PACKET_ID_V3] = (CigiBasePacket *) new CigiHatHotReqV3_2;
       JmpTbl[CIGI_LOS_SEG_REQ_PACKET_ID_V3] = (CigiBasePacket *) new CigiLosSegReqV3_2;
-      JmpTbl[CIGI_LOS_VECT_REQ_PACKET_ID_V3] = (CigiBasePacket *) new CigiLosVectReqV3_2;
       JmpTbl[CIGI_LOS_VECT_REQ_PACKET_ID_V3] = (CigiBasePacket *) new CigiLosVectReqV3_2;
       
       JmpTbl[CIGI_SOF_PACKET_ID_V3] = (CigiBasePacket *) new CigiSOFV3_2;

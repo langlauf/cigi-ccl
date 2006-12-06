@@ -64,9 +64,17 @@
  *  06/23/2006 Greg Basler                       Version 1.7.1
  *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
  *  Cigi_uint8.
+ *
+ *  11/27/2006 Greg Basler                       Version 1.7.4
+ *  Corrected UpdateIGCtrl so that it zeros the outgoing database id when the
+ *    outgoing database id is negative or incoming database id is negative
+ *    unless it is -128 or the outgoing database id is the same as the
+ *    incoming database id.
+ *    It does not zero the id if the incoming id is -128 because an incoming
+ *    database id of -128 signifies a database not found condition.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.7.3
+ *  Version: 1.7.4
  */
 
 #include <stdlib.h>
@@ -850,11 +858,21 @@ int CigiOutgoingMsg::UpdateIGCtrl(Cigi_uint8 *OutgoingMsg, Cigi_uint8 *IncomingM
 
          // check and adjust the Database IDs
          OBufr = (Cigi_int8 *)(OutgoingMsg + 3);
-         if(OBufr > 0)
+         if(*OBufr != 0)
          {
-            IBufr = (Cigi_int8 *)(IncomingMsg + 3);
-            if((*OBufr == *IBufr)||(*IBufr < 0))
-               *OBufr = 0;
+            if(*OBufr > 0)
+            {
+               // If *IBufr is -128, the IG did not find that database
+               //   so the host should send a corrected database id
+               // However, if the *IBufr is any negative (except -128)
+               //  or the positive of *OBufr, the outgoing
+               //  database id should be 0
+               IBufr = (Cigi_int8 *)(IncomingMsg + 3);
+               if((*OBufr == *IBufr)||((*IBufr < 0)&&(*IBufr != -128)))
+                  *OBufr = 0;
+            }
+            else
+               *OBufr = 0;  // Host sent Database IDs should never be negative
          }
       }
       else

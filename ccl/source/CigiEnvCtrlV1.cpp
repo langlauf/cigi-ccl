@@ -47,9 +47,14 @@
  *  06/23/2006 Greg Basler                       Version 1.7.1
  *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
  *  Cigi_uint8.
+ *  
+ *  10/16/2006 Greg Basler                       Version 1.7.4
+ *  Changed the way some CIGI v3 enable flags are set during
+ *  the version 1 unpacking
+ *
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.7.3
+ *  Version: 1.7.4
  */
 
 #define _EXPORT_CCL_
@@ -193,6 +198,8 @@ int CigiEnvCtrlV1::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
    Cigi_uint8 HDta = *CDta.c++;
    EphemerisEn = ((HDta & 0x80) != 0);
    Humidity = HDta & 0x7f;
+
+   SunEn = MoonEn = StarEn = DateVld = EphemerisEn;
 
    CDta.c += 3;
 

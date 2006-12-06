@@ -49,7 +49,7 @@
  *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.7.3
+ *  Version: 1.7.4
  */
 
 

@@ -2,6 +2,18 @@
 Release Notes:
 
  -------------------------------------------------------------------------------
+  Release: CCL Version 1.7.4
+  Date: December 6, 2006
+ -------------------------------------------------------------------------------
+
+Corrects a bug with the Version Jump Table that was causing a memory leak.
+Corrected the way V3 Celestial Control and Atmosphere Control flags were
+being set by the V1 and V2 Environmental Control classes.
+Corrected a bug in CigiOutgoingMsg that now correctly zeros out the
+Host database id request under specific conditions.
+
+
+ -------------------------------------------------------------------------------
   Release: CCL Version 1.7.3
   Date: August 11, 2006
  -------------------------------------------------------------------------------
@@ -13,6 +25,7 @@ is packed from the packing object (a CigiIGCtrlV3_2 or CigiSOFV3_2 object
 when the current outgoing Cigi Version is 3.2) not the object with the 
 user filled data.  This will put the correct Minor Version number in the 
 Cigi message.
+
 
 
 
