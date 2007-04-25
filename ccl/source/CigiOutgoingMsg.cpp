@@ -72,9 +72,18 @@
  *    incoming database id.
  *    It does not zero the id if the incoming id is -128 because an incoming
  *    database id of -128 signifies a database not found condition.
+ *  
+ *  04/24/2007 Greg Basler                       Version 1.7.5
+ *  Corrected a problem with the database id adjustment code in UpdateIGCtrl.
+ *    The user can disable database id adjustment by declaring
+ *    _NO_DATABASE_ADJUSTMENT_. (note: the system will still 0 a negative
+ *    database request.) The database adjustment code now will 0 the database
+ *    request if the incoming database number is the same or the negative of
+ *    database request. It does not 0 the database request if the incoming
+ *    database number is -128.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.7.4
+ *  Version: 1.7.5
  */
 
 #include <stdlib.h>
@@ -860,19 +869,27 @@ int CigiOutgoingMsg::UpdateIGCtrl(Cigi_uint8 *OutgoingMsg, Cigi_uint8 *IncomingM
          OBufr = (Cigi_int8 *)(OutgoingMsg + 3);
          if(*OBufr != 0)
          {
-            if(*OBufr > 0)
+            if(*OBufr < 0)
+            {
+               *OBufr = 0;  // Host sent Database IDs should never be negative
+            }
+#if !defined(_NO_DATABASE_ADJUSTMENT_)
+            else
             {
                // If *IBufr is -128, the IG did not find that database
                //   so the host should send a corrected database id
-               // However, if the *IBufr is any negative (except -128)
-               //  or the positive of *OBufr, the outgoing
+               // However, if the *OBufr is the same as the *IBufr or
+               //  the *IBufr is the negative of *OBufr,
+               //  (specifically excluding -128) the outgoing
                //  database id should be 0
                IBufr = (Cigi_int8 *)(IncomingMsg + 3);
-               if((*OBufr == *IBufr)||((*IBufr < 0)&&(*IBufr != -128)))
+               if((*IBufr != -128) &&
+                  ((*OBufr == *IBufr) || (*OBufr == (*IBufr * (-1)))))
+               {
                   *OBufr = 0;
+               }
             }
-            else
-               *OBufr = 0;  // Host sent Database IDs should never be negative
+#endif
          }
       }
       else

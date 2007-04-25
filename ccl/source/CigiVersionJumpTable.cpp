@@ -66,7 +66,7 @@
  *  causing a memory leak over time.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.7.4
+ *  Version: 1.7.5
  */
 
 #define _EXPORT_CCL_

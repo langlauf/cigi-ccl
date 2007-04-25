@@ -38,9 +38,13 @@
  *  06/23/2006 Greg Basler                       Version 1.7.1
  *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
  *  Cigi_uint8.
+ *  
+ *  04/24/2007 Greg Basler                       Version 1.7.5
+ *  Changed Input altitude to a double as required in the CIGI
+ *  version 2.1 ICD.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.7.4
+ *  Version: 1.7.5
  */
 
 
@@ -210,9 +214,9 @@ public:
    //! \return This returns CIGI_SUCCESS or an error code 
    //!   defined in CigiErrorCodes.h
    //!
-	int SetAlt(const float Alt, bool bndchk=true)
+	int SetAlt(const double Alt, bool bndchk=true)
    {
-      AltOrZoff = (double)Alt;
+      AltOrZoff = Alt;
       return(CIGI_SUCCESS);
    }
 

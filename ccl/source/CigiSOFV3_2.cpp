@@ -41,9 +41,14 @@
  *  is packed from the packing object (a CigiSOFV3_2 object in this case)
  *  not the object with the user filled data.  This will put the correct
  *  Minor Version number in the ig to host message.
+ *  
+ *  01/22/2007 Greg Basler                       Version 1.7.5
+ *  Corrected a bug noted by C. Schroeder.  When byteswapping, the
+ *  Unpack() method now unpacks the CIGI Version 3 timestamp not the
+ *  version 2 timestamp.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.7.4
+ *  Version: 1.7.5
  */
 
 #define _EXPORT_CCL_
@@ -169,7 +174,7 @@ int CigiSOFV3_2::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
    else
    {
       CigiSwap4(&FrameCntr,CDta.l++);
-      CigiSwap4(&TimeStampV2,CDta.f++);
+      CigiSwap4(&TimeStampV3,CDta.f++);
       CigiSwap4(&LastRcvdHostFrame,CDta.l++);
    }
 

@@ -41,9 +41,13 @@
  *  06/23/2006 Greg Basler                       Version 1.7.1
  *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
  *  Cigi_uint8.
+ *  
+ *  01/22/2007 Greg Basler                       Version 1.7.5
+ *  Removed the accessors for ReqType.  Request Type or Response Type is
+ *  not availible for the HAT/HOT Extended Response Packet.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.7.4
+ *  Version: 1.7.5
  */
 
 
@@ -106,26 +110,6 @@ public:
 
 
    //==> Accessing Member Variable Values functions
-
-   //+> ReqType
-
-   //=========================================================
-   //! Sets the ReqType with bound checking control
-   //! \param ReqTypeIn - Request/Response type<br>
-   //!   HAT=0<br>
-   //!   HOT=1<br>
-   //!   Extended=2<br>
-   //! \param bndchk - Enables (true) or disables (false) bounds checking.
-   //!
-   //! \return This returns CIGI_SUCCESS or an error code
-   //!   defined in CigiErrorCodes.h
-   int SetReqType(const ReqTypeGrp ReqTypeIn, bool bndchk=true);
-
-   //=========================================================
-   //! Gets the ReqType value.
-   //! \return the current ReqType.
-   ReqTypeGrp GetReqType(void) const { return(ReqType); }
-
 
    //+> Hat
 

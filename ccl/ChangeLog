@@ -1,4 +1,23 @@
 
+Version 1.7.5
+-------------
+[04.25.2007]
+
+Changes/Additions:
+------------------
+
+• Corrected a problem with Database request number adjustment.
+  Changed V1 & V2 LOS requests to request extended responses if they are
+  converted to V3.
+  Changed the CigiHotReqV2 constructor to correctly set the request type to HOT
+  instead of HAT.
+  Corrected V3 & V3.2 SOF to correctly unpack the timestamp value.
+  Removed the SetReqTyp member function from CigiHatHotXRespV3 & V3_2, because
+  V3 and V3.2 does not have that parameter in the packet.
+
+
+
+
 Version 1.7.4
 -------------
 [12.06.2006]

@@ -50,9 +50,14 @@
  *  06/23/2006 Greg Basler                       Version 1.7.1
  *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
  *  Cigi_uint8.
+ *  
+ *  01/22/2007 Greg Basler                       Version 1.7.5
+ *  Corrected a bug noted by C. Schroeder.  When byteswapping, the
+ *  Unpack() method now unpacks the CIGI Version 3 timestamp not the
+ *  version 2 timestamp.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.7.4
+ *  Version: 1.7.5
  */
 
 #define _EXPORT_CCL_
@@ -174,7 +179,7 @@ int CigiSOFV3::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
    else
    {
       CigiSwap4(&FrameCntr,CDta.l++);
-      CigiSwap4(&TimeStampV2,CDta.f++);
+      CigiSwap4(&TimeStampV3,CDta.f++);
    }
 
    TimeStampV2 = ((float)TimeStampV3) * 10.0f;

@@ -47,9 +47,12 @@
  *  06/23/2006 Greg Basler                       Version 1.7.1
  *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
  *  Cigi_uint8.
+ *  
+ *  04/24/2007 Greg Basler                       Version 1.7.5
+ *  Corrected an error with ReqType.  The request type should be HOT not HAT.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.7.4
+ *  Version: 1.7.5
  */
 
 #define _EXPORT_CCL_
@@ -91,7 +94,7 @@ CigiHotReqV2::CigiHotReqV2()
    MinorVersion = 0;
 
    HatHotID = 0;
-   ReqType = HAT;
+   ReqType = HOT;
    SrcCoordSys = Geodetic;
    UpdatePeriod = 0;
    EntityID = 0;

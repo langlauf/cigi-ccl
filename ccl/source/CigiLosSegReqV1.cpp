@@ -48,9 +48,14 @@
  *  06/23/2006 Greg Basler                       Version 1.7.1
  *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
  *  Cigi_uint8.
+ *  
+ *  04/24/2007 Greg Basler                       Version 1.7.5
+ *  Changed the type of request from Basic to Extended.  The Extended
+ *  Response in V3 and later has the needed data for V1 & V2 responses.
+ *  The Basic responses do not.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.7.4
+ *  Version: 1.7.5
  */
 
 #define _EXPORT_CCL_
@@ -92,7 +97,7 @@ CigiLosSegReqV1::CigiLosSegReqV1()
    MinorVersion = 0;
 
    LosID = 0;
-   ReqType = Basic;
+   ReqType = Extended;
    SrcCoordSys = Geodetic;
    DstCoordSys = Geodetic;
    ResponseCoordSys = Geodetic;

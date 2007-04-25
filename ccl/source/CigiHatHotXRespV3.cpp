@@ -47,9 +47,13 @@
  *  06/23/2006 Greg Basler                       Version 1.7.1
  *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
  *  Cigi_uint8.
+ *  
+ *  01/22/2007 Greg Basler                       Version 1.7.5
+ *  Set Request Type or Response Type (ReqType) to HAT in the Unpack()
+ *  method for Cigi Version 1 and 2 compatibility.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.7.4
+ *  Version: 1.7.5
  */
 
 #define _EXPORT_CCL_
@@ -219,6 +223,8 @@ int CigiHatHotXRespV3::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
          VldHot = false;
       }
    }
+
+   ReqType = HAT;  // For Cigi Version 1 and 2 compatibility
 
    HostFrame = 0;
 

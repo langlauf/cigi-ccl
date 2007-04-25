@@ -35,9 +35,12 @@
  *  06/23/2006 Greg Basler                       Version 1.7.1
  *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
  *  Cigi_uint8.
+ *  
+ *  04/24/2007 Greg Basler                       Version 1.7.5
+ *  Changed the way ValidV1or2 and IntersectionCoordSys is calculated.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.7.4
+ *  Version: 1.7.5
  */
 
 #define _EXPORT_CCL_
@@ -83,7 +86,7 @@ CigiLosXRespV3_2::CigiLosXRespV3_2()
    Material = 0;
    NormalAz = 0.0;
    NormalEl = 0.0;
-   ValidV1or2 = false;
+   ValidV1or2 = true;
 
 }
 
@@ -204,8 +207,16 @@ int CigiLosXRespV3_2::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
 
    }
 
-   ValidV1or2 = true;
-   IntersectionCoordSys = Geodetic;  // No way to translate this correctly
+   if(EntityIDValid)
+   {
+      ValidV1or2 = false;
+      IntersectionCoordSys = Entity;
+   }
+   else
+   {
+      ValidV1or2 = true;
+      IntersectionCoordSys = Geodetic;
+   }
 
    return(PacketSize);
 
