@@ -35,7 +35,7 @@
  *  Defined _EXPORT_CCL_ for exporting the class in a Windows DLL.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.7.5
+ *  Version: 2.0.0
  */
 
 #define _EXPORT_CCL_
@@ -88,6 +88,25 @@ CigiBaseEnvCtrl::~CigiBaseEnvCtrl()
 {
 
 }
+
+
+// ====================================================================
+// Conversion Control
+// ====================================================================
+
+
+// ================================================
+// GetCnvt
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+int CigiBaseEnvCtrl::GetCnvt(CigiVersionID &CnvtVersion,
+                             CigiCnvtInfoType::Type &CnvtInfo)
+{
+   CnvtInfo.ProcID = CigiProcessType::ProcEnvCtrl;
+   CnvtInfo.CnvtPacketID = 0;
+
+   return(CIGI_SUCCESS);
+}
+
 
 // ====================================================================
 // Accessors

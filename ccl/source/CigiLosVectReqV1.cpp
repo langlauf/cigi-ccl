@@ -54,7 +54,7 @@
  *  The Basic responses do not.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.7.5
+ *  Version: 2.0.0
  */
 
 #define _EXPORT_CCL_
@@ -160,7 +160,7 @@ int CigiLosVectReqV1::Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec)
    CIGI_SCOPY4(CDta.f++, &Data->MaxRange);
 
    float tflt = (float)Data->SrcZAlt;
-   CIGI_SCOPY8(CDta.f++, &tflt);
+   CIGI_SCOPY4(CDta.f++, &tflt);
 
    CIGI_SCOPY8(CDta.d++, &Data->SrcXLat);
    CIGI_SCOPY8(CDta.d++, &Data->SrcYLon);

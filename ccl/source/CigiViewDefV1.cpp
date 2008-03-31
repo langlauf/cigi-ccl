@@ -49,7 +49,7 @@
  *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.7.5
+ *  Version: 2.0.0
  */
 
 #define _EXPORT_CCL_
@@ -91,12 +91,12 @@ CigiViewDefV1::CigiViewDefV1()
 
    ViewID = 0;
    GroupID = 0;
-   FOVNearEn = false;
-   FOVFarEn = false;
-   FOVLeftEn = false;
-   FOVRightEn = false;
-   FOVTopEn = false;
-   FOVBottomEn = false;
+   FOVNearEn = true;
+   FOVFarEn = true;
+   FOVLeftEn = true;
+   FOVRightEn = true;
+   FOVTopEn = true;
+   FOVBottomEn = true;
    MirrorMode = MirrorNone;
    PixelReplicateMode = ReplicateNone;
    ProjectionType = Perspective;
@@ -226,7 +226,6 @@ int CigiViewDefV1::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
    return(PacketSize);
 
 }
-
 
 
 // ====================================================================

@@ -2,16 +2,14 @@ To build any of the examples:
 1. Download Tinyxml from www.sourceforge.net/projects/tinyxml
    Note: The examples were tested using TinyXML 2.3.4
 2. Expand the Tinyxml zip file
-3. Copy the "tinyxml" directory to the ccl_<version>/examples directory
+3. Copy the "tinyxml" directory to the ccl/examples directory
 4. The resulting directory tree should look like the following:
-   ccl_<version>
+   ccl
    |- ccl_dll
    |- ccl_lib
    |- examples
    |  |- CigiDummyIG
    |  |- CigiMiniHost
-   |  |- CigiTestHost
-   |  |- CigiTestIG
    |  |- tinyxml
    |- include
    |- source
@@ -20,39 +18,34 @@ To build any of the examples:
 
 For Windows:
 1. Open Visual Studio
-2. Select Open Workspace (V6) or Open Project (V7)
+2. Select Open Solution
 3. Go to the ccl_<version>\ccl_lib directory.
-4. Select ccl_lib.dsw
+4. Select ccl_lib.sln
 5. Select Build->Set Active Configuration
 6. Select  one of the following:
    a. ccl_lib - Win32 libDebugMT_DLL
    b. ccl_lib - Win32 libReleaseMT_DLL
 7. Build the CCL library.
-8. Close the workspace or solution.
-9. Select Open Workspace (V6) or Open Project (V7)
-10. Go to the ccl_<version>\examples\tinyxml directory.
-11. Select tinyxml.dsw
-12. Select Build->Set Active Configuration
-13. Select one of the following:
+8. Close the solution.
+9. Open the tinyxml library
+10. Select one of the following Configurations
    a. tinyxmlStl - Win32 Debug
    b. tinyxmlStl - Win32 Release
-14. Select Project -> Settings
-15. Select "C/C++" tab.
-16. Select "Code Generation" in the pulldown.
-17. In the "Use run-time library" box change to one of the following:
+11. In the Project -> Setting -> C/C++ -> Code Generation,
+    select one of the following:
    a. Debug Multithreaded DLL
    b. Multithreaded DLL
-18. Build tinyxml.
-19. Close the workspace or solution
-20. Select Open Workspace (V6) or Open Project (V7)
-21. Go to one of the example project directorys.
-22. Select the .dsw file
-23. Select Build->Set Active Configuration
-24. Select one of the following:
+12. Build tinyxml.
+13. Close the workspace or solution
+14. Select Open Solution
+15. Go to one of the example project directories.
+16. Select the .sln file
+17. Select Build->Set Active Configuration
+18. Select one of the following:
    a. <example> - Win32 Debug
    b. <example> - Win32 Release
-25. Build the example project.
-26. Close the workspace or solution
+19. Build the example project.
+20. Close the solution
 
 
 

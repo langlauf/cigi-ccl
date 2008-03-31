@@ -42,9 +42,13 @@
  *  06/23/2006 Greg Basler                       Version 1.7.1
  *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
  *  Cigi_uint8.
+ *  
+ *  11/20/2007 Greg Basler                       Version 2.0.0
+ *  Moved Packet information to base packet.
+ *  
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.7.5
+ *  Version: 2.0.0
  */
 
 
@@ -55,12 +59,7 @@
 
 #include "CigiBaseEntityCtrl.h"
 
-// ====================================================================
-// preprocessor definitions
-// ====================================================================
 
-#define CIGI_ENTITY_CTRL_PACKET_ID_V3 2
-#define CIGI_ENTITY_CTRL_PACKET_SIZE_V3 48
 
 
 

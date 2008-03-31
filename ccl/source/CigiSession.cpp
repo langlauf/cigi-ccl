@@ -39,7 +39,7 @@
  *  member variable.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.7.5
+ *  Version: 2.0.0
  */
 
 #define _EXPORT_CCL_
@@ -55,20 +55,23 @@
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 CigiSession::CigiSession(const int NumInBuf, const int InBufLen,
                          const int NumOutBuf, const int OutBufLen,
-                         CigiVersionJumpTable::JumpTableType JTblType)
-                         : VJmp(JTblType)
+                         SessionTypeEnum SessionTypeIn) : 
+   SessionType( SessionTypeIn ),
+   Synchronous( true ),
+   MostMatureKnownCigi(3,3)
 {
+
+   CigiVersionID InitVersion = MostMatureKnownCigi;
+   OutMsg.SetSession(this);
+   OutMsg.ChangeOutgoingCigiVersion(InitVersion);
+   InMsg.SetSession(this);
+   InMsg.SetReaderVersion(InitVersion);  // Default version initialization
 
    OutMsg.CreateBuffer(NumOutBuf, OutBufLen);
    InMsg.CreateBuffer(NumInBuf, InBufLen);
 
-   OutMsg.SetVJmp(&VJmp);
-   InMsg.SetVJmp(&VJmp);
-
    OutMsg.SetAnimationTable(&ATbl);
    InMsg.SetAnimationTable(&ATbl);
-
-   VJmp.SetOutgoingMsg(&OutMsg);
 
 }
 

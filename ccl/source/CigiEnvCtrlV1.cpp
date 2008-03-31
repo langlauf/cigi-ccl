@@ -54,7 +54,7 @@
  *
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.7.5
+ *  Version: 2.0.0
  */
 
 #define _EXPORT_CCL_
@@ -105,7 +105,7 @@ CigiEnvCtrlV1::CigiEnvCtrlV1()
    SunEn = false;
    MoonEn = false;
    StarEn = false;
-   DateVld = false;
+   DateVld = true;
    AtmosEn = false;
    Aerosol = 0.0;
    Humidity = 30;
@@ -115,8 +115,6 @@ CigiEnvCtrlV1::CigiEnvCtrlV1()
    VertWindSp = 0.0;
    WindDir = 0.0;
    BaroPress = 1013.25;
-
-   PEnv = NULL;
 
 }
 
@@ -225,6 +223,37 @@ int CigiEnvCtrlV1::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
 
    return(PacketSize);
 
+}
+
+
+
+// ====================================================================
+// Filling the Hold object
+// ====================================================================
+
+// ================================================
+// FillHold
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+void CigiEnvCtrlV1::FillHold(CigiBaseEnvCtrl * Hold) const
+{
+   Hold->Hour = Hour;
+   Hold->Minute = Minute;
+   Hold->EphemerisEn = EphemerisEn;
+   Hold->SunEn = SunEn;
+   Hold->MoonEn = MoonEn;
+   Hold->StarEn = StarEn;
+   Hold->DateVld = DateVld;
+   Hold->AtmosEn = AtmosEn;
+   Hold->Humidity = Humidity;
+   Hold->Month = Month;
+   Hold->Day = Day;
+   Hold->Year = Year;
+   Hold->AirTemp = AirTemp;
+   Hold->Visibility = Visibility;
+   Hold->HorizWindSp = HorizWindSp;
+   Hold->WindDir = WindDir;
+   Hold->BaroPress = BaroPress;
+   Hold->Aerosol = Aerosol;
 }
 
 

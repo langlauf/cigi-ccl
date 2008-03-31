@@ -38,13 +38,12 @@
  *  Modified the class constructor to set the CIGI minor version.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.7.5
+ *  Version: 2.0.0
  */
 
 #define _EXPORT_CCL_
 
 #include "CigiHostSession.h"
-#include "CigiVersionJumpTable.h"
 
 
 
@@ -57,12 +56,8 @@
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 CigiHostSession::CigiHostSession(const int NumInBuf, const int InBufLen,
                                  const int NumOutBuf, const int OutBufLen)
-               : CigiSession(NumInBuf, InBufLen, NumOutBuf, OutBufLen,
-                 CigiVersionJumpTable::Host)
+: CigiSession(NumInBuf, InBufLen, NumOutBuf, OutBufLen, CigiSession::Host)
 {
-
-   VJmp.SetCigiVersion(CIGI_MAX_VERSION,CIGI_RELEASED_MINOR_VERSION,false);
-
 }
 
 // ================================================

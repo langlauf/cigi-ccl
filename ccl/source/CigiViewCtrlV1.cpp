@@ -49,7 +49,7 @@
  *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.7.5
+ *  Version: 2.0.0
  */
 
 #define _EXPORT_CCL_
@@ -93,12 +93,12 @@ CigiViewCtrlV1::CigiViewCtrlV1()
    EntityID = 0;
    ViewID = 0;
    GroupID = 0;
-   XOffEn = false;
-   YOffEn = false;
-   ZOffEn = false;
-   RollEn = false;
-   PitchEn = false;
-   YawEn = false;
+   XOffEn = true;
+   YOffEn = true;
+   ZOffEn = true;
+   RollEn = true;
+   PitchEn = true;
+   YawEn = true;
    XOff = 0.0;
    YOff = 0.0;
    ZOff = 0.0;

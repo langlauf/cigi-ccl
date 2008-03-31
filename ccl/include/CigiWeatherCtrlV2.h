@@ -41,9 +41,13 @@
  *  06/23/2006 Greg Basler                       Version 1.7.1
  *  Changed native char and unsigned char types to CIGI types Cigi_int8 and 
  *  Cigi_uint8.
+ *  
+ *  11/20/2007 Greg Basler                       Version 2.0.0
+ *  Moved Packet information to base packet.
+ *  
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.7.5
+ *  Version: 2.0.0
  */
 
 
@@ -52,12 +56,7 @@
 
 #include "CigiBaseWeatherCtrl.h"
 
-// ====================================================================
-// preprocessor definitions
-// ====================================================================
 
-#define CIGI_WEATHER_CTRL_PACKET_ID_V2 7
-#define CIGI_WEATHER_CTRL_PACKET_SIZE_V2 44
 
 class CIGI_SPEC CigiWeatherCtrlV2 : public CigiBaseWeatherCtrl
 {
@@ -91,6 +90,7 @@ public:
    //!   defined in CigiErrorCodes.h
    //!
    virtual int Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec) const;
+
    //=========================================================
    //! The virtual Unpack function for CIGI 2
    //! \param Buff - A pointer to the current pack point.
@@ -116,11 +116,7 @@ public:
    //!
    //! \return This returns CIGI_SUCCESS or an error code
    //!   defined in CigiErrorCodes.h
-   int SetPhenomenonType(const Cigi_uint16 PhenomenonTypeIn, bool bndchk=true)
-   {
-      PhenomenonType = PhenomenonTypeIn;
-      return(CIGI_SUCCESS);
-   }
+   int SetPhenomenonType(const Cigi_uint16 PhenomenonTypeIn, bool bndchk=true);
 
    //=========================================================
    //! Gets the PhenomenonType value.

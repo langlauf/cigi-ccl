@@ -46,7 +46,7 @@
  *  Cigi_uint8.
  * </pre>
  *  Author: The Boeing Company
- *  Version: 1.7.5
+ *  Version: 2.0.0
  */
 
 #define _EXPORT_CCL_
@@ -188,6 +188,32 @@ int CigiSensorXRespV3::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
    return(PacketSize);
 
 }
+
+
+// ====================================================================
+// Conversion Control
+// ====================================================================
+
+
+// ================================================
+// GetCnvt
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+int CigiSensorXRespV3::GetCnvt(CigiVersionID &CnvtVersion,
+                                CigiCnvtInfoType::Type &CnvtInfo)
+{
+   CnvtInfo.ProcID = CigiProcessType::ProcStd;
+
+   // Note: CIGI_SENSOR_RESP_PACKET_ID_V1 &
+   // CIGI_SENSOR_RESP_PACKET_ID_V2 are the same
+   if(CnvtVersion.CigiMajorVersion < 3)
+      CnvtInfo.CnvtPacketID = CIGI_SENSOR_RESP_PACKET_ID_V2;
+   else
+      CnvtInfo.CnvtPacketID = CIGI_SENSOR_XRESP_PACKET_ID_V3;
+
+   return(CIGI_SUCCESS);
+}
+
+
 
 
 
