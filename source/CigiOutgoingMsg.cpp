@@ -97,6 +97,11 @@
  *  
  *  05/16/2008 Greg Basler                       Version 2.2.0
  *  Fixed the EnvCtrl conversion process
+ *  
+ *  12/7/200 Greg Basler                         Version 3.3.2
+ *  Removed automatic zeroing of the database id based on the SOF declared
+ *  database id.  Now the UpdateIGCtrl method just bounds checks the
+ *  database id and corrects it to zero if needed.
  *
  * </pre>
  *  Author: The Boeing Company
@@ -244,7 +249,7 @@ void CigiOutgoingMsg::AdvanceBuffer(void)
       ChangeOutgoingCigiVersion(MostMatureVersionReceived);
 
    // Set the buffer's Cigi Version
-   ChangeBufferCigiVersion(OutgoingVersion);
+   ChangeBufferCigiVersion();
 
 }
 
@@ -302,7 +307,7 @@ void CigiOutgoingMsg::SetMostMatureReceivedCigiVersion(CigiVersionID &Version)
                (!CrntFillBuf->DataPresent))
             {
                // Set the buffer's Cigi Version
-               ChangeBufferCigiVersion(OutgoingVersion);
+               ChangeBufferCigiVersion();
             }
          }
       }
@@ -333,7 +338,7 @@ int CigiOutgoingMsg::SetOutgoingCigiVersion(CigiVersionID &Version,
             ChangeOutgoingCigiVersion(Version);
 
             // Set the buffer's Cigi Version
-            ChangeBufferCigiVersion(OutgoingVersion);
+            ChangeBufferCigiVersion();
 
             CmdVersionChng = false;  // Already changed
          }
@@ -347,8 +352,9 @@ int CigiOutgoingMsg::SetOutgoingCigiVersion(CigiVersionID &Version,
 // ================================================
 // SetMostMatureReceivedCigiVersion
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-void CigiOutgoingMsg::ChangeBufferCigiVersion(CigiVersionID &Version)
+void CigiOutgoingMsg::ChangeBufferCigiVersion(void)
 {
+  
    // Set the buffer's Cigi Version
    CrntFillBuf->CigiVersion = OutgoingVersion;
 
@@ -356,7 +362,7 @@ void CigiOutgoingMsg::ChangeBufferCigiVersion(CigiVersionID &Version)
    {
       if((OutgoingVersion.GetCombinedCigiVersion() >= 0x303))
          CrntFillBuf->PackIGCtrl = pIGCtrlPck[5];
-      else if((OutgoingVersion.GetCombinedCigiVersion() == 0x301))
+      else if((OutgoingVersion.GetCombinedCigiVersion() == 0x302))
          CrntFillBuf->PackIGCtrl = pIGCtrlPck[4];
       else
          CrntFillBuf->PackIGCtrl =
@@ -865,6 +871,10 @@ int CigiOutgoingMsg::UpdateFrameCntr(Cigi_uint8 *OutgoingMsg, Cigi_uint8 *Incomi
             else
                CigiSwap4(&RcvdFrame,(IncomingMsgWord + 2));  // Swap RcvFrame
          }
+         else
+         {
+            CIGI_SCOPY4(&RcvdFrame,(IncomingMsgWord + 2));
+         }
       }
 
       if(!FrameIncr)
@@ -912,31 +922,11 @@ int CigiOutgoingMsg::UpdateIGCtrl(Cigi_uint8 *OutgoingMsg, Cigi_uint8 *IncomingM
    UpdateFrameCntr(OutgoingMsg,IncomingMsg);
 
 
-   // check and adjust the Database IDs for
+   // bounds check the Database ID
    OBufr = (Cigi_int8 *)(OutgoingMsg + 3);
-   if(*OBufr != 0)
+   if(*OBufr < 0)
    {
-      if(*OBufr < 0)
-      {
-         *OBufr = 0;  // Host sent Database IDs should never be negative
-      }
-#if !defined(_NO_DATABASE_ADJUSTMENT_)
-      else if(IncomingMsg != NULL)
-      {
-         // If *IBufr is -128, the IG did not find that database
-         //   so the host should send a corrected database id
-         // However, if the *OBufr is the same as the *IBufr or
-         //  the *IBufr is the negative of *OBufr,
-         //  (specifically excluding -128) the outgoing
-         //  database id should be 0
-         IBufr = (Cigi_int8 *)(IncomingMsg + 3);
-         if((*IBufr != -128) &&
-            ((*OBufr == *IBufr) || (*OBufr == (*IBufr * (-1)))))
-         {
-            *OBufr = 0;
-         }
-      }
-#endif
+      *OBufr = 0;  // Host sent Database IDs should never be negative
    }
 
    return(CIGI_SUCCESS);
