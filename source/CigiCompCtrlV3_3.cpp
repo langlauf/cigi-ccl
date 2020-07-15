@@ -40,7 +40,10 @@
  *  
  *  05/15/2008 Greg Basler                       Version 2.2.0
  *  Corrected Version Number
- *  
+ *
+ *  12/14/2018 Paul Slade                       Version 4.0.2
+ *  Fixed GetCnvt for Cigi4
+ *
  * </pre>
  *  Author: The Boeing Company
  *
@@ -154,8 +157,8 @@ int CigiCompCtrlV3_3::Pack(CigiBasePacket * Base, Cigi_uint8 * Buff, void *Spec)
 
    CDta.c = Buff;
 
-   *CDta.c++ = PacketID;
-   *CDta.c++ = PacketSize;
+   *CDta.c++ = ( Cigi_uint8 ) PacketID;
+   *CDta.c++ = ( Cigi_uint8 ) PacketSize;
 
    *CDta.s++ = Data->CompID;
    *CDta.s++ = Data->InstanceID;
@@ -249,10 +252,16 @@ int CigiCompCtrlV3_3::GetCnvt(CigiVersionID &CnvtVersion,
    CnvtInfo.ProcID = CigiProcessType::TwoPassCnvtProcNone;
    CnvtInfo.CnvtPacketID = 0;
 
-   if(CnvtVersion.CigiMajorVersion == 3)
+   if (CnvtVersion.CigiMajorVersion >= 4)
    {
-      // All Component control packets from version 3 and above
-      //  use the same packet id number
+       // All Component control packets from version 4 and above
+       //  use the same packet id number
+
+	CnvtInfo.ProcID = CigiProcessType::TwoPassCnvtProcStd;
+	CnvtInfo.CnvtPacketID = CIGI_COMP_CTRL_PACKET_ID_V4;
+   }
+   else if(CnvtVersion.CigiMajorVersion == 3)
+   {
 
       if(CnvtVersion.CigiMinorVersion < 3)
       {
@@ -353,7 +362,7 @@ int CigiCompCtrlV3_3::SetCompData(const Cigi_uint8 CompDataIn,
       {
 #ifndef CIGI_NO_EXCEPT
          if(Err == 1)
-            throw CigiValueOutOfRangeException("Word",Word,0,1);
+            throw CigiValueOutOfRangeException("Word",Word,0,5);
          else
             throw CigiValueOutOfRangeException("Pos",Pos,0,3);
 #endif
@@ -402,7 +411,7 @@ int CigiCompCtrlV3_3::SetCompData(const Cigi_int8 CompDataIn,
       {
 #ifndef CIGI_NO_EXCEPT
          if(Err == 1)
-            throw CigiValueOutOfRangeException("Word",Word,0,1);
+            throw CigiValueOutOfRangeException("Word",Word,0,5);
          else
             throw CigiValueOutOfRangeException("Pos",Pos,0,3);
 #endif
@@ -447,9 +456,9 @@ int CigiCompCtrlV3_3::SetCompData(const Cigi_uint16 CompDataIn,
       {
 #ifndef CIGI_NO_EXCEPT
          if(Err == 1)
-            throw CigiValueOutOfRangeException("Word",Word,0,1);
+            throw CigiValueOutOfRangeException("Word",Word,0,5);
          else
-            throw CigiValueOutOfRangeException("Pos",Pos,0,3);
+            throw CigiValueOutOfRangeException("Pos",Pos,0,1);
 #endif
       }
 #endif
@@ -496,9 +505,9 @@ int CigiCompCtrlV3_3::SetCompData(const Cigi_int16 CompDataIn,
       {
 #ifndef CIGI_NO_EXCEPT
          if(Err == 1)
-            throw CigiValueOutOfRangeException("Word",Word,0,1);
+            throw CigiValueOutOfRangeException("Word",Word,0,5);
          else
-            throw CigiValueOutOfRangeException("Pos",Pos,0,3);
+            throw CigiValueOutOfRangeException("Pos",Pos,0,1);
 #endif
       }
 #endif
@@ -532,7 +541,7 @@ int CigiCompCtrlV3_3::SetCompData(const Cigi_uint32 CompDataIn,
       if(bndchk)
       {
 #ifndef CIGI_NO_EXCEPT
-         throw CigiValueOutOfRangeException("Word",Word,0,1);
+         throw CigiValueOutOfRangeException("Word",Word,0,5);
 #endif
       }
 #endif
@@ -565,7 +574,7 @@ int CigiCompCtrlV3_3::SetCompData(const Cigi_int32 CompDataIn,
       if(bndchk)
       {
 #ifndef CIGI_NO_EXCEPT
-         throw CigiValueOutOfRangeException("Word",Word,0,1);
+         throw CigiValueOutOfRangeException("Word",Word,0,5);
 #endif
       }
 #endif
@@ -594,7 +603,7 @@ int CigiCompCtrlV3_3::SetCompData(const float CompDataIn,
       if(bndchk)
       {
 #ifndef CIGI_NO_EXCEPT
-         throw CigiValueOutOfRangeException("Word",Word,0,1);
+         throw CigiValueOutOfRangeException("Word",Word,0,5);
 #endif
       }
 #endif
@@ -628,7 +637,7 @@ int CigiCompCtrlV3_3::SetCompData(const Cigi_uint64 CompDataIn,
       if(bndchk)
       {
 #ifndef CIGI_NO_EXCEPT
-         throw CigiValueOutOfRangeException("Pos",Pos,0,0);
+         throw CigiValueOutOfRangeException("Pos",Pos,0,2);
 #endif
       }
 #endif
@@ -659,7 +668,7 @@ int CigiCompCtrlV3_3::SetCompData(const double CompDataIn,
       if(bndchk)
       {
 #ifndef CIGI_NO_EXCEPT
-         throw CigiValueOutOfRangeException("Pos",Pos,0,0);
+         throw CigiValueOutOfRangeException("Pos",Pos,0,2);
 #endif
       }
 #endif
@@ -708,7 +717,7 @@ Cigi_uint8 CigiCompCtrlV3_3::GetUCharCompData(const unsigned int Word,
    {
 #ifndef CIGI_NO_EXCEPT
       if(Err == 1)
-         throw CigiValueOutOfRangeException("Word",Word,0,1);
+         throw CigiValueOutOfRangeException("Word",Word,0,5);
       else
          throw CigiValueOutOfRangeException("Pos",Pos,0,3);
 #endif
@@ -744,7 +753,7 @@ Cigi_int8 CigiCompCtrlV3_3::GetCharCompData(const unsigned int Word,
    {
 #ifndef CIGI_NO_EXCEPT
       if(Err == 1)
-         throw CigiValueOutOfRangeException("Word",Word,0,1);
+         throw CigiValueOutOfRangeException("Word",Word,0,5);
       else
          throw CigiValueOutOfRangeException("Pos",Pos,0,3);
 #endif
@@ -777,7 +786,7 @@ Cigi_uint16 CigiCompCtrlV3_3::GetUShortCompData(const unsigned int Word,
    {
 #ifndef CIGI_NO_EXCEPT
       if(Err == 1)
-         throw CigiValueOutOfRangeException("Word",Word,0,1);
+         throw CigiValueOutOfRangeException("Word",Word,0,5);
       else
          throw CigiValueOutOfRangeException("Pos",Pos,0,1);
 #endif
@@ -813,7 +822,7 @@ Cigi_int16 CigiCompCtrlV3_3::GetShortCompData(const unsigned int Word,
    {
 #ifndef CIGI_NO_EXCEPT
       if(Err == 1)
-         throw CigiValueOutOfRangeException("Word",Word,0,1);
+         throw CigiValueOutOfRangeException("Word",Word,0,5);
       else
          throw CigiValueOutOfRangeException("Pos",Pos,0,1);
 #endif
@@ -839,7 +848,7 @@ Cigi_uint32 CigiCompCtrlV3_3::GetULongCompData(const unsigned int Word)
    if(Word > 5)
    {
 #ifndef CIGI_NO_EXCEPT
-      throw CigiValueOutOfRangeException("Word",Word,0,1);
+      throw CigiValueOutOfRangeException("Word",Word,0,5);
 #endif
 
       tDta = 0;
@@ -866,7 +875,7 @@ Cigi_int32 CigiCompCtrlV3_3::GetLongCompData(const unsigned int Word)
    if(Word > 5)
    {
 #ifndef CIGI_NO_EXCEPT
-      throw CigiValueOutOfRangeException("Word",Word,0,1);
+      throw CigiValueOutOfRangeException("Word",Word,0,5);
 #endif
 
       tDta.u32 = 0;
@@ -893,7 +902,7 @@ float CigiCompCtrlV3_3::GetFloatCompData(const unsigned int Word)
    if(Word > 5)
    {
 #ifndef CIGI_NO_EXCEPT
-      throw CigiValueOutOfRangeException("Word",Word,0,1);
+      throw CigiValueOutOfRangeException("Word",Word,0,5);
 #endif
 
       tDta.u32 = 0;
@@ -917,7 +926,7 @@ Cigi_uint64 CigiCompCtrlV3_3::GetI64CompData(const unsigned int Pos)
    if(Pos > 2)
    {
 #ifndef CIGI_NO_EXCEPT
-      throw CigiValueOutOfRangeException("Pos",Pos,0,0);
+      throw CigiValueOutOfRangeException("Pos",Pos,0,2);
 #endif
 
       tDta = 0;
@@ -956,7 +965,7 @@ double CigiCompCtrlV3_3::GetDoubleCompData(const unsigned int Pos)
    if(Pos > 2)
    {
 #ifndef CIGI_NO_EXCEPT
-      throw CigiValueOutOfRangeException("Pos",Pos,0,0);
+      throw CigiValueOutOfRangeException("Pos",Pos,0,2);
 #endif
 
       tDta = 0;
